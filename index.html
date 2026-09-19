@@ -1,2030 +1,2040 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GlobalStock International | Global Stock Lot Buyer</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+      content="GlobalStock International — We Buy Stock Lots, Surplus, Overstock, Clearance & Excess Inventory Worldwide.">
 
-<link rel="icon" href="logo1.png">
+<meta name="theme-color" content="#07111f">
+
+<title>GlobalStock International | Global Stock Lot Buyer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
 
 <style>
 
 /* =========================================================
-   RESET
+   GLOBAL
 ========================================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:"Inter",Arial,sans-serif;
-    background:#020711;
-    color:#fff;
-    overflow-x:hidden;
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #050b14;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.container{
-    width:min(1180px,92%);
-    margin:auto;
+button {
+    font-family: inherit;
 }
-
 
 /* =========================================================
    HEADER
 ========================================================= */
 
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-    background:rgba(2,7,17,.70);
+    background: rgba(4, 10, 20, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.nav{
-    height:78px;
+.navbar {
+    max-width: 1250px;
+    margin: auto;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
 }
 
-
-/* =========================================================
-   HEADER LOGO
-========================================================= */
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.brand-logo{
-    width:54px;
-    height:54px;
-    object-fit:contain;
-
-    animation:
-        headerLogoFloat 4s ease-in-out infinite,
-        headerLogoGlow 3s ease-in-out infinite;
+.brand img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 12px;
 }
 
-@keyframes headerLogoFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-4px);
-    }
+.brand-text {
+    display: flex;
+    flex-direction: column;
 }
 
-@keyframes headerLogoGlow{
-
-    0%,100%{
-        filter:drop-shadow(
-            0 0 5px rgba(0,190,255,.25)
-        );
-    }
-
-    50%{
-        filter:drop-shadow(
-            0 0 18px rgba(0,190,255,.8)
-        );
-    }
+.brand-name {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
 }
 
-.brand-name{
-    font-size:18px;
-    font-weight:800;
+.brand-tagline {
+    font-size: 9px;
+    color: #91a4ba;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+    text-transform: uppercase;
 }
 
-.brand-sub{
-    margin-top:3px;
-    font-size:8px;
-    letter-spacing:2px;
-    color:#6cddff;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:28px;
+.nav-links a {
+    font-size: 14px;
+    color: #b8c5d4;
+    transition: 0.3s ease;
 }
 
-.nav-links a{
-    font-size:14px;
-    font-weight:600;
-    color:rgba(255,255,255,.76);
-    transition:.3s;
+.nav-links a:hover {
+    color: #ffffff;
 }
 
-.nav-links a:hover{
-    color:#fff;
-    transform:translateY(-2px);
-}
+.nav-whatsapp {
+    padding: 11px 18px;
+    border-radius: 30px;
 
-.nav-button{
-    padding:11px 19px;
-    border-radius:30px;
+    background: linear-gradient(
+        135deg,
+        #19d66b,
+        #0bb956
+    );
 
-    background:
-        linear-gradient(
-            135deg,
-            #00c6ff,
-            #006eff
-        );
-
-    color:#fff !important;
+    color: #ffffff !important;
+    font-weight: 700;
 
     box-shadow:
-        0 0 25px rgba(0,150,255,.3);
+        0 8px 30px rgba(16, 210, 101, 0.20);
 }
 
+.nav-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 35px rgba(16, 210, 101, 0.32);
+}
 
 /* =========================================================
    HERO
 ========================================================= */
 
-.hero{
+.hero {
+    position: relative;
+    min-height: 100vh;
 
-    min-height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    position:relative;
+    text-align: center;
 
-    display:flex;
-    align-items:center;
+    overflow: hidden;
 
-    overflow:hidden;
+    padding: 130px 20px 80px;
+}
 
-    padding-top:80px;
+.hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
 
     background:
-
         radial-gradient(
-            circle at 50% 45%,
-            rgba(0,140,255,.14),
-            transparent 48%
+            circle at 50% 40%,
+            rgba(0, 174, 255, 0.13),
+            transparent 42%
         ),
-
         radial-gradient(
-            circle at 15% 20%,
-            rgba(0,210,255,.06),
+            circle at 20% 70%,
+            rgba(0, 255, 170, 0.07),
             transparent 30%
         ),
-
-        #020711;
+        #050b14;
 }
-
 
 /* =========================================================
-   WORLD MAP BACKGROUND
+   WORLD MAP
 ========================================================= */
 
-.map-background{
+.map-container {
+    position: absolute;
+    inset: 0;
 
-    position:absolute;
-    inset:0;
+    opacity: 0.95;
 
-    z-index:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    pointer-events:none;
-
-    opacity:.90;
+    pointer-events: none;
 }
 
-#worldMap{
-    width:100%;
-    height:100%;
+#worldMap {
+    width: 100%;
+    height: 100%;
 }
 
+/* continent base */
 
-/* Base countries */
+.country {
+    fill: rgba(20, 108, 157, 0.18);
+    stroke: rgba(81, 208, 255, 0.28);
+    stroke-width: 0.5;
 
-.country{
-
-    fill:rgba(16,43,66,.55);
-
-    stroke:rgba(75,181,220,.14);
-
-    stroke-width:.4;
+    transition:
+        fill 0.6s ease,
+        filter 0.6s ease;
 }
 
+/* continent glow animation */
 
-/* =========================================================
-   CONTINENT ANIMATION
-========================================================= */
-
-.continent-glow{
-
-    fill:rgba(0,174,255,.15);
-
-    stroke:rgba(54,214,255,.65);
-
-    stroke-width:1.1;
-
-    filter:
-        drop-shadow(
-            0 0 8px rgba(0,190,255,.65)
-        );
-
-    opacity:.15;
-
-    transform-box:fill-box;
-
-    transform-origin:center;
-
-    animation:
-        continentPulse 7s ease-in-out infinite;
+.country.glow {
+    animation: continentGlow 5s ease-in-out infinite;
 }
 
-@keyframes continentPulse{
+@keyframes continentGlow {
 
-    0%,100%{
-        opacity:.06;
-        transform:scale(1);
+    0% {
+        fill: rgba(20, 108, 157, 0.15);
+        filter:
+            drop-shadow(
+                0 0 0 rgba(0, 211, 255, 0)
+            );
     }
 
-    35%{
-        opacity:.20;
-        transform:scale(1.012);
+    50% {
+        fill: rgba(0, 190, 255, 0.38);
+        filter:
+            drop-shadow(
+                0 0 18px rgba(0, 211, 255, 0.55)
+            );
     }
 
-    50%{
-        opacity:.48;
-        transform:scale(1.025);
-    }
-
-    65%{
-        opacity:.18;
-        transform:scale(1.012);
+    100% {
+        fill: rgba(20, 108, 157, 0.15);
+        filter:
+            drop-shadow(
+                0 0 0 rgba(0, 211, 255, 0)
+            );
     }
 }
 
+/* moving atmospheric light */
 
-/* Continent outline */
+.map-light {
+    position: absolute;
 
-.continent-outline{
+    width: 550px;
+    height: 550px;
 
-    fill:none;
-
-    stroke:
-        rgba(81,221,255,.55);
-
-    stroke-width:1;
-
-    stroke-linecap:round;
-
-    stroke-dasharray:8 18;
-
-    animation:
-        outlineMove 9s linear infinite;
-}
-
-@keyframes outlineMove{
-
-    to{
-        stroke-dashoffset:-52;
-    }
-}
-
-
-/* =========================================================
-   MAP LIGHTS
-========================================================= */
-
-.map-light{
-
-    fill:rgba(0,205,255,.75);
-
-    filter:
-        drop-shadow(
-            0 0 10px #00d9ff
-        );
-
-    animation:
-        mapLightPulse 4s ease-in-out infinite;
-}
-
-@keyframes mapLightPulse{
-
-    0%,100%{
-        opacity:.12;
-    }
-
-    50%{
-        opacity:.75;
-    }
-}
-
-
-/* =========================================================
-   MAP OVERLAY
-========================================================= */
-
-.map-overlay{
-
-    position:absolute;
-    inset:0;
-
-    z-index:2;
-
-    pointer-events:none;
+    border-radius: 50%;
 
     background:
-
         radial-gradient(
-            ellipse at center,
-            transparent 15%,
-            rgba(2,7,17,.12) 45%,
-            rgba(2,7,17,.84) 100%
+            circle,
+            rgba(0, 196, 255, 0.12),
+            transparent 65%
         );
+
+    animation: mapLightMove 12s ease-in-out infinite alternate;
+
+    pointer-events: none;
 }
 
+@keyframes mapLightMove {
+
+    0% {
+        transform: translate(-35%, -5%);
+    }
+
+    100% {
+        transform: translate(35%, 8%);
+    }
+}
 
 /* =========================================================
    HERO CONTENT
 ========================================================= */
 
-.hero-content{
+.hero-content {
+    position: relative;
+    z-index: 20;
 
-    position:relative;
+    max-width: 1100px;
+    width: 100%;
 
-    z-index:10;
-
-    width:100%;
-
-    text-align:center;
-
-    padding:
-        35px 0 55px;
+    margin: auto;
 }
-
 
 /* =========================================================
-   ANIMATED VIDEO LOGO
+   ANIMATED LOGO
 ========================================================= */
 
-.hero-logo{
+.hero-logo {
+    position: relative;
 
-    width:190px;
-    height:190px;
+    width: 210px;
+    height: 210px;
 
-    margin:
-        0 auto 25px;
+    margin: 0 auto 35px;
 
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    perspective:700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* glowing ring */
 
-/* Glow behind video */
+.hero-logo::before {
+    content: "";
 
-.hero-logo::before{
+    position: absolute;
+    inset: -8px;
 
-    content:"";
+    border-radius: 50%;
 
-    position:absolute;
-
-    width:175px;
-    height:175px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,190,255,.28),
-            rgba(0,120,255,.08) 45%,
-            transparent 72%
-        );
-
-    filter:blur(12px);
-
-    animation:
-        logoAura 3s ease-in-out infinite;
-}
-
-@keyframes logoAura{
-
-    0%,100%{
-        transform:scale(.86);
-        opacity:.45;
-    }
-
-    50%{
-        transform:scale(1.15);
-        opacity:1;
-    }
-}
-
-
-/* Orbit */
-
-.orbit{
-
-    position:absolute;
-
-    width:190px;
-    height:190px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(80,215,255,.50);
-
-    animation:
-        orbitRotate 9s linear infinite;
-}
-
-.orbit::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:#6deaff;
+    border: 1px solid rgba(57, 207, 255, 0.35);
 
     box-shadow:
-        0 0 8px #6deaff,
-        0 0 22px #00bfff,
-        0 0 40px #0077ff;
-
-    top:7px;
-    left:50%;
-
-    transform:translateX(-50%);
-}
-
-@keyframes orbitRotate{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-
-/* =========================================================
-   VIDEO
-========================================================= */
-
-.animated-logo{
-
-    position:relative;
-
-    z-index:5;
-
-    width:150px;
-    height:150px;
-
-    object-fit:contain;
-
-    border-radius:50%;
+        0 0 35px rgba(0, 195, 255, 0.18);
 
     animation:
-        videoLogoFloat 4s ease-in-out infinite,
-        videoLogoGlow 3s ease-in-out infinite;
-
-    background:transparent;
+        logoRing 4s linear infinite;
 }
 
-@keyframes videoLogoFloat{
+.hero-logo::after {
+    content: "";
 
-    0%,100%{
-        transform:translateY(0) scale(1);
-    }
+    position: absolute;
+    inset: -18px;
 
-    50%{
-        transform:translateY(-7px) scale(1.025);
-    }
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    animation:
+        logoRingReverse 8s linear infinite;
 }
 
-@keyframes videoLogoGlow{
+@keyframes logoRing {
 
-    0%,100%{
-        filter:
-            drop-shadow(
-                0 0 7px rgba(0,190,255,.30)
-            );
+    from {
+        transform: rotate(0deg);
     }
 
-    50%{
-        filter:
-            drop-shadow(
-                0 0 30px rgba(0,190,255,.90)
-            );
+    to {
+        transform: rotate(360deg);
     }
 }
 
+@keyframes logoRingReverse {
 
-/* =========================================================
-   MAIN TITLE
-========================================================= */
+    from {
+        transform: rotate(360deg);
+    }
 
-.hero h1{
+    to {
+        transform: rotate(0deg);
+    }
+}
 
-    max-width:1100px;
+/* actual video */
 
-    margin:auto;
+.animated-logo {
+    position: relative;
 
-    font-size:
-        clamp(
-            43px,
-            7vw,
-            82px
+    z-index: 5;
+
+    width: 175px;
+    height: 175px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.08);
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 0 25px rgba(0, 193, 255, 0.35)
         );
 
-    line-height:.98;
+    animation: logoFloat 4s ease-in-out infinite;
+}
 
-    font-weight:900;
+@keyframes logoFloat {
 
-    letter-spacing:-3px;
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* fallback image */
+
+.logo-fallback {
+    position: absolute;
+
+    z-index: 4;
+
+    width: 175px;
+    height: 175px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
+    filter:
+        drop-shadow(
+            0 0 25px rgba(0, 193, 255, 0.35)
+        );
+}
+
+.logo-fallback.show {
+    opacity: 1;
+}
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.055);
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    color: #9eb2c8;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+.hero-kicker-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #21e47b;
+
+    box-shadow:
+        0 0 12px rgba(33, 228, 123, 0.9);
+
+    animation: dotPulse 2s infinite;
+}
+
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.55;
+    }
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 88px);
+
+    line-height: 0.98;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 28px;
 
     background:
         linear-gradient(
-            90deg,
-            #ffffff,
-            #70ddff,
-            #ffffff,
-            #70ddff,
-            #ffffff
+            100deg,
+            #ffffff 10%,
+            #79dcff 48%,
+            #ffffff 80%
         );
 
-    background-size:300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        titleGradient 8s linear infinite,
-        titleAppear 1.2s ease forwards;
-
-    text-shadow:
-        0 0 50px rgba(0,180,255,.08);
+    color: transparent;
 }
 
-@keyframes titleGradient{
+.hero-description {
+    max-width: 760px;
 
-    to{
-        background-position:300% center;
-    }
+    margin: 0 auto;
+
+    font-size: clamp(16px, 2vw, 20px);
+
+    line-height: 1.7;
+
+    color: #a9b8ca;
 }
-
-@keyframes titleAppear{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
 
 /* =========================================================
-   SUBTITLE
+   HERO BUTTONS
 ========================================================= */
 
-.hero-subtitle{
+.hero-buttons {
+    display: flex;
 
-    max-width:760px;
+    justify-content: center;
 
-    margin:
-        25px auto 0;
+    gap: 14px;
 
-    font-size:
-        clamp(
-            16px,
-            2vw,
-            20px
-        );
+    flex-wrap: wrap;
 
-    line-height:1.7;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .72
-        );
+    margin-top: 35px;
 }
 
+.btn {
+    display: inline-flex;
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+    align-items: center;
+    justify-content: center;
 
-.hero-buttons{
+    min-width: 165px;
 
-    margin-top:32px;
+    padding: 14px 22px;
 
-    display:flex;
+    border-radius: 12px;
 
-    justify-content:center;
+    font-size: 14px;
 
-    flex-wrap:wrap;
+    font-weight: 700;
 
-    gap:14px;
+    transition: 0.3s ease;
 }
 
-.btn{
-
-    padding:
-        14px 24px;
-
-    border-radius:50px;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-4px);
-}
-
-.btn-primary{
-
+.btn-primary {
     background:
         linear-gradient(
             135deg,
-            #00c6ff,
-            #006eff
+            #11bfff,
+            #087ee8
         );
 
     box-shadow:
-        0 12px 35px rgba(0,140,255,.30);
+        0 12px 35px rgba(0, 145, 255, 0.22);
 }
 
-.btn-secondary{
+.btn-primary:hover {
+    transform: translateY(-3px);
 
-    background:
-        rgba(255,255,255,.05);
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    backdrop-filter:blur(10px);
+    box-shadow:
+        0 17px 40px rgba(0, 145, 255, 0.35);
 }
 
+.btn-secondary {
+    background: rgba(255,255,255,0.055);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: #d8e4ef;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.09);
+
+    transform: translateY(-3px);
+}
 
 /* =========================================================
-   CONTENT SECTIONS
+   SCROLL INDICATOR
 ========================================================= */
 
-.content-section{
+.scroll-indicator {
+    position: absolute;
 
-    position:relative;
+    bottom: 25px;
+    left: 50%;
 
-    padding:
-        110px 0;
+    transform: translateX(-50%);
 
-    background:#020711;
+    color: #65788e;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
-.section-title{
+.scroll-indicator::after {
+    content: "";
 
-    text-align:center;
+    display: block;
 
-    font-size:
-        clamp(
-            32px,
-            5vw,
-            52px
+    width: 1px;
+    height: 35px;
+
+    margin: 10px auto 0;
+
+    background:
+        linear-gradient(
+            #42d8ff,
+            transparent
         );
-
-    font-weight:900;
-
-    margin-bottom:18px;
 }
 
-.section-description{
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
 
-    max-width:720px;
+.section {
+    position: relative;
 
-    margin:
-        0 auto 55px;
+    padding: 110px 20px;
 
-    text-align:center;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .62
-        );
-
-    line-height:1.7;
+    background: #07111f;
 }
 
+.section:nth-child(even) {
+    background: #06101c;
+}
+
+.section-inner {
+    max-width: 1180px;
+
+    margin: auto;
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 0 auto 55px;
+}
+
+.section-label {
+    display: inline-block;
+
+    color: #39cfff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 14px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 5vw, 52px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 18px;
+}
+
+.section-heading p {
+    color: #8496aa;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
 
 /* =========================================================
    CARDS
 ========================================================= */
 
-.cards{
-
-    display:grid;
+.cards {
+    display: grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, 1fr);
 
-    gap:18px;
+    gap: 18px;
 }
 
-.card{
+.card {
+    position: relative;
 
-    padding:
-        30px 25px;
+    padding: 30px 24px;
 
-    border-radius:22px;
+    min-height: 225px;
+
+    border-radius: 20px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.018)
+            rgba(255,255,255,0.065),
+            rgba(255,255,255,0.025)
         );
 
     border:
-        1px solid
-        rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,0.09);
 
-    backdrop-filter:blur(15px);
+    overflow: hidden;
 
-    transition:.35s;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
 }
 
-.card:hover{
+.card::before {
+    content: "";
 
-    transform:translateY(-8px);
+    position: absolute;
 
-    border-color:
-        rgba(40,205,255,.4);
+    width: 140px;
+    height: 140px;
 
-    box-shadow:
-        0 20px 50px
-        rgba(0,140,255,.12);
-}
+    right: -60px;
+    top: -60px;
 
-.card-icon{
+    border-radius: 50%;
 
-    font-size:34px;
-
-    margin-bottom:18px;
-}
-
-.card h3{
-
-    font-size:18px;
-
-    margin-bottom:10px;
-}
-
-.card p{
-
-    font-size:14px;
-
-    line-height:1.7;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .58
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 196, 255, 0.16),
+            transparent 70%
         );
 }
 
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(50, 204, 255, 0.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 155, 220, 0.10),
+            rgba(255,255,255,0.035)
+        );
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(0, 188, 255, 0.10);
+
+    border:
+        1px solid rgba(0, 195, 255, 0.20);
+
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #8092a7;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
 
 /* =========================================================
-   HOW IT WORKS
+   PROCESS
 ========================================================= */
 
-.steps{
-
-    display:grid;
+.process {
+    display: grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, 1fr);
 
-    gap:20px;
+    gap: 20px;
 }
 
-.step{
+.process-item {
+    text-align: center;
 
-    text-align:center;
-
-    padding:25px;
+    padding: 30px 20px;
 }
 
-.step-number{
+.process-number {
+    width: 55px;
+    height: 55px;
 
-    width:58px;
-    height:58px;
+    display: flex;
 
-    margin:
-        0 auto 20px;
+    align-items: center;
+    justify-content: center;
 
-    border-radius:50%;
+    margin: 0 auto 20px;
 
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
+    border-radius: 50%;
 
     background:
         linear-gradient(
             135deg,
-            #00c6ff,
-            #0068ff
+            #0bbdff,
+            #096bdc
         );
 
-    font-weight:900;
+    font-weight: 900;
 
     box-shadow:
-        0 0 25px
-        rgba(
-            0,
-            170,
-            255,
-            .25
+        0 10px 30px rgba(0, 165, 255, 0.20);
+}
+
+.process-item h3 {
+    font-size: 17px;
+
+    margin-bottom: 10px;
+}
+
+.process-item p {
+    color: #8192a7;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section {
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 166, 255, 0.13),
+            transparent 55%
+        ),
+        #050d18;
+}
+
+.cta-box {
+    max-width: 1000px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 65px 30px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.025)
         );
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.25);
 }
 
-.step h3{
-    margin-bottom:10px;
+.cta-box h2 {
+    font-size: clamp(32px, 5vw, 58px);
+
+    letter-spacing: -2px;
+
+    margin-bottom: 18px;
 }
 
-.step p{
+.cta-box p {
+    color: #8c9eb2;
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .58
-        );
+    max-width: 650px;
 
-    font-size:14px;
+    margin: auto;
 
-    line-height:1.7;
+    line-height: 1.7;
+
+    font-size: 15px;
 }
-
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
-.contact-box{
+.contact-grid {
+    display: grid;
 
-    padding:
-        65px 30px;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    border-radius:30px;
+    gap: 20px;
+}
 
-    text-align:center;
+.contact-card {
+    padding: 30px;
+
+    border-radius: 18px;
 
     background:
-
-        radial-gradient(
-            circle at 50% 0,
-            rgba(0,180,255,.18),
-            transparent 60%
-        ),
-
-        rgba(
-            255,
-            255,
-            255,
-            .035
-        );
+        rgba(255,255,255,0.04);
 
     border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .08
-        );
+        1px solid rgba(255,255,255,0.08);
+
+    text-align: center;
 }
 
-.contact-box h2{
+.contact-card-icon {
+    font-size: 28px;
 
-    font-size:
-        clamp(
-            32px,
-            5vw,
-            50px
-        );
-
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
-.contact-box p{
+.contact-card h3 {
+    font-size: 16px;
 
-    max-width:700px;
-
-    margin:auto;
-
-    line-height:1.7;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .62
-        );
+    margin-bottom: 9px;
 }
 
-.contact-details{
+.contact-card p {
+    color: #8798ab;
 
-    margin-top:30px;
+    font-size: 13px;
 
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
+    line-height: 1.6;
 }
 
-.contact-item{
+.contact-card a {
+    color: #55d5ff;
 
-    padding:
-        13px 19px;
-
-    border-radius:30px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .04
-        );
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .1
-        );
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .8
-        );
-
-    font-size:14px;
+    word-break: break-word;
 }
-
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
-footer{
-
-    padding:30px 0;
+.footer {
+    padding: 35px 20px;
 
     border-top:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .08
-        );
+        1px solid rgba(255,255,255,0.07);
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .45
-        );
-
-    font-size:13px;
+    background: #030811;
 }
 
-.footer-inner{
+.footer-inner {
+    max-width: 1180px;
 
-    display:flex;
+    margin: auto;
 
-    align-items:center;
+    display: flex;
 
-    justify-content:space-between;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
 }
 
+.footer-brand {
+    color: #b8c6d5;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.footer-copy {
+    color: #586b80;
+
+    font-size: 11px;
+}
 
 /* =========================================================
-   WHATSAPP
+   FLOATING WHATSAPP
 ========================================================= */
 
-.whatsapp{
+.whatsapp-float {
+    position: fixed;
 
-    position:fixed;
+    right: 22px;
+    bottom: 22px;
 
-    right:22px;
-    bottom:22px;
+    z-index: 999;
 
-    width:62px;
-    height:62px;
+    width: 58px;
+    height: 58px;
 
-    border-radius:50%;
+    display: flex;
 
-    display:flex;
+    align-items: center;
+    justify-content: center;
 
-    align-items:center;
-    justify-content:center;
+    border-radius: 50%;
 
-    background:#25D366;
-
-    color:#fff;
-
-    font-size:27px;
-
-    z-index:2000;
+    background:
+        linear-gradient(
+            135deg,
+            #20e879,
+            #08a94c
+        );
 
     box-shadow:
-        0 8px 30px
-        rgba(
-            37,
-            211,
-            102,
-            .4
-        );
+        0 12px 35px rgba(0, 205, 95, 0.35);
 
-    animation:
-        whatsappPulse 2s ease-in-out infinite;
+    font-size: 27px;
+
+    transition: 0.3s ease;
 }
 
-@keyframes whatsappPulse{
+.whatsapp-float:hover {
+    transform: scale(1.08);
 
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.08);
-    }
+    box-shadow:
+        0 16px 45px rgba(0, 205, 95, 0.50);
 }
-
 
 /* =========================================================
-   TABLET
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:900px){
+@media (max-width: 1000px) {
 
-    .nav-links{
-        gap:15px;
-    }
-
-    .nav-links
-    a:not(.nav-button){
-        display:none;
-    }
-
-    .cards{
+    .cards {
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, 1fr);
     }
 
-    .steps{
+    .process {
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .nav-links {
+        gap: 16px;
     }
 }
 
+@media (max-width: 700px) {
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:600px){
-
-    .nav{
-        height:70px;
+    .navbar {
+        min-height: 68px;
+        padding: 0 15px;
     }
 
-    .brand-logo{
-        width:46px;
-        height:46px;
+    .brand img {
+        width: 42px;
+        height: 42px;
     }
 
-    .brand-name{
-        font-size:14px;
+    .brand-name {
+        font-size: 14px;
     }
 
-    .brand-sub{
-        font-size:7px;
+    .brand-tagline {
+        display: none;
     }
 
-    .hero{
-        min-height:100vh;
-        padding-top:75px;
+    .nav-links a:not(.nav-whatsapp) {
+        display: none;
     }
 
-    .hero-logo{
-        width:145px;
-        height:145px;
+    .nav-whatsapp {
+        padding: 9px 14px;
+        font-size: 12px;
     }
 
-    .orbit{
-        width:145px;
-        height:145px;
+    .hero {
+        padding-top: 110px;
     }
 
-    .animated-logo{
-        width:115px;
-        height:115px;
+    .hero-logo {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 28px;
     }
 
-    .hero h1{
-        font-size:42px;
-        letter-spacing:-2px;
+    .animated-logo,
+    .logo-fallback {
+        width: 145px;
+        height: 145px;
     }
 
-    .hero-subtitle{
-        padding:0 15px;
-        font-size:15px;
+    .hero h1 {
+        letter-spacing: -2px;
     }
 
-    .cards{
-        grid-template-columns:1fr;
+    .hero-description {
+        font-size: 15px;
     }
 
-    .steps{
-        grid-template-columns:1fr;
+    .cards {
+        grid-template-columns:
+            1fr;
     }
 
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
-        gap:10px;
+    .process {
+        grid-template-columns:
+            1fr;
     }
 
-    .whatsapp{
-        width:56px;
-        height:56px;
-        right:16px;
-        bottom:16px;
+    .section {
+        padding: 80px 18px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .whatsapp-float {
+        width: 54px;
+        height: 54px;
+
+        right: 16px;
+        bottom: 16px;
     }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ========================================================
+<!-- ======================================================
      HEADER
-========================================================= -->
+====================================================== -->
 
-<header>
+<header class="header">
 
-<div class="container nav">
+    <nav class="navbar">
 
+        <a href="#home" class="brand">
 
-<a href="#home" class="brand">
+            <img
+                src="./logo1.png"
+                alt="GlobalStock International Logo"
+            >
 
-<img
-src="logo1.png"
-class="brand-logo"
-alt="GlobalStock International"
->
+            <div class="brand-text">
 
-<div>
+                <div class="brand-name">
+                    GlobalStock International
+                </div>
 
-<div class="brand-name">
-GlobalStock International
-</div>
+                <div class="brand-tagline">
+                    Investing in a Brighter Tomorrow
+                </div>
 
-<div class="brand-sub">
-INVESTING IN A BRIGHTER TOMORROW
-</div>
+            </div>
 
-</div>
+        </a>
 
-</a>
+        <div class="nav-links">
 
+            <a href="#home">Home</a>
 
-<nav class="nav-links">
+            <a href="#what-we-buy">
+                What We Buy
+            </a>
 
-<a href="#home">
-Home
-</a>
+            <a href="#how-it-works">
+                How It Works
+            </a>
 
-<a href="#what-we-buy">
-What We Buy
-</a>
+            <a href="#contact">
+                Contact
+            </a>
 
-<a href="#how">
-How It Works
-</a>
+            <a
+                class="nav-whatsapp"
+                href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+                target="_blank"
+            >
+                WhatsApp
+            </a>
 
-<a href="#contact">
-Contact
-</a>
+        </div>
 
-<a
-href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-target="_blank"
-class="nav-button"
->
-WhatsApp
-</a>
-
-</nav>
-
-</div>
+    </nav>
 
 </header>
 
 
-
-<!-- ========================================================
+<!-- ======================================================
      HERO
-========================================================= -->
-
-<section
-class="hero"
-id="home"
->
-
-
-<!-- WORLD MAP -->
-
-<div class="map-background">
-
-<svg
-id="worldMap"
-viewBox="0 0 1400 800"
-preserveAspectRatio="xMidYMid slice">
-</svg>
-
-</div>
-
-
-<div class="map-overlay"></div>
-
-
-
-<!-- HERO CONTENT -->
-
-<div class="hero-content">
-
-
-<!-- =====================================================
-     YOUR UPLOADED ANIMATED LOGO VIDEO
 ====================================================== -->
 
-<div class="hero-logo">
+<section class="hero" id="home">
 
-<div class="orbit"></div>
+    <div class="hero-background">
 
-<video
-class="animated-logo"
-autoplay
-muted
-loop
-playsinline
-preload="auto"
-aria-label="GlobalStock International animated logo"
->
+        <div class="map-light"></div>
 
-<source
-src="download.mp4"
-type="video/mp4"
->
+        <div class="map-container">
 
-Your browser does not support video.
+            <svg
+                id="worldMap"
+                viewBox="0 0 1000 500"
+                preserveAspectRatio="xMidYMid slice"
+            ></svg>
 
-</video>
+        </div>
 
-</div>
+    </div>
 
 
+    <div class="hero-content">
 
-<!-- TITLE -->
+        <!-- Animated Logo -->
 
-<h1>
+        <div class="hero-logo">
 
-ANY PRODUCT.<br>
-ANY STOCK.<br>
-ANY COUNTRY.
+            <video
+                id="heroVideo"
+                class="animated-logo"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="./logo1.png"
+                aria-label="GlobalStock International animated logo"
+            >
 
-</h1>
+                <source
+                    src="./Logo.mp4"
+                    type="video/mp4"
+                >
 
+            </video>
 
+            <img
+                id="logoFallback"
+                class="logo-fallback"
+                src="./logo1.png"
+                alt="GlobalStock International"
+            >
 
-<p class="hero-subtitle">
-
-We Buy Stock Lots, Surplus, Overstock, Clearance
-& Excess Inventory Worldwide.
-
-</p>
-
-
-
-<div class="hero-buttons">
-
-<a
-href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-target="_blank"
-class="btn btn-primary"
->
-Sell Your Stock
-</a>
-
-
-<a
-href="#what-we-buy"
-class="btn btn-secondary"
->
-Explore What We Buy
-</a>
-
-</div>
+        </div>
 
 
-</div>
+        <div class="hero-kicker">
+
+            <span class="hero-kicker-dot"></span>
+
+            GLOBAL STOCK LOT BUYER
+
+        </div>
+
+
+        <h1>
+            ANY PRODUCT.<br>
+            ANY STOCK.<br>
+            ANY COUNTRY.
+        </h1>
+
+
+        <p class="hero-description">
+
+            We Buy Stock Lots, Surplus, Overstock,
+            Clearance &amp; Excess Inventory Worldwide.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                class="btn btn-primary"
+                href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+                target="_blank"
+            >
+                Sell Your Stock
+            </a>
+
+            <a
+                class="btn btn-secondary"
+                href="#what-we-buy"
+            >
+                Explore What We Buy
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="scroll-indicator">
+        Scroll
+    </div>
 
 </section>
 
 
-
-<!-- ========================================================
+<!-- ======================================================
      WHAT WE BUY
-========================================================= -->
+====================================================== -->
 
 <section
-class="content-section"
-id="what-we-buy"
+    class="section"
+    id="what-we-buy"
 >
 
-<div class="container">
+    <div class="section-inner">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                What We Buy
+            </span>
+
+            <h2>
+                Stock. Surplus. Machinery. Vehicles.
+            </h2>
+
+            <p>
+                We source a wide range of excess and
+                surplus inventory from businesses,
+                factories, traders and suppliers
+                around the world.
+            </p>
+
+        </div>
 
 
-<h2 class="section-title">
-What We Buy
-</h2>
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📦
+                </div>
+
+                <h3>
+                    Stock Lots
+                </h3>
+
+                <p>
+                    Overstock, factory excess,
+                    discontinued products,
+                    clearance stock and bulk lots.
+                </p>
+
+            </div>
 
 
-<p class="section-description">
+            <div class="card">
 
-We are interested in stock lots, surplus inventory,
-clearance products, factory excess, materials,
-vehicles, machinery and other commercial opportunities
-from suppliers around the world.
+                <div class="card-icon">
+                    🧵
+                </div>
 
-</p>
+                <h3>
+                    Materials
+                </h3>
 
+                <p>
+                    PVC, PU, synthetic leather,
+                    fabrics, textiles, rolls and
+                    industrial materials.
+                </p>
 
-
-<div class="cards">
-
-
-<div class="card">
-
-<div class="card-icon">📦</div>
-
-<h3>Stock Lots</h3>
-
-<p>
-Factory stock lots, excess inventory,
-discontinued products and bulk stock.
-</p>
-
-</div>
+            </div>
 
 
-<div class="card">
+            <div class="card">
 
-<div class="card-icon">🏭</div>
+                <div class="card-icon">
+                    🚜
+                </div>
 
-<h3>Factory Surplus</h3>
+                <h3>
+                    Machinery
+                </h3>
 
-<p>
-Factory surplus, production excess,
-unfinished materials and clearance stock.
-</p>
+                <p>
+                    Excavators, forklifts,
+                    wheel loaders, agricultural
+                    and construction machinery.
+                </p>
 
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">🚗</div>
-
-<h3>Vehicles & Machinery</h3>
-
-<p>
-Used vehicles, trucks, construction machinery,
-agricultural equipment and industrial assets.
-</p>
-
-</div>
+            </div>
 
 
-<div class="card">
+            <div class="card">
 
-<div class="card-icon">🧵</div>
+                <div class="card-icon">
+                    🚗
+                </div>
 
-<h3>Materials</h3>
+                <h3>
+                    Vehicles
+                </h3>
 
-<p>
-Fabrics, synthetic leather, PVC, PU,
-TPU, textiles and commercial materials.
-</p>
+                <p>
+                    Used cars, trucks, commercial
+                    vehicles and other automotive
+                    inventory.
+                </p>
 
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">🏷️</div>
-
-<h3>Clearance Stock</h3>
-
-<p>
-Warehouse clearance, retailer clearance,
-discontinued lines and old stock.
-</p>
-
-</div>
+            </div>
 
 
-<div class="card">
+            <div class="card">
 
-<div class="card-icon">🌍</div>
+                <div class="card-icon">
+                    🏭
+                </div>
 
-<h3>Global Sourcing</h3>
+                <h3>
+                    Factory Excess
+                </h3>
 
-<p>
-We source opportunities from suppliers
-across Asia, Europe, Middle East and beyond.
-</p>
+                <p>
+                    Production surplus,
+                    unfinished inventory,
+                    rejected lots and excess stock.
+                </p>
 
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">🔧</div>
-
-<h3>Industrial Items</h3>
-
-<p>
-Industrial equipment, tools, machinery parts
-and commercially useful surplus items.
-</p>
-
-</div>
+            </div>
 
 
-<div class="card">
+            <div class="card">
 
-<div class="card-icon">💼</div>
+                <div class="card-icon">
+                    🔄
+                </div>
 
-<h3>Commercial Stock</h3>
+                <h3>
+                    Clearance
+                </h3>
 
-<p>
-If you have excess stock or a clearance
-opportunity, contact us.
-</p>
+                <p>
+                    Warehouse clearance,
+                    business closures and
+                    liquidation inventory.
+                </p>
 
-</div>
+            </div>
 
 
-</div>
+            <div class="card">
 
-</div>
+                <div class="card-icon">
+                    🌎
+                </div>
+
+                <h3>
+                    Worldwide
+                </h3>
+
+                <p>
+                    We work with suppliers,
+                    factories and businesses
+                    across international markets.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Bulk Purchases
+                </h3>
+
+                <p>
+                    Large quantities and mixed
+                    stock lots can be considered
+                    depending on the opportunity.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-
-<!-- ========================================================
+<!-- ======================================================
      HOW IT WORKS
-========================================================= -->
+====================================================== -->
 
 <section
-class="content-section"
-id="how"
+    class="section"
+    id="how-it-works"
 >
 
-<div class="container">
+    <div class="section-inner">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                How It Works
+            </span>
+
+            <h2>
+                Simple. Direct. Global.
+            </h2>
+
+            <p>
+                If you have surplus or excess stock,
+                send us the details. Our team will
+                review the opportunity.
+            </p>
+
+        </div>
 
 
-<h2 class="section-title">
-How It Works
-</h2>
+        <div class="process">
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Send Details
+                </h3>
+
+                <p>
+                    Send product photos, videos,
+                    specifications, quantity and
+                    location.
+                </p>
+
+            </div>
 
 
-<p class="section-description">
-A simple and direct process for suppliers
-with stock available for sale.
-</p>
+            <div class="process-item">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    We Review
+                </h3>
+
+                <p>
+                    We review the stock,
+                    specifications and commercial
+                    information.
+                </p>
+
+            </div>
 
 
+            <div class="process-item">
 
-<div class="steps">
+                <div class="process-number">
+                    03
+                </div>
 
+                <h3>
+                    Discuss
+                </h3>
 
-<div class="step">
+                <p>
+                    We discuss quantity, pricing,
+                    inspection and shipping
+                    arrangements.
+                </p>
 
-<div class="step-number">
-01
-</div>
-
-<h3>
-Send Details
-</h3>
-
-<p>
-Send product photos, videos,
-specifications and available quantity.
-</p>
-
-</div>
+            </div>
 
 
-<div class="step">
+            <div class="process-item">
 
-<div class="step-number">
-02
-</div>
+                <div class="process-number">
+                    04
+                </div>
 
-<h3>
-Review
-</h3>
+                <h3>
+                    Purchase
+                </h3>
 
-<p>
-We review the stock, quantity,
-condition and commercial possibilities.
-</p>
+                <p>
+                    Once agreed, we proceed with
+                    the purchase and international
+                    logistics.
+                </p>
 
-</div>
+            </div>
 
+        </div>
 
-<div class="step">
-
-<div class="step-number">
-03
-</div>
-
-<h3>
-Offer
-</h3>
-
-<p>
-After reviewing the opportunity,
-we discuss pricing and purchase terms.
-</p>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
-04
-</div>
-
-<h3>
-Purchase
-</h3>
-
-<p>
-We arrange the purchase and
-international logistics.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- ======================================================
+     CTA
+====================================================== -->
 
-<!-- ========================================================
+<section class="cta-section">
+
+    <div class="cta-box">
+
+        <h2>
+            Have Stock to Sell?
+        </h2>
+
+        <p>
+            Don't let surplus inventory sit in your
+            warehouse. Send us your stock details,
+            photos or videos and let's discuss the
+            opportunity.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                class="btn btn-primary"
+                href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+                target="_blank"
+            >
+                Contact Us on WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
      CONTACT
-========================================================= -->
+====================================================== -->
 
 <section
-class="content-section"
-id="contact"
+    class="section"
+    id="contact"
 >
 
-<div class="container">
+    <div class="section-inner">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                Contact
+            </span>
+
+            <h2>
+                Let's Talk Business
+            </h2>
+
+            <p>
+                Send us your stock details and
+                we will get back to you.
+            </p>
+
+        </div>
 
 
-<div class="contact-box">
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    💬
+                </div>
+
+                <h3>
+                    WhatsApp
+                </h3>
+
+                <p>
+                    <a
+                        href="https://wa.me/94777426436"
+                        target="_blank"
+                    >
+                        +94 77 742 6436
+                    </a>
+                </p>
+
+            </div>
 
 
-<h2>
-Have Stock to Sell?
-</h2>
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    ✉️
+                </div>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+                    <a
+                        href="mailto:agmrifkan@gmail.com"
+                    >
+                        agmrifkan@gmail.com
+                    </a>
+                </p>
+
+            </div>
 
 
-<p>
+            <div class="contact-card">
 
-Send us your stock details, photos, videos,
-quantity and location. We are always interested
-in new global stock opportunities.
+                <div class="contact-card-icon">
+                    🌍
+                </div>
 
-</p>
+                <h3>
+                    Location
+                </h3>
 
+                <p>
+                    Colombo, Sri Lanka
+                </p>
 
+            </div>
 
-<div class="hero-buttons">
+        </div>
 
-
-<a
-href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-target="_blank"
-class="btn btn-primary"
->
-Contact Us on WhatsApp
-</a>
-
-
-<a
-href="mailto:agmrifkan@gmail.com"
-class="btn btn-secondary"
->
-Send Email
-</a>
-
-
-</div>
-
-
-
-<div class="contact-details">
-
-
-<div class="contact-item">
-📱 +94 77 742 6436
-</div>
-
-
-<div class="contact-item">
-✉️ agmrifkan@gmail.com
-</div>
-
-
-<div class="contact-item">
-📍 Colombo, Sri Lanka
-</div>
-
-
-</div>
-
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-
-<!-- ========================================================
+<!-- ======================================================
      FOOTER
-========================================================= -->
+====================================================== -->
 
-<footer>
+<footer class="footer">
 
-<div class="container footer-inner">
+    <div class="footer-inner">
 
-<div>
-© 2026 GlobalStock International
-</div>
+        <div class="footer-brand">
+            GlobalStock International
+        </div>
 
-<div>
-Investing in a Brighter Tomorrow
-</div>
+        <div class="footer-copy">
+            © 2026 GlobalStock International.
+            All rights reserved.
+        </div>
 
-</div>
+    </div>
 
 </footer>
 
 
-
-<!-- ========================================================
-     WHATSAPP
-========================================================= -->
+<!-- ======================================================
+     FLOATING WHATSAPP
+====================================================== -->
 
 <a
-class="whatsapp"
-href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-target="_blank"
-aria-label="WhatsApp"
+    class="whatsapp-float"
+    href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+    target="_blank"
+    aria-label="Contact GlobalStock International on WhatsApp"
 >
-☎
+    ☎
 </a>
 
 
-
-<!-- ========================================================
-     WORLD MAP JAVASCRIPT
-========================================================= -->
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
 
 <script>
 
+/* =========================================================
+   VIDEO FALLBACK
+========================================================= */
 
-const svg =
-d3.select("#worldMap");
+const video = document.getElementById("heroVideo");
+const fallback = document.getElementById("logoFallback");
 
-const width=1400;
-const height=800;
+function showFallback() {
 
+    if (fallback) {
+        fallback.classList.add("show");
+    }
 
-const projection =
-d3.geoNaturalEarth1()
-.scale(265)
-.translate([
-    width/2,
-    height/2+15
-]);
+}
 
+function hideFallback() {
 
-const path =
-d3.geoPath()
-.projection(projection);
+    if (fallback) {
+        fallback.classList.remove("show");
+    }
 
+}
 
-const countriesLayer =
-svg.append("g");
+/*
+   Start with the static logo hidden.
+   If video fails, show logo1.png.
+*/
 
-const continentGlowLayer =
-svg.append("g");
+if (video) {
 
-const continentOutlineLayer =
-svg.append("g");
+    video.addEventListener(
+        "loadeddata",
+        function () {
 
-const lightsLayer =
-svg.append("g");
+            hideFallback();
+
+        }
+    );
+
+    video.addEventListener(
+        "canplay",
+        function () {
+
+            hideFallback();
+
+            const playPromise = video.play();
+
+            if (playPromise !== undefined) {
+
+                playPromise.catch(
+                    function () {
+
+                        showFallback();
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+    video.addEventListener(
+        "error",
+        function () {
+
+            showFallback();
+
+        }
+    );
+
+    /*
+       Explicitly load the video.
+    */
+
+    video.load();
+
+}
 
 
 /* =========================================================
-   LOAD WORLD
+   WORLD MAP
 ========================================================= */
 
-async function loadWorld(){
+const svg = document.getElementById("worldMap");
 
-    try{
+/*
+   We use D3 + World Atlas only for the map.
+   The website still works even if the map cannot load.
+*/
+
+const d3Script =
+    document.createElement("script");
+
+d3Script.src =
+    "https://cdn.jsdelivr.net/npm/d3@7";
+
+d3Script.onload = function () {
+
+    const topoScript =
+        document.createElement("script");
+
+    topoScript.src =
+        "https://cdn.jsdelivr.net/npm/topojson-client@3";
+
+    topoScript.onload = function () {
+
+        loadWorldMap();
+
+    };
+
+    topoScript.onerror = function () {
+
+        console.log(
+            "TopoJSON could not load."
+        );
+
+    };
+
+    document.head.appendChild(
+        topoScript
+    );
+
+};
+
+d3Script.onerror = function () {
+
+    console.log(
+        "D3 could not load."
+    );
+
+};
+
+document.head.appendChild(
+    d3Script
+);
+
+
+async function loadWorldMap() {
+
+    try {
 
         const world =
-        await d3.json(
-            "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
-        );
+            await d3.json(
+                "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
+            );
 
+        const countries =
+            topojson.feature(
+                world,
+                world.objects.countries
+            );
 
-        const land =
-        topojson.feature(
-            world,
-            world.objects.countries
-        );
+        const width = 1000;
+        const height = 500;
 
+        const projection =
+            d3.geoNaturalEarth1()
+              .fitSize(
+                  [width, height],
+                  countries
+              );
 
-        /* Base world map */
+        const path =
+            d3.geoPath()
+              .projection(
+                  projection
+              );
 
-        countriesLayer
-        .selectAll("path")
-        .data(land.features)
-        .enter()
-        .append("path")
-        .attr(
-            "class",
-            "country"
-        )
-        .attr(
-            "d",
-            path
-        );
+        svg.innerHTML = "";
 
+        const group =
+            d3.select("#worldMap")
+              .append("g");
 
-        /*
-         * Soft continent animation.
-         * The effect is intentionally subtle.
-         */
+        group
+            .selectAll("path")
+            .data(countries.features)
+            .enter()
+            .append("path")
+            .attr("class", "country glow")
+            .attr("d", path)
+            .style(
+                "animation-delay",
+                function(d, i) {
 
-        const allFeatures =
-        land.features;
+                    return (
+                        (i % 12) * 0.35
+                    ) + "s";
 
-
-        createContinentHighlight(
-            allFeatures,
-            [
-                124,
-                840
-            ],
-            0
-        );
-
-
-        createContinentHighlight(
-            allFeatures,
-            [
-                76
-            ],
-            1.1
-        );
-
-
-        createContinentHighlight(
-            allFeatures,
-            [
-                250,
-                276,
-                380,
-                724,
-                752
-            ],
-            2.2
-        );
-
-
-        createContinentHighlight(
-            allFeatures,
-            [
-                12,
-                24,
-                120,
-                180,
-                204,
-                710,
-                716,
-                748,
-                788
-            ],
-            3.3
-        );
-
-
-        createContinentHighlight(
-            allFeatures,
-            [
-                156,
-                356,
-                392,
-                410,
-                417,
-                418,
-                422,
-                434,
-                512,
-                524,
-                586,
-                608,
-                626,
-                682,
-                704,
-                760,
-                764,
-                784,
-                795,
-                860
-            ],
-            4.4
-        );
-
-
-        createContinentHighlight(
-            allFeatures,
-            [
-                36,
-                554,
-                598
-            ],
-            5.5
-        );
-
-
-        /* Subtle global lights */
-
-        createMapLight(
-            10,
-            35,
-            0
-        );
-
-        createMapLight(
-            78,
-            25,
-            1.5
-        );
-
-        createMapLight(
-            105,
-            35,
-            3
-        );
-
-        createMapLight(
-            15,
-            -10,
-            4.5
-        );
-
-        createMapLight(
-            135,
-            -25,
-            6
-        );
+                }
+            );
 
     }
 
-    catch(error){
+    catch (error) {
 
-        console.error(
+        console.log(
             "World map error:",
             error
         );
@@ -2035,195 +2045,72 @@ async function loadWorld(){
 
 
 /* =========================================================
-   CONTINENT HIGHLIGHT
+   ACTIVE NAVIGATION
 ========================================================= */
 
-function createContinentHighlight(
-    features,
-    ids,
-    delay
-){
-
-    const selected =
-    features.filter(
-        feature =>
-        ids.includes(
-            Number(feature.id)
-        )
+const sections =
+    document.querySelectorAll(
+        "section[id]"
     );
 
-
-    if(!selected.length){
-        return;
-    }
-
-
-    continentGlowLayer
-    .append("path")
-
-    .datum({
-        type:"FeatureCollection",
-        features:selected
-    })
-
-    .attr(
-        "class",
-        "continent-glow"
-    )
-
-    .attr(
-        "d",
-        path
-    )
-
-    .style(
-        "animation-delay",
-        `${delay}s`
+const navLinks =
+    document.querySelectorAll(
+        ".nav-links a"
     );
 
+window.addEventListener(
+    "scroll",
+    function() {
 
-    continentOutlineLayer
-    .append("path")
+        let current = "";
 
-    .datum({
-        type:"FeatureCollection",
-        features:selected
-    })
+        sections.forEach(
+            function(section) {
 
-    .attr(
-        "class",
-        "continent-outline"
-    )
+                const sectionTop =
+                    section.offsetTop - 150;
 
-    .attr(
-        "d",
-        path
-    )
+                if (
+                    window.scrollY >=
+                    sectionTop
+                ) {
 
-    .style(
-        "animation-delay",
-        `${delay}s`
-    );
+                    current =
+                        section.getAttribute(
+                            "id"
+                        );
 
-}
+                }
 
+            }
+        );
 
-/* =========================================================
-   MAP LIGHT
-========================================================= */
+        navLinks.forEach(
+            function(link) {
 
-function createMapLight(
-    longitude,
-    latitude,
-    delay
-){
+                link.style.color = "";
 
-    const point =
-    projection([
-        longitude,
-        latitude
-    ]);
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
 
+                if (
+                    href === "#" + current
+                ) {
 
-    lightsLayer
-    .append("circle")
+                    link.style.color =
+                        "#ffffff";
 
-    .attr(
-        "class",
-        "map-light"
-    )
+                }
 
-    .attr(
-        "cx",
-        point[0]
-    )
-
-    .attr(
-        "cy",
-        point[1]
-    )
-
-    .attr(
-        "r",
-        3
-    )
-
-    .style(
-        "animation-delay",
-        `${delay}s`
-    );
-
-}
-
-
-loadWorld();
-
-
-/* =========================================================
-   LOGO 3D MOUSE EFFECT
-========================================================= */
-
-const heroLogo =
-document.querySelector(
-    ".hero-logo"
-);
-
-const videoLogo =
-document.querySelector(
-    ".animated-logo"
-);
-
-
-heroLogo.addEventListener(
-    "mousemove",
-    function(event){
-
-        const rect =
-        heroLogo.getBoundingClientRect();
-
-
-        const x =
-        event.clientX -
-        rect.left;
-
-
-        const y =
-        event.clientY -
-        rect.top;
-
-
-        const rotateY =
-        (x - rect.width/2) / 18;
-
-
-        const rotateX =
-        -(y - rect.height/2) / 18;
-
-
-        videoLogo.style.transform =
-        `
-        perspective(700px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        scale(1.05)
-        `;
-
-    }
-);
-
-
-heroLogo.addEventListener(
-    "mouseleave",
-    function(){
-
-        videoLogo.style.transform="";
+            }
+        );
 
     }
 );
 
 </script>
 
-
 </body>
-
 </html>
