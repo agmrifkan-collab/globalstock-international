@@ -1,2430 +1,2243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GlobalStock International | Worldwide Stock Buyer</title>
+  <title>GlobalStock International | Global Stock Lot Buyer</title>
 
-<meta name="description"
-content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+  <meta
+    name="description"
+    content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide."
+  >
 
-<link rel="icon" href="logo1.png">
+  <link rel="icon" href="logo1.png">
 
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+  <!-- D3 + TopoJSON -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
 
-html{
-    scroll-behavior:smooth;
-}
+  <style>
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#02080e;
-    color:#fff;
-    overflow-x:hidden;
-}
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
 
-a{
-    text-decoration:none;
-}
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-.navbar{
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    z-index:100;
-
-    height:82px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 5%;
-
-    background:rgba(2,9,16,.48);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.brand-logo{
-    width:50px;
-    height:50px;
-
-    object-fit:contain;
-
-    border-radius:12px;
-
-    animation:
-        headerFloat 4s ease-in-out infinite,
-        headerGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes headerFloat{
-    0%,100%{
-        transform:translateY(0) rotate(0deg);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    50%{
-        transform:translateY(-3px) rotate(.5deg);
-    }
-}
-
-@keyframes headerGlow{
-    0%{
-        filter:
-            drop-shadow(0 0 4px rgba(40,170,255,.15));
+    html {
+      scroll-behavior: smooth;
     }
 
-    100%{
-        filter:
-            drop-shadow(0 0 12px rgba(40,170,255,.5))
-            drop-shadow(0 0 22px rgba(30,220,190,.2));
-    }
-}
-
-.brand-name{
-    font-size:18px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.brand-name small{
-    display:block;
-
-    margin-top:4px;
-
-    font-size:8px;
-    letter-spacing:4px;
-
-    color:rgba(255,255,255,.52);
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:28px;
-}
-
-.nav-links a{
-    color:rgba(255,255,255,.72);
-
-    font-size:13px;
-
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:#36e8c3;
-}
-
-.nav-button{
-    padding:12px 20px;
-
-    border-radius:30px;
-
-    color:#fff;
-
-    font-size:11px;
-    font-weight:800;
-
-    background:
-        linear-gradient(
-            90deg,
-            #14d8b7,
-            #1689ff
-        );
-
-    box-shadow:
-        0 8px 28px rgba(20,180,255,.18);
-
-    transition:.3s;
-}
-
-.nav-button:hover{
-    transform:translateY(-2px);
-}
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    position:relative;
-
-    min-height:100vh;
-    height:850px;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 48%,
-            rgba(25,225,190,.13),
-            transparent 27%
-        ),
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(25,110,255,.14),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #02090f,
-            #061e2c 52%,
-            #01070b
-        );
-}
-
-/* background glow */
-
-.hero-glow{
-    position:absolute;
-
-    width:650px;
-    height:650px;
-
-    left:42%;
-    top:17%;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(24,225,190,.13),
-            transparent 68%
-        );
-
-    filter:blur(25px);
-
-    animation:
-        heroGlowMove 9s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlowMove{
-    from{
-        transform:translate(-70px,-25px) scale(.9);
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 10%, #10213d 0%, #050b16 35%, #02050b 75%);
+      color: #ffffff;
+      overflow-x: hidden;
     }
 
-    to{
-        transform:translate(80px,60px) scale(1.1);
-    }
-}
-
-/* =====================================================
-   WORLD MAP
-===================================================== */
-
-.map-container{
-    position:absolute;
-
-    top:82px;
-    left:0;
-    right:0;
-    bottom:0;
-
-    z-index:2;
-}
-
-#world-map{
-    width:100%;
-    height:100%;
-}
-
-.country{
-    fill:#173946;
-
-    stroke:#42606b;
-
-    stroke-width:.35;
-
-    opacity:.72;
-}
-
-.route{
-    fill:none;
-
-    stroke:#39e9c4;
-
-    stroke-width:1.8;
-
-    opacity:.82;
-
-    filter:
-        drop-shadow(0 0 4px #39e9c4)
-        drop-shadow(0 0 9px rgba(57,233,196,.6));
-}
-
-.source-dot{
-    fill:#27b8ff;
-
-    filter:
-        drop-shadow(0 0 5px #27b8ff)
-        drop-shadow(0 0 12px #27b8ff);
-}
-
-.moving-dot{
-    fill:#5ffff0;
-
-    filter:
-        drop-shadow(0 0 5px #5ffff0)
-        drop-shadow(0 0 13px #5ffff0);
-}
-
-.destination-dot{
-    fill:#fff;
-
-    stroke:#35e9c4;
-
-    stroke-width:3;
-
-    filter:
-        drop-shadow(0 0 8px #35e9c4)
-        drop-shadow(0 0 20px #35e9c4);
-}
-
-/* =====================================================
-   HERO CONTENT
-===================================================== */
-
-.hero-content{
-    position:relative;
-
-    z-index:20;
-
-    width:88%;
-    max-width:1250px;
-
-    margin:auto;
-
-    padding-top:145px;
-}
-
-/* =====================================================
-   MAIN ANIMATED LOGO
-===================================================== */
-
-.hero-logo-wrap{
-    position:relative;
-
-    width:145px;
-    height:145px;
-
-    margin-bottom:12px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/* glowing circle behind logo */
-
-.hero-logo-wrap::before{
-    content:"";
-
-    position:absolute;
-
-    width:125px;
-    height:125px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(30,180,255,.20),
-            rgba(25,225,190,.08),
-            transparent 70%
-        );
-
-    filter:blur(8px);
-
-    animation:
-        logoAura 3s ease-in-out infinite alternate;
-}
-
-@keyframes logoAura{
-    from{
-        transform:scale(.85);
-        opacity:.55;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    to{
-        transform:scale(1.2);
-        opacity:1;
-    }
-}
-
-/* animated orbit */
-
-.hero-logo-wrap::after{
-    content:"";
-
-    position:absolute;
-
-    width:135px;
-    height:135px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(50,232,195,.32);
-
-    border-top-color:#39e9c4;
-    border-right-color:rgba(50,150,255,.5);
-
-    animation:
-        logoOrbit 8s linear infinite;
-}
-
-@keyframes logoOrbit{
-    from{
-        transform:rotate(0deg);
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
     }
 
-    to{
-        transform:rotate(360deg);
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      background: rgba(2, 7, 15, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+
+      animation: headerAppear 1s ease forwards;
     }
-}
 
-.hero-logo{
-    position:relative;
+    @keyframes headerAppear {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
 
-    z-index:2;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-    width:120px;
-    height:120px;
+    .nav {
+      height: 78px;
 
-    object-fit:contain;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
 
-    animation:
+
+    /* =========================================================
+       HEADER LOGO
+    ========================================================= */
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      position: relative;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+
+      object-fit: contain;
+
+      animation:
         logoFloat 4s ease-in-out infinite,
-        logoGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes logoFloat{
-
-    0%,100%{
-        transform:
-            translateY(0)
-            scale(1);
+        logoGlow 3s ease-in-out infinite;
     }
 
-    50%{
-        transform:
-            translateY(-9px)
-            scale(1.025);
+    @keyframes logoFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-4px) rotate(1deg);
+      }
     }
-}
 
-@keyframes logoGlow{
-
-    0%{
+    @keyframes logoGlow {
+      0%, 100% {
         filter:
-            drop-shadow(
-                0 0 8px
-                rgba(20,150,255,.15)
-            );
-    }
+          drop-shadow(0 0 4px rgba(0, 190, 255, 0.2));
+      }
 
-    100%{
+      50% {
         filter:
-            drop-shadow(
-                0 0 18px
-                rgba(20,160,255,.55)
-            )
-            drop-shadow(
-                0 0 35px
-                rgba(30,225,190,.25)
-            );
+          drop-shadow(0 0 16px rgba(0, 190, 255, 0.7));
+      }
     }
-}
 
-/* shimmer over logo */
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
 
-.logo-shine{
-    position:absolute;
+    .brand-sub {
+      font-size: 9px;
+      color: #72d7ff;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
 
-    z-index:4;
 
-    width:45px;
-    height:150px;
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
 
-    top:-5px;
-    left:-80px;
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
 
-    background:
+    .nav-links a {
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      font-weight: 600;
+
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+
+    .nav-button {
+      padding: 11px 18px;
+
+      border-radius: 30px;
+
+      background:
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.55),
-            transparent
+          135deg,
+          #00c6ff,
+          #0072ff
         );
 
-    transform:skewX(-20deg);
+      box-shadow:
+        0 0 20px rgba(0, 174, 255, 0.28);
 
-    filter:blur(3px);
-
-    opacity:0;
-
-    animation:
-        logoShine 5s ease-in-out infinite;
-}
-
-@keyframes logoShine{
-
-    0%,55%{
-        left:-80px;
-        opacity:0;
+      color: white !important;
     }
 
-    65%{
-        opacity:.8;
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      padding-top: 100px;
     }
 
-    78%,100%{
-        left:180px;
-        opacity:0;
-    }
-}
 
-/* =====================================================
-   BADGE
-===================================================== */
+    /* Background glow */
 
-.badge{
-    display:inline-flex;
+    .hero::before {
+      content: "";
 
-    align-items:center;
-    gap:9px;
+      position: absolute;
 
-    padding:9px 16px;
+      width: 700px;
+      height: 700px;
 
-    border-radius:30px;
+      border-radius: 50%;
 
-    background:
-        rgba(40,230,196,.07);
-
-    border:
-        1px solid rgba(70,240,210,.24);
-
-    color:#75f4dd;
-
-    font-size:10px;
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    backdrop-filter:blur(15px);
-}
-
-.live-dot{
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:#36e8b8;
-
-    box-shadow:
-        0 0 12px #36e8b8;
-
-    animation:
-        livePulse 1.6s infinite;
-}
-
-@keyframes livePulse{
-
-    50%{
-        opacity:.3;
-        transform:scale(.45);
-    }
-}
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
-.hero h1{
-    max-width:850px;
-
-    margin-top:25px;
-
-    font-size:
-        clamp(
-            48px,
-            7vw,
-            92px
-        );
-
-    line-height:.94;
-
-    letter-spacing:-5px;
-
-    font-weight:900;
-}
-
-.gradient-text{
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #36e8c4,
-            #45a8ff
-        );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-}
-
-.hero-description{
-    max-width:600px;
-
-    margin-top:28px;
-
-    color:
-        rgba(255,255,255,.65);
-
-    font-size:18px;
-
-    line-height:1.7;
-}
-
-.hero-actions{
-    display:flex;
-
-    gap:13px;
-
-    flex-wrap:wrap;
-
-    margin-top:30px;
-}
-
-.btn{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:15px 23px;
-
-    border-radius:10px;
-
-    font-size:12px;
-
-    font-weight:800;
-
-    transition:.3s;
-}
-
-.btn-primary{
-    color:#031015;
-
-    background:#38e8c4;
-
-    box-shadow:
-        0 12px 35px
-        rgba(55,232,195,.20);
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px);
-
-    box-shadow:
-        0 18px 45px
-        rgba(55,232,195,.35);
-}
-
-.btn-secondary{
-    color:#fff;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.15);
-
-    backdrop-filter:blur(12px);
-}
-
-.btn-secondary:hover{
-    transform:translateY(-4px);
-
-    background:
-        rgba(255,255,255,.11);
-}
-
-/* =====================================================
-   MAP INFO
-===================================================== */
-
-.map-info{
-    position:absolute;
-
-    right:6%;
-    bottom:13%;
-
-    z-index:20;
-
-    padding:16px 20px;
-
-    border-radius:15px;
-
-    background:
-        rgba(2,15,23,.68);
-
-    border:
-        1px solid rgba(255,255,255,.1);
-
-    backdrop-filter:blur(18px);
-}
-
-.map-info small{
-    display:block;
-
-    color:
-        rgba(255,255,255,.42);
-
-    font-size:9px;
-
-    letter-spacing:2px;
-}
-
-.map-info strong{
-    display:block;
-
-    margin-top:6px;
-
-    color:#42e9c5;
-
-    font-size:14px;
-}
-
-/* =====================================================
-   TRUST STRIP
-===================================================== */
-
-.trust-strip{
-    position:absolute;
-
-    left:6%;
-    bottom:5%;
-
-    z-index:20;
-
-    display:flex;
-
-    gap:8px;
-
-    flex-wrap:wrap;
-}
-
-.trust-item{
-    padding:10px 14px;
-
-    border-radius:30px;
-
-    color:
-        rgba(255,255,255,.7);
-
-    font-size:10px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(12px);
-}
-
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.section{
-    padding:110px 6%;
-
-    background:#f7fafc;
-
-    color:#071721;
-}
-
-.section-header{
-    max-width:800px;
-
-    margin:auto;
-
-    text-align:center;
-}
-
-.section-header span{
-    color:#08a88b;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    letter-spacing:3px;
-}
-
-.section-header h2{
-    margin-top:15px;
-
-    font-size:
-        clamp(
-            34px,
-            5vw,
-            58px
-        );
-}
-
-.section-header p{
-    margin-top:18px;
-
-    color:#71808a;
-
-    line-height:1.7;
-}
-
-/* =====================================================
-   CARDS
-===================================================== */
-
-.cards{
-    width:min(1200px,100%);
-
-    margin:55px auto 0;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:20px;
-}
-
-.card{
-    padding:30px;
-
-    border-radius:20px;
-
-    background:#fff;
-
-    border:
-        1px solid #e4ebef;
-
-    box-shadow:
-        0 15px 45px
-        rgba(7,35,50,.06);
-
-    transition:.35s;
-}
-
-.card:hover{
-    transform:translateY(-7px);
-
-    box-shadow:
-        0 25px 55px
-        rgba(7,35,50,.12);
-}
-
-.card-icon{
-    width:50px;
-    height:50px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:15px;
-
-    background:#e8faf6;
-
-    font-size:22px;
-}
-
-.card h3{
-    margin-top:20px;
-
-    font-size:20px;
-}
-
-.card p{
-    margin-top:10px;
-
-    color:#71808a;
-
-    line-height:1.65;
-}
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact-section{
-    padding:110px 6%;
-
-    background:
+      background:
         radial-gradient(
-            circle at 50% 0%,
-            rgba(35,224,190,.15),
-            transparent 35%
-        ),
-        #03131e;
-}
-
-.contact-container{
-    width:min(1100px,100%);
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:60px;
-
-    align-items:center;
-}
-
-.contact-logo{
-    width:190px;
-
-    max-width:80%;
-
-    animation:
-        contactLogoFloat 5s ease-in-out infinite,
-        contactLogoGlow 4s ease-in-out infinite alternate;
-}
-
-@keyframes contactLogoFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-6px);
-    }
-}
-
-@keyframes contactLogoGlow{
-
-    from{
-        filter:
-            drop-shadow(
-                0 0 5px
-                rgba(30,150,255,.15)
-            );
-    }
-
-    to{
-        filter:
-            drop-shadow(
-                0 0 22px
-                rgba(30,170,255,.38)
-            );
-    }
-}
-
-.contact-title{
-    margin-top:20px;
-
-    font-size:
-        clamp(
-            36px,
-            5vw,
-            60px
+          circle,
+          rgba(0, 157, 255, 0.14),
+          transparent 70%
         );
 
-    line-height:1;
-}
+      top: -200px;
+      left: 50%;
 
-.contact-text{
-    max-width:520px;
+      transform: translateX(-50%);
 
-    margin-top:18px;
+      pointer-events: none;
+    }
 
-    color:
-        rgba(255,255,255,.62);
 
-    line-height:1.7;
-}
+    /* =========================================================
+       HERO CONTENT
+    ========================================================= */
 
-.contact-details{
-    display:grid;
+    .hero-content {
+      position: relative;
+      z-index: 10;
 
-    gap:14px;
-}
+      width: 100%;
 
-.contact-card{
-    padding:18px 20px;
+      text-align: center;
 
-    border-radius:15px;
+      padding-top: 35px;
+    }
 
-    background:
-        rgba(255,255,255,.045);
 
-    border:
-        1px solid rgba(255,255,255,.09);
+    /* =========================================================
+       MAIN LOGO
+    ========================================================= */
 
-    backdrop-filter:blur(12px);
-}
+    .hero-logo {
+      width: 170px;
+      height: 170px;
 
-.contact-card small{
-    display:block;
+      margin: 0 auto 25px;
 
-    margin-bottom:7px;
+      position: relative;
 
-    color:
-        rgba(255,255,255,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    font-size:9px;
+    .hero-logo::before {
+      content: "";
 
-    letter-spacing:2px;
-}
+      position: absolute;
 
-.contact-card a{
-    color:#42e9c5;
+      width: 150px;
+      height: 150px;
 
-    font-size:16px;
+      border-radius: 50%;
 
-    font-weight:700;
-}
+      background:
+        radial-gradient(
+          circle,
+          rgba(0, 190, 255, 0.2),
+          transparent 70%
+        );
 
-.contact-card div{
-    color:#fff;
+      filter: blur(8px);
 
-    font-size:15px;
-}
+      animation: auraPulse 3s ease-in-out infinite;
+    }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+    @keyframes auraPulse {
+      0%, 100% {
+        transform: scale(0.85);
+        opacity: 0.5;
+      }
 
-footer{
-    padding:28px 6%;
+      50% {
+        transform: scale(1.12);
+        opacity: 1;
+      }
+    }
 
-    display:flex;
 
-    align-items:center;
+    /* Orbit */
 
-    justify-content:space-between;
+    .orbit {
+      position: absolute;
 
-    gap:15px;
+      width: 170px;
+      height: 170px;
 
-    flex-wrap:wrap;
+      border: 1px solid rgba(73, 203, 255, 0.45);
 
-    background:#01070c;
+      border-radius: 50%;
 
-    color:
-        rgba(255,255,255,.45);
+      animation: orbitRotate 9s linear infinite;
+    }
 
-    font-size:11px;
-}
+    .orbit::after {
+      content: "";
 
-.footer-logo{
-    display:flex;
+      position: absolute;
 
-    align-items:center;
+      width: 9px;
+      height: 9px;
 
-    gap:9px;
-}
+      border-radius: 50%;
 
-.footer-logo img{
-    width:38px;
-    height:38px;
+      background: #62ddff;
 
-    object-fit:contain;
-}
+      box-shadow:
+        0 0 8px #62ddff,
+        0 0 20px #00aaff,
+        0 0 35px #007bff;
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+      top: 8px;
+      left: 50%;
 
-.whatsapp-button{
-    position:fixed;
+      transform: translateX(-50%);
+    }
 
-    right:22px;
-    bottom:22px;
+    @keyframes orbitRotate {
+      from {
+        transform: rotate(0deg);
+      }
 
-    z-index:200;
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-    width:60px;
-    height:60px;
 
-    display:grid;
-    place-items:center;
+    .hero-logo img {
+      position: relative;
+      z-index: 3;
 
-    border-radius:50%;
+      width: 130px;
+      height: 130px;
 
-    background:#20c56b;
+      object-fit: contain;
 
-    color:#fff;
+      animation:
+        mainLogoFloat 4s ease-in-out infinite,
+        mainLogoGlow 3s ease-in-out infinite;
+    }
 
-    font-size:27px;
+    @keyframes mainLogoFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
 
-    box-shadow:
-        0 10px 35px
-        rgba(32,197,107,.35);
+      50% {
+        transform: translateY(-8px) scale(1.025);
+      }
+    }
 
-    animation:
-        whatsappPulse 2.5s infinite;
+    @keyframes mainLogoGlow {
+      0%, 100% {
+        filter:
+          drop-shadow(0 0 8px rgba(0, 198, 255, 0.35));
+      }
 
-    transition:.3s;
-}
+      50% {
+        filter:
+          drop-shadow(0 0 28px rgba(0, 198, 255, 0.9));
+      }
+    }
 
-@keyframes whatsappPulse{
 
-    0%,100%{
+    /* =========================================================
+       HERO TITLE
+    ========================================================= */
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 82px);
+
+      line-height: 0.98;
+
+      font-weight: 900;
+
+      letter-spacing: -3px;
+
+      max-width: 1000px;
+
+      margin: auto;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff,
+          #76dcff,
+          #ffffff
+        );
+
+      background-size: 200% auto;
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      animation:
+        titleGradient 5s linear infinite,
+        titleAppear 1.2s ease forwards;
+    }
+
+    @keyframes titleGradient {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    @keyframes titleAppear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    .hero-subtitle {
+      margin: 24px auto 0;
+
+      max-width: 780px;
+
+      font-size: clamp(17px, 2vw, 21px);
+
+      line-height: 1.7;
+
+      color: rgba(255,255,255,0.68);
+
+      animation: subtitleAppear 1.4s ease forwards;
+    }
+
+    @keyframes subtitleAppear {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================================================
+       HERO BUTTONS
+    ========================================================= */
+
+    .hero-buttons {
+      margin-top: 32px;
+
+      display: flex;
+      justify-content: center;
+
+      gap: 14px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 23px;
+
+      border-radius: 50px;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          #00c6ff,
+          #0072ff
+        );
+
+      box-shadow:
+        0 10px 30px rgba(0, 132, 255, 0.28);
+    }
+
+    .btn-primary:hover {
+      box-shadow:
+        0 14px 40px rgba(0, 174, 255, 0.45);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.17);
+
+      background:
+        rgba(255,255,255,0.04);
+
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background:
+        rgba(255,255,255,0.08);
+    }
+
+
+    /* =========================================================
+       WORLD MAP
+    ========================================================= */
+
+    .map-wrapper {
+      width: min(1250px, 96%);
+
+      height: 430px;
+
+      margin: 40px auto 0;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    #map svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .country {
+      fill: rgba(34, 57, 81, 0.65);
+
+      stroke:
+        rgba(104, 181, 218, 0.17);
+
+      stroke-width: 0.45;
+    }
+
+
+    /* Route */
+
+    .route {
+      fill: none;
+
+      stroke:
+        rgba(62, 208, 255, 0.48);
+
+      stroke-width: 1.15;
+
+      stroke-linecap: round;
+
+      filter:
+        drop-shadow(0 0 5px rgba(0, 190, 255, 0.65));
+
+      stroke-dasharray: 7 12;
+
+      animation:
+        routeFlow 2.8s linear infinite;
+    }
+
+    @keyframes routeFlow {
+      to {
+        stroke-dashoffset: -38;
+      }
+    }
+
+
+    /* Route glow */
+
+    .route-glow {
+      fill: none;
+
+      stroke:
+        rgba(0, 174, 255, 0.10);
+
+      stroke-width: 5;
+
+      stroke-linecap: round;
+
+      filter: blur(4px);
+
+      opacity: 0.8;
+    }
+
+
+    /* Destination */
+
+    .destination-pulse {
+      fill: rgba(0, 208, 255, 0.9);
+
+      filter:
+        drop-shadow(0 0 6px #00d5ff);
+
+      animation:
+        destinationPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes destinationPulse {
+      0%, 100% {
+        r: 4;
+        opacity: 0.75;
+      }
+
+      50% {
+        r: 8;
+        opacity: 1;
+      }
+    }
+
+
+    /* Country points */
+
+    .source-point {
+      fill: #7eeaff;
+
+      filter:
+        drop-shadow(0 0 5px #00c8ff);
+
+      animation:
+        sourceBlink 2.4s ease-in-out infinite;
+    }
+
+    @keyframes sourceBlink {
+      0%, 100% {
+        opacity: 0.35;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+
+    /* Moving particles */
+
+    .particle {
+      fill: #ffffff;
+
+      filter:
+        drop-shadow(0 0 5px #8eefff);
+    }
+
+
+    /* =========================================================
+       COUNTRY LABELS
+    ========================================================= */
+
+    .country-label {
+      font-size: 8px;
+
+      fill: rgba(195,240,255,0.7);
+
+      pointer-events: none;
+    }
+
+
+    /* =========================================================
+       SECTION
+    ========================================================= */
+
+    section {
+      position: relative;
+
+      padding: 110px 0;
+    }
+
+    .section-title {
+      text-align: center;
+
+      font-size: clamp(30px, 5vw, 50px);
+
+      font-weight: 900;
+
+      letter-spacing: -1.5px;
+
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      text-align: center;
+
+      max-width: 700px;
+
+      margin: 0 auto 55px;
+
+      color: rgba(255,255,255,0.62);
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
+
+    .cards {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .card {
+      padding: 30px 25px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.065),
+          rgba(255,255,255,0.018)
+        );
+
+      border:
+        1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter: blur(15px);
+
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-9px);
+
+      border-color:
+        rgba(52, 205, 255, 0.35);
+
+      box-shadow:
+        0 20px 50px rgba(0, 145, 255, 0.12);
+    }
+
+    .card-icon {
+      font-size: 34px;
+
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+
+      line-height: 1.7;
+
+      color: rgba(255,255,255,0.58);
+    }
+
+
+    /* =========================================================
+       HOW IT WORKS
+    ========================================================= */
+
+    .steps {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
+    }
+
+    .step {
+      text-align: center;
+
+      padding: 25px;
+    }
+
+    .step-number {
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+
+      margin: 0 auto 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #00c6ff,
+          #0068ff
+        );
+
+      font-size: 19px;
+
+      font-weight: 900;
+
+      box-shadow:
+        0 0 25px rgba(0, 168, 255, 0.25);
+    }
+
+    .step h3 {
+      margin-bottom: 9px;
+    }
+
+    .step p {
+      color: rgba(255,255,255,0.58);
+
+      font-size: 14px;
+
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-box {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 30px;
+
+      padding: 65px 35px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(0, 173, 255, 0.20),
+          transparent 55%
+        ),
+        rgba(255,255,255,0.035);
+
+      border:
+        1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(30px, 5vw, 48px);
+
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: rgba(255,255,255,0.62);
+
+      max-width: 700px;
+
+      margin: auto;
+
+      line-height: 1.7;
+    }
+
+    .contact-details {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
+
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      padding: 13px 19px;
+
+      border-radius: 30px;
+
+      border:
+        1px solid rgba(255,255,255,0.10);
+
+      background:
+        rgba(255,255,255,0.04);
+
+      color: rgba(255,255,255,0.8);
+
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      border-top:
+        1px solid rgba(255,255,255,0.08);
+
+      padding: 30px 0;
+
+      color: rgba(255,255,255,0.45);
+
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    /* =========================================================
+       WHATSAPP FLOATING BUTTON
+    ========================================================= */
+
+    .whatsapp {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      width: 62px;
+      height: 62px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        #25D366;
+
+      color: white;
+
+      font-size: 28px;
+
+      z-index: 2000;
+
+      box-shadow:
+        0 8px 30px rgba(37, 211, 102, 0.38);
+
+      animation:
+        whatsappPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes whatsappPulse {
+      0%, 100% {
         box-shadow:
-            0 10px 35px
-            rgba(32,197,107,.35);
-    }
+          0 8px 30px rgba(37, 211, 102, 0.35);
+      }
 
-    50%{
+      50% {
         box-shadow:
-            0 10px 45px
-            rgba(32,197,107,.65);
-    }
-}
-
-.whatsapp-button:hover{
-    transform:scale(1.1);
-}
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:900px){
-
-    .nav-links{
-        display:none;
+          0 8px 45px rgba(37, 211, 102, 0.65);
+      }
     }
 
-    .hero{
-        min-height:800px;
-        height:auto;
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .map-wrapper {
+        height: 330px;
+      }
     }
 
-    .hero-content{
-        padding-top:120px;
+
+    @media (max-width: 600px) {
+
+      .nav {
+        height: 70px;
+      }
+
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .brand-sub {
+        font-size: 7px;
+      }
+
+      .hero {
+        padding-top: 85px;
+      }
+
+      .hero-logo {
+        width: 135px;
+        height: 135px;
+      }
+
+      .orbit {
+        width: 135px;
+        height: 135px;
+      }
+
+      .hero-logo img {
+        width: 105px;
+        height: 105px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+
+        letter-spacing: -2px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+
+        padding: 0 10px;
+      }
+
+      .map-wrapper {
+        height: 230px;
+
+        width: 100%;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+
+        text-align: center;
+      }
+
+      .whatsapp {
+        width: 56px;
+        height: 56px;
+
+        right: 16px;
+        bottom: 16px;
+      }
     }
 
-    .hero h1{
-        letter-spacing:-3px;
-    }
-
-    .map-container{
-        opacity:.63;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .contact-container{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:600px){
-
-    .navbar{
-        height:70px;
-
-        padding:0 5%;
-    }
-
-    .brand-logo{
-        width:40px;
-        height:40px;
-    }
-
-    .brand-name{
-        font-size:14px;
-    }
-
-    .brand-name small{
-        font-size:7px;
-    }
-
-    .nav-button{
-        padding:10px 13px;
-
-        font-size:9px;
-    }
-
-    .hero-content{
-        width:90%;
-
-        padding-top:105px;
-    }
-
-    .hero-logo-wrap{
-        width:115px;
-        height:115px;
-    }
-
-    .hero-logo{
-        width:92px;
-        height:92px;
-    }
-
-    .hero-logo-wrap::after{
-        width:108px;
-        height:108px;
-    }
-
-    .hero h1{
-        font-size:
-            clamp(
-                42px,
-                12vw,
-                65px
-            );
-
-        letter-spacing:-2px;
-    }
-
-    .hero-description{
-        font-size:15px;
-    }
-
-    .map-info{
-        display:none;
-    }
-
-    .trust-strip{
-        left:5%;
-        right:5%;
-        bottom:4%;
-    }
-
-    .trust-item{
-        padding:8px 10px;
-
-        font-size:8px;
-    }
-
-    .section{
-        padding:75px 5%;
-    }
-
-    .contact-section{
-        padding:75px 5%;
-    }
-
-    footer{
-        padding:25px 5%;
-
-        justify-content:center;
-
-        text-align:center;
-    }
-
-    .whatsapp-button{
-        width:55px;
-        height:55px;
-
-        right:16px;
-        bottom:16px;
-    }
-}
-</style>
+  </style>
 </head>
 
 
 <body>
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
 
-<nav class="navbar">
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
 
-    <div class="brand">
+  <header>
+
+    <div class="container nav">
+
+      <a href="#home" class="brand">
 
         <img
-            src="logo1.png"
-            alt="GlobalStock International"
-            class="brand-logo"
+          src="logo1.png"
+          class="brand-logo"
+          alt="GlobalStock International"
         >
 
-        <div class="brand-name">
+        <div>
+          <div class="brand-name">
+            GlobalStock International
+          </div>
 
-            GLOBALSTOCK
-
-            <small>
-                INTERNATIONAL
-            </small>
-
+          <div class="brand-sub">
+            INVESTING IN A BRIGHTER TOMORROW
+          </div>
         </div>
 
-    </div>
+      </a>
 
 
-    <div class="nav-links">
+      <nav class="nav-links">
 
         <a href="#home">
-            Home
+          Home
         </a>
 
-        <a href="#buy">
-            What We Buy
+        <a href="#what-we-buy">
+          What We Buy
         </a>
 
-        <a href="#process">
-            How It Works
+        <a href="#how">
+          How It Works
         </a>
 
         <a href="#contact">
-            Contact
+          Contact
         </a>
 
-    </div>
+        <a
+          href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+          target="_blank"
+          class="nav-button"
+        >
+          WhatsApp
+        </a>
 
-
-    <a
-        href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-        target="_blank"
-        class="nav-button"
-    >
-        SELL YOUR STOCK
-    </a>
-
-</nav>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section
-    class="hero"
-    id="home"
->
-
-    <div class="hero-glow"></div>
-
-
-    <div class="map-container">
-
-        <svg id="world-map"></svg>
+      </nav>
 
     </div>
 
-
-    <div class="hero-content">
-
-
-        <!-- ANIMATED LOGO -->
-
-        <div class="hero-logo-wrap">
-
-            <img
-                src="logo1.png"
-                alt="GlobalStock International"
-                class="hero-logo"
-            >
-
-            <div class="logo-shine"></div>
-
-        </div>
+  </header>
 
 
-        <div class="badge">
 
-            <span class="live-dot"></span>
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
 
-            WORLDWIDE STOCK SOURCING
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+
+        <!-- Animated Logo -->
+
+        <div class="hero-logo">
+
+          <div class="orbit"></div>
+
+          <img
+            src="logo1.png"
+            alt="GlobalStock International Logo"
+          >
 
         </div>
 
 
         <h1>
-
-            ANY PRODUCT.
-
-            <br>
-
-            <span class="gradient-text">
-                ANY STOCK.
-            </span>
-
-            <br>
-
-            ANY COUNTRY.
-
+          ANY PRODUCT.<br>
+          ANY STOCK.<br>
+          ANY COUNTRY.
         </h1>
 
 
-        <p class="hero-description">
-
-            We buy stock lots, surplus,
-            overstock, clearance and excess
-            inventory from suppliers around
-            the world.
-
+        <p class="hero-subtitle">
+          We Buy Stock Lots, Surplus, Overstock, Clearance
+          & Excess Inventory Worldwide.
         </p>
 
 
-        <div class="hero-actions">
+        <div class="hero-buttons">
 
-            <a
-                href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20would%20like%20to%20sell%20stock."
-                target="_blank"
-                class="btn btn-primary"
-            >
-                SELL YOUR STOCK →
-            </a>
+          <a
+            href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+            target="_blank"
+            class="btn btn-primary"
+          >
+            Sell Your Stock
+          </a>
 
-
-            <a
-                href="#buy"
-                class="btn btn-secondary"
-            >
-                WHAT WE BUY
-            </a>
+          <a
+            href="#what-we-buy"
+            class="btn btn-secondary"
+          >
+            Explore What We Buy
+          </a>
 
         </div>
 
-    </div>
 
+        <!-- World Map -->
 
-    <div class="map-info">
+        <div class="map-wrapper">
 
-        <small>
-            GLOBAL SOURCING HUB
-        </small>
+          <div id="map"></div>
 
-        <strong>
-            ● SRI LANKA
-        </strong>
-
-    </div>
-
-
-    <div class="trust-strip">
-
-        <div class="trust-item">
-            🌍 Worldwide Buying
         </div>
 
-        <div class="trust-item">
-            📦 Stock Lots
-        </div>
+      </div>
 
-        <div class="trust-item">
-            🏭 Factory Surplus
-        </div>
-
-        <div class="trust-item">
-            🚢 Global Trade
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     WHAT WE BUY
-===================================================== -->
 
-<section
-    class="section"
-    id="buy"
->
+    <!-- =====================================================
+         WHAT WE BUY
+    ====================================================== -->
 
-    <div class="section-header">
+    <section id="what-we-buy">
 
-        <span>
-            WHAT WE BUY
-        </span>
+      <div class="container">
 
-        <h2>
-            We Buy More Than One Product.
+        <h2 class="section-title">
+          What We Buy
         </h2>
 
-        <p>
-            We source stock lots, surplus,
-            overstock, clearance and excess
-            inventory from different industries
-            around the world.
+        <p class="section-description">
+          We are interested in a wide range of stock lots,
+          surplus inventory and commercial assets from suppliers
+          around the world.
         </p>
 
-    </div>
+
+        <div class="cards">
 
 
-    <div class="cards">
-
-
-        <div class="card">
+          <div class="card">
 
             <div class="card-icon">
-                📦
+              📦
             </div>
 
             <h3>
-                Stock Lots
+              Stock Lots
             </h3>
 
             <p>
-                Overstock, discontinued products,
-                excess inventory and clearance stock.
+              Factory stock lots, excess inventory,
+              discontinued products and bulk stock.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="card">
+          <div class="card">
 
             <div class="card-icon">
-                🏭
+              🏭
             </div>
 
             <h3>
-                Factory Surplus
+              Factory Surplus
             </h3>
 
             <p>
-                Factory surplus, unused materials,
-                production excess and warehouse stock.
+              Factory surplus, production excess,
+              unfinished materials and clearance stock.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="card">
+          <div class="card">
 
             <div class="card-icon">
-                🚗
+              🚗
             </div>
 
             <h3>
-                Vehicles & Machinery
+              Vehicles & Machinery
             </h3>
 
             <p>
-                Vehicles, machinery, equipment,
-                auto parts and industrial products.
+              Used vehicles, trucks, construction machinery,
+              agricultural equipment and industrial assets.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="card">
+          <div class="card">
 
             <div class="card-icon">
-                🧵
+              🧵
             </div>
 
             <h3>
-                Materials & Fabrics
+              Materials
             </h3>
 
             <p>
-                PVC, synthetic leather, fabrics,
-                textiles and upholstery materials.
+              Fabrics, synthetic leather, PVC, PU,
+              TPU, textiles and other commercial materials.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="card">
+          <div class="card">
 
             <div class="card-icon">
-                🏢
+              🏷️
             </div>
 
             <h3>
-                Business Clearance
+              Clearance Stock
             </h3>
 
             <p>
-                Warehouse clearance, business closure
-                stock and discontinued product lines.
+              Warehouse clearance, retailer clearance,
+              discontinued lines and old stock.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="card">
+          <div class="card">
 
             <div class="card-icon">
-                🌎
+              🌍
             </div>
 
             <h3>
-                Other Products
+              Global Sourcing
             </h3>
 
             <p>
-                Have something different?
-                Contact us. We may still be interested.
+              We source opportunities from suppliers
+              across Asia, Europe, Middle East and beyond.
             </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              🔧
+            </div>
+
+            <h3>
+              Industrial Items
+            </h3>
+
+            <p>
+              Industrial equipment, tools, machinery parts
+              and commercially useful surplus items.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              💼
+            </div>
+
+            <h3>
+              Any Commercial Stock
+            </h3>
+
+            <p>
+              If you have excess stock or a clearance
+              opportunity, contact us.
+            </p>
+
+          </div>
+
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
 
-<!-- =====================================================
-     HOW IT WORKS
-===================================================== -->
 
-<section
-    class="section"
-    id="process"
->
+    <!-- =====================================================
+         HOW IT WORKS
+    ====================================================== -->
 
-    <div class="section-header">
+    <section id="how">
 
-        <span>
-            HOW IT WORKS
-        </span>
+      <div class="container">
 
-        <h2>
-            Simple. Global. Direct.
+        <h2 class="section-title">
+          How It Works
         </h2>
 
-        <p>
-            Send us your available stock.
-            We review the opportunity and
-            discuss the next steps.
+        <p class="section-description">
+          A simple and direct process for suppliers
+          with stock available for sale.
         </p>
 
-    </div>
+
+        <div class="steps">
 
 
-    <div class="cards">
+          <div class="step">
 
-
-        <div class="card">
-
-            <div class="card-icon">
-                01
+            <div class="step-number">
+              01
             </div>
 
             <h3>
-                Send Your Stock
+              Send Details
             </h3>
 
             <p>
-                Send photos, videos, quantity,
-                location and product details.
+              Send product photos, videos,
+              specifications and available quantity.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="card">
+          <div class="step">
 
-            <div class="card-icon">
-                02
+            <div class="step-number">
+              02
             </div>
 
             <h3>
-                We Review
+              Review
             </h3>
 
             <p>
-                We review the stock and discuss
-                quality, quantity and commercial terms.
+              We review the stock, quantity,
+              condition and commercial possibilities.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="card">
+          <div class="step">
 
-            <div class="card-icon">
-                03
+            <div class="step-number">
+              03
             </div>
 
             <h3>
-                Purchase & Ship
+              Offer
             </h3>
 
             <p>
-                After agreement, we arrange
-                purchasing and international logistics.
+              After reviewing the opportunity,
+              we discuss pricing and purchase terms.
             </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              04
+            </div>
+
+            <h3>
+              Purchase
+            </h3>
+
+            <p>
+              We arrange the purchase and
+              international logistics.
+            </p>
+
+          </div>
+
 
         </div>
 
-    </div>
+      </div>
 
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-    class="contact-section"
-    id="contact"
->
-
-    <div class="contact-container">
+    </section>
 
 
-        <div>
 
-            <img
-                src="logo1.png"
-                alt="GlobalStock International"
-                class="contact-logo"
-            >
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
 
+    <section id="contact">
 
-            <h2 class="contact-title">
+      <div class="container">
 
-                Have Stock
-                <br>
-                to Sell?
+        <div class="contact-box">
 
-            </h2>
+          <h2>
+            Have Stock to Sell?
+          </h2>
 
-
-            <p class="contact-text">
-
-                Send us your product photos,
-                videos, quantity and location.
-
-                We are interested in stock
-                opportunities from around the world.
-
-            </p>
+          <p>
+            Send us your stock details, photos, videos,
+            quantity and location. We are always interested
+            in new global stock opportunities.
+          </p>
 
 
-            <br>
-
+          <div class="hero-buttons">
 
             <a
-                href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-                target="_blank"
-                class="btn btn-primary"
+              href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+              target="_blank"
+              class="btn btn-primary"
             >
-                CONTACT US ON WHATSAPP →
+              Contact Us on WhatsApp
             </a>
 
-        </div>
+            <a
+              href="mailto:agmrifkan@gmail.com"
+              class="btn btn-secondary"
+            >
+              Send Email
+            </a>
+
+          </div>
 
 
-        <div class="contact-details">
+          <div class="contact-details">
 
-
-            <div class="contact-card">
-
-                <small>
-                    WHATSAPP
-                </small>
-
-                <a
-                    href="https://wa.me/94777426436"
-                    target="_blank"
-                >
-                    +94 77 742 6436
-                </a>
-
+            <div class="contact-item">
+              📱 +94 77 742 6436
             </div>
 
-
-            <div class="contact-card">
-
-                <small>
-                    EMAIL
-                </small>
-
-                <a
-                    href="mailto:agmrifkan@gmail.com"
-                >
-                    agmrifkan@gmail.com
-                </a>
-
+            <div class="contact-item">
+              ✉️ agmrifkan@gmail.com
             </div>
 
-
-            <div class="contact-card">
-
-                <small>
-                    ADDRESS
-                </small>
-
-                <div>
-                    Colombo, Sri Lanka
-                </div>
-
+            <div class="contact-item">
+              📍 Colombo, Sri Lanka
             </div>
 
-
-            <div class="contact-card">
-
-                <small>
-                    TAGLINE
-                </small>
-
-                <div>
-                    Investing in a Brighter Tomorrow
-                </div>
-
-            </div>
+          </div>
 
         </div>
 
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        © 2026 GlobalStock International
+      </div>
+
+      <div>
+        Investing in a Brighter Tomorrow
+      </div>
+
     </div>
 
-</section>
+  </footer>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
-<footer>
+  <!-- =======================================================
+       WHATSAPP FLOATING BUTTON
+  ======================================================== -->
 
-    <div class="footer-logo">
-
-        <img
-            src="logo1.png"
-            alt="GlobalStock International"
-        >
-
-        <span>
-            © 2026 GlobalStock International
-        </span>
-
-    </div>
-
-
-    <div>
-        Worldwide Stock Lot Buyer
-    </div>
-
-</footer>
-
-
-<!-- =====================================================
-     FLOATING WHATSAPP
-===================================================== -->
-
-<a
-    href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20would%20like%20to%20sell%20stock."
+  <a
+    class="whatsapp"
+    href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
     target="_blank"
-    class="whatsapp-button"
     aria-label="WhatsApp"
->
+  >
     ☎
-</a>
+  </a>
 
 
-<script>
 
-/* =====================================================
-   WORLD MAP
-===================================================== */
+  <!-- =======================================================
+       WORLD MAP JAVASCRIPT
+  ======================================================== -->
 
-const svg =
-    d3.select("#world-map");
+  <script>
 
-let projection;
-let pathGenerator;
+    const mapContainer = document.getElementById("map");
+
+    const width = 1200;
+    const height = 430;
+
+    const svg = d3
+      .select("#map")
+      .append("svg")
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("preserveAspectRatio", "xMidYMid meet");
 
 
-/* =====================================================
-   CREATE MAP
-===================================================== */
+    /* -------------------------------------------------------
+       Projection
+    ------------------------------------------------------- */
 
-function createMap(){
+    const projection = d3
+      .geoNaturalEarth1()
+      .scale(190)
+      .translate([width / 2, height / 2 + 15]);
 
-    const container =
-        document.querySelector(
-            ".map-container"
+
+    const path = d3
+      .geoPath()
+      .projection(projection);
+
+
+    /* -------------------------------------------------------
+       Countries
+    ------------------------------------------------------- */
+
+    const countriesLayer =
+      svg.append("g")
+        .attr("class", "countries");
+
+
+    /* -------------------------------------------------------
+       Route layers
+    ------------------------------------------------------- */
+
+    const routeGlowLayer =
+      svg.append("g")
+        .attr("class", "route-glow-layer");
+
+    const routeLayer =
+      svg.append("g")
+        .attr("class", "route-layer");
+
+    const pointsLayer =
+      svg.append("g")
+        .attr("class", "points-layer");
+
+    const particlesLayer =
+      svg.append("g")
+        .attr("class", "particles-layer");
+
+
+    /* -------------------------------------------------------
+       Sri Lanka
+    ------------------------------------------------------- */
+
+    const sriLanka = [80.7718, 7.8731];
+
+
+    /* -------------------------------------------------------
+       Many source countries
+    ------------------------------------------------------- */
+
+    const sources = [
+
+      /* Asia */
+
+      {
+        name: "Japan",
+        coordinates: [138.2529, 36.2048]
+      },
+
+      {
+        name: "South Korea",
+        coordinates: [127.7669, 35.9078]
+      },
+
+      {
+        name: "China",
+        coordinates: [104.1954, 35.8617]
+      },
+
+      {
+        name: "Taiwan",
+        coordinates: [120.9605, 23.6978]
+      },
+
+      {
+        name: "Hong Kong",
+        coordinates: [114.1694, 22.3193]
+      },
+
+      {
+        name: "Vietnam",
+        coordinates: [108.2772, 14.0583]
+      },
+
+      {
+        name: "Thailand",
+        coordinates: [100.5018, 15.8700]
+      },
+
+      {
+        name: "Malaysia",
+        coordinates: [101.9758, 4.2105]
+      },
+
+      {
+        name: "Singapore",
+        coordinates: [103.8198, 1.3521]
+      },
+
+      {
+        name: "Indonesia",
+        coordinates: [113.9213, -0.7893]
+      },
+
+      {
+        name: "India",
+        coordinates: [78.9629, 20.5937]
+      },
+
+      {
+        name: "Bangladesh",
+        coordinates: [90.3563, 23.6850]
+      },
+
+
+      /* Middle East */
+
+      {
+        name: "UAE",
+        coordinates: [53.8478, 23.4241]
+      },
+
+      {
+        name: "Saudi Arabia",
+        coordinates: [45.0792, 23.8859]
+      },
+
+      {
+        name: "Qatar",
+        coordinates: [51.1839, 25.3548]
+      },
+
+      {
+        name: "Oman",
+        coordinates: [55.9754, 21.4735]
+      },
+
+      {
+        name: "Kuwait",
+        coordinates: [47.4818, 29.3117]
+      },
+
+      {
+        name: "Bahrain",
+        coordinates: [50.5577, 26.0667]
+      },
+
+      {
+        name: "Turkey",
+        coordinates: [35.2433, 38.9637]
+      },
+
+
+      /* Europe */
+
+      {
+        name: "Germany",
+        coordinates: [10.4515, 51.1657]
+      },
+
+      {
+        name: "United Kingdom",
+        coordinates: [-3.4360, 55.3781]
+      },
+
+      {
+        name: "France",
+        coordinates: [2.2137, 46.2276]
+      },
+
+      {
+        name: "Italy",
+        coordinates: [12.5674, 41.8719]
+      },
+
+      {
+        name: "Spain",
+        coordinates: [-3.7492, 40.4637]
+      },
+
+      {
+        name: "Netherlands",
+        coordinates: [5.2913, 52.1326]
+      },
+
+      {
+        name: "Belgium",
+        coordinates: [4.4699, 50.5039]
+      },
+
+      {
+        name: "Switzerland",
+        coordinates: [8.2275, 46.8182]
+      },
+
+      {
+        name: "Austria",
+        coordinates: [14.5501, 47.5162]
+      },
+
+      {
+        name: "Poland",
+        coordinates: [19.1451, 51.9194]
+      },
+
+      {
+        name: "Czech Republic",
+        coordinates: [15.4730, 49.8175]
+      },
+
+
+      /* Americas */
+
+      {
+        name: "USA",
+        coordinates: [-95.7129, 37.0902]
+      },
+
+      {
+        name: "Canada",
+        coordinates: [-106.3468, 56.1304]
+      },
+
+      {
+        name: "Mexico",
+        coordinates: [-102.5528, 23.6345]
+      },
+
+      {
+        name: "Brazil",
+        coordinates: [-51.9253, -14.2350]
+      },
+
+
+      /* Oceania */
+
+      {
+        name: "Australia",
+        coordinates: [133.7751, -25.2744]
+      },
+
+      {
+        name: "New Zealand",
+        coordinates: [174.8860, -40.9006]
+      }
+
+    ];
+
+
+    /* -------------------------------------------------------
+       Create curved route
+    ------------------------------------------------------- */
+
+    function createRoute(source, destination, curveHeight = 0.18) {
+
+      const sourcePoint =
+        projection(source);
+
+      const destinationPoint =
+        projection(destination);
+
+      const x1 = sourcePoint[0];
+      const y1 = sourcePoint[1];
+
+      const x2 = destinationPoint[0];
+      const y2 = destinationPoint[1];
+
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+
+      const distance =
+        Math.sqrt(dx * dx + dy * dy);
+
+      const bend =
+        Math.max(25, distance * curveHeight);
+
+      const mx =
+        (x1 + x2) / 2;
+
+      const my =
+        (y1 + y2) / 2;
+
+      const nx =
+        -dy / distance;
+
+      const ny =
+        dx / distance;
+
+      const cx =
+        mx + nx * bend;
+
+      const cy =
+        my + ny * bend;
+
+      return `M ${x1},${y1} Q ${cx},${cy} ${x2},${y2}`;
+    }
+
+
+    /* -------------------------------------------------------
+       Load world
+    ------------------------------------------------------- */
+
+    async function drawMap() {
+
+      try {
+
+        const world = await d3.json(
+          "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
         );
-
-    const width =
-        container.clientWidth;
-
-    const height =
-        container.clientHeight;
-
-
-    svg
-        .attr(
-            "viewBox",
-            `0 0 ${width} ${height}`
-        )
-        .attr(
-            "preserveAspectRatio",
-            "xMidYMid slice"
-        );
-
-
-    projection =
-        d3.geoNaturalEarth1()
-            .fitExtent(
-                [
-                    [15,25],
-                    [width-15,height-25]
-                ],
-                {
-                    type:"Sphere"
-                }
-            );
-
-
-    pathGenerator =
-        d3.geoPath()
-            .projection(projection);
-
-
-    loadWorld();
-
-}
-
-
-/* =====================================================
-   LOAD WORLD
-===================================================== */
-
-async function loadWorld(){
-
-    try{
-
-        const world =
-            await d3.json(
-                "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
-            );
-
 
         const countries =
-            topojson.feature(
-                world,
-                world.objects.countries
+          topojson.feature(
+            world,
+            world.objects.countries
+          );
+
+
+        /* Countries */
+
+        countriesLayer
+          .selectAll("path")
+          .data(countries.features)
+          .enter()
+          .append("path")
+          .attr("class", "country")
+          .attr("d", path);
+
+
+        /* Sri Lanka point */
+
+        const destination =
+          projection(sriLanka);
+
+
+        pointsLayer
+          .append("circle")
+          .attr("class", "destination-pulse")
+          .attr("cx", destination[0])
+          .attr("cy", destination[1])
+          .attr("r", 5);
+
+
+        /* Sri Lanka small label */
+
+        pointsLayer
+          .append("text")
+          .attr("x", destination[0] + 9)
+          .attr("y", destination[1] - 8)
+          .attr("class", "country-label")
+          .text("Sri Lanka");
+
+
+        /* Routes */
+
+        sources.forEach((item, index) => {
+
+          const source =
+            projection(item.coordinates);
+
+
+          /* Source point */
+
+          pointsLayer
+            .append("circle")
+            .attr("class", "source-point")
+            .attr("cx", source[0])
+            .attr("cy", source[1])
+            .attr("r", 2.8)
+            .style(
+              "animation-delay",
+              `${index * 0.08}s`
             );
 
 
-        svg.selectAll("*").remove();
+          /* Route */
+
+          const routePath =
+            createRoute(
+              item.coordinates,
+              sriLanka,
+              0.15
+            );
 
 
-        /* countries */
+          /* Glow */
 
-        svg
-            .append("g")
-            .selectAll("path")
-            .data(countries.features)
-            .enter()
+          routeGlowLayer
             .append("path")
-            .attr(
-                "class",
-                "country"
-            )
-            .attr(
-                "d",
-                pathGenerator
+            .attr("class", "route-glow")
+            .attr("d", routePath)
+            .style(
+              "animation-delay",
+              `${index * 0.12}s`
             );
 
 
-        /* =================================================
-           SRI LANKA
-        ================================================= */
-
-        const sriLanka =
-            projection(
-                [
-                    80.7718,
-                    7.8731
-                ]
-            );
-
-
-        /* main destination */
-
-        svg
-            .append("circle")
-            .attr(
-                "class",
-                "destination-dot"
-            )
-            .attr(
-                "cx",
-                sriLanka[0]
-            )
-            .attr(
-                "cy",
-                sriLanka[1]
-            )
-            .attr(
-                "r",
-                5
-            );
-
-
-        /* first pulse */
-
-        svg
-            .append("circle")
-            .attr(
-                "cx",
-                sriLanka[0]
-            )
-            .attr(
-                "cy",
-                sriLanka[1]
-            )
-            .attr(
-                "r",
-                8
-            )
-            .attr(
-                "fill",
-                "none"
-            )
-            .attr(
-                "stroke",
-                "#35e9c4"
-            )
-            .attr(
-                "stroke-width",
-                1.5
-            )
-            .attr(
-                "opacity",
-                .8
-            )
-            .append("animate")
-            .attr(
-                "attributeName",
-                "r"
-            )
-            .attr(
-                "from",
-                8
-            )
-            .attr(
-                "to",
-                30
-            )
-            .attr(
-                "dur",
-                "2s"
-            )
-            .attr(
-                "repeatCount",
-                "indefinite"
-            );
-
-
-        /* second pulse */
-
-        svg
-            .append("circle")
-            .attr(
-                "cx",
-                sriLanka[0]
-            )
-            .attr(
-                "cy",
-                sriLanka[1]
-            )
-            .attr(
-                "r",
-                8
-            )
-            .attr(
-                "fill",
-                "none"
-            )
-            .attr(
-                "stroke",
-                "#35e9c4"
-            )
-            .attr(
-                "stroke-width",
-                1
-            )
-            .attr(
-                "opacity",
-                .6
-            )
-            .append("animate")
-            .attr(
-                "attributeName",
-                "r"
-            )
-            .attr(
-                "from",
-                8
-            )
-            .attr(
-                "to",
-                48
-            )
-            .attr(
-                "dur",
-                "2.4s"
-            )
-            .attr(
-                "begin",
-                ".7s"
-            )
-            .attr(
-                "repeatCount",
-                "indefinite"
-            );
+          /* Main route */
 
+          const route =
+            routeLayer
+              .append("path")
+              .attr("class", "route")
+              .attr("d", routePath)
+              .style(
+                "animation-delay",
+                `${index * 0.15}s`
+              );
 
-        /* =================================================
-           GLOBAL SOURCES
-        ================================================= */
 
-        const sources = [
+          /* -------------------------------------------------
+             Moving particles
+          ------------------------------------------------- */
 
-            ["Japan",139.69,35.68],
+          const particleCount = 2;
 
-            ["Korea",126.98,37.57],
 
-            ["China",116.40,39.90],
+          for (
+            let particleIndex = 0;
+            particleIndex < particleCount;
+            particleIndex++
+          ) {
 
-            ["UAE",55.27,25.20],
+            const particle =
+              particlesLayer
+                .append("circle")
+                .attr("class", "particle")
+                .attr("r", 2.2);
 
-            ["Germany",13.40,52.52],
 
-            ["UK",-0.13,51.50],
+            const length =
+              route.node().getTotalLength();
 
-            ["USA",-74.00,40.71],
 
-            ["Australia",151.21,-33.87],
+            let start =
+              (particleIndex / particleCount) * length;
 
-            ["Italy",12.50,41.90]
 
-        ];
-
-
-        sources.forEach(
-            (source,index)=>{
-
-                const start =
-                    projection(
-                        [
-                            source[1],
-                            source[2]
-                        ]
-                    );
-
-
-                const end =
-                    sriLanka;
-
-
-                const dx =
-                    end[0]-start[0];
-
-                const dy =
-                    end[1]-start[1];
-
-
-                const distance =
-                    Math.sqrt(
-                        dx*dx+
-                        dy*dy
-                    );
+            function animateParticle() {
 
+              const duration =
+                4000 +
+                Math.random() * 2500;
 
-                const curve =
-                    Math.max(
-                        40,
-                        distance*.18
-                    );
+              const startTime =
+                performance.now();
 
 
-                const midX =
-                    (
-                        start[0]+
-                        end[0]
-                    )/2;
+              function move(now) {
 
+                const elapsed =
+                  now - startTime;
 
-                const midY =
-                    (
-                        start[1]+
-                        end[1]
-                    )/2;
+                const progress =
+                  (elapsed / duration + start / length) % 1;
 
+                const point =
+                  route.node().getPointAtLength(
+                    progress * length
+                  );
 
-                const controlY =
-                    midY-curve;
 
+                particle
+                  .attr("cx", point.x)
+                  .attr("cy", point.y)
+                  .attr(
+                    "opacity",
+                    Math.sin(progress * Math.PI)
+                  );
 
-                const pathData = `
 
-                    M ${start[0]}
-                      ${start[1]}
+                if (elapsed < duration) {
 
-                    Q ${midX}
-                      ${controlY}
+                  requestAnimationFrame(move);
 
-                      ${end[0]}
-                      ${end[1]}
+                } else {
 
-                `;
+                  start = 0;
 
-
-                /* route */
-
-                const route =
-                    svg
-                        .append("path")
-                        .attr(
-                            "class",
-                            "route"
-                        )
-                        .attr(
-                            "d",
-                            pathData
-                        );
-
-
-                /* source */
-
-                svg
-                    .append("circle")
-                    .attr(
-                        "class",
-                        "source-dot"
-                    )
-                    .attr(
-                        "cx",
-                        start[0]
-                    )
-                    .attr(
-                        "cy",
-                        start[1]
-                    )
-                    .attr(
-                        "r",
-                        3.5
-                    );
-
-
-                /* moving particle */
-
-                const particle =
-                    svg
-                        .append("circle")
-                        .attr(
-                            "class",
-                            "moving-dot"
-                        )
-                        .attr(
-                            "r",
-                            3.2
-                        );
-
-
-                const length =
-                    route.node()
-                        .getTotalLength();
-
-
-                let startTime = null;
-
-
-                function animate(time){
-
-                    if(!startTime){
-                        startTime=time;
-                    }
-
-
-                    const duration =
-                        4200+
-                        index*300;
-
-
-                    const progress =
-                        (
-                            (time-startTime)
-                            %
-                            duration
-                        )/
-                        duration;
-
-
-                    const point =
-                        route.node()
-                            .getPointAtLength(
-                                progress*
-                                length
-                            );
-
-
-                    particle
-                        .attr(
-                            "cx",
-                            point.x
-                        )
-                        .attr(
-                            "cy",
-                            point.y
-                        );
-
-
-                    requestAnimationFrame(
-                        animate
-                    );
+                  animateParticle();
 
                 }
 
-
-                requestAnimationFrame(
-                    animate
-                );
+              }
 
 
-                /* second particle */
-
-                const particle2 =
-                    svg
-                        .append("circle")
-                        .attr(
-                            "class",
-                            "moving-dot"
-                        )
-                        .attr(
-                            "r",
-                            1.8
-                        )
-                        .attr(
-                            "opacity",
-                            .55
-                        );
-
-
-                let secondStart = null;
-
-
-                function animateSecond(time){
-
-                    if(!secondStart){
-                        secondStart=time;
-                    }
-
-
-                    const duration =
-                        4200+
-                        index*300;
-
-
-                    const progress =
-                        (
-                            (
-                                time-
-                                secondStart+
-                                1900
-                            )
-                            %
-                            duration
-                        )/
-                        duration;
-
-
-                    const point =
-                        route.node()
-                            .getPointAtLength(
-                                progress*
-                                length
-                            );
-
-
-                    particle2
-                        .attr(
-                            "cx",
-                            point.x
-                        )
-                        .attr(
-                            "cy",
-                            point.y
-                        );
-
-
-                    requestAnimationFrame(
-                        animateSecond
-                    );
-
-                }
-
-
-                requestAnimationFrame(
-                    animateSecond
-                );
+              requestAnimationFrame(move);
 
             }
+
+
+            /* Stagger animation */
+
+            setTimeout(
+              animateParticle,
+              index * 150
+            );
+
+          }
+
+        });
+
+      } catch (error) {
+
+        console.error(
+          "World map failed to load:",
+          error
         );
+
+      }
 
     }
 
-    catch(error){
 
-        console.log(
-            "World map error:",
-            error
-        );
-
-    }
-
-}
+    drawMap();
 
 
-/* =====================================================
-   START
-===================================================== */
+    /* -------------------------------------------------------
+       Logo interaction
+    ------------------------------------------------------- */
 
-createMap();
+    const heroLogo =
+      document.querySelector(".hero-logo");
 
 
-/* =====================================================
-   RESIZE
-===================================================== */
+    heroLogo.addEventListener(
+      "mousemove",
+      function(event) {
 
-window.addEventListener(
-    "resize",
-    createMap
-);
+        const rect =
+          heroLogo.getBoundingClientRect();
 
-</script>
+        const x =
+          event.clientX - rect.left;
+
+        const y =
+          event.clientY - rect.top;
+
+        const rotateY =
+          (x - rect.width / 2) / 12;
+
+        const rotateX =
+          -(y - rect.height / 2) / 12;
+
+
+        heroLogo.querySelector("img").style.transform =
+          `perspective(500px)
+           rotateX(${rotateX}deg)
+           rotateY(${rotateY}deg)
+           scale(1.05)`;
+
+      }
+    );
+
+
+    heroLogo.addEventListener(
+      "mouseleave",
+      function() {
+
+        heroLogo.querySelector("img").style.transform =
+          "";
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
