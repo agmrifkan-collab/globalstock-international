@@ -2,1266 +2,2116 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GlobalStock International</title>
+<title>GlobalStock International | Worldwide Stock Lot Buyer</title>
 
 <meta name="description"
 content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+
+<link rel="icon" href="logo1.png">
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#020b12;
-color:#fff;
-overflow-x:hidden;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #020b12;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-/* ================= NAV ================= */
+a {
+    color: inherit;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 
-nav{
-position:absolute;
-top:0;
-left:0;
-right:0;
-height:82px;
-z-index:50;
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 
-display:flex;
-align-items:center;
-justify-content:space-between;
+    height: 82px;
 
-padding:0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-background:rgba(2,10,17,.38);
-border-bottom:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
+    padding: 0 5%;
+
+    background: rgba(2, 10, 17, 0.48);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:12px;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.brand-logo{
-width:44px;
-height:44px;
-border-radius:13px;
+.brand-logo {
+    width: 48px;
+    height: 48px;
 
-display:grid;
-place-items:center;
+    object-fit: contain;
 
-font-size:22px;
-font-weight:900;
+    border-radius: 12px;
 
-background:linear-gradient(135deg,#19e6c2,#1685ff);
-box-shadow:0 0 30px rgba(24,226,194,.28);
+    background: rgba(255,255,255,0.05);
 }
 
-.brand-name{
-font-size:18px;
-font-weight:900;
-letter-spacing:2px;
+.brand-name {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-.brand-name small{
-display:block;
-font-size:9px;
-letter-spacing:4px;
-opacity:.55;
-margin-top:4px;
-}
+.brand-name small {
+    display: block;
+    margin-top: 4px;
 
-.menu{
-display:flex;
-gap:30px;
-align-items:center;
+    font-size: 8px;
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,0.55);
 }
 
-.menu a{
-color:rgba(255,255,255,.72);
-text-decoration:none;
-font-size:13px;
-transition:.3s;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
 }
+
+.nav-links a {
+    text-decoration: none;
+
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
 
-.menu a:hover{
-color:#32e8c5;
+    transition: 0.3s;
 }
 
-.nav-btn{
-padding:12px 20px;
-border-radius:30px;
-background:linear-gradient(90deg,#16d8b8,#1687ff);
-color:#fff;
-text-decoration:none;
-font-size:12px;
-font-weight:bold;
+.nav-links a:hover {
+    color: #37e9c5;
 }
 
-/* ================= HERO ================= */
+.nav-button {
+    padding: 12px 19px;
 
-.hero{
-position:relative;
-height:100vh;
-min-height:700px;
-overflow:hidden;
+    border-radius: 30px;
 
-background:
-radial-gradient(circle at 50% 45%,rgba(21,214,190,.13),transparent 28%),
-radial-gradient(circle at 75% 20%,rgba(20,120,255,.12),transparent 30%),
-linear-gradient(135deg,#020910,#061c29 55%,#01070c);
-}
+    text-decoration: none;
 
-.hero:after{
-content:"";
-position:absolute;
-inset:0;
-pointer-events:none;
+    font-size: 11px;
+    font-weight: 800;
 
-background:
-radial-gradient(circle at 20% 30%,rgba(255,255,255,.07) 1px,transparent 1px),
-radial-gradient(circle at 70% 70%,rgba(255,255,255,.05) 1px,transparent 1px);
+    background: linear-gradient(
+        90deg,
+        #15d9b8,
+        #1687ff
+    );
 
-background-size:90px 90px,130px 130px;
-animation:stars 20s linear infinite;
+    box-shadow:
+        0 8px 25px rgba(22,135,255,0.18);
 }
 
-@keyframes stars{
-to{
-background-position:90px 90px,-130px -130px;
-}
-}
+/* =========================
+   HERO
+========================= */
 
-/* ================= MAP ================= */
+.hero {
+    position: relative;
 
-.map{
-position:absolute;
-inset:82px 0 0;
-z-index:2;
+    min-height: 100vh;
+    height: 850px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(22,220,190,0.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 78% 20%,
+            rgba(15,110,255,0.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #02090f,
+            #061c29 52%,
+            #01070c
+        );
 }
+
+/* moving background glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
 
-#world{
-width:100%;
-height:100%;
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    left: 38%;
+    top: 20%;
+
+    background: rgba(22,224,193,0.07);
+
+    filter: blur(110px);
+
+    animation: glowMove 10s ease-in-out infinite alternate;
 }
+
+@keyframes glowMove {
+    from {
+        transform: translate(-80px,-30px);
+    }
 
-.country{
-fill:#183746;
-stroke:#416371;
-stroke-width:.35;
-opacity:.68;
+    to {
+        transform: translate(90px,60px);
+    }
 }
 
-.route{
-fill:none;
-stroke:#35e9c5;
-stroke-width:1.7;
-opacity:.75;
+/* small background particles */
 
-filter:
-drop-shadow(0 0 4px #35e9c5)
-drop-shadow(0 0 8px rgba(53,233,197,.45));
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.25) 1px,
+            transparent 1px
+        );
+
+    background-size: 100px 100px;
+
+    opacity: 0.15;
+
+    animation: particlesMove 20s linear infinite;
 }
 
-.source{
-fill:#29baff;
-filter:drop-shadow(0 0 8px #29baff);
+@keyframes particlesMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100px 100px;
+    }
 }
+
+/* =========================
+   MAP
+========================= */
 
-.destination{
-fill:#fff;
-stroke:#32e8c5;
-stroke-width:3;
-filter:drop-shadow(0 0 15px #32e8c5);
+.map-container {
+    position: absolute;
+
+    top: 82px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 2;
 }
 
-.particle{
-fill:#48f7d5;
-filter:drop-shadow(0 0 8px #48f7d5);
+#world-map {
+    width: 100%;
+    height: 100%;
 }
 
-/* ================= HERO CONTENT ================= */
+.country {
+    fill: #173845;
 
-.content{
-position:relative;
-z-index:20;
+    stroke: rgba(105,180,195,0.25);
 
-width:88%;
-max-width:1250px;
-margin:auto;
+    stroke-width: 0.35;
 
-padding-top:150px;
+    opacity: 0.72;
 }
+
+.route {
+    fill: none;
 
-.badge{
-display:inline-flex;
-align-items:center;
-gap:9px;
+    stroke: #32e9c3;
 
-padding:9px 16px;
+    stroke-width: 1.7;
 
-border-radius:30px;
+    opacity: 0.78;
 
-background:rgba(40,230,196,.07);
-border:1px solid rgba(70,240,210,.25);
+    filter:
+        drop-shadow(0 0 4px #32e9c3)
+        drop-shadow(0 0 9px rgba(50,233,195,0.55));
+}
 
-font-size:10px;
-font-weight:bold;
-letter-spacing:2px;
+.route-secondary {
+    fill: none;
 
-color:#71f4dc;
+    stroke: rgba(42,170,255,0.38);
 
-backdrop-filter:blur(15px);
+    stroke-width: 0.8;
+
+    opacity: 0.7;
 }
 
-.live{
-width:7px;
-height:7px;
-border-radius:50%;
-background:#35e7b9;
-box-shadow:0 0 12px #35e7b9;
+.source-dot {
+    fill: #29baff;
 
-animation:pulse 1.6s infinite;
+    filter:
+        drop-shadow(0 0 5px #29baff)
+        drop-shadow(0 0 10px #29baff);
 }
 
-@keyframes pulse{
-50%{
-transform:scale(.45);
-opacity:.35;
-}
+.moving-dot {
+    fill: #48f7d5;
+
+    filter:
+        drop-shadow(0 0 5px #48f7d5)
+        drop-shadow(0 0 12px #48f7d5);
 }
 
-h1{
-font-size:clamp(48px,7vw,92px);
-line-height:.93;
+.destination-dot {
+    fill: #ffffff;
 
-letter-spacing:-5px;
+    stroke: #35e9c4;
 
-max-width:800px;
-margin-top:27px;
+    stroke-width: 3;
 
-font-weight:900;
+    filter:
+        drop-shadow(0 0 7px #35e9c4)
+        drop-shadow(0 0 18px #35e9c4);
 }
 
-.gradient{
-background:linear-gradient(
-90deg,
-#fff,
-#36e8c4,
-#3ca5ff
-);
+/* =========================
+   HERO CONTENT
+========================= */
 
--webkit-background-clip:text;
-color:transparent;
-}
+.hero-content {
+    position: relative;
 
-.description{
-max-width:590px;
+    z-index: 20;
 
-margin-top:28px;
+    width: 88%;
+    max-width: 1250px;
 
-font-size:18px;
-line-height:1.7;
+    margin: auto;
 
-color:rgba(255,255,255,.65);
+    padding-top: 150px;
 }
 
-.actions{
-display:flex;
-gap:13px;
-margin-top:30px;
-flex-wrap:wrap;
-}
+.hero-logo {
+    width: 105px;
+    height: 105px;
 
-.btn{
-padding:15px 23px;
-border-radius:10px;
+    object-fit: contain;
 
-text-decoration:none;
-font-size:13px;
-font-weight:800;
+    margin-bottom: 18px;
 
-transition:.3s;
+    filter:
+        drop-shadow(0 0 20px rgba(30,160,255,0.22));
 }
 
-.primary{
-background:#35e8c3;
-color:#031016;
+.badge {
+    display: inline-flex;
 
-box-shadow:0 12px 35px rgba(53,232,195,.2);
-}
+    align-items: center;
+    gap: 9px;
 
-.primary:hover{
-transform:translateY(-4px);
-box-shadow:0 18px 45px rgba(53,232,195,.35);
-}
+    padding: 9px 16px;
 
-.secondary{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.16);
-color:#fff;
-backdrop-filter:blur(12px);
-}
+    border-radius: 30px;
 
-.secondary:hover{
-transform:translateY(-4px);
-background:rgba(255,255,255,.11);
-}
+    background: rgba(40,230,196,0.07);
+
+    border: 1px solid rgba(70,240,210,0.24);
+
+    color: #74f3dd;
 
-/* ================= MAP INFO ================= */
+    font-size: 10px;
+    font-weight: 800;
 
-.map-info{
-position:absolute;
-right:6%;
-bottom:12%;
+    letter-spacing: 2px;
 
-z-index:20;
+    backdrop-filter: blur(14px);
+}
+
+.live-dot {
+    width: 7px;
+    height: 7px;
 
-padding:16px 20px;
+    border-radius: 50%;
 
-border-radius:15px;
+    background: #35e7b9;
 
-background:rgba(3,17,26,.65);
-border:1px solid rgba(255,255,255,.1);
+    box-shadow: 0 0 12px #35e7b9;
 
-backdrop-filter:blur(18px);
+    animation: pulse 1.6s infinite;
 }
 
-.map-info small{
-display:block;
-font-size:9px;
-letter-spacing:2px;
-color:rgba(255,255,255,.45);
+@keyframes pulse {
+    50% {
+        opacity: 0.35;
+        transform: scale(0.5);
+    }
 }
+
+.hero h1 {
+    max-width: 820px;
+
+    margin-top: 25px;
+
+    font-size: clamp(48px, 7vw, 92px);
 
-.map-info strong{
-display:block;
-margin-top:6px;
-font-size:14px;
-color:#42e9c5;
+    line-height: 0.94;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
 }
 
-/* ================= STATS ================= */
+.gradient-text {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #37e8c4,
+            #48a8ff
+        );
 
-.stats{
-position:absolute;
-bottom:5%;
-left:6%;
-z-index:20;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-display:flex;
-gap:10px;
-flex-wrap:wrap;
+    color: transparent;
 }
 
-.stat{
-padding:10px 15px;
+.hero-description {
+    max-width: 600px;
 
-border-radius:30px;
+    margin-top: 28px;
 
-font-size:10px;
-color:rgba(255,255,255,.7);
+    font-size: 18px;
 
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
+    line-height: 1.7;
 
-backdrop-filter:blur(12px);
+    color: rgba(255,255,255,0.65);
 }
+
+.hero-actions {
+    display: flex;
 
-/* ================= SECTION ================= */
+    gap: 13px;
 
-.section{
-padding:110px 6%;
-background:#f6fafc;
-color:#071721;
+    flex-wrap: wrap;
+
+    margin-top: 30px;
 }
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
 
-.heading{
-max-width:800px;
-margin:auto;
-text-align:center;
+    padding: 15px 23px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition: 0.3s;
 }
+
+.btn-primary {
+    color: #031015;
 
-.heading span{
-font-size:11px;
-font-weight:bold;
-letter-spacing:3px;
-color:#0aa98d;
+    background: #37e8c3;
+
+    box-shadow:
+        0 12px 35px rgba(55,232,195,0.2);
 }
 
-.heading h2{
-font-size:clamp(34px,5vw,58px);
-margin-top:15px;
+.btn-primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 45px rgba(55,232,195,0.35);
 }
+
+.btn-secondary {
+    color: #ffffff;
 
-.heading p{
-margin-top:18px;
-color:#71808a;
-line-height:1.7;
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(12px);
 }
 
-.cards{
-max-width:1200px;
-margin:55px auto 0;
+.btn-secondary:hover {
+    transform: translateY(-4px);
 
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
+    background: rgba(255,255,255,0.11);
 }
+
+/* =========================
+   SRI LANKA INFO
+========================= */
 
-.card{
-padding:30px;
+.map-info {
+    position: absolute;
 
-border-radius:20px;
+    right: 6%;
+    bottom: 13%;
 
-background:#fff;
-border:1px solid #e5edf1;
+    z-index: 20;
 
-box-shadow:0 15px 45px rgba(5,35,50,.06);
+    padding: 16px 20px;
 
-transition:.35s;
+    border-radius: 15px;
+
+    background: rgba(2,15,23,0.68);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.25);
 }
+
+.map-info small {
+    display: block;
 
-.card:hover{
-transform:translateY(-7px);
-box-shadow:0 25px 55px rgba(5,35,50,.12);
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.45);
 }
 
-.icon{
-width:50px;
-height:50px;
+.map-info strong {
+    display: block;
 
-display:grid;
-place-items:center;
+    margin-top: 6px;
 
-border-radius:15px;
+    color: #42e9c5;
 
-background:#e8faf6;
-font-size:23px;
+    font-size: 14px;
 }
+
+/* =========================
+   TRUST STRIP
+========================= */
+
+.trust-strip {
+    position: absolute;
+
+    left: 6%;
+    bottom: 5%;
+
+    z-index: 20;
 
-.card h3{
-margin-top:20px;
-font-size:20px;
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
 }
+
+.trust-item {
+    padding: 10px 14px;
+
+    border-radius: 30px;
+
+    font-size: 10px;
+
+    color: rgba(255,255,255,0.7);
 
-.card p{
-margin-top:10px;
-color:#71808a;
-line-height:1.65;
+    background: rgba(255,255,255,0.045);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
 }
+
+/* =========================
+   GENERAL SECTION
+========================= */
 
-/* ================= CTA ================= */
+.section {
+    padding: 110px 6%;
 
-.cta{
-padding:110px 6%;
-text-align:center;
+    background: #f7fafc;
 
-background:
-radial-gradient(circle at 50% 0%,rgba(31,225,190,.16),transparent 35%),
-#03131e;
+    color: #071721;
 }
 
-.cta h2{
-font-size:clamp(35px,5vw,62px);
+.section-header {
+    max-width: 800px;
+
+    margin: auto;
+
+    text-align: center;
 }
+
+.section-header span {
+    color: #08a88b;
 
-.cta p{
-max-width:620px;
-margin:20px auto 30px;
-line-height:1.7;
-color:rgba(255,255,255,.62);
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
 }
 
-/* ================= FOOTER ================= */
+.section-header h2 {
+    margin-top: 15px;
 
-footer{
-padding:25px 6%;
+    font-size: clamp(34px,5vw,58px);
+}
 
-display:flex;
-justify-content:space-between;
-gap:15px;
-flex-wrap:wrap;
+.section-header p {
+    margin-top: 18px;
 
-font-size:11px;
-color:rgba(255,255,255,.45);
+    color: #71808a;
 
-background:#01070c;
+    line-height: 1.7;
 }
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+    width: min(1200px,100%);
 
-/* ================= WHATSAPP ================= */
+    margin: 55px auto 0;
 
-.whatsapp{
-position:fixed;
-right:22px;
-bottom:22px;
+    display: grid;
 
-z-index:100;
+    grid-template-columns:
+        repeat(3,1fr);
 
-width:58px;
-height:58px;
+    gap: 20px;
+}
 
-border-radius:50%;
+.card {
+    padding: 30px;
 
-display:grid;
-place-items:center;
+    border-radius: 20px;
 
-background:#20c56b;
-color:#fff;
+    background: #ffffff;
 
-font-size:26px;
-text-decoration:none;
+    border: 1px solid #e4ebef;
 
-box-shadow:0 8px 30px rgba(32,197,107,.35);
+    box-shadow:
+        0 15px 45px rgba(7,35,50,0.06);
 
-transition:.3s;
+    transition: 0.35s;
 }
 
-.whatsapp:hover{
-transform:scale(1.1);
+.card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 25px 55px rgba(7,35,50,0.12);
 }
 
-/* ================= MOBILE ================= */
+.card-icon {
+    width: 50px;
+    height: 50px;
 
-@media(max-width:800px){
+    display: grid;
+    place-items: center;
 
-nav{
-height:70px;
-padding:0 5%;
-}
+    border-radius: 15px;
 
-.menu{
-display:none;
+    background: #e8faf6;
+
+    font-size: 22px;
 }
 
-.nav-btn{
-padding:10px 14px;
+.card h3 {
+    margin-top: 20px;
+
+    font-size: 20px;
 }
+
+.card p {
+    margin-top: 10px;
 
-.hero{
-min-height:760px;
+    color: #71808a;
+
+    line-height: 1.65;
 }
+
+/* =========================
+   CONTACT
+========================= */
 
-.content{
-padding-top:125px;
-width:90%;
+.contact-section {
+    padding: 110px 6%;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(35,224,190,0.15),
+            transparent 35%
+        ),
+        #03131e;
+
+    color: #ffffff;
 }
+
+.contact-container {
+    width: min(1100px,100%);
 
-h1{
-font-size:clamp(43px,12vw,68px);
-letter-spacing:-3px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
 }
+
+.contact-logo {
+    width: 180px;
+
+    max-width: 80%;
 
-.description{
-font-size:15px;
+    margin-bottom: 20px;
 }
 
-.map{
-opacity:.72;
+.contact-title {
+    font-size: clamp(36px,5vw,60px);
+
+    line-height: 1;
+
+    margin-bottom: 18px;
 }
 
-.map-info{
-right:5%;
-bottom:14%;
+.contact-text {
+    color: rgba(255,255,255,0.62);
+
+    line-height: 1.7;
+
+    max-width: 520px;
 }
+
+.contact-details {
+    display: grid;
 
-.stats{
-left:5%;
-right:5%;
-bottom:5%;
+    gap: 14px;
 }
 
-.cards{
-grid-template-columns:1fr;
+.contact-card {
+    padding: 18px 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.045);
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    backdrop-filter: blur(12px);
 }
+
+.contact-card small {
+    display: block;
+
+    color: rgba(255,255,255,0.42);
 
-.section{
-padding:75px 5%;
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
 }
+
+.contact-card a {
+    color: #42e9c5;
 
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
 }
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 28px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
 
-/* VERY SMALL MOBILE */
+    background: #01070c;
 
-@media(max-width:480px){
+    color: rgba(255,255,255,0.45);
 
-.brand-name{
-font-size:14px;
+    font-size: 11px;
 }
 
-.brand-logo{
-width:38px;
-height:38px;
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
 }
 
-.nav-btn{
-font-size:9px;
+.footer-logo img {
+    width: 35px;
+    height: 35px;
+
+    object-fit: contain;
 }
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-button {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 200;
+
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #20c56b;
 
-.map-info{
-display:none;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 10px 35px rgba(32,197,107,0.35);
+
+    transition: 0.3s;
 }
 
-.stats{
-gap:6px;
+.whatsapp-button:hover {
+    transform: scale(1.1);
 }
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 800px;
+
+        height: auto;
+    }
+
+    .hero-content {
+        padding-top: 125px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .map-container {
+        opacity: 0.65;
+    }
 
-.stat{
-font-size:8px;
-padding:8px 10px;
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
 }
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 70px;
+
+        padding: 0 5%;
+    }
+
+    .brand-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-name {
+        font-size: 14px;
+    }
+
+    .brand-name small {
+        font-size: 7px;
+    }
+
+    .nav-button {
+        padding: 10px 13px;
+
+        font-size: 9px;
+    }
+
+    .hero-content {
+        width: 90%;
+
+        padding-top: 115px;
+    }
+
+    .hero-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px,12vw,65px);
+
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .map-info {
+        display: none;
+    }
+
+    .trust-strip {
+        left: 5%;
+        right: 5%;
+        bottom: 4%;
+    }
+
+    .trust-item {
+        font-size: 8px;
+
+        padding: 8px 10px;
+    }
+
+    .section {
+        padding: 75px 5%;
+    }
+
+    .contact-section {
+        padding: 75px 5%;
+    }
+
+    footer {
+        padding: 25px 5%;
+
+        text-align: center;
 
+        justify-content: center;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-<nav>
+<nav class="navbar">
 
-<div class="brand">
+    <div class="brand">
 
-<div class="brand-logo">
-G
-</div>
+        <img
+            src="logo1.png"
+            alt="GlobalStock International"
+            class="brand-logo"
+        >
 
-<div class="brand-name">
-GLOBALSTOCK
-<small>INTERNATIONAL</small>
-</div>
+        <div class="brand-name">
+            GLOBALSTOCK
+            <small>INTERNATIONAL</small>
+        </div>
 
-</div>
+    </div>
 
-<div class="menu">
+    <div class="nav-links">
 
-<a href="#home">Home</a>
-<a href="#buy">What We Buy</a>
-<a href="#process">How It Works</a>
-<a href="#contact">Contact</a>
+        <a href="#home">Home</a>
 
-</div>
+        <a href="#buy">What We Buy</a>
 
-<a href="#contact" class="nav-btn">
-SELL YOUR STOCK
-</a>
+        <a href="#process">How It Works</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+    <a
+        href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+        target="_blank"
+        class="nav-button"
+    >
+        SELL YOUR STOCK
+    </a>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="home">
 
-<div class="map">
-<svg id="world"></svg>
-</div>
+    <div class="map-container">
+
+        <svg id="world-map"></svg>
+
+    </div>
 
 
-<div class="content">
+    <div class="hero-content">
 
-<div class="badge">
-<span class="live"></span>
-WORLDWIDE STOCK SOURCING
-</div>
+        <img
+            src="logo1.png"
+            alt="GlobalStock International"
+            class="hero-logo"
+        >
 
-<h1>
+        <div class="badge">
 
-ANY PRODUCT.
-<br>
+            <span class="live-dot"></span>
 
-<span class="gradient">
-ANY STOCK.
-</span>
+            WORLDWIDE STOCK SOURCING
 
-<br>
-
-ANY COUNTRY.
-
-</h1>
-
-<p class="description">
-
-We buy stock lots, surplus, overstock,
-clearance and excess inventory from
-suppliers around the world.
-
-</p>
-
-<div class="actions">
-
-<a href="#contact" class="btn primary">
-SELL YOUR STOCK →
-</a>
-
-<a href="#buy" class="btn secondary">
-WHAT WE BUY
-</a>
-
-</div>
-
-</div>
+        </div>
 
 
-<div class="map-info">
+        <h1>
 
-<small>GLOBAL SOURCING HUB</small>
+            ANY PRODUCT.
+            <br>
 
-<strong>
-● SRI LANKA
-</strong>
+            <span class="gradient-text">
+                ANY STOCK.
+            </span>
 
-</div>
+            <br>
+
+            ANY COUNTRY.
+
+        </h1>
 
 
-<div class="stats">
+        <p class="hero-description">
 
-<div class="stat">🌍 Worldwide Buying</div>
-<div class="stat">📦 Stock Lots</div>
-<div class="stat">🏭 Factory Surplus</div>
-<div class="stat">🚢 Global Trade</div>
+            We buy stock lots, surplus, overstock,
+            clearance and excess inventory from
+            suppliers around the world.
 
-</div>
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20would%20like%20to%20sell%20stock."
+                target="_blank"
+                class="btn btn-primary"
+            >
+                SELL YOUR STOCK →
+            </a>
+
+            <a
+                href="#buy"
+                class="btn btn-secondary"
+            >
+                WHAT WE BUY
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="map-info">
+
+        <small>
+            GLOBAL SOURCING HUB
+        </small>
+
+        <strong>
+            ● SRI LANKA
+        </strong>
+
+    </div>
+
+
+    <div class="trust-strip">
+
+        <div class="trust-item">
+            🌍 Worldwide Buying
+        </div>
+
+        <div class="trust-item">
+            📦 Stock Lots
+        </div>
+
+        <div class="trust-item">
+            🏭 Factory Surplus
+        </div>
+
+        <div class="trust-item">
+            🚢 Global Trade
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- WHAT WE BUY -->
+<!-- =========================
+     WHAT WE BUY
+========================= -->
 
-<section class="section" id="buy">
+<section
+    class="section"
+    id="buy"
+>
 
-<div class="heading">
+    <div class="section-header">
 
-<span>WHAT WE BUY</span>
+        <span>
+            WHAT WE BUY
+        </span>
 
-<h2>
-We Buy More Than One Product.
-</h2>
+        <h2>
+            We Buy More Than One Product.
+        </h2>
 
-<p>
-We source stock lots, surplus,
-overstock, clearance and excess
-inventory from different industries.
-</p>
+        <p>
+            We source stock lots, surplus,
+            overstock, clearance and excess
+            inventory from different industries
+            around the world.
+        </p>
 
-</div>
-
-
-<div class="cards">
-
-<div class="card">
-
-<div class="icon">📦</div>
-
-<h3>Stock Lots</h3>
-
-<p>
-Overstock, discontinued products,
-excess inventory and clearance stock.
-</p>
-
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="cards">
 
-<div class="icon">🏭</div>
+        <div class="card">
 
-<h3>Factory Surplus</h3>
+            <div class="card-icon">
+                📦
+            </div>
 
-<p>
-Factory surplus, unused materials,
-production excess and warehouse stock.
-</p>
+            <h3>
+                Stock Lots
+            </h3>
 
-</div>
+            <p>
+                Overstock, discontinued products,
+                excess inventory and clearance stock.
+            </p>
 
-
-<div class="card">
-
-<div class="icon">🚗</div>
-
-<h3>Vehicles & Machinery</h3>
-
-<p>
-Vehicles, machinery, equipment,
-auto parts and industrial products.
-</p>
-
-</div>
+        </div>
 
 
-<div class="card">
+        <div class="card">
 
-<div class="icon">🧵</div>
+            <div class="card-icon">
+                🏭
+            </div>
 
-<h3>Materials & Fabrics</h3>
+            <h3>
+                Factory Surplus
+            </h3>
 
-<p>
-PVC, synthetic leather, fabrics,
-textiles and upholstery materials.
-</p>
+            <p>
+                Factory surplus, unused materials,
+                production excess and warehouse stock.
+            </p>
 
-</div>
-
-
-<div class="card">
-
-<div class="icon">🏢</div>
-
-<h3>Business Clearance</h3>
-
-<p>
-Warehouse clearance, business closure
-stock and discontinued product lines.
-</p>
-
-</div>
+        </div>
 
 
-<div class="card">
+        <div class="card">
 
-<div class="icon">🌎</div>
+            <div class="card-icon">
+                🚗
+            </div>
 
-<h3>Other Products</h3>
+            <h3>
+                Vehicles & Machinery
+            </h3>
 
-<p>
-Have something different?
-Contact us. We may still be interested.
-</p>
+            <p>
+                Vehicles, machinery, equipment,
+                auto parts and industrial products.
+            </p>
 
-</div>
+        </div>
 
-</div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                🧵
+            </div>
+
+            <h3>
+                Materials & Fabrics
+            </h3>
+
+            <p>
+                PVC, synthetic leather, fabrics,
+                textiles and upholstery materials.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🏢
+            </div>
+
+            <h3>
+                Business Clearance
+            </h3>
+
+            <p>
+                Warehouse clearance, business closure
+                stock and discontinued product lines.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌎
+            </div>
+
+            <h3>
+                Other Products
+            </h3>
+
+            <p>
+                Have something different?
+                Contact us. We may still be interested.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- HOW IT WORKS -->
+<!-- =========================
+     HOW IT WORKS
+========================= -->
 
-<section class="section" id="process">
+<section
+    class="section"
+    id="process"
+>
 
-<div class="heading">
+    <div class="section-header">
 
-<span>HOW IT WORKS</span>
+        <span>
+            HOW IT WORKS
+        </span>
 
-<h2>
-Simple. Global. Direct.
-</h2>
+        <h2>
+            Simple. Global. Direct.
+        </h2>
 
-<p>
-Send us your available stock.
-We review the opportunity and
-discuss the next steps.
-</p>
+        <p>
+            Send us your available stock.
+            We review the opportunity and
+            discuss the next steps.
+        </p>
 
-</div>
-
-
-<div class="cards">
-
-<div class="card">
-
-<div class="icon">01</div>
-
-<h3>Send Your Stock</h3>
-
-<p>
-Send photos, videos, quantity,
-location and product details.
-</p>
-
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="cards">
 
-<div class="icon">02</div>
+        <div class="card">
 
-<h3>We Review</h3>
+            <div class="card-icon">
+                01
+            </div>
 
-<p>
-We review the stock and discuss
-quality, quantity and commercial terms.
-</p>
+            <h3>
+                Send Your Stock
+            </h3>
 
-</div>
+            <p>
+                Send photos, videos, quantity,
+                location and product details.
+            </p>
+
+        </div>
 
 
-<div class="card">
+        <div class="card">
 
-<div class="icon">03</div>
+            <div class="card-icon">
+                02
+            </div>
 
-<h3>Purchase & Ship</h3>
+            <h3>
+                We Review
+            </h3>
 
-<p>
-After agreement, we arrange
-purchasing and international logistics.
-</p>
+            <p>
+                We review the stock and discuss
+                quality, quantity and commercial terms.
+            </p>
 
-</div>
+        </div>
 
-</div>
+
+        <div class="card">
+
+            <div class="card-icon">
+                03
+            </div>
+
+            <h3>
+                Purchase & Ship
+            </h3>
+
+            <p>
+                After agreement, we arrange
+                purchasing and international logistics.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    class="contact-section"
+    id="contact"
+>
+
+    <div class="contact-container">
+
+        <div>
+
+            <img
+                src="logo1.png"
+                alt="GlobalStock International"
+                class="contact-logo"
+            >
+
+            <h2 class="contact-title">
+                Have Stock
+                <br>
+                to Sell?
+            </h2>
+
+            <p class="contact-text">
+
+                Send us your product photos,
+                videos, quantity and location.
+
+                We are interested in stock
+                opportunities from around the world.
+
+            </p>
+
+            <br>
+
+            <a
+                href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+                target="_blank"
+                class="btn btn-primary"
+            >
+                CONTACT US ON WHATSAPP →
+            </a>
+
+        </div>
+
+
+        <div class="contact-details">
+
+            <div class="contact-card">
+
+                <small>
+                    WHATSAPP
+                </small>
+
+                <a
+                    href="https://wa.me/94777426436"
+                    target="_blank"
+                >
+                    +94 77 742 6436
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <small>
+                    EMAIL
+                </small>
+
+                <a
+                    href="mailto:agmrifkan@gmail.com"
+                >
+                    agmrifkan@gmail.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <small>
+                    ADDRESS
+                </small>
+
+                <div>
+                    Colombo, Sri Lanka
+                </div>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <small>
+                    OUR MISSION
+                </small>
+
+                <div>
+                    Investing in a Brighter Tomorrow
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- CONTACT -->
-
-<section class="cta" id="contact">
-
-<h2>
-Have Stock to Sell?
-</h2>
-
-<p>
-Send us your product photos,
-videos and stock details.
-We are interested in opportunities worldwide.
-</p>
-
-<a href="mailto:info@globalstockinternational.com"
-class="btn primary">
-
-SEND YOUR STOCK DETAILS →
-
-</a>
-
-</section>
-
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-<div>
-© 2026 GlobalStock International
-</div>
+    <div class="footer-logo">
 
-<div>
-Worldwide Stock Lot Buyer
-</div>
+        <img
+            src="logo1.png"
+            alt="GlobalStock International"
+        >
+
+        <span>
+            © 2026 GlobalStock International
+        </span>
+
+    </div>
+
+    <div>
+        Worldwide Stock Lot Buyer
+    </div>
 
 </footer>
 
 
-<!-- WHATSAPP -->
+<!-- =========================
+     WHATSAPP FLOATING BUTTON
+========================= -->
 
 <a
-class="whatsapp"
-href="https://wa.me/"
-target="_blank"
-title="WhatsApp">
-
-☎
-
+    href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20would%20like%20to%20sell%20stock."
+    target="_blank"
+    class="whatsapp-button"
+    aria-label="WhatsApp"
+>
+    ☎
 </a>
 
 
 <script>
 
-/* ==========================================================
+/* =========================================================
    WORLD MAP
-========================================================== */
+========================================================= */
 
-const svg=d3.select("#world");
+const svg = d3.select("#world-map");
 
 let projection;
-let path;
-
-function drawMap(){
-
-const box=document.querySelector(".map");
-
-const width=box.clientWidth;
-const height=box.clientHeight;
-
-svg
-.attr("viewBox",`0 0 ${width} ${height}`)
-.attr("preserveAspectRatio","xMidYMid slice");
-
-projection=d3.geoNaturalEarth1()
-.fitExtent(
-[[10,20],[width-10,height-20]],
-{type:"Sphere"}
-);
-
-path=d3.geoPath()
-.projection(projection);
-
-loadWorld();
-}
+let pathGenerator;
 
 
-async function loadWorld(){
+/* =========================
+   CREATE MAP
+========================= */
 
-try{
+function createMap() {
 
-const world=await d3.json(
-"https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
-);
+    const container =
+        document.querySelector(".map-container");
 
-const countries=topojson.feature(
-world,
-world.objects.countries
-);
+    const width =
+        container.clientWidth;
 
-svg.selectAll("*").remove();
-
-
-/* COUNTRIES */
-
-svg
-.append("g")
-.selectAll("path")
-.data(countries.features)
-.enter()
-.append("path")
-.attr("class","country")
-.attr("d",path);
+    const height =
+        container.clientHeight;
 
 
-/* SRI LANKA */
-
-const destination=
-projection([80.7718,7.8731]);
-
-
-/* destination glow */
-
-svg
-.append("circle")
-.attr("class","destination")
-.attr("cx",destination[0])
-.attr("cy",destination[1])
-.attr("r",5);
+    svg
+        .attr(
+            "viewBox",
+            `0 0 ${width} ${height}`
+        )
+        .attr(
+            "preserveAspectRatio",
+            "xMidYMid slice"
+        );
 
 
-/* pulse */
-
-svg
-.append("circle")
-.attr("cx",destination[0])
-.attr("cy",destination[1])
-.attr("r",8)
-.attr("fill","none")
-.attr("stroke","#35e9c5")
-.attr("stroke-width",2)
-.attr("opacity",.8)
-.append("animate")
-.attr("attributeName","r")
-.attr("from",8)
-.attr("to",30)
-.attr("dur","2s")
-.attr("repeatCount","indefinite");
-
-svg
-.append("circle")
-.attr("cx",destination[0])
-.attr("cy",destination[1])
-.attr("r",8)
-.attr("fill","none")
-.attr("stroke","#35e9c5")
-.attr("stroke-width",1)
-.attr("opacity",.6)
-.append("animate")
-.attr("attributeName","r")
-.attr("from",8)
-.attr("to",45)
-.attr("dur","2s")
-.attr("begin",".7s")
-.attr("repeatCount","indefinite");
+    projection =
+        d3.geoNaturalEarth1()
+            .fitExtent(
+                [
+                    [20, 25],
+                    [width - 20, height - 25]
+                ],
+                {
+                    type: "Sphere"
+                }
+            );
 
 
-/* SOURCE COUNTRIES */
-
-const sources=[
-
-["Japan",139.69,35.68],
-["Korea",126.98,37.57],
-["China",116.40,39.90],
-["UAE",55.27,25.20],
-["Germany",13.40,52.52],
-["UK",-0.13,51.50],
-["USA",-74.00,40.71],
-["Australia",151.21,-33.87],
-["Italy",12.50,41.90]
-
-];
+    pathGenerator =
+        d3.geoPath()
+            .projection(projection);
 
 
-sources.forEach((item,index)=>{
-
-const start=projection([
-item[1],
-item[2]
-]);
-
-const end=destination;
-
-const dx=end[0]-start[0];
-const dy=end[1]-start[1];
-
-const distance=Math.sqrt(
-dx*dx+dy*dy
-);
-
-const curve=Math.max(
-35,
-distance*.18
-);
-
-const midX=
-(start[0]+end[0])/2;
-
-const midY=
-(start[1]+end[1])/2;
-
-const controlY=
-midY-curve;
-
-const d=`
-M ${start[0]} ${start[1]}
-Q ${midX} ${controlY}
-${end[0]} ${end[1]}
-`;
-
-
-/* route */
-
-const route=
-svg
-.append("path")
-.attr("class","route")
-.attr("d",d);
-
-
-/* source point */
-
-svg
-.append("circle")
-.attr("class","source")
-.attr("cx",start[0])
-.attr("cy",start[1])
-.attr("r",3.5);
-
-
-/* moving particle */
-
-const particle=
-svg
-.append("circle")
-.attr("class","particle")
-.attr("r",3);
-
-
-/* animate */
-
-const length=
-route.node().getTotalLength();
-
-let startTime=null;
-
-function animate(time){
-
-if(!startTime)
-startTime=time;
-
-const duration=
-4200+(index*280);
-
-const progress=
-((time-startTime)%duration)/
-duration;
-
-const point=
-route.node().getPointAtLength(
-progress*length
-);
-
-particle
-.attr("cx",point.x)
-.attr("cy",point.y);
-
-requestAnimationFrame(animate);
+    drawWorld();
 
 }
 
-requestAnimationFrame(animate);
+
+/* =========================
+   LOAD WORLD
+========================= */
+
+async function drawWorld() {
+
+    try {
+
+        const world =
+            await d3.json(
+                "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
+            );
 
 
-/* second smaller particle */
+        const countries =
+            topojson.feature(
+                world,
+                world.objects.countries
+            );
 
-const particle2=
-svg
-.append("circle")
-.attr("class","particle")
-.attr("r",1.8)
-.attr("opacity",.65);
 
-let startTime2=null;
+        svg.selectAll("*").remove();
 
-function animate2(time){
 
-if(!startTime2)
-startTime2=time;
+        /* countries */
 
-const duration=
-4200+(index*280);
+        svg
+            .append("g")
+            .selectAll("path")
+            .data(countries.features)
+            .enter()
+            .append("path")
+            .attr(
+                "class",
+                "country"
+            )
+            .attr(
+                "d",
+                pathGenerator
+            );
 
-const progress=
-(((time-startTime2)+1700)%duration)/
-duration;
 
-const point=
-route.node().getPointAtLength(
-progress*length
-);
+        /* =========================
+           SRI LANKA
+        ========================= */
 
-particle2
-.attr("cx",point.x)
-.attr("cy",point.y);
+        const sriLanka =
+            projection(
+                [80.7718,7.8731]
+            );
 
-requestAnimationFrame(animate2);
+
+        /* main destination */
+
+        svg
+            .append("circle")
+            .attr(
+                "class",
+                "destination-dot"
+            )
+            .attr(
+                "cx",
+                sriLanka[0]
+            )
+            .attr(
+                "cy",
+                sriLanka[1]
+            )
+            .attr(
+                "r",
+                5
+            );
+
+
+        /* pulse 1 */
+
+        svg
+            .append("circle")
+            .attr(
+                "cx",
+                sriLanka[0]
+            )
+            .attr(
+                "cy",
+                sriLanka[1]
+            )
+            .attr(
+                "r",
+                8
+            )
+            .attr(
+                "fill",
+                "none"
+            )
+            .attr(
+                "stroke",
+                "#35e9c4"
+            )
+            .attr(
+                "stroke-width",
+                1.5
+            )
+            .attr(
+                "opacity",
+                .8
+            )
+            .append("animate")
+            .attr(
+                "attributeName",
+                "r"
+            )
+            .attr(
+                "from",
+                8
+            )
+            .attr(
+                "to",
+                28
+            )
+            .attr(
+                "dur",
+                "2s"
+            )
+            .attr(
+                "repeatCount",
+                "indefinite"
+            );
+
+
+        /* pulse 2 */
+
+        svg
+            .append("circle")
+            .attr(
+                "cx",
+                sriLanka[0]
+            )
+            .attr(
+                "cy",
+                sriLanka[1]
+            )
+            .attr(
+                "r",
+                8
+            )
+            .attr(
+                "fill",
+                "none"
+            )
+            .attr(
+                "stroke",
+                "#35e9c4"
+            )
+            .attr(
+                "stroke-width",
+                1
+            )
+            .attr(
+                "opacity",
+                .6
+            )
+            .append("animate")
+            .attr(
+                "attributeName",
+                "r"
+            )
+            .attr(
+                "from",
+                8
+            )
+            .attr(
+                "to",
+                45
+            )
+            .attr(
+                "dur",
+                "2s"
+            )
+            .attr(
+                "begin",
+                ".7s"
+            )
+            .attr(
+                "repeatCount",
+                "indefinite"
+            );
+
+
+        /* =========================
+           SOURCE COUNTRIES
+        ========================= */
+
+        const sources = [
+
+            {
+                name:"Japan",
+                lon:139.69,
+                lat:35.68
+            },
+
+            {
+                name:"Korea",
+                lon:126.98,
+                lat:37.57
+            },
+
+            {
+                name:"China",
+                lon:116.40,
+                lat:39.90
+            },
+
+            {
+                name:"UAE",
+                lon:55.27,
+                lat:25.20
+            },
+
+            {
+                name:"Germany",
+                lon:13.40,
+                lat:52.52
+            },
+
+            {
+                name:"UK",
+                lon:-0.13,
+                lat:51.50
+            },
+
+            {
+                name:"USA",
+                lon:-74.00,
+                lat:40.71
+            },
+
+            {
+                name:"Australia",
+                lon:151.21,
+                lat:-33.87
+            },
+
+            {
+                name:"Italy",
+                lon:12.50,
+                lat:41.90
+            }
+
+        ];
+
+
+        sources.forEach(
+            (source,index) => {
+
+                const start =
+                    projection(
+                        [
+                            source.lon,
+                            source.lat
+                        ]
+                    );
+
+
+                const end =
+                    sriLanka;
+
+
+                const dx =
+                    end[0] - start[0];
+
+                const dy =
+                    end[1] - start[1];
+
+
+                const distance =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy
+                    );
+
+
+                const curve =
+                    Math.max(
+                        40,
+                        distance * .18
+                    );
+
+
+                const midX =
+                    (
+                        start[0] +
+                        end[0]
+                    ) / 2;
+
+
+                const midY =
+                    (
+                        start[1] +
+                        end[1]
+                    ) / 2;
+
+
+                const controlY =
+                    midY - curve;
+
+
+                const routeData = `
+
+                    M ${start[0]}
+                      ${start[1]}
+
+                    Q ${midX}
+                      ${controlY}
+
+                      ${end[0]}
+                      ${end[1]}
+
+                `;
+
+
+                /* main route */
+
+                const route =
+                    svg
+                        .append("path")
+                        .attr(
+                            "class",
+                            "route"
+                        )
+                        .attr(
+                            "d",
+                            routeData
+                        );
+
+
+                /* source */
+
+                svg
+                    .append("circle")
+                    .attr(
+                        "class",
+                        "source-dot"
+                    )
+                    .attr(
+                        "cx",
+                        start[0]
+                    )
+                    .attr(
+                        "cy",
+                        start[1]
+                    )
+                    .attr(
+                        "r",
+                        3.5
+                    );
+
+
+                /* moving light */
+
+                const movingDot =
+                    svg
+                        .append("circle")
+                        .attr(
+                            "class",
+                            "moving-dot"
+                        )
+                        .attr(
+                            "r",
+                            3.2
+                        );
+
+
+                const totalLength =
+                    route.node()
+                        .getTotalLength();
+
+
+                let startTime = null;
+
+
+                function animate(time) {
+
+                    if (!startTime) {
+                        startTime = time;
+                    }
+
+
+                    const duration =
+                        4200 +
+                        (index * 320);
+
+
+                    const progress =
+                        (
+                            (time - startTime)
+                            % duration
+                        )
+                        / duration;
+
+
+                    const point =
+                        route.node()
+                            .getPointAtLength(
+                                progress *
+                                totalLength
+                            );
+
+
+                    movingDot
+                        .attr(
+                            "cx",
+                            point.x
+                        )
+                        .attr(
+                            "cy",
+                            point.y
+                        );
+
+
+                    requestAnimationFrame(
+                        animate
+                    );
+
+                }
+
+
+                requestAnimationFrame(
+                    animate
+                );
+
+
+                /* second particle */
+
+                const secondDot =
+                    svg
+                        .append("circle")
+                        .attr(
+                            "class",
+                            "moving-dot"
+                        )
+                        .attr(
+                            "r",
+                            1.8
+                        )
+                        .attr(
+                            "opacity",
+                            .6
+                        );
+
+
+                let secondStart = null;
+
+
+                function animateSecond(time) {
+
+                    if (!secondStart) {
+                        secondStart = time;
+                    }
+
+
+                    const duration =
+                        4200 +
+                        (index * 320);
+
+
+                    const progress =
+                        (
+                            (
+                                (time - secondStart)
+                                + 1800
+                            )
+                            % duration
+                        )
+                        / duration;
+
+
+                    const point =
+                        route.node()
+                            .getPointAtLength(
+                                progress *
+                                totalLength
+                            );
+
+
+                    secondDot
+                        .attr(
+                            "cx",
+                            point.x
+                        )
+                        .attr(
+                            "cy",
+                            point.y
+                        );
+
+
+                    requestAnimationFrame(
+                        animateSecond
+                    );
+
+                }
+
+
+                requestAnimationFrame(
+                    animateSecond
+                );
+
+            }
+        );
+
+    }
+
+    catch(error) {
+
+        console.log(
+            "World map error:",
+            error
+        );
+
+    }
 
 }
 
-requestAnimationFrame(animate2);
 
-});
+/* start */
 
-}
+createMap();
 
-catch(error){
 
-console.log(
-"Map loading error:",
-error
-);
-
-}
-
-}
-
-drawMap();
+/* resize */
 
 window.addEventListener(
-"resize",
-drawMap
+    "resize",
+    createMap
 );
 
 </script>
