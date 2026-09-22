@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GlobalStock International</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<meta name="description"
-content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+<meta name="theme-color" content="#02080d">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>
+GlobalStock International
+</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+<meta
+name="description"
+content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide."
+>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
 rel="stylesheet">
 
 <style>
@@ -29,15 +44,20 @@ rel="stylesheet">
 
 html{
     scroll-behavior:smooth;
-    background:#02070b;
+    background:#02080d;
 }
 
 body{
     margin:0;
-    font-family:Inter,Arial,sans-serif;
+    background:#02080d;
     color:#fff;
-    background:#02070b;
+    font-family:Inter,Arial,sans-serif;
     overflow-x:hidden;
+}
+
+img{
+    display:block;
+    max-width:100%;
 }
 
 a{
@@ -45,9 +65,8 @@ a{
     text-decoration:none;
 }
 
-img{
-    display:block;
-    max-width:100%;
+button{
+    font:inherit;
 }
 
 
@@ -56,100 +75,147 @@ img{
 ========================================================= */
 
 header{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
     height:76px;
+
     z-index:1000;
 
-    background:rgba(2,8,13,.72);
+    background:
+        rgba(2,8,13,.76);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 }
 
 .nav{
+
     width:min(1200px,92%);
+
     height:100%;
+
     margin:auto;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
+    min-width:0;
 }
 
 .logo img{
+
     width:48px;
     height:48px;
+
     object-fit:contain;
 }
 
 .logo-name{
+
     font-size:16px;
+
     font-weight:800;
+
     letter-spacing:.5px;
+
+    white-space:nowrap;
 }
 
 .logo-sub{
+
     display:block;
+
     margin-top:2px;
 
     font-size:8px;
-    letter-spacing:2.5px;
-    color:rgba(255,255,255,.5);
+
+    letter-spacing:2.8px;
+
+    color:
+        rgba(255,255,255,.48);
 }
 
 .nav-links{
+
     display:flex;
+
     align-items:center;
+
     gap:30px;
 }
 
 .nav-links a{
+
     font-size:12px;
+
     font-weight:600;
-    color:rgba(255,255,255,.72);
+
+    color:
+        rgba(255,255,255,.70);
 
     transition:.3s;
 }
 
 .nav-links a:hover{
+
     color:#fff;
 }
 
 .nav-contact{
-    padding:11px 19px;
+
+    padding:
+        11px 19px;
 
     border-radius:100px;
 
     color:#031018 !important;
+
     background:#fff;
 }
 
 .menu{
+
     display:none;
 
     width:44px;
     height:44px;
 
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.05);
+    border-radius:11px;
 
-    border-radius:10px;
+    border:
+        1px solid rgba(255,255,255,.12);
 
-    color:white;
-    font-size:21px;
+    background:
+        rgba(255,255,255,.05);
+
+    color:#fff;
 
     cursor:pointer;
+
+    font-size:20px;
 }
 
 
@@ -158,47 +224,58 @@ header{
 ========================================================= */
 
 .hero{
+
     position:relative;
 
-    min-height:100vh;
+    width:100%;
+
+    min-height:100svh;
+
     height:850px;
 
     overflow:hidden;
 
-    background:#02070b;
+    background:#02080d;
 }
 
 
 /* =========================================================
-   3D WORLD MAP BACKGROUND
+   WORLD MAP BACKGROUND
 ========================================================= */
 
 .world-background{
+
     position:absolute;
+
     inset:0;
 
     z-index:1;
 
     background-image:
+
         linear-gradient(
             180deg,
-            rgba(2,7,12,.30),
-            rgba(2,8,13,.18) 45%,
-            rgba(2,7,11,.72)
+            rgba(1,7,12,.16) 0%,
+            rgba(1,7,12,.08) 38%,
+            rgba(1,7,12,.28) 70%,
+            rgba(1,7,12,.72) 100%
         ),
+
         url("./world-map-bg.png");
 
-    background-size:cover;
-    background-position:center center;
     background-repeat:no-repeat;
+
+    background-size:cover;
+
+    background-position:center center;
 
     transform:scale(1.025);
 
     animation:
-        mapBreath 14s ease-in-out infinite alternate;
+        mapZoom 16s ease-in-out infinite alternate;
 }
 
-@keyframes mapBreath{
+@keyframes mapZoom{
 
     from{
         transform:scale(1.025);
@@ -211,57 +288,64 @@ header{
 
 
 /* =========================================================
-   DARK CINEMATIC OVERLAY
+   CINEMATIC OVERLAY
 ========================================================= */
 
 .hero-overlay{
+
     position:absolute;
+
     inset:0;
+
     z-index:2;
+
+    pointer-events:none;
 
     background:
 
         radial-gradient(
-            ellipse at 65% 48%,
+            ellipse at 65% 45%,
             transparent 15%,
-            rgba(1,7,12,.08) 50%,
-            rgba(1,5,9,.72) 100%
+            rgba(0,7,12,.06) 45%,
+            rgba(0,5,9,.62) 100%
         ),
 
         linear-gradient(
             90deg,
-            rgba(1,6,10,.75) 0%,
-            rgba(1,7,12,.30) 38%,
-            rgba(1,7,12,.10) 70%,
-            rgba(1,6,10,.48) 100%
+            rgba(0,5,9,.73) 0%,
+            rgba(0,7,12,.28) 38%,
+            rgba(0,7,12,.08) 68%,
+            rgba(0,5,9,.42) 100%
         );
-
-    pointer-events:none;
 }
 
 
 /* =========================================================
-   PREMIUM GRID
+   SUBTLE GRID
 ========================================================= */
 
 .hero-grid{
+
     position:absolute;
+
     inset:0;
 
     z-index:3;
 
-    opacity:.10;
+    pointer-events:none;
+
+    opacity:.085;
 
     background-image:
 
         linear-gradient(
-            rgba(110,220,240,.35) 1px,
+            rgba(105,221,238,.45) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(110,220,240,.35) 1px,
+            rgba(105,221,238,.45) 1px,
             transparent 1px
         );
 
@@ -273,8 +357,8 @@ header{
         linear-gradient(
             to bottom,
             transparent,
-            black 25%,
-            black 75%,
+            black 22%,
+            black 78%,
             transparent
         );
 }
@@ -285,45 +369,57 @@ header{
 ========================================================= */
 
 .routes{
+
     position:absolute;
+
     inset:0;
 
     width:100%;
     height:100%;
 
-    z-index:5;
+    z-index:6;
 
     pointer-events:none;
+
+    overflow:visible;
 }
-
-
-/* route line */
 
 .route{
 
     fill:none;
 
-    stroke:#28f1d0;
+    stroke:#2ffff0;
 
-    stroke-width:2;
+    stroke-width:2.2;
 
     stroke-linecap:round;
 
-    opacity:.62;
+    opacity:.68;
+
+    stroke-dasharray:1200;
+
+    stroke-dashoffset:1200;
 
     filter:
-        drop-shadow(0 0 4px rgba(35,255,211,.75))
-        drop-shadow(0 0 13px rgba(35,255,211,.32));
-
-    stroke-dasharray:1000;
-
-    stroke-dashoffset:1000;
+        drop-shadow(
+            0 0 4px rgba(35,255,224,.9)
+        )
+        drop-shadow(
+            0 0 13px rgba(35,255,224,.4)
+        );
 
     animation:
-        drawRoute 4s ease-out forwards,
-        routeGlow 3s ease-in-out 4s infinite alternate;
-}
 
+        drawRoute 3.8s
+        cubic-bezier(.2,.8,.2,1)
+        forwards,
+
+        routePulse 3s
+        ease-in-out
+        4s
+        infinite
+        alternate;
+}
 
 @keyframes drawRoute{
 
@@ -332,41 +428,40 @@ header{
     }
 }
 
-
-@keyframes routeGlow{
+@keyframes routePulse{
 
     from{
-        opacity:.35;
+        opacity:.34;
     }
 
     to{
-        opacity:.9;
+        opacity:.92;
     }
 }
 
 
-/* second thinner route */
+/* thinner moving dashed line */
 
 .route-thin{
 
     fill:none;
 
-    stroke:#6ffff0;
+    stroke:#8bfff2;
 
     stroke-width:1;
 
-    opacity:.30;
+    opacity:.28;
 
-    stroke-dasharray:4 8;
+    stroke-dasharray:4 10;
 
     animation:
-        routeDash 5s linear infinite;
+        movingDash 5s linear infinite;
 }
 
-@keyframes routeDash{
+@keyframes movingDash{
 
     to{
-        stroke-dashoffset:-200;
+        stroke-dashoffset:-300;
     }
 }
 
@@ -377,56 +472,66 @@ header{
 
 .travel-light{
 
-    fill:#d8fff8;
+    fill:#ffffff;
 
     filter:
-        drop-shadow(0 0 5px #21ffe0)
-        drop-shadow(0 0 16px #21ffe0);
-
-    opacity:.95;
+        drop-shadow(
+            0 0 5px #2ffff0
+        )
+        drop-shadow(
+            0 0 15px #2ffff0
+        )
+        drop-shadow(
+            0 0 28px rgba(47,255,240,.8)
+        );
 }
 
 
 /* =========================================================
-   DESTINATION HUB
+   SRI LANKA HUB
 ========================================================= */
 
 .destination{
 
     position:absolute;
 
-    left:66.2%;
-    top:51.3%;
+    left:66.3%;
+    top:51.5%;
 
     width:18px;
     height:18px;
 
-    z-index:9;
+    z-index:12;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 }
 
 .destination-core{
 
     position:absolute;
 
-    width:11px;
-    height:11px;
+    left:4px;
+    top:4px;
 
-    left:3.5px;
-    top:3.5px;
+    width:10px;
+    height:10px;
 
     border-radius:50%;
 
     background:#eaffff;
 
     box-shadow:
-        0 0 7px #fff,
-        0 0 18px #31ffe0,
-        0 0 38px #31ffe0,
-        0 0 65px rgba(49,255,224,.8);
-}
 
+        0 0 7px #fff,
+
+        0 0 17px #2ffff0,
+
+        0 0 35px #2ffff0,
+
+        0 0 65px
+        rgba(47,255,240,.85);
+}
 
 .destination-ring{
 
@@ -436,12 +541,15 @@ header{
 
     border-radius:50%;
 
-    border:1px solid rgba(50,255,224,.75);
+    border:
+        1px solid
+        rgba(47,255,240,.72);
 
     animation:
-        destinationPulse 2.2s ease-out infinite;
+        hubPulse 2.4s
+        ease-out
+        infinite;
 }
-
 
 .destination-ring-2{
 
@@ -451,26 +559,33 @@ header{
 
     border-radius:50%;
 
-    border:1px solid rgba(50,255,224,.28);
+    border:
+        1px solid
+        rgba(47,255,240,.28);
 
     animation:
-        destinationPulse 2.2s ease-out .7s infinite;
+        hubPulse 2.4s
+        ease-out
+        .8s
+        infinite;
 }
 
-
-@keyframes destinationPulse{
+@keyframes hubPulse{
 
     0%{
-        transform:scale(.55);
+
+        transform:scale(.5);
+
         opacity:.9;
     }
 
     100%{
+
         transform:scale(1.15);
+
         opacity:0;
     }
 }
-
 
 .destination-label{
 
@@ -482,14 +597,16 @@ header{
     white-space:nowrap;
 
     font-size:9px;
+
     font-weight:700;
 
     letter-spacing:2px;
 
-    color:#bffff5;
+    color:#cafff8;
 
     text-shadow:
-        0 0 12px rgba(38,255,221,.7);
+        0 0 12px
+        rgba(47,255,240,.8);
 }
 
 
@@ -510,41 +627,48 @@ header{
     margin:auto;
 
     display:flex;
+
     align-items:center;
 
-    padding-top:55px;
+    padding-top:45px;
 }
-
 
 .hero-text{
-    width:min(650px,100%);
-}
 
+    width:min(660px,100%);
+}
 
 .eyebrow{
 
     display:inline-flex;
+
     align-items:center;
+
     gap:9px;
 
-    padding:9px 15px;
+    padding:
+        9px 15px;
 
-    border:1px solid rgba(122,255,234,.22);
+    border:
+        1px solid
+        rgba(111,255,236,.22);
 
     border-radius:100px;
 
-    background:rgba(2,20,27,.48);
+    background:
+        rgba(1,21,27,.52);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:
+        blur(10px);
 
-    color:#b9fff5;
+    color:#c2fff8;
 
     font-size:9px;
+
     font-weight:700;
 
-    letter-spacing:2.7px;
+    letter-spacing:2.8px;
 }
-
 
 .eyebrow-dot{
 
@@ -553,22 +677,22 @@ header{
 
     border-radius:50%;
 
-    background:#31ffe0;
+    background:#32ffe1;
 
     box-shadow:
-        0 0 12px #31ffe0;
+        0 0 12px #32ffe1;
 }
 
-
-h1{
+.hero h1{
 
     margin-top:25px;
 
-    font-size:clamp(
-        43px,
-        6.5vw,
-        82px
-    );
+    font-size:
+        clamp(
+            43px,
+            6.5vw,
+            82px
+        );
 
     line-height:.95;
 
@@ -577,46 +701,48 @@ h1{
     font-weight:900;
 
     text-shadow:
-        0 12px 50px rgba(0,0,0,.65);
+        0 15px 55px
+        rgba(0,0,0,.68);
 }
 
+.hero h1 span{
 
-h1 span{
     display:block;
 }
 
+.hero h1 .white{
 
-h1 .white{
     color:#fff;
 }
 
+.hero h1 .cyan{
 
-h1 .cyan{
-
-    color:#8dfff2;
+    color:#7ffff0;
 
     text-shadow:
-        0 0 25px rgba(67,255,226,.18);
+        0 0 28px
+        rgba(50,255,225,.16);
 }
-
 
 .hero-description{
 
-    max-width:590px;
+    max-width:600px;
 
     margin-top:25px;
 
-    color:rgba(237,249,250,.72);
+    color:
+        rgba(235,248,250,.72);
 
     font-size:15px;
 
     line-height:1.8;
 }
 
-
 .buttons{
 
     display:flex;
+
+    align-items:center;
 
     gap:12px;
 
@@ -625,26 +751,27 @@ h1 .cyan{
     flex-wrap:wrap;
 }
 
-
 .btn{
 
     min-height:48px;
 
+    padding:
+        0 22px;
+
     display:inline-flex;
 
     align-items:center;
-    justify-content:center;
 
-    padding:0 22px;
+    justify-content:center;
 
     border-radius:100px;
 
     font-size:12px;
+
     font-weight:700;
 
     transition:.3s;
 }
-
 
 .btn-main{
 
@@ -653,39 +780,43 @@ h1 .cyan{
     background:#fff;
 
     box-shadow:
-        0 10px 35px rgba(0,0,0,.3);
+        0 12px 35px
+        rgba(0,0,0,.3);
 }
-
 
 .btn-main:hover{
 
     transform:translateY(-2px);
 
     box-shadow:
-        0 12px 35px rgba(48,255,223,.22);
+        0 12px 40px
+        rgba(45,255,225,.2);
 }
-
 
 .btn-outline{
 
-    border:1px solid rgba(255,255,255,.18);
+    color:#fff;
 
-    background:rgba(255,255,255,.05);
+    background:
+        rgba(255,255,255,.045);
 
-    backdrop-filter:blur(10px);
+    border:
+        1px solid
+        rgba(255,255,255,.17);
 
-    color:white;
+    backdrop-filter:
+        blur(10px);
 }
-
 
 .btn-outline:hover{
 
-    background:rgba(255,255,255,.10);
+    background:
+        rgba(255,255,255,.10);
 }
 
 
 /* =========================================================
-   BOTTOM INFORMATION
+   BOTTOM STATUS
 ========================================================= */
 
 .hero-bottom{
@@ -693,9 +824,10 @@ h1 .cyan{
     position:absolute;
 
     left:50%;
-    bottom:25px;
+    bottom:24px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     z-index:30;
 
@@ -704,17 +836,20 @@ h1 .cyan{
     display:flex;
 
     align-items:center;
+
     justify-content:space-between;
 }
-
 
 .route-status{
 
     display:flex;
+
     align-items:center;
+
     gap:9px;
 
-    color:rgba(255,255,255,.52);
+    color:
+        rgba(255,255,255,.50);
 
     font-size:9px;
 
@@ -723,7 +858,6 @@ h1 .cyan{
     text-transform:uppercase;
 }
 
-
 .status-dot{
 
     width:6px;
@@ -731,16 +865,16 @@ h1 .cyan{
 
     border-radius:50%;
 
-    background:#35ffe0;
+    background:#32ffe1;
 
     box-shadow:
-        0 0 10px #35ffe0;
+        0 0 11px #32ffe1;
 }
 
+.scroll-text{
 
-.scroll{
-
-    color:rgba(255,255,255,.4);
+    color:
+        rgba(255,255,255,.35);
 
     font-size:8px;
 
@@ -751,16 +885,18 @@ h1 .cyan{
 
 
 /* =========================================================
-   SECTIONS
+   CONTENT SECTIONS
 ========================================================= */
 
-section.content-section{
+.content-section{
 
-    padding:105px 0;
+    position:relative;
+
+    padding:
+        105px 0;
 
     background:#030b11;
 }
-
 
 .section-inner{
 
@@ -769,10 +905,9 @@ section.content-section{
     margin:auto;
 }
 
-
 .section-label{
 
-    color:#4fffe2;
+    color:#4dffe4;
 
     font-size:9px;
 
@@ -783,12 +918,16 @@ section.content-section{
     text-transform:uppercase;
 }
 
-
 .section-title{
 
     margin-top:14px;
 
-    font-size:clamp(34px,5vw,58px);
+    font-size:
+        clamp(
+            34px,
+            5vw,
+            58px
+        );
 
     line-height:1.03;
 
@@ -797,14 +936,14 @@ section.content-section{
     font-weight:800;
 }
 
-
 .section-description{
 
     max-width:680px;
 
     margin-top:18px;
 
-    color:rgba(255,255,255,.52);
+    color:
+        rgba(255,255,255,.52);
 
     line-height:1.8;
 
@@ -828,14 +967,15 @@ section.content-section{
     margin-top:48px;
 }
 
-
 .card{
 
     min-height:190px;
 
     padding:26px;
 
-    border:1px solid rgba(255,255,255,.07);
+    border:
+        1px solid
+        rgba(255,255,255,.07);
 
     border-radius:18px;
 
@@ -849,15 +989,14 @@ section.content-section{
     transition:.3s;
 }
 
-
 .card:hover{
 
-    transform:translateY(-5px);
+    transform:
+        translateY(-5px);
 
     border-color:
-        rgba(68,255,226,.25);
+        rgba(62,255,227,.24);
 }
-
 
 .card-icon{
 
@@ -866,18 +1005,17 @@ section.content-section{
     margin-bottom:25px;
 }
 
-
 .card h3{
 
     font-size:15px;
 }
 
-
 .card p{
 
     margin-top:9px;
 
-    color:rgba(255,255,255,.43);
+    color:
+        rgba(255,255,255,.43);
 
     font-size:11px;
 
@@ -891,27 +1029,30 @@ section.content-section{
 
 .cta{
 
-    padding:110px 0;
+    padding:
+        110px 0;
 
     background:
 
         radial-gradient(
             circle at 50% 50%,
-            rgba(26,160,145,.14),
+            rgba(25,160,145,.14),
             transparent 55%
         ),
 
         #031018;
 }
 
-
 .cta-box{
 
     text-align:center;
 
-    padding:70px 25px;
+    padding:
+        70px 25px;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.08);
 
     border-radius:25px;
 
@@ -919,24 +1060,29 @@ section.content-section{
         rgba(255,255,255,.025);
 }
 
-
 .cta-box h2{
 
     margin-top:12px;
 
-    font-size:clamp(38px,6vw,65px);
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            65px
+        );
 
     letter-spacing:-3px;
 }
-
 
 .cta-box p{
 
     max-width:600px;
 
-    margin:18px auto 30px;
+    margin:
+        18px auto 30px;
 
-    color:rgba(255,255,255,.5);
+    color:
+        rgba(255,255,255,.5);
 
     line-height:1.8;
 }
@@ -948,14 +1094,15 @@ section.content-section{
 
 footer{
 
-    padding:32px 0;
+    padding:
+        32px 0;
 
     background:#02070b;
 
     border-top:
-        1px solid rgba(255,255,255,.06);
+        1px solid
+        rgba(255,255,255,.06);
 }
-
 
 .footer-inner{
 
@@ -970,14 +1117,13 @@ footer{
     justify-content:space-between;
 }
 
-
 .footer-copy{
 
-    color:rgba(255,255,255,.35);
+    color:
+        rgba(255,255,255,.35);
 
     font-size:10px;
 }
-
 
 .footer-brand{
 
@@ -987,7 +1133,8 @@ footer{
 
     letter-spacing:1.5px;
 
-    color:rgba(255,255,255,.5);
+    color:
+        rgba(255,255,255,.48);
 }
 
 
@@ -998,10 +1145,12 @@ footer{
 @media(max-width:900px){
 
     header{
+
         height:68px;
     }
 
     .logo img{
+
         width:42px;
         height:42px;
     }
@@ -1017,55 +1166,56 @@ footer{
 
         width:100%;
 
-        padding:15px 5% 22px;
+        padding:
+            15px 5% 22px;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:4px;
 
         background:
             rgba(2,8,13,.97);
 
         border-bottom:
-            1px solid rgba(255,255,255,.08);
-
-        flex-direction:column;
-
-        gap:5px;
+            1px solid
+            rgba(255,255,255,.08);
     }
 
     .nav-links.active{
+
         display:flex;
     }
 
     .nav-links a{
+
         padding:13px 8px;
     }
 
     .nav-contact{
+
         text-align:center;
     }
 
     .menu{
+
         display:block;
     }
 
     .hero{
 
         height:760px;
+
         min-height:760px;
-    }
-
-    .world-background{
-
-        background-position:
-            57% center;
     }
 
     .hero-content{
 
-        align-items:center;
-
-        padding-top:45px;
+        padding-top:35px;
     }
 
-    h1{
+    .hero h1{
 
         font-size:
             clamp(
@@ -1082,18 +1232,11 @@ footer{
         font-size:13px;
     }
 
-    .destination{
-
-        left:66%;
-        top:51%;
-    }
-
     .cards{
 
         grid-template-columns:
             repeat(2,1fr);
     }
-
 }
 
 
@@ -1106,23 +1249,23 @@ footer{
     .hero{
 
         height:720px;
+
         min-height:720px;
     }
 
+    /*
+       Same map.
+       We only change its crop,
+       not replace the image.
+    */
+
     .world-background{
 
-        /*
-           Keep SAME visual background.
-           Only change crop on narrow screen.
-        */
-
-        background-size:
-            auto 100%;
+        background-size:cover;
 
         background-position:
-            58% center;
+            59% center;
     }
-
 
     .hero-overlay{
 
@@ -1130,32 +1273,36 @@ footer{
 
             linear-gradient(
                 90deg,
-                rgba(1,6,10,.80),
-                rgba(1,7,12,.40),
-                rgba(1,6,10,.48)
+                rgba(0,5,9,.80),
+                rgba(0,7,12,.30),
+                rgba(0,5,9,.48)
             ),
 
             linear-gradient(
                 180deg,
-                rgba(2,7,12,.28),
-                rgba(2,7,12,.58)
+                rgba(0,6,11,.18),
+                rgba(0,6,11,.62)
             );
     }
 
+    .hero-grid{
+
+        background-size:
+            74px 74px,
+            74px 74px;
+    }
 
     .hero-content{
 
         width:90%;
 
-        padding-top:35px;
+        padding-top:25px;
     }
-
 
     .hero-text{
 
         width:100%;
     }
-
 
     .eyebrow{
 
@@ -1163,11 +1310,11 @@ footer{
 
         letter-spacing:2px;
 
-        padding:8px 12px;
+        padding:
+            8px 12px;
     }
 
-
-    h1{
+    .hero h1{
 
         margin-top:20px;
 
@@ -1183,10 +1330,7 @@ footer{
         letter-spacing:-2.3px;
     }
 
-
     .hero-description{
-
-        max-width:470px;
 
         margin-top:19px;
 
@@ -1195,30 +1339,27 @@ footer{
         line-height:1.7;
     }
 
-
     .buttons{
 
         margin-top:24px;
     }
 
-
     .btn{
 
         min-height:45px;
 
-        padding:0 17px;
+        padding:
+            0 17px;
 
         font-size:10px;
     }
 
-
     .destination{
 
-        left:66%;
+        left:66.3%;
 
-        top:51%;
+        top:51.5%;
     }
-
 
     .destination-label{
 
@@ -1227,12 +1368,12 @@ footer{
         letter-spacing:1px;
     }
 
-
     .hero-bottom{
+
+        width:90%;
 
         bottom:18px;
     }
-
 
     .route-status{
 
@@ -1241,18 +1382,16 @@ footer{
         letter-spacing:1.5px;
     }
 
-
-    .scroll{
+    .scroll-text{
 
         display:none;
     }
 
+    .content-section{
 
-    section.content-section{
-
-        padding:75px 0;
+        padding:
+            75px 0;
     }
-
 
     .cards{
 
@@ -1261,24 +1400,22 @@ footer{
         margin-top:35px;
     }
 
-
     .card{
 
         min-height:155px;
     }
 
-
     .cta{
 
-        padding:75px 0;
+        padding:
+            75px 0;
     }
-
 
     .cta-box{
 
-        padding:55px 20px;
+        padding:
+            55px 20px;
     }
-
 
     .footer-inner{
 
@@ -1288,7 +1425,6 @@ footer{
 
         text-align:center;
     }
-
 }
 
 
@@ -1298,23 +1434,18 @@ footer{
 
 @media(max-width:380px){
 
-    h1{
+    .hero{
+
+        height:690px;
+
+        min-height:690px;
+    }
+
+    .hero h1{
 
         font-size:35px;
 
         letter-spacing:-1.8px;
-    }
-
-    .hero{
-
-        height:690px;
-        min-height:690px;
-    }
-
-    .destination{
-
-        left:66%;
-        top:50%;
     }
 
 }
@@ -1339,6 +1470,7 @@ footer{
 }
 
 </style>
+
 </head>
 
 
@@ -1353,11 +1485,13 @@ footer{
 
 <div class="nav">
 
+
 <a href="#home" class="logo">
 
 <img
 src="./logo1.png"
-alt="GlobalStock International">
+alt="GlobalStock International"
+>
 
 <div>
 
@@ -1374,7 +1508,10 @@ INTERNATIONAL
 </a>
 
 
-<nav class="nav-links" id="navLinks">
+<nav
+class="nav-links"
+id="navLinks"
+>
 
 <a href="#home">
 Home
@@ -1395,7 +1532,8 @@ Contact
 <a
 href="https://wa.me/94777426436"
 target="_blank"
-class="nav-contact">
+class="nav-contact"
+>
 
 WhatsApp
 
@@ -1407,11 +1545,14 @@ WhatsApp
 <button
 class="menu"
 id="menuBtn"
-type="button">
+type="button"
+aria-label="Open menu"
+>
 
 ☰
 
 </button>
+
 
 </div>
 
@@ -1422,55 +1563,67 @@ type="button">
      HERO
 ======================================================= -->
 
-<section class="hero" id="home">
-
-
-<!-- 3D MAP -->
-
-<div class="world-background"></div>
-
-
-<!-- DARK OVERLAY -->
-
-<div class="hero-overlay"></div>
-
-
-<!-- GRID -->
-
-<div class="hero-grid"></div>
+<section
+class="hero"
+id="home"
+>
 
 
 <!-- =====================================================
-     ANIMATED SHIPPING ROUTES
+     CLEAN 3D WORLD MAP
+===================================================== -->
 
-     Coordinates are based on the 1600 x 850
-     hero composition.
+<div
+class="world-background"
+></div>
 
-     All routes converge on Sri Lanka.
+
+<!-- =====================================================
+     DARK CINEMATIC OVERLAY
+===================================================== -->
+
+<div
+class="hero-overlay"
+></div>
+
+
+<!-- =====================================================
+     GRID
+===================================================== -->
+
+<div
+class="hero-grid"
+></div>
+
+
+<!-- =====================================================
+     ANIMATED ROUTES
 ===================================================== -->
 
 <svg
 class="routes"
 viewBox="0 0 1600 850"
 preserveAspectRatio="none"
-aria-hidden="true">
+aria-hidden="true"
+>
 
 
 <!-- ===================================================
-     USA → SRI LANKA
+     NORTH AMERICA → SRI LANKA
 =================================================== -->
 
 <path
 class="route"
 d="
 M145 225
-C310 80,
-570 100,
-810 250
-C920 320,
-990 365,
+C310 75,
+560 95,
+805 245
+C930 320,
+1000 375,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
@@ -1480,14 +1633,15 @@ C920 320,
 <path
 class="route"
 d="
-M620 175
-C760 180,
-850 245,
-900 300
-C960 355,
-1010 395,
+M610 175
+C740 165,
+830 225,
+895 295
+C955 355,
+1015 400,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
@@ -1497,11 +1651,12 @@ C960 355,
 <path
 class="route"
 d="
-M825 300
-C900 325,
-970 370,
+M815 300
+C895 325,
+975 375,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
@@ -1511,11 +1666,12 @@ C900 325,
 <path
 class="route"
 d="
-M1190 230
-C1190 285,
-1140 350,
+M1200 225
+C1200 290,
+1140 365,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
@@ -1526,10 +1682,11 @@ C1190 285,
 class="route"
 d="
 M1360 205
-C1320 290,
-1220 355,
+C1325 285,
+1220 360,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
@@ -1539,11 +1696,12 @@ C1320 290,
 <path
 class="route"
 d="
-M1350 620
-C1280 570,
-1160 510,
+M1350 625
+C1275 570,
+1165 510,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
@@ -1553,155 +1711,166 @@ C1280 570,
 <path
 class="route"
 d="
-M590 430
-C750 430,
-900 430,
+M590 425
+C750 420,
+900 425,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
-     EXTRA THIN ROUTES
+     THIN ROUTE LAYERS
 =================================================== -->
 
 <path
 class="route-thin"
 d="
 M145 225
-C310 80,
-570 100,
-810 250
-C920 320,
-990 365,
+C310 75,
+560 95,
+805 245
+C930 320,
+1000 375,
 1060 435
-"/>
+"
+></path>
+
 
 <path
 class="route-thin"
 d="
-M620 175
-C760 180,
-850 245,
-900 300
-C960 355,
-1010 395,
+M610 175
+C740 165,
+830 225,
+895 295
+C955 355,
+1015 400,
 1060 435
-"/>
+"
+></path>
+
 
 <path
 class="route-thin"
 d="
-M1190 230
-C1190 285,
-1140 350,
+M1200 225
+C1200 290,
+1140 365,
 1060 435
-"/>
+"
+></path>
 
 
 <!-- ===================================================
-     MOVING LIGHT — USA
+     MOVING LIGHT 1
 =================================================== -->
 
 <circle
 class="travel-light"
-r="4">
+r="4"
+>
 
 <animateMotion
 dur="4.5s"
 repeatCount="indefinite"
 path="
 M145 225
-C310 80,
-570 100,
-810 250
-C920 320,
-990 365,
+C310 75,
+560 95,
+805 245
+C930 320,
+1000 375,
 1060 435
-">
-</animateMotion>
+"
+></animateMotion>
 
 </circle>
 
 
 <!-- ===================================================
-     MOVING LIGHT — EUROPE
+     MOVING LIGHT 2
 =================================================== -->
 
 <circle
 class="travel-light"
-r="3.5">
+r="3.5"
+>
 
 <animateMotion
 dur="3.8s"
 begin="1s"
 repeatCount="indefinite"
 path="
-M620 175
-C760 180,
-850 245,
-900 300
-C960 355,
-1010 395,
+M610 175
+C740 165,
+830 225,
+895 295
+C955 355,
+1015 400,
 1060 435
-">
-</animateMotion>
+"
+></animateMotion>
 
 </circle>
 
 
 <!-- ===================================================
-     MOVING LIGHT — MIDDLE EAST
+     MOVING LIGHT 3
 =================================================== -->
 
 <circle
 class="travel-light"
-r="3">
+r="3"
+>
 
 <animateMotion
 dur="2.7s"
 begin=".5s"
 repeatCount="indefinite"
 path="
-M825 300
-C900 325,
-970 370,
+M815 300
+C895 325,
+975 375,
 1060 435
-">
-</animateMotion>
+"
+></animateMotion>
 
 </circle>
 
 
 <!-- ===================================================
-     MOVING LIGHT — CHINA
+     MOVING LIGHT 4
 =================================================== -->
 
 <circle
 class="travel-light"
-r="3.5">
+r="3.5"
+>
 
 <animateMotion
 dur="3.5s"
 begin="1.8s"
 repeatCount="indefinite"
 path="
-M1190 230
-C1190 285,
-1140 350,
+M1200 225
+C1200 290,
+1140 365,
 1060 435
-">
-</animateMotion>
+"
+></animateMotion>
 
 </circle>
 
 
 <!-- ===================================================
-     MOVING LIGHT — JAPAN
+     MOVING LIGHT 5
 =================================================== -->
 
 <circle
 class="travel-light"
-r="3.5">
+r="3.5"
+>
 
 <animateMotion
 dur="4s"
@@ -1709,57 +1878,59 @@ begin="2.1s"
 repeatCount="indefinite"
 path="
 M1360 205
-C1320 290,
-1220 355,
+C1325 285,
+1220 360,
 1060 435
-">
-</animateMotion>
+"
+></animateMotion>
 
 </circle>
 
 
 <!-- ===================================================
-     MOVING LIGHT — AUSTRALIA
+     MOVING LIGHT 6
 =================================================== -->
 
 <circle
 class="travel-light"
-r="3">
+r="3"
+>
 
 <animateMotion
 dur="3.7s"
 begin="1.4s"
 repeatCount="indefinite"
 path="
-M1350 620
-C1280 570,
-1160 510,
+M1350 625
+C1275 570,
+1165 510,
 1060 435
-">
-</animateMotion>
+"
+></animateMotion>
 
 </circle>
 
 
 <!-- ===================================================
-     MOVING LIGHT — AFRICA
+     MOVING LIGHT 7
 =================================================== -->
 
 <circle
 class="travel-light"
-r="3">
+r="3"
+>
 
 <animateMotion
 dur="3.2s"
 begin="2.3s"
 repeatCount="indefinite"
 path="
-M590 430
-C750 430,
-900 430,
+M590 425
+C750 420,
+900 425,
 1060 435
-">
-</animateMotion>
+"
+></animateMotion>
 
 </circle>
 
@@ -1773,11 +1944,14 @@ C750 430,
 
 <div class="destination">
 
-<div class="destination-ring"></div>
+<div class="destination-ring">
+</div>
 
-<div class="destination-ring-2"></div>
+<div class="destination-ring-2">
+</div>
 
-<div class="destination-core"></div>
+<div class="destination-core">
+</div>
 
 <div class="destination-label">
 SRI LANKA
@@ -1787,7 +1961,7 @@ SRI LANKA
 
 
 <!-- =====================================================
-     HERO TEXT
+     HERO CONTENT
 ===================================================== -->
 
 <div class="hero-content">
@@ -1797,7 +1971,8 @@ SRI LANKA
 
 <div class="eyebrow">
 
-<span class="eyebrow-dot"></span>
+<span class="eyebrow-dot">
+</span>
 
 GLOBAL STOCK NETWORK
 
@@ -1833,7 +2008,8 @@ Clearance &amp; Excess Inventory Worldwide.
 
 <a
 href="#materials"
-class="btn btn-main">
+class="btn btn-main"
+>
 
 Explore Materials
 
@@ -1843,7 +2019,8 @@ Explore Materials
 <a
 href="https://wa.me/94777426436"
 target="_blank"
-class="btn btn-outline">
+class="btn btn-outline"
+>
 
 Contact GlobalStock
 
@@ -1858,21 +2035,22 @@ Contact GlobalStock
 
 
 <!-- =====================================================
-     HERO BOTTOM
+     HERO STATUS
 ===================================================== -->
 
 <div class="hero-bottom">
 
 <div class="route-status">
 
-<span class="status-dot"></span>
+<span class="status-dot">
+</span>
 
 GLOBAL TRADE ROUTES ACTIVE
 
 </div>
 
 
-<div class="scroll">
+<div class="scroll-text">
 
 SCROLL TO EXPLORE
 
@@ -1890,7 +2068,8 @@ SCROLL TO EXPLORE
 
 <section
 class="content-section"
-id="materials">
+id="materials"
+>
 
 <div class="section-inner">
 
@@ -1910,9 +2089,10 @@ surplus materials.
 
 <p class="section-description">
 
-We source surplus, overstock,
-clearance and excess materials
-from international suppliers.
+We source surplus,
+overstock, clearance and
+excess materials from
+international suppliers.
 
 </p>
 
@@ -2008,7 +2188,8 @@ opportunities.
 
 <section
 class="content-section"
-id="vehicles">
+id="vehicles"
+>
 
 <div class="section-inner">
 
@@ -2110,6 +2291,7 @@ and machinery.
 
 </div>
 
+
 </div>
 
 </div>
@@ -2124,6 +2306,7 @@ and machinery.
 <section class="cta">
 
 <div class="section-inner">
+
 
 <div class="cta-box">
 
@@ -2151,7 +2334,8 @@ GlobalStock International.
 <a
 href="https://wa.me/94777426436"
 target="_blank"
-class="btn btn-main">
+class="btn btn-main"
+>
 
 WhatsApp GlobalStock
 
@@ -2171,7 +2355,8 @@ WhatsApp GlobalStock
 
 <section
 class="content-section"
-id="contact">
+id="contact"
+>
 
 <div class="section-inner">
 
@@ -2191,7 +2376,11 @@ International.
 
 <div
 class="cards"
-style="grid-template-columns:repeat(3,1fr);">
+style="
+grid-template-columns:
+repeat(3,1fr);
+"
+>
 
 
 <div class="card">
@@ -2248,6 +2437,7 @@ Colombo, Sri Lanka
 
 <div class="footer-inner">
 
+
 <div class="footer-copy">
 
 © 2026 GlobalStock International.
@@ -2262,6 +2452,7 @@ INVESTING IN A BRIGHTER TOMORROW
 
 </div>
 
+
 </div>
 
 </footer>
@@ -2272,6 +2463,7 @@ INVESTING IN A BRIGHTER TOMORROW
 ======================================================= -->
 
 <script>
+
 
 /* =========================================================
    MOBILE MENU
@@ -2288,34 +2480,44 @@ menuBtn.addEventListener(
 "click",
 function(){
 
-    navLinks.classList.toggle("active");
+    navLinks.classList.toggle(
+        "active"
+    );
 
 });
 
 
 document
-.querySelectorAll(".nav-links a")
-.forEach(function(link){
+.querySelectorAll(
+    ".nav-links a"
+)
+.forEach(
+function(link){
 
     link.addEventListener(
-    "click",
-    function(){
+        "click",
+        function(){
 
-        navLinks.classList.remove("active");
+            navLinks.classList.remove(
+                "active"
+            );
 
-    });
+        }
+    );
 
 });
 
 
 /* =========================================================
-   HERO PARALLAX
+   LIGHT PARALLAX
 ========================================================= */
 
 const world =
-document.querySelector(".world-background");
+document.querySelector(
+    ".world-background"
+);
 
-let ticking = false;
+let ticking=false;
 
 
 window.addEventListener(
@@ -2326,38 +2528,39 @@ function(){
         return;
     }
 
-    ticking = true;
+    ticking=true;
 
 
     requestAnimationFrame(
     function(){
 
-        const scroll =
-        window.scrollY || 0;
+        const y =
+            window.scrollY || 0;
 
 
-        if(scroll < 900){
+        if(y < 900){
 
             world.style.transform =
-            "scale(1.025) translateY(" +
-            (scroll * .025) +
-            "px)";
+                "scale(1.025) translateY(" +
+                (y * .018) +
+                "px)";
 
         }
 
 
-        ticking = false;
+        ticking=false;
 
     });
 
 },
-{passive:true}
+{
+    passive:true
+}
 );
 
 
 /* =========================================================
-   SAFETY:
-   RESTART SVG ROUTE ANIMATIONS WHEN PAGE IS RESTORED
+   RESTART ROUTES WHEN PAGE RETURNS
 ========================================================= */
 
 window.addEventListener(
@@ -2365,22 +2568,26 @@ window.addEventListener(
 function(){
 
     document
-    .querySelectorAll(".route")
-    .forEach(function(path){
+    .querySelectorAll(
+        ".route"
+    )
+    .forEach(
+    function(path){
 
-        path.style.animation =
-        "none";
+        path.style.animation="none";
 
-        path.offsetHeight;
+        void path.offsetWidth;
 
-        path.style.animation =
-        "drawRoute 4s ease-out forwards, routeGlow 3s ease-in-out 4s infinite alternate";
+        path.style.animation=
+            "drawRoute 3.8s cubic-bezier(.2,.8,.2,1) forwards, routePulse 3s ease-in-out 4s infinite alternate";
 
     });
 
 });
 
+
 </script>
 
 </body>
+
 </html>
