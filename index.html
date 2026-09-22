@@ -1,11 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="GlobalStock International — We Buy Stock Lots, Surplus, Overstock, Clearance & Excess Inventory Worldwide.">
+      content="GlobalStock International — We Buy Stock Lots, Surplus, Overstock, Clearance & Excess Inventory Worldwide.">
 
 <meta name="theme-color" content="#04101b">
 
@@ -15,12 +19,13 @@ content="GlobalStock International — We Buy Stock Lots, Surplus, Overstock, Cl
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-rel="stylesheet">
+      rel="stylesheet">
+
 
 <style>
 
 /* =========================================================
-   GLOBAL
+   RESET
 ========================================================= */
 
 *{
@@ -61,7 +66,8 @@ button{
     width:100%;
     z-index:1000;
 
-    background:rgba(3,10,18,.72);
+    background:rgba(3,10,18,.74);
+
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 
@@ -70,14 +76,14 @@ button{
 
 .navbar{
     max-width:1250px;
-    margin:auto;
     min-height:78px;
+
+    margin:auto;
+    padding:0 25px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:0 25px;
 }
 
 .brand{
@@ -89,7 +95,9 @@ button{
 .brand img{
     width:48px;
     height:48px;
+
     object-fit:contain;
+
     border-radius:12px;
 }
 
@@ -105,10 +113,12 @@ button{
 }
 
 .brand-tagline{
+    margin-top:3px;
+
     font-size:9px;
     color:#91a4ba;
+
     letter-spacing:1.5px;
-    margin-top:3px;
     text-transform:uppercase;
 }
 
@@ -119,8 +129,10 @@ button{
 }
 
 .nav-links a{
-    font-size:14px;
     color:#b8c5d4;
+
+    font-size:14px;
+
     transition:.3s ease;
 }
 
@@ -130,13 +142,15 @@ button{
 
 .nav-whatsapp{
     padding:11px 18px;
+
     border-radius:30px;
 
-    background:linear-gradient(
-        135deg,
-        #19d66b,
-        #0bb956
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #19d66b,
+            #0bb956
+        );
 
     color:#fff!important;
     font-weight:700;
@@ -147,6 +161,7 @@ button{
 
 .nav-whatsapp:hover{
     transform:translateY(-2px);
+
     box-shadow:
         0 12px 35px rgba(16,210,101,.32);
 }
@@ -158,6 +173,7 @@ button{
 
 .hero{
     position:relative;
+
     min-height:100vh;
 
     display:flex;
@@ -168,275 +184,212 @@ button{
 
     overflow:hidden;
 
-    padding:130px 20px 80px;
+    padding:130px 20px 90px;
 
-    background:#04101a;
+    background:
+        linear-gradient(
+            180deg,
+            #020912 0%,
+            #04121c 50%,
+            #03101a 100%
+        );
 }
 
 
 /* =========================================================
-   PREMIUM GLOBAL SHIPPING BACKGROUND
+   HERO BACKGROUND
 ========================================================= */
 
 .hero-background{
     position:absolute;
     inset:0;
+
     overflow:hidden;
 
-    background:
-        radial-gradient(
-            ellipse at 50% 45%,
-            rgba(0,170,230,.13),
-            transparent 48%
-        ),
-        radial-gradient(
-            ellipse at 15% 80%,
-            rgba(0,210,160,.08),
-            transparent 35%
-        ),
-        linear-gradient(
-            180deg,
-            #020912 0%,
-            #04131e 55%,
-            #031019 100%
-        );
+    pointer-events:none;
 }
 
 
-/* =========================================================
-   OCEAN
-========================================================= */
+/* atmospheric glow */
 
-.ocean{
+.hero-glow{
     position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:44%;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(4,44,65,.08),
-            rgba(2,21,34,.72)
-        );
+    width:750px;
+    height:750px;
 
-    overflow:hidden;
-}
+    left:50%;
+    top:40%;
 
-.wave{
-    position:absolute;
-    left:-10%;
-    width:120%;
-    height:90px;
+    transform:translate(-50%,-50%);
 
     border-radius:50%;
 
-    border-top:1px solid rgba(75,210,255,.12);
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,185,245,.13),
+            rgba(0,130,190,.04) 38%,
+            transparent 70%
+        );
 
-    opacity:.6;
+    animation:
+        glowMove 12s ease-in-out infinite alternate;
 }
 
-.wave:nth-child(1){
-    bottom:34%;
-    animation:waveMove 13s ease-in-out infinite alternate;
-}
-
-.wave:nth-child(2){
-    bottom:22%;
-    opacity:.4;
-    animation:waveMove 18s ease-in-out infinite alternate-reverse;
-}
-
-.wave:nth-child(3){
-    bottom:10%;
-    opacity:.28;
-    animation:waveMove 22s ease-in-out infinite alternate;
-}
-
-@keyframes waveMove{
+@keyframes glowMove{
 
     0%{
-        transform:translateX(-4%) scaleX(1);
+        transform:
+            translate(-58%,-50%)
+            scale(.95);
     }
 
     100%{
-        transform:translateX(4%) scaleX(1.06);
+        transform:
+            translate(-42%,-46%)
+            scale(1.08);
     }
 }
 
 
 /* =========================================================
-   SUBTLE WORLD MAP
+   EMBEDDED WORLD MAP
 ========================================================= */
 
 .world-map{
     position:absolute;
-    inset:0;
 
-    opacity:.13;
+    left:50%;
+    top:50%;
 
-    background-image:url(
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
-    );
+    width:min(1250px,100vw);
+    height:620px;
 
-    background-repeat:no-repeat;
-    background-position:center 48%;
-    background-size:78% auto;
+    transform:translate(-50%,-50%);
 
-    filter:
-        brightness(.8)
-        contrast(1.15)
-        saturate(.5);
+    opacity:.20;
+}
 
-    transform:scale(1.03);
+.world-map svg{
+    width:100%;
+    height:100%;
+}
+
+.land{
+    fill:#0b4a62;
+
+    stroke:#2aa7c9;
+
+    stroke-width:.8;
+
+    opacity:.34;
+}
+
+.land-highlight{
+    fill:#12657c;
+
+    opacity:.20;
 }
 
 
 /* =========================================================
-   SHIPPING ROUTES
+   MAP LIGHT
 ========================================================= */
 
-.shipping-routes{
+.map-sweep{
     position:absolute;
-    inset:0;
-    pointer-events:none;
-}
 
-.route{
-    position:absolute;
-    height:1px;
+    top:0;
+
+    left:-20%;
+
+    width:25%;
+    height:100%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(65,215,255,.15),
-            rgba(65,215,255,.65),
-            rgba(65,215,255,.15),
+            rgba(74,222,255,.08),
             transparent
         );
 
-    transform-origin:left center;
-
-    opacity:.7;
-
-    filter:
-        drop-shadow(
-            0 0 6px rgba(0,190,255,.35)
-        );
-}
-
-.route-1{
-    width:34%;
-    left:19%;
-    top:54%;
-    transform:rotate(-4deg);
-}
-
-.route-2{
-    width:27%;
-    left:49%;
-    top:59%;
-    transform:rotate(8deg);
-}
-
-.route-3{
-    width:40%;
-    left:34%;
-    top:47%;
-    transform:rotate(-10deg);
-}
-
-.route-4{
-    width:23%;
-    left:61%;
-    top:66%;
-    transform:rotate(-13deg);
-}
-
-
-/* =========================================================
-   MOVING CARGO PARTICLES
-========================================================= */
-
-.cargo-particle{
-    position:absolute;
-
-    width:5px;
-    height:5px;
-
-    border-radius:50%;
-
-    background:#64e7ff;
-
-    box-shadow:
-        0 0 7px #37dfff,
-        0 0 18px rgba(35,205,255,.8);
+    transform:skewX(-15deg);
 
     animation:
-        cargoMove 8s linear infinite;
+        mapSweep 13s linear infinite;
 }
 
-.cargo-particle.p1{
-    left:20%;
-    top:54%;
-    animation-delay:0s;
-}
-
-.cargo-particle.p2{
-    left:35%;
-    top:49%;
-    animation-delay:2s;
-}
-
-.cargo-particle.p3{
-    left:51%;
-    top:59%;
-    animation-delay:4s;
-}
-
-.cargo-particle.p4{
-    left:63%;
-    top:65%;
-    animation-delay:6s;
-}
-
-@keyframes cargoMove{
+@keyframes mapSweep{
 
     0%{
-        opacity:0;
-        transform:translateX(0) translateY(0) scale(.6);
-    }
-
-    10%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:1;
-        transform:
-            translateX(110px)
-            translateY(-12px)
-            scale(1);
-    }
-
-    90%{
-        opacity:.8;
+        left:-25%;
     }
 
     100%{
-        opacity:0;
-        transform:
-            translateX(230px)
-            translateY(8px)
-            scale(.5);
+        left:120%;
     }
 }
 
 
 /* =========================================================
-   SHIPPING LOCATION GLOW
+   SHIPPING ROUTES SVG
+========================================================= */
+
+.routes{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+}
+
+.route{
+    fill:none;
+
+    stroke:#42dfff;
+
+    stroke-width:1.2;
+
+    stroke-dasharray:7 12;
+
+    opacity:.55;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(44,215,255,.55)
+        );
+
+    animation:
+        routeFlow 8s linear infinite;
+}
+
+.route.route2{
+    animation-duration:11s;
+    animation-delay:2s;
+}
+
+.route.route3{
+    animation-duration:9s;
+    animation-delay:4s;
+}
+
+@keyframes routeFlow{
+
+    from{
+        stroke-dashoffset:100;
+    }
+
+    to{
+        stroke-dashoffset:-500;
+    }
+}
+
+
+/* =========================================================
+   PORT LIGHTS
 ========================================================= */
 
 .port{
@@ -447,86 +400,315 @@ button{
 
     border-radius:50%;
 
-    background:#52e3ff;
+    background:#5ce8ff;
 
     box-shadow:
-        0 0 8px #52e3ff,
-        0 0 22px rgba(82,227,255,.8);
+        0 0 8px #5ce8ff,
+        0 0 22px rgba(55,220,255,.8);
 
-    animation:portPulse 3s ease-in-out infinite;
+    animation:
+        portPulse 2.5s ease-in-out infinite;
 }
 
-.port-japan{
+.port.japan{
     left:77%;
-    top:48%;
+    top:43%;
 }
 
-.port-sri{
-    left:62%;
+.port.korea{
+    left:72%;
+    top:47%;
+
+    animation-delay:.5s;
+}
+
+.port.srilanka{
+    left:63%;
     top:63%;
+
     animation-delay:1s;
 }
 
-.port-middle{
-    left:51%;
-    top:53%;
-    animation-delay:2s;
+.port.dubai{
+    left:54%;
+    top:52%;
+
+    animation-delay:1.5s;
 }
 
 @keyframes portPulse{
 
     0%,100%{
+        opacity:.45;
         transform:scale(.7);
-        opacity:.55;
     }
 
     50%{
-        transform:scale(1.35);
         opacity:1;
+        transform:scale(1.5);
     }
 }
 
 
 /* =========================================================
-   CARGO SHIP
+   MOVING CARGO PARTICLES
 ========================================================= */
 
-.ship-wrapper{
+.cargo-light{
     position:absolute;
 
-    left:-260px;
-    bottom:18%;
+    width:6px;
+    height:6px;
 
-    width:245px;
-    height:100px;
+    border-radius:50%;
 
-    z-index:8;
+    background:#6ceaff;
 
-    animation:
-        shipJourney 28s linear infinite;
+    box-shadow:
+        0 0 8px #5ce5ff,
+        0 0 22px rgba(38,210,255,.8);
+
+    z-index:6;
 }
 
-@keyframes shipJourney{
+.cargo-light.one{
+    left:63%;
+    top:63%;
+
+    animation:
+        cargoOne 7s linear infinite;
+}
+
+.cargo-light.two{
+    left:54%;
+    top:52%;
+
+    animation:
+        cargoTwo 9s linear infinite;
+
+    animation-delay:2s;
+}
+
+.cargo-light.three{
+    left:72%;
+    top:47%;
+
+    animation:
+        cargoThree 8s linear infinite;
+
+    animation-delay:4s;
+}
+
+@keyframes cargoOne{
 
     0%{
-        left:-280px;
-        transform:translateY(5px);
+        opacity:0;
+        transform:translate(0,0);
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:translate(130px,-75px);
+        opacity:1;
+    }
+
+    90%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translate(250px,-110px);
+        opacity:0;
+    }
+}
+
+@keyframes cargoTwo{
+
+    0%{
+        opacity:0;
+        transform:translate(0,0);
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:translate(100px,35px);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(210px,60px);
+        opacity:0;
+    }
+}
+
+@keyframes cargoThree{
+
+    0%{
+        opacity:0;
+        transform:translate(0,0);
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:translate(-130px,75px);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(-250px,125px);
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   OCEAN
+========================================================= */
+
+.ocean{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:37%;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(0,36,55,.35),
+            rgba(1,17,28,.88)
+        );
+}
+
+
+/* wave layers */
+
+.ocean-wave{
+    position:absolute;
+
+    left:-10%;
+
+    width:120%;
+    height:90px;
+
+    border-top:
+        1px solid rgba(69,216,255,.14);
+
+    border-radius:50%;
+
+    opacity:.8;
+}
+
+.wave1{
+    bottom:65%;
+
+    animation:
+        wave1 13s ease-in-out infinite alternate;
+}
+
+.wave2{
+    bottom:42%;
+
+    opacity:.5;
+
+    animation:
+        wave2 17s ease-in-out infinite alternate;
+}
+
+.wave3{
+    bottom:20%;
+
+    opacity:.32;
+
+    animation:
+        wave1 21s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes wave1{
+
+    from{
+        transform:
+            translateX(-4%)
+            scaleX(1);
+    }
+
+    to{
+        transform:
+            translateX(4%)
+            scaleX(1.06);
+    }
+}
+
+@keyframes wave2{
+
+    from{
+        transform:
+            translateX(4%)
+            scaleX(1.03);
+    }
+
+    to{
+        transform:
+            translateX(-4%)
+            scaleX(1);
+    }
+}
+
+
+/* =========================================================
+   SHIP
+========================================================= */
+
+.ship{
+    position:absolute;
+
+    left:-310px;
+    bottom:15%;
+
+    width:280px;
+    height:125px;
+
+    z-index:20;
+
+    animation:
+        shipMove 30s linear infinite;
+}
+
+@keyframes shipMove{
+
+    0%{
+        left:-320px;
+        transform:translateY(4px);
     }
 
     15%{
-        transform:translateY(-3px);
-    }
-
-    30%{
-        transform:translateY(5px);
-    }
-
-    45%{
         transform:translateY(-4px);
     }
 
-    60%{
+    30%{
         transform:translateY(3px);
+    }
+
+    45%{
+        transform:translateY(-3px);
+    }
+
+    60%{
+        transform:translateY(4px);
     }
 
     75%{
@@ -534,286 +716,361 @@ button{
     }
 
     100%{
-        left:calc(100% + 280px);
-        transform:translateY(4px);
+        left:calc(100% + 320px);
+        transform:translateY(3px);
     }
 }
 
 
-/* Ship shadow */
+/* ship shadow */
 
 .ship-shadow{
     position:absolute;
 
-    bottom:5px;
-    left:15px;
+    left:25px;
+    bottom:7px;
 
-    width:220px;
-    height:10px;
+    width:245px;
+    height:12px;
 
     border-radius:50%;
 
-    background:rgba(0,0,0,.35);
+    background:rgba(0,0,0,.48);
 
-    filter:blur(5px);
+    filter:blur(7px);
 }
 
 
-/* Main hull */
+/* hull */
 
 .ship-hull{
     position:absolute;
 
-    left:15px;
-    bottom:17px;
+    left:18px;
+    bottom:22px;
 
-    width:215px;
-    height:36px;
+    width:245px;
+    height:43px;
 
     background:
         linear-gradient(
             180deg,
-            #173b4b,
-            #071923
+            #285767 0%,
+            #0b2733 45%,
+            #06141d 100%
         );
 
     clip-path:
         polygon(
             0 0,
-            92% 0,
-            100% 42%,
-            88% 100%,
-            13% 100%,
-            0 42%
+            94% 0,
+            100% 40%,
+            91% 100%,
+            12% 100%,
+            0 40%
         );
 
-    border-bottom:2px solid rgba(63,211,255,.7);
+    border-bottom:
+        2px solid rgba(70,224,255,.7);
 
     box-shadow:
-        0 0 20px rgba(0,190,255,.2);
+        0 0 25px rgba(0,190,255,.22);
 }
 
 
-/* Ship deck */
+/* hull highlight */
 
-.ship-deck{
+.ship-hull::before{
+    content:"";
+
     position:absolute;
 
-    left:34px;
-    bottom:52px;
+    left:30px;
+    top:10px;
 
-    width:150px;
-    height:7px;
-
-    background:#3d6170;
-
-    border-radius:3px;
-}
-
-
-/* Containers */
-
-.containers{
-    position:absolute;
-
-    left:47px;
-    bottom:59px;
-
-    display:flex;
-    gap:3px;
-}
-
-.container-box{
-    width:29px;
-    height:22px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #194e61,
-            #23778a
-        );
-
-    border:
-        1px solid rgba(115,232,255,.35);
-
-    box-shadow:
-        inset 0 0 8px rgba(0,220,255,.12);
-}
-
-.container-box:nth-child(2){
-    background:
-        linear-gradient(
-            90deg,
-            #24566a,
-            #328aa0
-        );
-}
-
-.container-box:nth-child(3){
-    background:
-        linear-gradient(
-            90deg,
-            #17455a,
-            #26778e
-        );
-}
-
-.container-box:nth-child(4){
-    background:
-        linear-gradient(
-            90deg,
-            #245b6c,
-            #3a8da0
-        );
-}
-
-
-/* Bridge */
-
-.ship-bridge{
-    position:absolute;
-
-    right:42px;
-    bottom:52px;
-
-    width:42px;
-    height:32px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #c9e8ee,
-            #52727d
-        );
-
-    border-radius:3px 3px 0 0;
-
-    box-shadow:
-        0 0 10px rgba(85,215,255,.18);
-}
-
-.ship-window{
-    position:absolute;
-
-    top:7px;
-    left:6px;
-
-    width:29px;
-    height:8px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #0a4055,
-            #65dcf4,
-            #0a4055
-        );
-
-    opacity:.8;
-}
-
-
-/* Smoke */
-
-.ship-smoke{
-    position:absolute;
-
-    right:62px;
-    bottom:86px;
-
-    width:12px;
-    height:12px;
-
-    border-radius:50%;
-
-    background:rgba(200,235,240,.18);
-
-    filter:blur(3px);
-
-    animation:smoke 3s ease-out infinite;
-}
-
-.ship-smoke.s2{
-    right:73px;
-    bottom:89px;
-    animation-delay:1s;
-}
-
-@keyframes smoke{
-
-    0%{
-        transform:scale(.4) translate(0,0);
-        opacity:.45;
-    }
-
-    100%{
-        transform:scale(2.8) translate(-25px,-20px);
-        opacity:0;
-    }
-}
-
-
-/* =========================================================
-   SHIP LIGHT TRAIL
-========================================================= */
-
-.ship-trail{
-    position:absolute;
-
-    left:0;
-    bottom:27px;
-
-    width:120px;
+    width:180px;
     height:2px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(55,220,255,.25),
-            rgba(55,220,255,.7)
+            rgba(103,235,255,.6),
+            transparent
+        );
+}
+
+
+/* deck */
+
+.ship-deck{
+    position:absolute;
+
+    left:42px;
+    bottom:65px;
+
+    width:174px;
+    height:8px;
+
+    background:#436773;
+
+    border-radius:4px;
+}
+
+
+/* containers */
+
+.ship-containers{
+    position:absolute;
+
+    left:55px;
+    bottom:73px;
+
+    display:flex;
+
+    gap:3px;
+}
+
+.container{
+    width:32px;
+    height:27px;
+
+    border:
+        1px solid rgba(112,229,255,.38);
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b5b70,
+            #276f82
+        );
+
+    box-shadow:
+        inset 0 0 9px rgba(0,220,255,.12);
+}
+
+.container:nth-child(2){
+    background:
+        linear-gradient(
+            135deg,
+            #1d4960,
+            #2c8195
+        );
+}
+
+.container:nth-child(3){
+    background:
+        linear-gradient(
+            135deg,
+            #24566b,
+            #31859a
+        );
+}
+
+.container:nth-child(4){
+    background:
+        linear-gradient(
+            135deg,
+            #17455a,
+            #2a7387
+        );
+}
+
+.container:nth-child(5){
+    background:
+        linear-gradient(
+            135deg,
+            #225064,
+            #348b9d
+        );
+}
+
+
+/* bridge */
+
+.ship-bridge{
+    position:absolute;
+
+    right:45px;
+    bottom:65px;
+
+    width:48px;
+    height:40px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d8edf0,
+            #688993
+        );
+
+    border-radius:
+        4px 4px 0 0;
+
+    box-shadow:
+        0 0 12px rgba(70,215,255,.16);
+}
+
+
+/* windows */
+
+.ship-windows{
+    position:absolute;
+
+    left:7px;
+    top:8px;
+
+    width:34px;
+    height:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #073d50,
+            #5edff6,
+            #073d50
+        );
+
+    border-radius:2px;
+}
+
+
+/* chimney */
+
+.ship-chimney{
+    position:absolute;
+
+    right:57px;
+    bottom:104px;
+
+    width:13px;
+    height:22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #263f47,
+            #57747b
+        );
+
+    border-radius:2px 2px 0 0;
+}
+
+
+/* smoke */
+
+.smoke{
+    position:absolute;
+
+    right:54px;
+    bottom:119px;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:rgba(190,230,238,.20);
+
+    filter:blur(3px);
+
+    animation:
+        smokeRise 3s ease-out infinite;
+}
+
+.smoke.s2{
+    right:66px;
+    bottom:123px;
+
+    animation-delay:1s;
+}
+
+.smoke.s3{
+    right:44px;
+    bottom:121px;
+
+    animation-delay:1.8s;
+}
+
+@keyframes smokeRise{
+
+    0%{
+        opacity:.5;
+
+        transform:
+            translate(0,0)
+            scale(.5);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(-25px,-32px)
+            scale(2.5);
+    }
+}
+
+
+/* ship light */
+
+.ship-light{
+    position:absolute;
+
+    right:28px;
+    bottom:39px;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#8ff2ff;
+
+    box-shadow:
+        0 0 10px #67eaff;
+}
+
+
+/* ship wake */
+
+.ship-wake{
+    position:absolute;
+
+    left:-20px;
+    bottom:19px;
+
+    width:100px;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(87,224,255,.55),
+            transparent
         );
 
     filter:
         blur(1px)
-        drop-shadow(0 0 8px rgba(0,200,255,.5));
-}
-
-
-/* =========================================================
-   ATMOSPHERIC LIGHT
-========================================================= */
-
-.atmosphere{
-    position:absolute;
-
-    width:600px;
-    height:600px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,190,255,.10),
-            transparent 65%
+        drop-shadow(
+            0 0 7px rgba(56,211,255,.6)
         );
 
     animation:
-        atmosphereMove 14s ease-in-out infinite alternate;
-
-    pointer-events:none;
+        wakePulse 2s ease-in-out infinite;
 }
 
-@keyframes atmosphereMove{
+@keyframes wakePulse{
 
-    0%{
-        transform:translate(-25%,-5%);
+    0%,100%{
+        opacity:.45;
+        transform:scaleX(.8);
     }
 
-    100%{
-        transform:translate(30%,8%);
+    50%{
+        opacity:1;
+        transform:scaleX(1.2);
     }
 }
 
@@ -824,17 +1081,18 @@ button{
 
 .hero-content{
     position:relative;
-    z-index:20;
 
-    max-width:1100px;
+    z-index:50;
+
     width:100%;
+    max-width:1100px;
 
     margin:auto;
 }
 
 
 /* =========================================================
-   ANIMATED LOGO
+   LOGO
 ========================================================= */
 
 .hero-logo{
@@ -846,52 +1104,55 @@ button{
     margin:0 auto 35px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     isolation:isolate;
 
     animation:
-        heroLogoFloat 5s ease-in-out infinite;
+        heroFloat 5s ease-in-out infinite;
 }
 
 .hero-logo::before{
     content:"";
 
     position:absolute;
+
     inset:-10px;
 
     border-radius:50%;
 
-    border:1px solid rgba(57,207,255,.65);
+    border:
+        1px solid rgba(57,207,255,.65);
 
     box-shadow:
         0 0 18px rgba(0,195,255,.55),
         0 0 45px rgba(0,195,255,.22);
 
     animation:
-        logoRing 3.5s linear infinite;
+        ringRotate 4s linear infinite;
 }
 
 .hero-logo::after{
     content:"";
 
     position:absolute;
+
     inset:-24px;
 
     border-radius:50%;
 
-    border:1px solid rgba(255,255,255,.14);
-
-    box-shadow:
-        0 0 30px rgba(255,255,255,.08);
+    border:
+        1px solid rgba(255,255,255,.12);
 
     animation:
-        logoRingReverse 7s linear infinite;
+        ringReverse 8s linear infinite;
 }
 
 .animated-logo{
     position:relative;
+
     z-index:5;
 
     width:175px;
@@ -899,23 +1160,29 @@ button{
 
     object-fit:contain;
 
-    display:block;
-
     background:transparent!important;
+
     border-radius:0!important;
 
     filter:
-        drop-shadow(0 0 8px rgba(0,210,255,.75))
-        drop-shadow(0 0 22px rgba(0,170,255,.45))
-        drop-shadow(0 0 42px rgba(0,170,255,.22));
+        drop-shadow(
+            0 0 8px rgba(0,210,255,.75)
+        )
+        drop-shadow(
+            0 0 22px rgba(0,170,255,.45)
+        )
+        drop-shadow(
+            0 0 42px rgba(0,170,255,.22)
+        );
 
     animation:
         logoPulse 3s ease-in-out infinite,
-        logoImageFloat 4s ease-in-out infinite;
+        logoFloat 4s ease-in-out infinite;
 }
 
 .logo-light{
     position:absolute;
+
     z-index:3;
 
     width:192px;
@@ -926,12 +1193,12 @@ button{
     background:
         conic-gradient(
             from 0deg,
-            transparent 0deg,
-            rgba(75,225,255,.9) 35deg,
-            transparent 75deg,
-            transparent 175deg,
-            rgba(75,225,255,.55) 220deg,
-            transparent 270deg
+            transparent,
+            rgba(75,225,255,.8),
+            transparent 18%,
+            transparent 55%,
+            rgba(75,225,255,.5),
+            transparent 70%
         );
 
     -webkit-mask:
@@ -949,14 +1216,13 @@ button{
         );
 
     animation:
-        logoLightSpin 4s linear infinite;
-
-    pointer-events:none;
+        lightRotate 4s linear infinite;
 }
 
-@keyframes logoRing{
+@keyframes ringRotate{
+
     from{
-        transform:rotate(0deg);
+        transform:rotate(0);
     }
 
     to{
@@ -964,19 +1230,21 @@ button{
     }
 }
 
-@keyframes logoRingReverse{
+@keyframes ringReverse{
+
     from{
         transform:rotate(360deg);
     }
 
     to{
-        transform:rotate(0deg);
+        transform:rotate(0);
     }
 }
 
-@keyframes logoLightSpin{
+@keyframes lightRotate{
+
     from{
-        transform:rotate(0deg);
+        transform:rotate(0);
     }
 
     to{
@@ -991,29 +1259,29 @@ button{
     }
 
     50%{
-        scale:1.045;
+        scale:1.04;
     }
 }
 
-@keyframes logoImageFloat{
+@keyframes logoFloat{
 
     0%,100%{
-        translate:0 0;
+        transform:translateY(0);
     }
 
     50%{
-        translate:0 -7px;
+        transform:translateY(-7px);
     }
 }
 
-@keyframes heroLogoFloat{
+@keyframes heroFloat{
 
     0%,100%{
-        translate:0 0;
+        transform:translateY(0);
     }
 
     50%{
-        translate:0 -4px;
+        transform:translateY(-4px);
     }
 }
 
@@ -1024,6 +1292,7 @@ button{
 
 .hero-kicker{
     display:inline-flex;
+
     align-items:center;
     gap:9px;
 
@@ -1031,9 +1300,11 @@ button{
 
     border-radius:30px;
 
-    background:rgba(255,255,255,.055);
+    background:
+        rgba(255,255,255,.055);
 
-    border:1px solid rgba(255,255,255,.10);
+    border:
+        1px solid rgba(255,255,255,.10);
 
     color:#9eb2c8;
 
@@ -1041,6 +1312,7 @@ button{
     font-weight:600;
 
     letter-spacing:2px;
+
     text-transform:uppercase;
 
     margin-bottom:22px;
@@ -1057,7 +1329,8 @@ button{
     box-shadow:
         0 0 12px rgba(33,228,123,.9);
 
-    animation:dotPulse 2s infinite;
+    animation:
+        dotPulse 2s infinite;
 }
 
 @keyframes dotPulse{
@@ -1093,6 +1366,7 @@ button{
         );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
@@ -1101,18 +1375,18 @@ button{
 .hero-description{
     max-width:760px;
 
-    margin:0 auto;
+    margin:auto;
+
+    color:#a9b8ca;
 
     font-size:clamp(16px,2vw,20px);
 
     line-height:1.7;
-
-    color:#a9b8ca;
 }
 
 
 /* =========================================================
-   HERO BUTTONS
+   BUTTONS
 ========================================================= */
 
 .hero-buttons{
@@ -1140,7 +1414,6 @@ button{
     border-radius:12px;
 
     font-size:14px;
-
     font-weight:700;
 
     transition:.3s ease;
@@ -1166,22 +1439,25 @@ button{
 }
 
 .btn-secondary{
-    background:rgba(255,255,255,.055);
+    background:
+        rgba(255,255,255,.055);
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+        1px solid rgba(255,255,255,.12);
 
     color:#d8e4ef;
 }
 
 .btn-secondary:hover{
-    background:rgba(255,255,255,.09);
+    background:
+        rgba(255,255,255,.09);
 
     transform:translateY(-3px);
 }
 
 
 /* =========================================================
-   SCROLL INDICATOR
+   SCROLL
 ========================================================= */
 
 .scroll-indicator{
@@ -1237,19 +1513,23 @@ button{
 
 .section-inner{
     max-width:1180px;
+
     margin:auto;
 }
 
 .section-heading{
-    text-align:center;
-
     max-width:750px;
 
-    margin:0 auto 55px;
+    margin:
+        0 auto 55px;
+
+    text-align:center;
 }
 
 .section-label{
     display:inline-block;
+
+    margin-bottom:14px;
 
     color:#39cfff;
 
@@ -1260,8 +1540,6 @@ button{
     letter-spacing:2.5px;
 
     text-transform:uppercase;
-
-    margin-bottom:14px;
 }
 
 .section-heading h2{
@@ -1299,9 +1577,9 @@ button{
 .card{
     position:relative;
 
-    padding:30px 24px;
-
     min-height:225px;
+
+    padding:30px 24px;
 
     border-radius:20px;
 
@@ -1317,10 +1595,7 @@ button{
 
     overflow:hidden;
 
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        background .35s ease;
+    transition:.35s ease;
 }
 
 .card::before{
@@ -1349,13 +1624,6 @@ button{
 
     border-color:
         rgba(50,204,255,.35);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(30,155,220,.10),
-            rgba(255,255,255,.035)
-        );
 }
 
 .card-icon{
@@ -1367,6 +1635,8 @@ button{
     align-items:center;
     justify-content:center;
 
+    margin-bottom:20px;
+
     border-radius:14px;
 
     background:
@@ -1376,8 +1646,6 @@ button{
         1px solid rgba(0,195,255,.20);
 
     font-size:22px;
-
-    margin-bottom:20px;
 }
 
 .card h3{
@@ -1409,9 +1677,9 @@ button{
 }
 
 .process-item{
-    text-align:center;
-
     padding:30px 20px;
+
+    text-align:center;
 }
 
 .process-number{
@@ -1423,7 +1691,8 @@ button{
     align-items:center;
     justify-content:center;
 
-    margin:0 auto 20px;
+    margin:
+        0 auto 20px;
 
     border-radius:50%;
 
@@ -1476,9 +1745,9 @@ button{
 
     margin:auto;
 
-    text-align:center;
-
     padding:65px 30px;
+
+    text-align:center;
 
     border-radius:30px;
 
@@ -1505,15 +1774,15 @@ button{
 }
 
 .cta-box p{
-    color:#8c9eb2;
-
     max-width:650px;
 
     margin:auto;
 
-    line-height:1.7;
+    color:#8c9eb2;
 
     font-size:15px;
+
+    line-height:1.7;
 }
 
 
@@ -1533,6 +1802,8 @@ button{
 .contact-card{
     padding:30px;
 
+    text-align:center;
+
     border-radius:18px;
 
     background:
@@ -1540,8 +1811,6 @@ button{
 
     border:
         1px solid rgba(255,255,255,.08);
-
-    text-align:center;
 }
 
 .contact-card-icon{
@@ -1613,7 +1882,7 @@ button{
 
 
 /* =========================================================
-   FLOATING WHATSAPP
+   WHATSAPP
 ========================================================= */
 
 .whatsapp-float{
@@ -1651,14 +1920,11 @@ button{
 
 .whatsapp-float:hover{
     transform:scale(1.08);
-
-    box-shadow:
-        0 16px 45px rgba(0,205,95,.50);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
 @media(max-width:1000px){
@@ -1682,7 +1948,7 @@ button{
     }
 
     .world-map{
-        background-size:105% auto;
+        width:140%;
     }
 }
 
@@ -1691,6 +1957,7 @@ button{
 
     .navbar{
         min-height:68px;
+
         padding:0 15px;
     }
 
@@ -1713,16 +1980,21 @@ button{
 
     .nav-whatsapp{
         padding:9px 14px;
+
         font-size:12px;
     }
 
     .hero{
-        padding-top:110px;
+        min-height:100svh;
+
+        padding:
+            110px 18px 80px;
     }
 
     .hero-logo{
         width:180px;
         height:180px;
+
         margin-bottom:28px;
     }
 
@@ -1744,6 +2016,27 @@ button{
         font-size:15px;
     }
 
+    .world-map{
+        width:190%;
+
+        opacity:.13;
+    }
+
+    .route{
+        opacity:.35;
+    }
+
+    .ship{
+        transform:scale(.72);
+        transform-origin:center bottom;
+
+        bottom:13%;
+    }
+
+    .port{
+        transform:scale(.8);
+    }
+
     .cards{
         grid-template-columns:1fr;
     }
@@ -1758,6 +2051,7 @@ button{
 
     .footer-inner{
         flex-direction:column;
+
         text-align:center;
     }
 
@@ -1768,26 +2062,11 @@ button{
         right:16px;
         bottom:16px;
     }
-
-    .ship-wrapper{
-        transform:scale(.72);
-        transform-origin:center;
-        bottom:18%;
-    }
-
-    .world-map{
-        background-size:155% auto;
-        opacity:.10;
-    }
-
-    .route{
-        opacity:.45;
-    }
 }
 
 
 /* =========================================================
-   REDUCE MOTION ACCESSIBILITY
+   REDUCED MOTION
 ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
@@ -1795,13 +2074,20 @@ button{
     *,
     *::before,
     *::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        scroll-behavior:auto!important;
+
+        animation-duration:
+            .01ms!important;
+
+        animation-iteration-count:
+            1!important;
+
+        scroll-behavior:
+            auto!important;
     }
 }
 
 </style>
+
 </head>
 
 
@@ -1882,90 +2168,345 @@ WhatsApp
 <div class="hero-background">
 
 
-<!-- Atmosphere -->
+<!-- Glow -->
 
-<div class="atmosphere"></div>
-
-
-<!-- World map -->
-
-<div class="world-map"></div>
+<div class="hero-glow"></div>
 
 
-<!-- Ocean -->
+<!-- ====================================================
+     EMBEDDED WORLD MAP
+==================================================== -->
 
-<div class="ocean">
+<div class="world-map">
 
-<div class="wave"></div>
-<div class="wave"></div>
-<div class="wave"></div>
+<svg
+    viewBox="0 0 1200 620"
+    preserveAspectRatio="xMidYMid meet"
+    aria-hidden="true"
+>
+
+
+<!-- North America -->
+
+<path
+class="land"
+d="
+M115 175
+L150 135
+L205 122
+L248 142
+L272 176
+L254 207
+L220 218
+L198 250
+L160 246
+L142 220
+L112 210
+L94 188
+Z"
+/>
+
+
+<!-- South America -->
+
+<path
+class="land"
+d="
+M275 305
+L309 324
+L326 365
+L316 407
+L297 447
+L281 485
+L261 462
+L267 421
+L249 390
+L257 350
+Z"
+/>
+
+
+<!-- Europe -->
+
+<path
+class="land"
+d="
+M495 174
+L524 151
+L555 157
+L574 175
+L559 193
+L531 194
+L511 207
+L492 195
+Z"
+/>
+
+
+<!-- Africa -->
+
+<path
+class="land"
+d="
+M500 225
+L548 216
+L577 245
+L586 294
+L568 340
+L541 390
+L509 367
+L496 326
+L474 286
+L480 250
+Z"
+/>
+
+
+<!-- Asia -->
+
+<path
+class="land"
+d="
+M572 157
+L623 133
+L680 139
+L720 157
+L763 150
+L807 169
+L844 195
+L826 224
+L785 218
+L752 237
+L712 226
+L678 244
+L637 220
+L599 212
+L573 189
+Z"
+/>
+
+
+<!-- India -->
+
+<path
+class="land-highlight"
+d="
+M655 222
+L686 230
+L697 260
+L679 291
+L658 272
+L650 244
+Z"
+/>
+
+
+<!-- Japan -->
+
+<path
+class="land-highlight"
+d="
+M848 203
+L862 194
+L872 205
+L865 219
+L852 228
+L846 216
+Z"
+/>
+
+
+<!-- Australia -->
+
+<path
+class="land"
+d="
+M825 380
+L867 362
+L920 374
+L952 408
+L940 443
+L899 460
+L856 451
+L828 425
+L814 400
+Z"
+/>
+
+
+<!-- Greenland -->
+
+<path
+class="land"
+d="
+M335 70
+L380 48
+L426 61
+L444 91
+L421 115
+L382 122
+L347 107
+Z"
+/>
+
+
+</svg>
 
 </div>
 
 
-<!-- Shipping routes -->
+<div class="map-sweep"></div>
 
-<div class="shipping-routes">
 
-<div class="route route-1"></div>
-<div class="route route-2"></div>
-<div class="route route-3"></div>
-<div class="route route-4"></div>
+<!-- ====================================================
+     SHIPPING ROUTES
+==================================================== -->
 
-</div>
+<svg
+class="routes"
+viewBox="0 0 1600 900"
+preserveAspectRatio="none"
+aria-hidden="true"
+>
+
+
+<!-- Japan → Sri Lanka -->
+
+<path
+class="route"
+d="
+M1230 390
+C1140 410,
+1080 500,
+1010 570
+C950 625,
+890 650,
+820 675
+"
+/>
+
+
+<!-- Sri Lanka → Middle East -->
+
+<path
+class="route route2"
+d="
+M1010 570
+C920 540,
+850 510,
+760 470
+C700 442,
+650 420,
+580 410
+"
+/>
+
+
+<!-- Korea → Middle East -->
+
+<path
+class="route route3"
+d="
+M1145 370
+C1040 340,
+970 360,
+900 400
+C810 450,
+730 450,
+580 410
+"
+/>
+
+
+</svg>
 
 
 <!-- Ports -->
 
-<div class="port port-japan"></div>
-<div class="port port-sri"></div>
-<div class="port port-middle"></div>
+<div class="port japan"></div>
+<div class="port korea"></div>
+<div class="port srilanka"></div>
+<div class="port dubai"></div>
 
 
-<!-- Moving cargo particles -->
+<!-- Moving cargo lights -->
 
-<div class="cargo-particle p1"></div>
-<div class="cargo-particle p2"></div>
-<div class="cargo-particle p3"></div>
-<div class="cargo-particle p4"></div>
+<div class="cargo-light one"></div>
+<div class="cargo-light two"></div>
+<div class="cargo-light three"></div>
 
 
-<!-- =================================================
-     MOVING CARGO SHIP
-================================================= -->
+<!-- ====================================================
+     OCEAN
+==================================================== -->
 
-<div class="ship-wrapper">
+<div class="ocean">
+
+<div class="ocean-wave wave1"></div>
+<div class="ocean-wave wave2"></div>
+<div class="ocean-wave wave3"></div>
+
+
+<!-- ==================================================
+     CARGO SHIP
+================================================== -->
+
+<div class="ship">
 
 <div class="ship-shadow"></div>
 
-<div class="ship-trail"></div>
+<div class="ship-wake"></div>
 
+
+<!-- hull -->
 
 <div class="ship-hull"></div>
 
 
+<!-- deck -->
+
 <div class="ship-deck"></div>
 
 
-<div class="containers">
+<!-- containers -->
 
-<div class="container-box"></div>
-<div class="container-box"></div>
-<div class="container-box"></div>
-<div class="container-box"></div>
+<div class="ship-containers">
+
+<div class="container"></div>
+<div class="container"></div>
+<div class="container"></div>
+<div class="container"></div>
+<div class="container"></div>
 
 </div>
 
+
+<!-- bridge -->
 
 <div class="ship-bridge">
 
-<div class="ship-window"></div>
+<div class="ship-windows"></div>
 
 </div>
 
 
-<div class="ship-smoke"></div>
-<div class="ship-smoke s2"></div>
+<!-- chimney -->
+
+<div class="ship-chimney"></div>
+
+
+<!-- smoke -->
+
+<div class="smoke"></div>
+<div class="smoke s2"></div>
+<div class="smoke s3"></div>
+
+
+<!-- light -->
+
+<div class="ship-light"></div>
+
+</div>
 
 </div>
 
@@ -1974,12 +2515,14 @@ WhatsApp
 
 
 
-<!-- =================================================
+<!-- ======================================================
      HERO CONTENT
-================================================= -->
+====================================================== -->
 
 <div class="hero-content">
 
+
+<!-- LOGO -->
 
 <div class="hero-logo">
 
@@ -1994,6 +2537,8 @@ WhatsApp
 </div>
 
 
+<!-- KICKER -->
+
 <div class="hero-kicker">
 
 <span class="hero-kicker-dot"></span>
@@ -2002,6 +2547,8 @@ GLOBAL STOCK LOT BUYER
 
 </div>
 
+
+<!-- TITLE -->
 
 <h1>
 
@@ -2012,6 +2559,8 @@ ANY COUNTRY.
 </h1>
 
 
+<!-- DESCRIPTION -->
+
 <p class="hero-description">
 
 We Buy Stock Lots, Surplus, Overstock,
@@ -2019,6 +2568,8 @@ Clearance &amp; Excess Inventory Worldwide.
 
 </p>
 
+
+<!-- BUTTONS -->
 
 <div class="hero-buttons">
 
@@ -2084,7 +2635,6 @@ around the world.
 </div>
 
 
-
 <div class="cards">
 
 
@@ -2107,7 +2657,6 @@ clearance stock and bulk lots.
 </div>
 
 
-
 <div class="card">
 
 <div class="card-icon">
@@ -2125,7 +2674,6 @@ industrial materials.
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -2147,7 +2695,6 @@ and construction machinery.
 </div>
 
 
-
 <div class="card">
 
 <div class="card-icon">
@@ -2165,7 +2712,6 @@ inventory.
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -2187,7 +2733,6 @@ rejected lots and excess stock.
 </div>
 
 
-
 <div class="card">
 
 <div class="card-icon">
@@ -2207,7 +2752,6 @@ liquidation inventory.
 </div>
 
 
-
 <div class="card">
 
 <div class="card-icon">
@@ -2225,7 +2769,6 @@ across international markets.
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -2286,7 +2829,6 @@ review the opportunity.
 </div>
 
 
-
 <div class="process">
 
 
@@ -2309,7 +2851,6 @@ location.
 </div>
 
 
-
 <div class="process-item">
 
 <div class="process-number">
@@ -2329,7 +2870,6 @@ information.
 </div>
 
 
-
 <div class="process-item">
 
 <div class="process-number">
@@ -2347,7 +2887,6 @@ arrangements.
 </p>
 
 </div>
-
 
 
 <div class="process-item">
@@ -2400,9 +2939,9 @@ opportunity.
 <div class="hero-buttons">
 
 <a
-class="btn btn-primary"
-href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-target="_blank"
+    class="btn btn-primary"
+    href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+    target="_blank"
 >
 Contact Us on WhatsApp
 </a>
@@ -2445,7 +2984,6 @@ we will get back to you.
 </div>
 
 
-
 <div class="contact-grid">
 
 
@@ -2462,8 +3000,8 @@ WhatsApp
 <p>
 
 <a
-href="https://wa.me/94777426436"
-target="_blank"
+    href="https://wa.me/94777426436"
+    target="_blank"
 >
 +94 77 742 6436
 </a>
@@ -2471,7 +3009,6 @@ target="_blank"
 </p>
 
 </div>
-
 
 
 <div class="contact-card">
@@ -2487,7 +3024,7 @@ Email
 <p>
 
 <a
-href="mailto:agmrifkan@gmail.com"
+    href="mailto:agmrifkan@gmail.com"
 >
 agmrifkan@gmail.com
 </a>
@@ -2495,7 +3032,6 @@ agmrifkan@gmail.com
 </p>
 
 </div>
-
 
 
 <div class="contact-card">
@@ -2547,14 +3083,14 @@ All rights reserved.
 
 
 <!-- ======================================================
-     FLOATING WHATSAPP
+     WHATSAPP FLOAT
 ====================================================== -->
 
 <a
-class="whatsapp-float"
-href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
-target="_blank"
-aria-label="Contact GlobalStock International on WhatsApp"
+    class="whatsapp-float"
+    href="https://wa.me/94777426436?text=Hello%20GlobalStock%20International%2C%20I%20have%20stock%20available."
+    target="_blank"
+    aria-label="Contact GlobalStock International on WhatsApp"
 >
 ☎
 </a>
@@ -2632,62 +3168,35 @@ window.addEventListener(
 
 
 /* =========================================================
-   SMALL PARALLAX EFFECT
+   PAUSE HEAVY ANIMATION WHEN TAB IS HIDDEN
 ========================================================= */
 
-const hero =
-document.querySelector(".hero");
+document.addEventListener(
+    "visibilitychange",
+    function(){
 
-const atmosphere =
-document.querySelector(".atmosphere");
+        const animations =
+            document.querySelectorAll(
+                ".ship, .cargo-light, .route, .map-sweep"
+            );
 
-if(hero && atmosphere){
+        animations.forEach(
+            function(element){
 
-    hero.addEventListener(
-        "mousemove",
-        function(e){
+                element.style.animationPlayState =
+                    document.hidden
+                    ? "paused"
+                    : "running";
 
-            const x =
-                (e.clientX /
-                window.innerWidth -
-                .5) * 20;
+            }
+        );
 
-            const y =
-                (e.clientY /
-                window.innerHeight -
-                .5) * 12;
-
-            atmosphere.style.transform =
-                `translate(${x}px,${y}px)`;
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SHIP VISIBILITY
-========================================================= */
-
-const ship =
-document.querySelector(".ship-wrapper");
-
-if(ship){
-
-    ship.addEventListener(
-        "animationiteration",
-        function(){
-
-            ship.style.opacity = "1";
-
-        }
-    );
-
-}
+    }
+);
 
 </script>
 
 
 </body>
 </html>
+```
