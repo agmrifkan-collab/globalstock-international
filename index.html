@@ -6,23 +6,29 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name="theme-color" content="#02080d">
 
 <title>GlobalStock International</title>
 
-<meta name="description"
-      content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+<meta
+name="description"
+content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin
+>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet"
+>
 
 
 <style>
@@ -68,11 +74,14 @@ header{
     position:fixed;
     top:0;
     left:0;
+
     width:100%;
     height:76px;
+
     z-index:1000;
 
-    background:rgba(1,7,12,.78);
+    background:
+        rgba(1,7,12,.80);
 
     border-bottom:
         1px solid rgba(255,255,255,.07);
@@ -84,6 +93,7 @@ header{
 .nav{
     width:min(1200px,92%);
     height:100%;
+
     margin:auto;
 
     display:flex;
@@ -112,12 +122,14 @@ header{
 
 .logo-sub{
     display:block;
+
     margin-top:2px;
 
     font-size:8px;
     letter-spacing:2.8px;
 
-    color:rgba(255,255,255,.48);
+    color:
+        rgba(255,255,255,.48);
 }
 
 .nav-links{
@@ -129,7 +141,10 @@ header{
 .nav-links a{
     font-size:12px;
     font-weight:600;
-    color:rgba(255,255,255,.72);
+
+    color:
+        rgba(255,255,255,.72);
+
     transition:.3s;
 }
 
@@ -138,10 +153,13 @@ header{
 }
 
 .nav-contact{
-    padding:11px 19px;
+    padding:
+        11px 19px;
+
     border-radius:100px;
 
     background:#fff;
+
     color:#031018 !important;
 }
 
@@ -175,6 +193,7 @@ header{
     position:relative;
 
     width:100%;
+
     height:850px;
     min-height:100svh;
 
@@ -185,7 +204,7 @@ header{
 
 
 /* =========================================================
-   WORLD MAP
+   YOUR 3D WORLD MAP
 ========================================================= */
 
 .world-background{
@@ -198,9 +217,10 @@ header{
         linear-gradient(
             180deg,
             rgba(0,6,11,.08),
-            rgba(0,6,11,.05) 42%,
-            rgba(0,5,9,.48) 100%
+            rgba(0,6,11,.04) 42%,
+            rgba(0,5,9,.50) 100%
         ),
+
         url("./world-map-bg.png");
 
     background-repeat:no-repeat;
@@ -212,7 +232,11 @@ header{
     transform:scale(1.025);
 
     animation:
-        mapZoom 18s ease-in-out infinite alternate;
+        mapZoom
+        18s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 @keyframes mapZoom{
@@ -243,23 +267,23 @@ header{
 
         radial-gradient(
             ellipse at 65% 45%,
-            transparent 18%,
-            rgba(0,5,9,.10) 48%,
+            transparent 15%,
+            rgba(0,5,9,.08) 45%,
             rgba(0,4,8,.58) 100%
         ),
 
         linear-gradient(
             90deg,
-            rgba(0,5,9,.76) 0%,
-            rgba(0,7,12,.30) 38%,
-            rgba(0,7,12,.08) 68%,
+            rgba(0,5,9,.78) 0%,
+            rgba(0,7,12,.27) 40%,
+            rgba(0,7,12,.06) 70%,
             rgba(0,5,9,.42) 100%
         );
 }
 
 
 /* =========================================================
-   GRID
+   SUBTLE GRID
 ========================================================= */
 
 .hero-grid{
@@ -270,7 +294,7 @@ header{
 
     pointer-events:none;
 
-    opacity:.075;
+    opacity:.07;
 
     background-image:
 
@@ -301,18 +325,17 @@ header{
 
 
 /* =========================================================
-   ROUTES SVG
+   ROUTE SVG
 ========================================================= */
 
 .routes{
     position:absolute;
-
     inset:0;
 
     width:100%;
     height:100%;
 
-    z-index:6;
+    z-index:8;
 
     pointer-events:none;
 
@@ -321,98 +344,104 @@ header{
 
 
 /* =========================================================
-   MAIN ROUTES
+   GLOBAL ROUTE
 ========================================================= */
 
 .route{
+
     fill:none;
 
-    stroke:#32f4df;
+    stroke:#35f6e0;
 
-    stroke-width:2.2;
+    stroke-width:2;
 
     stroke-linecap:round;
 
     opacity:.68;
 
-    stroke-dasharray:1200;
+    stroke-dasharray:1100;
 
-    stroke-dashoffset:1200;
+    stroke-dashoffset:1100;
 
     filter:
         drop-shadow(
-            0 0 4px rgba(50,255,230,.9)
+            0 0 4px
+            rgba(53,246,224,.95)
         )
         drop-shadow(
-            0 0 12px rgba(50,255,230,.45)
+            0 0 12px
+            rgba(53,246,224,.45)
         );
 
     animation:
-        drawRoute 3.8s
+        routeDraw
+        3.5s
         cubic-bezier(.2,.8,.2,1)
         forwards,
 
-        routeGlow 3s
+        routeBreath
+        3s
         ease-in-out
-        4s
+        3.5s
         infinite
         alternate;
 }
 
-@keyframes drawRoute{
+@keyframes routeDraw{
 
     to{
         stroke-dashoffset:0;
     }
 }
 
-@keyframes routeGlow{
+@keyframes routeBreath{
 
     from{
-        opacity:.32;
+        opacity:.28;
     }
 
     to{
-        opacity:.88;
+        opacity:.82;
     }
 }
 
 
 /* =========================================================
-   MOVING LIGHT POINT
+   MOVING LIGHT
 ========================================================= */
 
-.moving-point{
-
-    fill:#ffffff;
-
-    stroke:#55ffeb;
-
-    stroke-width:2;
-
-    opacity:1;
-
-    filter:
-        drop-shadow(0 0 4px #ffffff)
-        drop-shadow(0 0 9px #35ffe4)
-        drop-shadow(0 0 18px #35ffe4)
-        drop-shadow(0 0 30px rgba(53,255,228,.9));
-
-    transform-origin:center;
-}
-
-
-/* outer glow around point */
-
-.moving-point-glow{
+.moving-glow{
 
     fill:#32ffe1;
 
-    opacity:.32;
+    opacity:.30;
 
     filter:
         blur(2px);
+}
 
+.moving-point{
+
+    fill:#fff;
+
+    stroke:#54ffec;
+
+    stroke-width:2;
+
+    filter:
+        drop-shadow(
+            0 0 4px #fff
+        )
+        drop-shadow(
+            0 0 10px #32ffe1
+        )
+        drop-shadow(
+            0 0 20px #32ffe1
+        )
+        drop-shadow(
+            0 0 34px
+            rgba(50,255,225,.8)
+        );
 }
 
 
@@ -421,7 +450,6 @@ header{
 ========================================================= */
 
 .hero-content{
-
     position:relative;
 
     z-index:20;
@@ -440,7 +468,7 @@ header{
 }
 
 .hero-text{
-    width:min(660px,100%);
+    width:min(650px,100%);
 }
 
 
@@ -456,15 +484,17 @@ header{
 
     gap:9px;
 
-    padding:9px 15px;
+    padding:
+        9px 15px;
 
     border:
-        1px solid rgba(110,255,237,.22);
+        1px solid
+        rgba(110,255,237,.23);
 
     border-radius:100px;
 
     background:
-        rgba(1,21,27,.50);
+        rgba(1,21,27,.52);
 
     backdrop-filter:blur(10px);
 
@@ -492,7 +522,7 @@ header{
 
 
 /* =========================================================
-   TITLE
+   MAIN TITLE
 ========================================================= */
 
 .hero h1{
@@ -500,7 +530,11 @@ header{
     margin-top:25px;
 
     font-size:
-        clamp(43px,6.5vw,82px);
+        clamp(
+            43px,
+            6.5vw,
+            82px
+        );
 
     line-height:.95;
 
@@ -509,7 +543,8 @@ header{
     font-weight:900;
 
     text-shadow:
-        0 15px 55px rgba(0,0,0,.70);
+        0 15px 55px
+        rgba(0,0,0,.72);
 }
 
 .hero h1 span{
@@ -525,7 +560,8 @@ header{
     color:#82fff1;
 
     text-shadow:
-        0 0 28px rgba(50,255,225,.18);
+        0 0 28px
+        rgba(50,255,225,.18);
 }
 
 
@@ -569,7 +605,8 @@ header{
 
     min-height:48px;
 
-    padding:0 22px;
+    padding:
+        0 22px;
 
     display:inline-flex;
 
@@ -583,10 +620,7 @@ header{
 
     font-weight:700;
 
-    transition:
-        transform .3s,
-        background .3s,
-        box-shadow .3s;
+    transition:.3s;
 }
 
 .btn-main{
@@ -596,7 +630,8 @@ header{
     background:#fff;
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,.32);
+        0 12px 35px
+        rgba(0,0,0,.32);
 }
 
 .btn-main:hover{
@@ -616,7 +651,8 @@ header{
         rgba(255,255,255,.045);
 
     border:
-        1px solid rgba(255,255,255,.18);
+        1px solid
+        rgba(255,255,255,.18);
 
     backdrop-filter:blur(10px);
 }
@@ -629,7 +665,7 @@ header{
 
 
 /* =========================================================
-   STATUS
+   HERO STATUS
 ========================================================= */
 
 .hero-bottom{
@@ -639,7 +675,8 @@ header{
     left:50%;
     bottom:24px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     z-index:30;
 
@@ -697,12 +734,13 @@ header{
 
 
 /* =========================================================
-   CONTENT SECTIONS
+   SECTIONS
 ========================================================= */
 
 .content-section{
 
-    padding:105px 0;
+    padding:
+        105px 0;
 
     background:#030b11;
 }
@@ -732,7 +770,11 @@ header{
     margin-top:14px;
 
     font-size:
-        clamp(34px,5vw,58px);
+        clamp(
+            34px,
+            5vw,
+            58px
+        );
 
     line-height:1.03;
 
@@ -779,7 +821,8 @@ header{
     padding:26px;
 
     border:
-        1px solid rgba(255,255,255,.07);
+        1px solid
+        rgba(255,255,255,.07);
 
     border-radius:18px;
 
@@ -795,7 +838,8 @@ header{
 
 .card:hover{
 
-    transform:translateY(-5px);
+    transform:
+        translateY(-5px);
 
     border-color:
         rgba(62,255,227,.25);
@@ -831,7 +875,8 @@ header{
 
 .cta{
 
-    padding:110px 0;
+    padding:
+        110px 0;
 
     background:
 
@@ -848,10 +893,12 @@ header{
 
     text-align:center;
 
-    padding:70px 25px;
+    padding:
+        70px 25px;
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid
+        rgba(255,255,255,.08);
 
     border-radius:25px;
 
@@ -864,7 +911,11 @@ header{
     margin-top:12px;
 
     font-size:
-        clamp(38px,6vw,65px);
+        clamp(
+            38px,
+            6vw,
+            65px
+        );
 
     letter-spacing:-3px;
 }
@@ -906,12 +957,14 @@ header{
 
 footer{
 
-    padding:32px 0;
+    padding:
+        32px 0;
 
     background:#02070b;
 
     border-top:
-        1px solid rgba(255,255,255,.06);
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 .footer-inner{
@@ -987,7 +1040,8 @@ footer{
             rgba(2,8,13,.97);
 
         border-bottom:
-            1px solid rgba(255,255,255,.08);
+            1px solid
+            rgba(255,255,255,.08);
     }
 
     .nav-links.active{
@@ -1020,7 +1074,11 @@ footer{
     .hero h1{
 
         font-size:
-            clamp(40px,9vw,65px);
+            clamp(
+                40px,
+                9vw,
+                65px
+            );
 
         letter-spacing:-3px;
     }
@@ -1095,7 +1153,8 @@ footer{
 
         letter-spacing:2px;
 
-        padding:8px 12px;
+        padding:
+            8px 12px;
     }
 
     .hero h1{
@@ -1103,7 +1162,11 @@ footer{
         margin-top:20px;
 
         font-size:
-            clamp(35px,11.5vw,53px);
+            clamp(
+                35px,
+                11.5vw,
+                53px
+            );
 
         line-height:.96;
 
@@ -1127,7 +1190,8 @@ footer{
 
         min-height:45px;
 
-        padding:0 17px;
+        padding:
+            0 17px;
 
         font-size:10px;
     }
@@ -1192,7 +1256,7 @@ footer{
 
 
 /* =========================================================
-   VERY SMALL PHONE
+   SMALL PHONE
 ========================================================= */
 
 @media(max-width:380px){
@@ -1229,11 +1293,14 @@ footer{
 <div class="nav">
 
 
-<a href="#home" class="logo">
+<a
+href="#home"
+class="logo"
+>
 
 <img
-    src="./logo1.png"
-    alt="GlobalStock International"
+src="./logo1.png"
+alt="GlobalStock International"
 >
 
 <div>
@@ -1252,8 +1319,8 @@ INTERNATIONAL
 
 
 <nav
-    class="nav-links"
-    id="navLinks"
+class="nav-links"
+id="navLinks"
 >
 
 <a href="#home">
@@ -1273,9 +1340,9 @@ Contact
 </a>
 
 <a
-    href="https://wa.me/94777426436"
-    target="_blank"
-    class="nav-contact"
+href="https://wa.me/94777426436"
+target="_blank"
+class="nav-contact"
 >
 WhatsApp
 </a>
@@ -1284,10 +1351,10 @@ WhatsApp
 
 
 <button
-    class="menu"
-    id="menuBtn"
-    type="button"
-    aria-label="Open menu"
+class="menu"
+id="menuBtn"
+type="button"
+aria-label="Open menu"
 >
 ☰
 </button>
@@ -1304,238 +1371,313 @@ WhatsApp
 ======================================================= -->
 
 <section
-    class="hero"
-    id="home"
+class="hero"
+id="home"
 >
 
 
-<!-- WORLD MAP -->
-
 <div
-    class="world-background"
+class="world-background"
 ></div>
 
 
-<!-- CINEMATIC OVERLAY -->
-
 <div
-    class="hero-overlay"
+class="hero-overlay"
 ></div>
 
 
-<!-- GRID -->
-
 <div
-    class="hero-grid"
+class="hero-grid"
 ></div>
+
 
 
 <!-- =====================================================
      ANIMATED ROUTES
+
+     NO COUNTRY LABELS
+     NO LOCATION PINS
+     NO FIXED DESTINATION
 ===================================================== -->
 
 <svg
-    class="routes"
-    id="routeSvg"
-    viewBox="0 0 1600 850"
-    preserveAspectRatio="none"
-    aria-hidden="true"
+class="routes"
+id="routeSvg"
+viewBox="0 0 1600 850"
+preserveAspectRatio="none"
+aria-hidden="true"
 >
 
 
 <!-- ===================================================
-     ROUTE 1
+     NORTH AMERICA → ATLANTIC → INDIAN OCEAN
 =================================================== -->
 
 <path
-    class="route"
-    id="route1"
-    d="
-        M145 225
-        C300 75,545 100,790 235
-        C900 295,1000 350,1100 405
-    "
+class="route"
+id="route1"
+d="
+M170 265
+C300 125,
+480 135,
+650 205
+C820 275,
+930 335,
+1065 455
+"
 ></path>
 
 
 <!-- ===================================================
-     ROUTE 2
+     EUROPE → MIDDLE EAST → INDIAN OCEAN
 =================================================== -->
 
 <path
-    class="route"
-    id="route2"
-    d="
-        M610 175
-        C735 160,830 220,900 275
-        C970 320,1040 365,1100 405
-    "
+class="route"
+id="route2"
+d="
+M650 215
+C760 225,
+820 275,
+895 325
+C970 375,
+1025 415,
+1080 465
+"
 ></path>
 
 
 <!-- ===================================================
-     ROUTE 3
+     MIDDLE EAST → INDIAN OCEAN
 =================================================== -->
 
 <path
-    class="route"
-    id="route3"
-    d="
-        M820 300
-        C900 320,1010 365,1100 405
-    "
+class="route"
+id="route3"
+d="
+M875 315
+C940 350,
+1010 400,
+1080 465
+"
 ></path>
 
 
 <!-- ===================================================
-     ROUTE 4
+     INDIA → INDIAN OCEAN
 =================================================== -->
 
 <path
-    class="route"
-    id="route4"
-    d="
-        M1195 225
-        C1190 285,1160 350,1100 405
-    "
+class="route"
+id="route4"
+d="
+M1060 365
+C1080 395,
+1090 430,
+1090 470
+"
 ></path>
 
 
 <!-- ===================================================
-     ROUTE 5
+     CHINA → INDIAN OCEAN
 =================================================== -->
 
 <path
-    class="route"
-    id="route5"
-    d="
-        M1360 205
-        C1320 280,1215 355,1100 405
-    "
+class="route"
+id="route5"
+d="
+M1190 270
+C1175 330,
+1140 390,
+1095 465
+"
 ></path>
 
 
 <!-- ===================================================
-     ROUTE 6
+     JAPAN → INDIAN OCEAN
 =================================================== -->
 
 <path
-    class="route"
-    id="route6"
-    d="
-        M1350 625
-        C1270 565,1180 500,1100 405
-    "
+class="route"
+id="route6"
+d="
+M1350 300
+C1290 350,
+1200 405,
+1110 470
+"
 ></path>
 
 
 <!-- ===================================================
-     ROUTE 7
+     AUSTRALIA → INDIAN OCEAN
 =================================================== -->
 
 <path
-    class="route"
-    id="route7"
-    d="
-        M590 425
-        C760 420,950 410,1100 405
-    "
+class="route"
+id="route7"
+d="
+M1370 620
+C1280 570,
+1190 520,
+1110 475
+"
+></path>
+
+
+<!-- ===================================================
+     AFRICA → INDIAN OCEAN
+=================================================== -->
+
+<path
+class="route"
+id="route8"
+d="
+M700 485
+C820 475,
+940 465,
+1080 470
+"
+></path>
+
+
+<!-- ===================================================
+     SOUTHEAST ASIA → INDIAN OCEAN
+=================================================== -->
+
+<path
+class="route"
+id="route9"
+d="
+M1260 430
+C1210 445,
+1160 465,
+1110 475
+"
 ></path>
 
 
 
 <!-- ===================================================
-     GLOWING MOVING POINTS
+     MOVING GLOW POINTS
 =================================================== -->
 
 <circle
-    class="moving-point-glow"
-    id="glow1"
-    r="10">
+class="moving-glow"
+id="glow1"
+r="10">
 </circle>
 
 <circle
-    class="moving-point"
-    id="point1"
-    r="4.5">
-</circle>
-
-
-<circle
-    class="moving-point-glow"
-    id="glow2"
-    r="10">
-</circle>
-
-<circle
-    class="moving-point"
-    id="point2"
-    r="4.5">
+class="moving-point"
+id="point1"
+r="4.5">
 </circle>
 
 
 <circle
-    class="moving-point-glow"
-    id="glow3"
-    r="10">
+class="moving-glow"
+id="glow2"
+r="10">
 </circle>
 
 <circle
-    class="moving-point"
-    id="point3"
-    r="4.5">
-</circle>
-
-
-<circle
-    class="moving-point-glow"
-    id="glow4"
-    r="10">
-</circle>
-
-<circle
-    class="moving-point"
-    id="point4"
-    r="4.5">
+class="moving-point"
+id="point2"
+r="4.5">
 </circle>
 
 
 <circle
-    class="moving-point-glow"
-    id="glow5"
-    r="10">
+class="moving-glow"
+id="glow3"
+r="10">
 </circle>
 
 <circle
-    class="moving-point"
-    id="point5"
-    r="4.5">
-</circle>
-
-
-<circle
-    class="moving-point-glow"
-    id="glow6"
-    r="10">
-</circle>
-
-<circle
-    class="moving-point"
-    id="point6"
-    r="4.5">
+class="moving-point"
+id="point3"
+r="4.5">
 </circle>
 
 
 <circle
-    class="moving-point-glow"
-    id="glow7"
-    r="10">
+class="moving-glow"
+id="glow4"
+r="10">
 </circle>
 
 <circle
-    class="moving-point"
-    id="point7"
-    r="4.5">
+class="moving-point"
+id="point4"
+r="4.5">
+</circle>
+
+
+<circle
+class="moving-glow"
+id="glow5"
+r="10">
+</circle>
+
+<circle
+class="moving-point"
+id="point5"
+r="4.5">
+</circle>
+
+
+<circle
+class="moving-glow"
+id="glow6"
+r="10">
+</circle>
+
+<circle
+class="moving-point"
+id="point6"
+r="4.5">
+</circle>
+
+
+<circle
+class="moving-glow"
+id="glow7"
+r="10">
+</circle>
+
+<circle
+class="moving-point"
+id="point7"
+r="4.5">
+</circle>
+
+
+<circle
+class="moving-glow"
+id="glow8"
+r="10">
+</circle>
+
+<circle
+class="moving-point"
+id="point8"
+r="4.5">
+</circle>
+
+
+<circle
+class="moving-glow"
+id="glow9"
+r="10">
+</circle>
+
+<circle
+class="moving-point"
+id="point9"
+r="4.5">
 </circle>
 
 
@@ -1547,14 +1689,22 @@ WhatsApp
      HERO TEXT
 ===================================================== -->
 
-<div class="hero-content">
+<div
+class="hero-content"
+>
 
-<div class="hero-text">
+<div
+class="hero-text"
+>
 
 
-<div class="eyebrow">
+<div
+class="eyebrow"
+>
 
-<span class="eyebrow-dot"></span>
+<span
+class="eyebrow-dot"
+></span>
 
 GLOBAL STOCK NETWORK
 
@@ -1578,7 +1728,9 @@ ANY COUNTRY.
 </h1>
 
 
-<p class="hero-description">
+<p
+class="hero-description"
+>
 
 We Buy Stock Lots, Surplus, Overstock,
 Clearance &amp; Excess Inventory Worldwide.
@@ -1586,25 +1738,25 @@ Clearance &amp; Excess Inventory Worldwide.
 </p>
 
 
-<div class="buttons">
-
+<div
+class="buttons"
+>
 
 <a
-    href="#materials"
-    class="btn btn-main"
+href="#materials"
+class="btn btn-main"
 >
 Explore Materials
 </a>
 
 
 <a
-    href="https://wa.me/94777426436"
-    target="_blank"
-    class="btn btn-outline"
+href="https://wa.me/94777426436"
+target="_blank"
+class="btn btn-outline"
 >
 Contact GlobalStock
 </a>
-
 
 </div>
 
@@ -1617,18 +1769,26 @@ Contact GlobalStock
 
 <!-- STATUS -->
 
-<div class="hero-bottom">
+<div
+class="hero-bottom"
+>
 
-<div class="route-status">
+<div
+class="route-status"
+>
 
-<span class="status-dot"></span>
+<span
+class="status-dot"
+></span>
 
 GLOBAL TRADE ROUTES ACTIVE
 
 </div>
 
 
-<div class="scroll-text">
+<div
+class="scroll-text"
+>
 SCROLL TO EXPLORE
 </div>
 
@@ -1644,8 +1804,8 @@ SCROLL TO EXPLORE
 ======================================================= -->
 
 <section
-    class="content-section"
-    id="materials"
+class="content-section"
+id="materials"
 >
 
 <div class="section-inner">
@@ -1764,8 +1924,8 @@ opportunities.
 ======================================================= -->
 
 <section
-    class="content-section"
-    id="vehicles"
+class="content-section"
+id="vehicles"
 >
 
 <div class="section-inner">
@@ -1910,9 +2070,9 @@ GlobalStock International.
 
 
 <a
-    href="https://wa.me/94777426436"
-    target="_blank"
-    class="btn btn-main"
+href="https://wa.me/94777426436"
+target="_blank"
+class="btn btn-main"
 >
 WhatsApp GlobalStock
 </a>
@@ -1931,8 +2091,8 @@ WhatsApp GlobalStock
 ======================================================= -->
 
 <section
-    class="content-section"
-    id="contact"
+class="content-section"
+id="contact"
 >
 
 <div class="section-inner">
@@ -2038,20 +2198,21 @@ INVESTING IN A BRIGHTER TOMORROW
 ========================================================= */
 
 const menuBtn =
-    document.getElementById("menuBtn");
+document.getElementById("menuBtn");
 
 const navLinks =
-    document.getElementById("navLinks");
+document.getElementById("navLinks");
 
 
 menuBtn.addEventListener(
-    "click",
-    function(){
+"click",
+function(){
 
-        navLinks.classList.toggle("active");
+    navLinks.classList.toggle(
+        "active"
+    );
 
-    }
-);
+});
 
 
 document
@@ -2062,7 +2223,9 @@ document
         "click",
         function(){
 
-            navLinks.classList.remove("active");
+            navLinks.classList.remove(
+                "active"
+            );
 
         }
     );
@@ -2071,112 +2234,119 @@ document
 
 
 /* =========================================================
-   ROUTE POINT ANIMATION
-   JavaScript / requestAnimationFrame
-   Works independently from SVG animateMotion
+   GLOBAL ROUTE ANIMATION
 ========================================================= */
 
-const routeData = [
+const routeSettings = [
 
     {
-        pathId:"route1",
-        pointId:"point1",
-        glowId:"glow1",
-
-        duration:5200,
+        path:"route1",
+        point:"point1",
+        glow:"glow1",
+        duration:5600,
         delay:0
     },
 
     {
-        pathId:"route2",
-        pointId:"point2",
-        glowId:"glow2",
-
-        duration:4500,
+        path:"route2",
+        point:"point2",
+        glow:"glow2",
+        duration:4800,
         delay:900
     },
 
     {
-        pathId:"route3",
-        pointId:"point3",
-        glowId:"glow3",
-
+        path:"route3",
+        point:"point3",
+        glow:"glow3",
         duration:3600,
         delay:1500
     },
 
     {
-        pathId:"route4",
-        pointId:"point4",
-        glowId:"glow4",
-
-        duration:4200,
-        delay:500
+        path:"route4",
+        point:"point4",
+        glow:"glow4",
+        duration:3200,
+        delay:600
     },
 
     {
-        pathId:"route5",
-        pointId:"point5",
-        glowId:"glow5",
-
-        duration:5000,
-        delay:1800
-    },
-
-    {
-        pathId:"route6",
-        pointId:"point6",
-        glowId:"glow6",
-
+        path:"route5",
+        point:"point5",
+        glow:"glow5",
         duration:4700,
-        delay:1100
+        delay:1200
     },
 
     {
-        pathId:"route7",
-        pointId:"point7",
-        glowId:"glow7",
+        path:"route6",
+        point:"point6",
+        glow:"glow6",
+        duration:5100,
+        delay:1900
+    },
 
-        duration:3900,
+    {
+        path:"route7",
+        point:"point7",
+        glow:"glow7",
+        duration:4500,
+        delay:700
+    },
+
+    {
+        path:"route8",
+        point:"point8",
+        glow:"glow8",
+        duration:4000,
         delay:2200
+    },
+
+    {
+        path:"route9",
+        point:"point9",
+        glow:"glow9",
+        duration:3800,
+        delay:1600
     }
 
 ];
 
 
-const animatedRoutes =
-    routeData.map(function(item){
+const routes =
+routeSettings.map(function(item){
 
-        return {
+    return {
 
-            path:
-                document.getElementById(
-                    item.pathId
-                ),
+        path:
+            document.getElementById(
+                item.path
+            ),
 
-            point:
-                document.getElementById(
-                    item.pointId
-                ),
+        point:
+            document.getElementById(
+                item.point
+            ),
 
-            glow:
-                document.getElementById(
-                    item.glowId
-                ),
+        glow:
+            document.getElementById(
+                item.glow
+            ),
 
-            duration:item.duration,
+        duration:item.duration,
 
-            delay:item.delay,
+        delay:item.delay,
 
-            startTime:null
+        start:0
 
-        };
+    };
 
-    });
+});
 
 
 /* =========================================================
-   START TIME
+   INITIALIZE
 ========================================================= */
 
 function initializeRoutes(){
@@ -2184,150 +2354,132 @@ function initializeRoutes(){
     const now =
         performance.now();
 
-    animatedRoutes.forEach(
-        function(route){
+    routes.forEach(function(route){
 
-            route.startTime =
-                now + route.delay;
+        route.start =
+            now + route.delay;
 
-            if(route.point){
-                route.point.style.opacity="0";
-            }
+        route.point.style.opacity =
+            "0";
 
-            if(route.glow){
-                route.glow.style.opacity="0";
-            }
+        route.glow.style.opacity =
+            "0";
 
-        }
-    );
+    });
 
 }
 
 
 /* =========================================================
-   ANIMATION
+   SMOOTH EASING
 ========================================================= */
 
-function animateRoutes(timestamp){
+function easeInOut(t){
 
-    animatedRoutes.forEach(
-        function(route){
+    return t < .5
 
-            if(
-                !route.path ||
-                !route.point ||
-                !route.glow
-            ){
-                return;
-            }
+        ? 2 * t * t
 
-
-            if(
-                timestamp <
-                route.startTime
-            ){
-
-                return;
-
-            }
+        : 1 -
+          Math.pow(
+              -2 * t + 2,
+              2
+          ) / 2;
+}
 
 
-            const elapsed =
-                timestamp -
-                route.startTime;
+/* =========================================================
+   ANIMATE
+========================================================= */
+
+function animateRoutes(time){
+
+    routes.forEach(function(route){
+
+        if(!route.path){
+            return;
+        }
+
+        if(time < route.start){
+            return;
+        }
 
 
-            const progress =
-                (elapsed %
-                route.duration) /
-                route.duration;
+        const elapsed =
+            time - route.start;
 
 
-            /*
-              Smooth travel:
-              starts slowly,
-              moves smoothly,
-              slows at destination.
-            */
-
-            const smoothProgress =
-                progress < .5
-
-                ?
-
-                2 * progress * progress
-
-                :
-
-                1 -
-                Math.pow(
-                    -2 * progress + 2,
-                    2
-                ) / 2;
+        const rawProgress =
+            (elapsed %
+            route.duration)
+            /
+            route.duration;
 
 
-            const length =
-                route.path.getTotalLength();
-
-
-            const position =
-                route.path.getPointAtLength(
-                    smoothProgress * length
-                );
-
-
-            route.point.setAttribute(
-                "cx",
-                position.x
-            );
-
-            route.point.setAttribute(
-                "cy",
-                position.y
+        const progress =
+            easeInOut(
+                rawProgress
             );
 
 
-            route.glow.setAttribute(
-                "cx",
-                position.x
+        const length =
+            route.path.getTotalLength();
+
+
+        const position =
+            route.path.getPointAtLength(
+                progress * length
             );
 
-            route.glow.setAttribute(
-                "cy",
-                position.y
-            );
+
+        route.point.setAttribute(
+            "cx",
+            position.x
+        );
+
+        route.point.setAttribute(
+            "cy",
+            position.y
+        );
 
 
-            /*
-              Fade in/out very slightly
-              at beginning and end.
-            */
+        route.glow.setAttribute(
+            "cx",
+            position.x
+        );
 
-            let opacity = 1;
-
-            if(progress < .04){
-
-                opacity =
-                    progress / .04;
-
-            }
-
-            if(progress > .94){
-
-                opacity =
-                    (1 - progress) / .06;
-
-            }
+        route.glow.setAttribute(
+            "cy",
+            position.y
+        );
 
 
-            route.point.style.opacity =
-                opacity;
+        let opacity = 1;
 
-            route.glow.style.opacity =
-                opacity * .35;
+
+        if(rawProgress < .05){
+
+            opacity =
+                rawProgress / .05;
 
         }
-    );
+
+
+        if(rawProgress > .94){
+
+            opacity =
+                (1 - rawProgress) / .06;
+
+        }
+
+
+        route.point.style.opacity =
+            opacity;
+
+        route.glow.style.opacity =
+            opacity * .34;
+
+    });
 
 
     requestAnimationFrame(
@@ -2338,10 +2490,10 @@ function animateRoutes(timestamp){
 
 
 /* =========================================================
-   START
+   START ROUTES
 ========================================================= */
 
-function startRouteAnimation(){
+function startRoutes(){
 
     initializeRoutes();
 
@@ -2352,10 +2504,6 @@ function startRouteAnimation(){
 }
 
 
-/* =========================================================
-   WAIT FOR PAGE
-========================================================= */
-
 if(
     document.readyState ===
     "loading"
@@ -2363,14 +2511,35 @@ if(
 
     document.addEventListener(
         "DOMContentLoaded",
-        startRouteAnimation
+        startRoutes
     );
 
 }else{
 
-    startRouteAnimation();
+    startRoutes();
 
 }
+
+
+/* =========================================================
+   PAGE VISIBILITY
+========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        if(
+            document.visibilityState ===
+            "visible"
+        ){
+
+            initializeRoutes();
+
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -2378,9 +2547,9 @@ if(
 ========================================================= */
 
 const world =
-    document.querySelector(
-        ".world-background"
-    );
+document.querySelector(
+    ".world-background"
+);
 
 let scrollTicking=false;
 
@@ -2421,27 +2590,6 @@ window.addEventListener(
     },
     {
         passive:true
-    }
-);
-
-
-/* =========================================================
-   RESTART IF PAGE BECOMES VISIBLE AGAIN
-========================================================= */
-
-document.addEventListener(
-    "visibilitychange",
-    function(){
-
-        if(
-            document.visibilityState ===
-            "visible"
-        ){
-
-            initializeRoutes();
-
-        }
-
     }
 );
 
