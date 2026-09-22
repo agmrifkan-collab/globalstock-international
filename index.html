@@ -2,30 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#06111c">
 
-<title>GlobalStock International</title>
+<title>GlobalStock International | Global Stock Trading</title>
 
 <meta name="description"
-content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+      content="GlobalStock International buys and sells stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
 
 <style>
 
 /* =========================================================
-   GLOBALSTOCK INTERNATIONAL
-   PREMIUM CINEMATIC GLOBAL TRADE WEBSITE
+   GLOBAL
 ========================================================= */
-
-:root{
-    --black:#02050a;
-    --deep:#030b12;
-    --navy:#061522;
-    --cyan:#55e5ff;
-    --cyan2:#16b9e8;
-    --white:#f7fbff;
-    --muted:#9aadb9;
-    --line:rgba(255,255,255,.10);
-}
 
 *{
     margin:0;
@@ -35,17 +31,19 @@ content="GlobalStock International buys stock lots, surplus, overstock, clearanc
 
 html{
     scroll-behavior:smooth;
+    background:#030a11;
 }
 
 body{
-    background:#02050a;
-    color:white;
-    font-family:
-        Inter,
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    font-family:"Inter",Arial,sans-serif;
+    background:#030a11;
+    color:#fff;
     overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
 }
 
 a{
@@ -53,6 +51,14 @@ a{
     text-decoration:none;
 }
 
+button{
+    font:inherit;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
 
 /* =========================================================
    HEADER
@@ -63,63 +69,52 @@ header{
     top:0;
     left:0;
     width:100%;
-    height:78px;
+    height:76px;
+    z-index:1000;
 
-    z-index:10000;
+    background:rgba(3,10,17,.78);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-    background:
-        rgba(2,8,14,.78);
-
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav{
-    width:min(1400px,94%);
     height:100%;
-    margin:auto;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:30px;
 }
 
 .logo{
     display:flex;
     align-items:center;
     gap:12px;
+    min-width:0;
 }
 
 .logo img{
-    width:47px;
-    height:47px;
+    width:48px;
+    height:48px;
     object-fit:contain;
-
-    filter:
-        drop-shadow(
-            0 0 15px
-            rgba(70,220,255,.22)
-        );
+    border-radius:10px;
 }
 
-.logo-name{
+.logo-text{
     font-size:17px;
-    font-weight:900;
+    font-weight:800;
     letter-spacing:.8px;
+    white-space:nowrap;
 }
 
-.logo-sub{
+.logo-text span{
+    display:block;
+    font-size:9px;
+    font-weight:500;
+    letter-spacing:2.5px;
+    opacity:.55;
     margin-top:2px;
-
-    color:#61e3ff;
-
-    font-size:8px;
-    font-weight:800;
-    letter-spacing:2.8px;
 }
 
 .nav-links{
@@ -129,37 +124,33 @@ header{
 }
 
 .nav-links a{
-    color:#c4d0d7;
     font-size:13px;
-    font-weight:650;
-    transition:.3s;
+    font-weight:600;
+    color:rgba(255,255,255,.72);
+    transition:.3s ease;
 }
 
 .nav-links a:hover{
-    color:#63e5ff;
+    color:#fff;
 }
 
-.nav-contact{
-    padding:11px 21px;
-
-    border:
-        1px solid
-        rgba(80,222,255,.30);
-
-    border-radius:30px;
-
-    color:#67e6ff !important;
-
-    background:
-        rgba(37,184,225,.06);
+.nav-btn{
+    padding:11px 19px;
+    border-radius:100px;
+    background:#fff;
+    color:#06111c !important;
 }
 
-.menu{
+.menu-btn{
     display:none;
+    width:44px;
+    height:44px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    border-radius:10px;
     cursor:pointer;
-    font-size:27px;
 }
-
 
 /* =========================================================
    HERO
@@ -167,1667 +158,1237 @@ header{
 
 .hero{
     position:relative;
-
-    height:100vh;
-    min-height:760px;
-
+    min-height:100svh;
+    height:820px;
+    max-height:1000px;
     overflow:hidden;
 
     background:
         radial-gradient(
-            ellipse at 60% 35%,
-            #0b2738 0%,
-            #04111b 38%,
-            #02070d 78%,
-            #010308 100%
-        );
-}
-
-
-/* =========================================================
-   SATELLITE WORLD MAP
-========================================================= */
-
-.world-photo{
-    position:absolute;
-
-    inset:-3%;
-
-    z-index:2;
-
-    background-image:
-        url("https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg");
-
-    background-size:
-        cover;
-
-    background-position:
-        center center;
-
-    opacity:.78;
-
-    filter:
-        saturate(.62)
-        brightness(.55)
-        contrast(1.12);
-
-    transform:
-        scale(1.035);
-
-    animation:
-        worldSlowZoom
-        28s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-@keyframes worldSlowZoom{
-
-    from{
-        transform:
-            scale(1.035)
-            translate3d(0,0,0);
-    }
-
-    to{
-        transform:
-            scale(1.075)
-            translate3d(-.5%,0,0);
-    }
-
-}
-
-
-/* premium blue cinematic treatment */
-
-.world-blue{
-    position:absolute;
-    inset:0;
-
-    z-index:3;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            rgba(1,7,12,.96) 0%,
-            rgba(2,12,19,.76) 32%,
-            rgba(2,13,21,.32) 62%,
-            rgba(2,8,14,.58) 100%
+            circle at 50% 45%,
+            rgba(18,76,105,.25),
+            transparent 42%
         ),
-
         linear-gradient(
             180deg,
-            rgba(1,7,12,.68),
-            transparent 34%,
-            rgba(1,8,13,.92) 100%
+            #030a11 0%,
+            #061521 52%,
+            #02070c 100%
         );
+}
 
+/* deep ocean glow */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(
+            ellipse at 50% 72%,
+            rgba(0,132,183,.16),
+            transparent 48%
+        );
     pointer-events:none;
 }
 
+/* =========================================================
+   WORLD MAP DOT CANVAS
+========================================================= */
 
-/* subtle cinematic light */
-
-.atmosphere{
+#worldMap{
     position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    opacity:.78;
+}
 
-    z-index:4;
+/* soft map glow */
 
-    width:700px;
-    height:500px;
-
-    right:4%;
-    top:5%;
+.map-glow{
+    position:absolute;
+    left:50%;
+    top:45%;
+    width:80%;
+    height:50%;
+    transform:translate(-50%,-50%);
 
     background:
         radial-gradient(
             ellipse,
-            rgba(42,196,237,.12),
+            rgba(20,130,175,.13),
             transparent 68%
         );
 
-    filter:blur(25px);
-
-    animation:
-        atmosphereMove
-        11s
-        ease-in-out
-        infinite
-        alternate;
+    filter:blur(18px);
+    pointer-events:none;
+    z-index:0;
 }
-
-@keyframes atmosphereMove{
-
-    from{
-        transform:
-            translate(0,0)
-            scale(1);
-    }
-
-    to{
-        transform:
-            translate(-60px,30px)
-            scale(1.15);
-    }
-
-}
-
 
 /* =========================================================
-   VERY SUBTLE WORLD GRID
+   SUBTLE GRID
 ========================================================= */
 
-.grid-overlay{
+.grid{
     position:absolute;
-
     inset:0;
+    z-index:2;
+    pointer-events:none;
 
-    z-index:5;
-
-    opacity:.12;
+    opacity:.08;
 
     background-image:
-
         linear-gradient(
-            rgba(120,220,240,.12) 1px,
+            rgba(255,255,255,.5) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
-            rgba(120,220,240,.12) 1px,
+            rgba(255,255,255,.5) 1px,
             transparent 1px
         );
 
     background-size:
-        120px 120px;
+        100px 100px,
+        100px 100px;
 
-    mask-image:
-        linear-gradient(
-            to bottom,
-            transparent,
-            black 20%,
-            black 75%,
-            transparent
-        );
-
-    pointer-events:none;
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 70%,
+        transparent
+    );
 }
 
-
 /* =========================================================
-   SHIPPING ROUTES
+   ROUTES
 ========================================================= */
 
 .routes{
     position:absolute;
-
     inset:0;
-
-    z-index:9;
-
-    pointer-events:none;
-}
-
-.routes svg{
     width:100%;
     height:100%;
+    z-index:3;
+    pointer-events:none;
 }
 
 .route{
     fill:none;
-
-    stroke:
-        rgba(79,220,247,.38);
-
-    stroke-width:1.3;
-
-    stroke-dasharray:
-        2 11;
-
-    stroke-linecap:round;
-
-    animation:
-        routeFlow
-        4.5s
-        linear
-        infinite;
+    stroke:rgba(116,207,255,.25);
+    stroke-width:1.2;
+    stroke-dasharray:5 9;
 }
 
-.route-soft{
+.route-highlight{
     fill:none;
-
-    stroke:
-        rgba(66,214,245,.11);
-
-    stroke-width:8;
-
-    filter:blur(6px);
+    stroke:rgba(120,220,255,.45);
+    stroke-width:1;
+    stroke-dasharray:2 10;
 }
 
-@keyframes routeFlow{
-
-    to{
-        stroke-dashoffset:-100;
-    }
-
+.route-dot{
+    fill:#9ceaff;
+    filter:drop-shadow(0 0 5px rgba(96,220,255,.9));
 }
-
-
-/* =========================================================
-   PORT LIGHTS
-========================================================= */
-
-.port{
-    fill:#70eaff;
-
-    filter:
-        drop-shadow(
-            0 0 7px
-            rgba(86,228,255,.95)
-        );
-
-    animation:
-        portPulse
-        2.2s
-        ease-in-out
-        infinite;
-}
-
-@keyframes portPulse{
-
-    0%,100%{
-        opacity:.5;
-        transform:scale(.8);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.15);
-    }
-
-}
-
-
-/* =========================================================
-   MOVING ROUTE PARTICLES
-========================================================= */
-
-.route-particle{
-    fill:#8af0ff;
-
-    filter:
-        drop-shadow(
-            0 0 7px
-            #59e8ff
-        );
-}
-
 
 /* =========================================================
    SRI LANKA DESTINATION
 ========================================================= */
 
-.lk-core{
-    fill:white;
-
-    filter:
-        drop-shadow(
-            0 0 10px
-            #5be7ff
-        );
-}
-
-.lk-ring{
-    fill:none;
-
-    stroke:#61e8ff;
-
-    stroke-width:1.3;
-
-    opacity:.8;
-
-    animation:
-        lkPulse
-        3s
-        ease-out
-        infinite;
-}
-
-.lk-ring.delay{
-    animation-delay:1.5s;
-}
-
-@keyframes lkPulse{
-
-    0%{
-        r:7;
-        opacity:.85;
-    }
-
-    100%{
-        r:52;
-        opacity:0;
-    }
-
-}
-
-
-/* =========================================================
-   REAL SHIP MOVEMENT
-========================================================= */
-
-.ship-layer{
+.destination{
     position:absolute;
+    left:67.7%;
+    top:61.5%;
+    z-index:8;
 
-    inset:0;
+    width:12px;
+    height:12px;
 
-    z-index:18;
-
-    pointer-events:none;
+    transform:translate(-50%,-50%);
 }
 
-.moving-ship{
+.destination::before{
+    content:"";
     position:absolute;
-
-    width:360px;
-    height:135px;
-
-    left:-430px;
-    top:63%;
-
-    background-image:
-        url("https://images.pexels.com/photos/12047459/pexels-photo-12047459.jpeg?cs=srgb&dl=pexels-dendoktoor-12047459.jpg&fm=jpg");
-
-    background-size:
-        155% auto;
-
-    background-position:
-        center 67%;
-
-    background-repeat:no-repeat;
-
-    border-radius:
-        42% 48% 38% 42%;
-
-    filter:
-        saturate(.72)
-        contrast(1.15)
-        brightness(.68)
-        drop-shadow(
-            0 20px 22px
-            rgba(0,0,0,.55)
-        );
-
-    /*
-      Soft mask removes the rectangular photo edges.
-    */
-
-    -webkit-mask-image:
-        linear-gradient(
-            to right,
-            transparent 0%,
-            black 10%,
-            black 90%,
-            transparent 100%
-        );
-
-    mask-image:
-        linear-gradient(
-            to right,
-            transparent 0%,
-            black 10%,
-            black 90%,
-            transparent 100%
-        );
-
-    animation:
-        shipAcross
-        22s
-        linear
-        infinite;
-}
-
-@keyframes shipAcross{
-
-    0%{
-        transform:
-            translate3d(
-                -5vw,
-                12px,
-                0
-            )
-            scale(.72);
-
-        opacity:0;
-    }
-
-    8%{
-        opacity:.88;
-    }
-
-    42%{
-        transform:
-            translate3d(
-                43vw,
-                -5px,
-                0
-            )
-            scale(.82);
-    }
-
-    72%{
-        transform:
-            translate3d(
-                76vw,
-                3px,
-                0
-            )
-            scale(.76);
-    }
-
-    94%{
-        opacity:.85;
-    }
-
-    100%{
-        transform:
-            translate3d(
-                115vw,
-                -3px,
-                0
-            )
-            scale(.66);
-
-        opacity:0;
-    }
-
-}
-
-
-/* second ship, smaller and delayed */
-
-.moving-ship.ship-two{
-
-    width:255px;
-    height:100px;
-
-    top:71%;
-
-    animation:
-        shipAcrossTwo
-        28s
-        linear
-        infinite;
-
-    animation-delay:
-        -12s;
-
-    opacity:.62;
-
-    filter:
-        saturate(.55)
-        contrast(1.1)
-        brightness(.55)
-        drop-shadow(
-            0 15px 20px
-            rgba(0,0,0,.5)
-        );
-}
-
-@keyframes shipAcrossTwo{
-
-    0%{
-        transform:
-            translateX(-15vw)
-            scale(.55);
-
-        opacity:0;
-    }
-
-    10%{
-        opacity:.65;
-    }
-
-    55%{
-        transform:
-            translateX(55vw)
-            translateY(-8px)
-            scale(.65);
-    }
-
-    100%{
-        transform:
-            translateX(120vw)
-            translateY(3px)
-            scale(.52);
-
-        opacity:0;
-    }
-
-}
-
-
-/* =========================================================
-   OCEAN / FOREGROUND
-========================================================= */
-
-.ocean{
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:27%;
-
-    z-index:16;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            rgba(3,23,34,.02),
-            rgba(1,10,17,.82)
-        );
-
-    pointer-events:none;
-}
-
-.ocean-glow{
-    position:absolute;
-
-    left:0;
-    right:0;
-    top:0;
-
-    height:100%;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(41,183,220,.12),
-            transparent 60%
-        );
-}
-
-.wave{
-    position:absolute;
-
-    left:-10%;
-
-    width:120%;
-
-    height:85px;
-
-    border-top:
-        1px solid
-        rgba(94,220,242,.10);
-
+    inset:-17px;
     border-radius:50%;
-
-    animation:
-        waveMove
-        12s
-        ease-in-out
-        infinite
-        alternate;
+    background:rgba(72,207,255,.15);
+    animation:pulse 2.4s ease-in-out infinite;
 }
 
-.wave:nth-child(2){
-    bottom:68px;
+.destination::after{
+    content:"";
+    position:absolute;
+    inset:-5px;
+    border-radius:50%;
+    border:1px solid rgba(112,224,255,.7);
 }
 
-.wave:nth-child(3){
-    bottom:38px;
-    animation-duration:15s;
-    animation-delay:-4s;
+.destination-core{
+    position:absolute;
+    width:8px;
+    height:8px;
+    left:2px;
+    top:2px;
+    background:#a9efff;
+    border-radius:50%;
+    box-shadow:
+        0 0 12px #63dcff,
+        0 0 28px rgba(67,211,255,.8);
 }
 
-.wave:nth-child(4){
-    bottom:10px;
-    animation-duration:18s;
-    animation-delay:-8s;
+.destination-label{
+    position:absolute;
+    left:18px;
+    top:-8px;
+    white-space:nowrap;
+
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:2px;
+    color:rgba(200,241,255,.8);
 }
 
-@keyframes waveMove{
-
-    from{
-        transform:
-            translateX(-4%)
-            scaleY(.82);
+@keyframes pulse{
+    0%,100%{
+        transform:scale(.8);
+        opacity:.3;
     }
-
-    to{
-        transform:
-            translateX(4%)
-            scaleY(1.08);
+    50%{
+        transform:scale(1.3);
+        opacity:.9;
     }
-
 }
-
 
 /* =========================================================
    HERO CONTENT
 ========================================================= */
 
 .hero-content{
-    position:absolute;
+    position:relative;
+    z-index:20;
 
-    z-index:50;
+    min-height:100svh;
+    height:100%;
 
-    left:7%;
-    top:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    transform:
-        translateY(-50%);
+    text-align:center;
 
-    width:
-        min(690px,90%);
+    padding:
+        100px
+        20px
+        160px;
 }
 
-.kicker{
-    display:inline-flex;
+.hero-inner{
+    width:min(950px,100%);
+}
 
+.eyebrow{
+    display:inline-flex;
     align-items:center;
     gap:9px;
 
-    padding:
-        8px 15px;
+    padding:9px 16px;
 
-    margin-bottom:22px;
+    border:1px solid rgba(160,230,255,.18);
+    background:rgba(5,25,38,.52);
 
-    border:
-        1px solid
-        rgba(89,226,255,.22);
-
-    border-radius:30px;
-
-    background:
-        rgba(3,29,42,.36);
-
-    color:#71e7ff;
+    border-radius:100px;
 
     font-size:10px;
+    font-weight:700;
+    letter-spacing:2.8px;
+    text-transform:uppercase;
 
-    font-weight:800;
+    color:rgba(206,244,255,.82);
 
-    letter-spacing:2.7px;
-
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(12px);
 }
 
-.kicker-dot{
+.eyebrow-dot{
     width:6px;
     height:6px;
-
     border-radius:50%;
-
-    background:#6deaff;
-
-    box-shadow:
-        0 0 12px
-        #6deaff;
-
-    animation:
-        blink
-        1.7s
-        infinite;
-}
-
-@keyframes blink{
-    50%{
-        opacity:.25;
-    }
+    background:#71ddff;
+    box-shadow:0 0 10px #71ddff;
 }
 
 .hero h1{
+    margin-top:26px;
 
-    margin-bottom:25px;
+    font-size:clamp(
+        42px,
+        7vw,
+        88px
+    );
 
-    font-size:
-        clamp(48px,6.2vw,88px);
-
-    line-height:.92;
-
+    line-height:.95;
     letter-spacing:-4px;
-
-    font-weight:950;
+    font-weight:900;
 
     text-shadow:
-        0 18px 55px
-        rgba(0,0,0,.75);
+        0 15px 50px rgba(0,0,0,.6);
 }
 
 .hero h1 span{
     display:block;
-}
-
-.hero h1 .accent{
 
     background:
         linear-gradient(
             100deg,
-            #ffffff,
-            #b9f3ff,
-            #4bd7f7,
-            #ffffff
+            #ffffff 10%,
+            #bfefff 50%,
+            #70d8ff 90%
         );
-
-    background-size:
-        250% auto;
 
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
-
-    animation:
-        textShine
-        7s
-        linear
-        infinite;
-}
-
-@keyframes textShine{
-
-    to{
-        background-position:
-            250% center;
-    }
-
 }
 
 .hero-description{
+    max-width:670px;
+    margin:27px auto 0;
 
-    max-width:610px;
+    color:rgba(232,246,251,.72);
 
-    color:#b3c2cb;
+    font-size:clamp(
+        14px,
+        1.8vw,
+        18px
+    );
 
-    font-size:17px;
-
-    line-height:1.72;
-
-    margin-bottom:31px;
-
-    text-shadow:
-        0 3px 15px
-        rgba(0,0,0,.65);
+    line-height:1.75;
 }
 
-.buttons{
+.hero-buttons{
+    margin-top:32px;
+
     display:flex;
-    gap:13px;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
     flex-wrap:wrap;
 }
 
 .btn{
-
-    min-height:52px;
-
-    padding:
-        0 25px;
-
-    border-radius:30px;
-
     display:inline-flex;
-
     align-items:center;
     justify-content:center;
 
-    font-size:13px;
-    font-weight:800;
+    min-height:48px;
+    padding:0 23px;
 
-    transition:
-        .3s;
+    border-radius:100px;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.3s ease;
 }
 
 .btn-primary{
-
-    color:#001018;
-
-    background:
-        linear-gradient(
-            135deg,
-            #72edff,
-            #15b6e6
-        );
-
-    box-shadow:
-        0 16px 42px
-        rgba(20,187,230,.25);
+    background:#fff;
+    color:#06111c;
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
 }
 
 .btn-primary:hover{
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 22px 55px
-        rgba(20,187,230,.40);
+    transform:translateY(-2px);
+    box-shadow:0 15px 40px rgba(90,210,255,.18);
 }
 
 .btn-secondary{
-
-    border:
-        1px solid
-        rgba(255,255,255,.16);
-
-    color:#e9f8ff;
-
-    background:
-        rgba(255,255,255,.045);
-
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05);
+    color:#fff;
     backdrop-filter:blur(10px);
 }
 
 .btn-secondary:hover{
-
-    transform:
-        translateY(-3px);
-
-    background:
-        rgba(255,255,255,.09);
+    background:rgba(255,255,255,.1);
 }
 
-
 /* =========================================================
-   GLOBAL TRADE CARD
+   MOVING REAL SHIPS
 ========================================================= */
 
-.trade-card{
+.ship-lane{
+    position:absolute;
+    left:0;
+    bottom:52px;
 
+    width:100%;
+    height:120px;
+
+    z-index:10;
+    overflow:hidden;
+
+    pointer-events:none;
+}
+
+.ship{
     position:absolute;
 
-    z-index:60;
-
-    right:5.5%;
-    bottom:27%;
-
     width:260px;
+    height:95px;
 
-    padding:20px;
+    object-fit:cover;
+    object-position:center;
 
-    border:
-        1px solid
-        rgba(102,220,247,.17);
+    border-radius:8px;
 
-    border-radius:19px;
+    opacity:.72;
 
-    background:
-        rgba(2,13,22,.68);
+    filter:
+        brightness(.68)
+        saturate(.8)
+        contrast(1.1);
 
-    backdrop-filter:
-        blur(20px);
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 13%,
+            black 87%,
+            transparent 100%
+        );
 
-    -webkit-backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        0 30px 70px
-        rgba(0,0,0,.38);
-
-    animation:
-        tradeFloat
-        6s
-        ease-in-out
-        infinite;
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 13%,
+            black 87%,
+            transparent 100%
+        );
 }
 
-@keyframes tradeFloat{
+.ship-one{
+    bottom:0;
+    left:-300px;
+    animation:shipMove1 30s linear infinite;
+}
 
-    50%{
-        transform:
-            translateY(-8px);
+.ship-two{
+    bottom:23px;
+    left:-350px;
+    width:210px;
+    opacity:.42;
+    animation:shipMove2 42s linear infinite;
+    animation-delay:8s;
+}
+
+@keyframes shipMove1{
+    from{
+        transform:translateX(0);
     }
-
+    to{
+        transform:translateX(calc(100vw + 650px));
+    }
 }
 
-.trade-top{
-
-    display:flex;
-    align-items:center;
-
-    gap:8px;
-
-    color:#67e6ff;
-
-    font-size:9px;
-
-    font-weight:850;
-
-    letter-spacing:2px;
-
-    margin-bottom:10px;
+@keyframes shipMove2{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(calc(100vw + 700px));
+    }
 }
-
-.live{
-    width:6px;
-    height:6px;
-
-    border-radius:50%;
-
-    background:#67e6ff;
-
-    box-shadow:
-        0 0 12px
-        #67e6ff;
-}
-
-.trade-card h3{
-
-    font-size:18px;
-
-    margin-bottom:7px;
-}
-
-.trade-card p{
-
-    color:#8298a5;
-
-    font-size:11px;
-
-    line-height:1.65;
-}
-
 
 /* =========================================================
-   SCROLL
+   OCEAN WAVES
+========================================================= */
+
+.wave-area{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:170px;
+
+    z-index:7;
+    overflow:hidden;
+
+    pointer-events:none;
+}
+
+.wave{
+    position:absolute;
+    left:-5%;
+    width:110%;
+    height:70px;
+
+    border-top:1px solid rgba(104,213,255,.09);
+
+    border-radius:50%;
+}
+
+.wave-1{
+    bottom:50px;
+    transform:rotate(-1deg);
+}
+
+.wave-2{
+    bottom:25px;
+    transform:rotate(1deg);
+    opacity:.6;
+}
+
+.wave-3{
+    bottom:2px;
+    opacity:.35;
+}
+
+/* =========================================================
+   SCROLL INDICATOR
 ========================================================= */
 
 .scroll{
-
     position:absolute;
+    z-index:30;
 
-    z-index:80;
-
-    bottom:18px;
+    bottom:24px;
     left:50%;
+    transform:translateX(-50%);
 
-    transform:
-        translateX(-50%);
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:8px;
-
-    color:#647c88;
-
-    font-size:8px;
-
+    font-size:9px;
     letter-spacing:2px;
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.42);
 }
 
-.scroll-line{
+.scroll::after{
+    content:"";
+    display:block;
 
     width:1px;
-    height:30px;
+    height:27px;
+
+    margin:9px auto 0;
 
     background:
         linear-gradient(
             to bottom,
-            transparent,
-            #5ee5ff
+            rgba(255,255,255,.5),
+            transparent
+        );
+}
+
+/* =========================================================
+   SECTION BASE
+========================================================= */
+
+section{
+    position:relative;
+    padding:110px 0;
+}
+
+.section-dark{
+    background:#030a11;
+}
+
+.section-blue{
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(18,81,108,.12),
+            transparent 55%
+        ),
+        #04101a;
+}
+
+.section-label{
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#71dfff;
+    font-weight:700;
+    margin-bottom:14px;
+}
+
+.section-title{
+    font-size:clamp(32px,5vw,56px);
+    line-height:1.05;
+    letter-spacing:-2px;
+    font-weight:800;
+}
+
+.section-description{
+    max-width:670px;
+    margin-top:18px;
+    color:rgba(255,255,255,.58);
+    line-height:1.8;
+    font-size:15px;
+}
+
+/* =========================================================
+   TRADE CARD
+========================================================= */
+
+.trade{
+    padding-top:95px;
+}
+
+.trade-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:center;
+}
+
+.trade-card{
+    position:relative;
+    min-height:350px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,53,72,.55),
+            rgba(3,12,20,.95)
         );
 
-    animation:
-        scrollLine
-        2s
-        infinite;
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.35);
 }
 
-@keyframes scrollLine{
+.trade-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
 
-    50%{
-        transform:
-            translateY(7px);
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(98,214,255,.08),
+            transparent
+        );
 
-        opacity:.3;
+    transform:translateX(-100%);
+    animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-100%);
     }
-
+    40%,100%{
+        transform:translateX(100%);
+    }
 }
 
-
-/* =========================================================
-   CONTENT SECTIONS
-========================================================= */
-
-.section{
-
-    padding:
-        110px 7%;
-
-    background:#020a11;
+.trade-content{
+    position:relative;
+    z-index:2;
+    padding:38px;
 }
 
-.section:nth-child(even){
-
-    background:#04121c;
+.trade-number{
+    font-size:68px;
+    font-weight:900;
+    letter-spacing:-5px;
+    color:rgba(255,255,255,.95);
 }
 
-.section-head{
-
-    width:min(760px,100%);
-
-    margin:
-        0 auto 55px;
-
-    text-align:center;
-}
-
-.section-mini{
-
-    color:#5de2ff;
-
-    font-size:10px;
-
-    font-weight:850;
-
+.trade-small{
+    color:rgba(255,255,255,.48);
+    font-size:12px;
     letter-spacing:2px;
-
-    margin-bottom:13px;
+    text-transform:uppercase;
 }
 
-.section-head h2{
-
-    font-size:
-        clamp(34px,4vw,56px);
-
-    line-height:1.04;
-
-    letter-spacing:-2px;
-
-    margin-bottom:16px;
+.trade-lines{
+    margin-top:35px;
+    display:grid;
+    gap:14px;
 }
 
-.section-head p{
+.trade-line{
+    display:flex;
+    align-items:center;
+    gap:13px;
 
-    color:#899eaa;
-
-    font-size:15px;
-
-    line-height:1.7;
+    color:rgba(255,255,255,.65);
+    font-size:13px;
 }
 
+.trade-line span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#70ddff;
+    box-shadow:0 0 10px rgba(90,220,255,.6);
+}
 
 /* =========================================================
-   CARDS
+   MATERIALS
 ========================================================= */
 
-.cards{
-
-    width:min(1240px,100%);
-
-    margin:auto;
+.material-grid{
+    margin-top:48px;
 
     display:grid;
-
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(4,1fr);
 
-    gap:20px;
+    gap:14px;
 }
 
-.card{
+.material{
+    min-height:180px;
 
-    position:relative;
+    padding:25px;
 
-    padding:31px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    border-radius:21px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:18px;
 
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
+            rgba(255,255,255,.015)
         );
 
-    overflow:hidden;
-
-    transition:
-        .35s;
+    transition:.35s ease;
 }
 
-.card:hover{
-
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(83,221,250,.22);
-
-    box-shadow:
-        0 30px 70px
-        rgba(0,0,0,.30);
-}
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:70px;
-    height:2px;
-
+.material:hover{
+    transform:translateY(-5px);
+    border-color:rgba(113,220,255,.25);
     background:
         linear-gradient(
-            90deg,
-            #53dfff,
-            transparent
+            145deg,
+            rgba(45,123,153,.13),
+            rgba(255,255,255,.02)
         );
 }
 
-.icon{
-
-    font-size:31px;
-
-    margin-bottom:17px;
+.material-icon{
+    font-size:28px;
+    margin-bottom:25px;
 }
 
-.card h3{
-
-    font-size:19px;
-
-    margin-bottom:10px;
+.material h3{
+    font-size:16px;
+    margin-bottom:8px;
 }
 
-.card p{
-
-    color:#8198a5;
-
-    font-size:13px;
-
+.material p{
+    color:rgba(255,255,255,.48);
+    font-size:12px;
     line-height:1.7;
 }
 
+/* =========================================================
+   VEHICLES
+========================================================= */
+
+.vehicle-grid{
+    margin-top:48px;
+
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:16px;
+}
+
+.vehicle{
+    min-height:210px;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.015)
+        );
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    transition:.35s ease;
+}
+
+.vehicle:hover{
+    transform:translateY(-5px);
+    border-color:rgba(113,220,255,.25);
+}
+
+.vehicle-icon{
+    font-size:38px;
+    margin-bottom:auto;
+}
+
+.vehicle h3{
+    font-size:17px;
+}
+
+.vehicle p{
+    margin-top:7px;
+    color:rgba(255,255,255,.45);
+    font-size:12px;
+}
 
 /* =========================================================
    PROCESS
 ========================================================= */
 
-.process{
-
-    width:min(1100px,100%);
-
-    margin:auto;
+.process-grid{
+    margin-top:50px;
 
     display:grid;
-
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:20px;
+    gap:16px;
 }
 
-.step{
+.process{
+    position:relative;
 
-    text-align:center;
+    padding:28px 22px;
+
+    min-height:180px;
+
+    border-left:1px solid rgba(255,255,255,.12);
 }
 
-.step-number{
-
-    width:56px;
-    height:56px;
-
-    margin:
-        0 auto 18px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(86,225,255,.24);
-
-    color:#62e4ff;
-
-    background:
-        rgba(27,160,201,.08);
-
-    font-size:12px;
-    font-weight:900;
+.process-number{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#70ddff;
+    margin-bottom:25px;
 }
 
-.step h3{
-
+.process h3{
     font-size:16px;
-
-    margin-bottom:9px;
+    margin-bottom:10px;
 }
 
-.step p{
-
-    color:#8198a5;
-
+.process p{
+    color:rgba(255,255,255,.48);
     font-size:12px;
-
-    line-height:1.65;
+    line-height:1.7;
 }
-
 
 /* =========================================================
    CTA
 ========================================================= */
 
 .cta{
+    padding:120px 0;
 
-    width:min(1100px,100%);
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(47,151,188,.18),
+            transparent 55%
+        ),
+        #04101a;
+}
 
-    margin:auto;
+.cta-box{
+    position:relative;
 
-    padding:
-        70px 40px;
+    padding:70px 35px;
 
     text-align:center;
 
-    border-radius:30px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:28px;
 
-    border:
-        1px solid
-        rgba(80,220,247,.14);
+    overflow:hidden;
 
     background:
-
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(23,163,207,.17),
-            transparent 60%
-        ),
-
         linear-gradient(
-            135deg,
-            #071d2a,
-            #031019
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
         );
-
-    box-shadow:
-        0 35px 90px
-        rgba(0,0,0,.4);
 }
 
-.cta h2{
-
-    font-size:
-        clamp(32px,4vw,52px);
-
-    margin-bottom:14px;
+.cta-box h2{
+    font-size:clamp(34px,6vw,66px);
+    letter-spacing:-3px;
 }
 
-.cta p{
+.cta-box p{
+    max-width:620px;
+    margin:18px auto 30px;
 
-    color:#8ba3af;
-
-    margin-bottom:26px;
+    color:rgba(255,255,255,.52);
+    line-height:1.8;
 }
-
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
 .contact-grid{
-
-    width:min(900px,100%);
-
-    margin:auto;
+    margin-top:50px;
 
     display:grid;
-
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:18px;
+    gap:16px;
 }
 
-.contact-box{
+.contact-card{
+    padding:28px;
 
-    padding:25px;
-
-    text-align:center;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
+    border:1px solid rgba(255,255,255,.07);
     border-radius:18px;
 
-    background:
-        rgba(255,255,255,.025);
+    background:rgba(255,255,255,.025);
 }
 
-.contact-box small{
-
+.contact-card small{
     display:block;
 
-    color:#58ddfb;
+    color:rgba(255,255,255,.35);
 
     font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:2px;
 
-    font-weight:850;
-
-    letter-spacing:1.8px;
-
-    margin-bottom:9px;
+    margin-bottom:12px;
 }
 
-.contact-box strong{
-
-    font-size:13px;
-
-    word-break:break-word;
+.contact-card a,
+.contact-card div{
+    font-size:14px;
+    font-weight:600;
 }
-
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
+    padding:35px 0;
 
-    padding:
-        35px 7%;
+    border-top:1px solid rgba(255,255,255,.06);
 
-    text-align:center;
+    background:#02070c;
+}
 
-    color:#536b77;
+.footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
 
+.footer-copy{
+    color:rgba(255,255,255,.34);
     font-size:11px;
-
-    background:#01060a;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.06);
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:950px){
-
-    .nav-links{
-
-        position:absolute;
-
-        top:78px;
-
-        left:0;
-        right:0;
-
-        display:none;
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-        gap:0;
-
-        padding:15px;
-
-        background:
-            rgba(2,8,14,.97);
-
-        border-bottom:
-            1px solid
-            rgba(255,255,255,.08);
-
-        backdrop-filter:
-            blur(20px);
-    }
-
-    .nav-links.open{
-        display:flex;
-    }
-
-    .nav-links a{
-        padding:14px 10px;
-    }
-
-    .nav-contact{
-        text-align:center;
-    }
-
-    .menu{
-        display:block;
-    }
-
-    .hero-content{
-
-        left:6%;
-        width:88%;
-
-        top:36%;
-    }
-
-    .hero h1{
-        font-size:
-            clamp(45px,8vw,70px);
-    }
-
-    .trade-card{
-
-        right:5%;
-
-        bottom:23%;
-
-        width:220px;
-    }
-
-    .cards{
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .process{
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .contact-grid{
-        grid-template-columns:
-            1fr;
-    }
-
+.footer-brand{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
 }
-
 
 /* =========================================================
    MOBILE
+   SAME DESIGN — ONLY SCALED
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:900px){
 
     header{
         height:68px;
     }
 
     .logo img{
-        width:41px;
-        height:41px;
+        width:42px;
+        height:42px;
     }
 
-    .logo-name{
+    .logo-text{
         font-size:14px;
     }
 
-    .logo-sub{
-        font-size:7px;
-        letter-spacing:2px;
+    .nav-links{
+        display:none;
+
+        position:absolute;
+        top:68px;
+        left:0;
+        width:100%;
+
+        padding:15px 5% 22px;
+
+        background:
+            rgba(3,10,17,.97);
+
+        border-bottom:1px solid rgba(255,255,255,.08);
+
+        flex-direction:column;
+        align-items:stretch;
+        gap:5px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:13px 8px;
+    }
+
+    .nav-btn{
+        text-align:center;
+        margin-top:5px;
+    }
+
+    .menu-btn{
+        display:block;
     }
 
     .hero{
-
-        height:820px;
-        min-height:820px;
-    }
-
-    .world-photo{
-
-        inset:-5% -35%;
-
-        width:170%;
-
-        max-width:none;
-
-        background-position:
-            52% center;
-
-        opacity:.68;
-    }
-
-    .world-blue{
-
-        background:
-
-            linear-gradient(
-                90deg,
-                rgba(1,7,12,.97) 0%,
-                rgba(2,10,17,.82) 55%,
-                rgba(2,9,15,.58) 100%
-            ),
-
-            linear-gradient(
-                180deg,
-                rgba(1,7,12,.78),
-                transparent 30%,
-                rgba(1,7,12,.95) 100%
-            );
+        height:760px;
+        min-height:760px;
     }
 
     .hero-content{
-
-        left:6%;
-        top:28%;
-
-        width:88%;
-    }
-
-    .kicker{
-
-        font-size:8px;
-
-        letter-spacing:1.7px;
-
-        padding:7px 11px;
+        padding:
+            95px
+            18px
+            130px;
     }
 
     .hero h1{
-
-        font-size:
-            clamp(38px,12vw,55px);
-
-        letter-spacing:-2.6px;
-
-        line-height:.95;
+        letter-spacing:-2.5px;
+        font-size:clamp(38px,11vw,62px);
     }
 
     .hero-description{
-
-        font-size:14px;
-
-        line-height:1.62;
-
-        max-width:500px;
+        font-size:13px;
+        line-height:1.7;
+        max-width:540px;
     }
 
-    .buttons{
-        gap:9px;
+    .destination{
+        left:67.7%;
+        top:61.5%;
+    }
+
+    .destination-label{
+        font-size:7px;
+        letter-spacing:1.5px;
+    }
+
+    .ship-lane{
+        bottom:40px;
+    }
+
+    .ship{
+        width:210px;
+        height:78px;
+    }
+
+    .ship-two{
+        width:170px;
+    }
+
+    .grid{
+        background-size:
+            75px 75px,
+            75px 75px;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .trade-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .material-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .vehicle-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .process-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media(max-width:560px){
+
+    .container{
+        width:90%;
+    }
+
+    .hero{
+        height:720px;
+        min-height:720px;
+    }
+
+    .hero-content{
+        align-items:center;
+        padding:
+            90px
+            15px
+            120px;
+    }
+
+    .eyebrow{
+        font-size:8px;
+        letter-spacing:2px;
+        padding:8px 12px;
+    }
+
+    .hero h1{
+        margin-top:20px;
+        font-size:
+            clamp(
+                34px,
+                11.5vw,
+                52px
+            );
+
+        letter-spacing:-2px;
+    }
+
+    .hero-description{
+        margin-top:20px;
+        font-size:12px;
+    }
+
+    .hero-buttons{
+        margin-top:25px;
     }
 
     .btn{
-
-        min-height:47px;
-
-        padding:
-            0 18px;
-
+        min-height:45px;
+        padding:0 18px;
         font-size:11px;
     }
 
-    .trade-card{
-
-        left:6%;
-        right:auto;
-
-        bottom:25%;
-
-        width:195px;
-
-        padding:15px;
+    .destination{
+        transform:translate(-50%,-50%) scale(.85);
     }
 
-    .trade-card h3{
-        font-size:14px;
+    .destination-label{
+        display:none;
     }
 
-    .trade-card p{
-        font-size:10px;
+    .ship-lane{
+        height:90px;
+        bottom:34px;
     }
 
-    .moving-ship{
-
-        width:290px;
-        height:105px;
-
-        top:67%;
+    .ship{
+        width:175px;
+        height:65px;
     }
 
-    .moving-ship.ship-two{
-
-        width:220px;
-        height:85px;
-
-        top:74%;
+    .ship-two{
+        width:145px;
     }
 
-    .ocean{
-        height:24%;
+    .material-grid,
+    .vehicle-grid,
+    .process-grid{
+        grid-template-columns:1fr;
     }
 
-    .section{
-        padding:
-            75px 6%;
+    .material{
+        min-height:150px;
     }
 
-    .cards{
-        grid-template-columns:
-            1fr;
+    .vehicle{
+        min-height:175px;
     }
 
     .process{
-        grid-template-columns:
-            1fr;
+        min-height:145px;
+        border-left:0;
+        border-top:1px solid rgba(255,255,255,.12);
+    }
+
+    .trade-content{
+        padding:27px;
+    }
+
+    .trade-number{
+        font-size:55px;
     }
 
     .cta{
-        padding:
-            50px 22px;
+        padding:80px 0;
     }
 
+    .cta-box{
+        padding:55px 22px;
+    }
+
+    .cta-box h2{
+        letter-spacing:-2px;
+    }
 }
 
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media(hover:none){
+
+    .material:hover,
+    .vehicle:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover{
+        transform:none;
+    }
+}
 
 /* =========================================================
    REDUCED MOTION
@@ -1838,1098 +1399,919 @@ footer{
     *,
     *::before,
     *::after{
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
     }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
+<!-- =======================================================
      HEADER
-===================================================== -->
+======================================================= -->
 
 <header>
 
-<div class="nav">
+    <div class="container nav">
 
+        <a href="#home" class="logo">
 
-<a
-href="#home"
-class="logo">
+            <img
+                src="./logo1.png"
+                alt="GlobalStock International">
 
-<img
-src="./logo1.png"
-alt="GlobalStock International">
+            <div class="logo-text">
+                GlobalStock
+                <span>INTERNATIONAL</span>
+            </div>
 
-<div>
+        </a>
 
-<div class="logo-name">
-GLOBALSTOCK
-</div>
+        <nav class="nav-links" id="navLinks">
 
-<div class="logo-sub">
-INTERNATIONAL
-</div>
+            <a href="#home">Home</a>
 
-</div>
+            <a href="#materials">Materials</a>
 
-</a>
+            <a href="#vehicles">Vehicle Order</a>
 
+            <a href="#process">How It Works</a>
 
-<nav
-class="nav-links"
-id="navLinks">
+            <a
+                class="nav-btn"
+                href="https://wa.me/94777426436"
+                target="_blank">
+                WhatsApp
+            </a>
 
-<a href="#home">
-Home
-</a>
+        </nav>
 
-<a href="#materials">
-Materials
-</a>
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Open menu">
+            ☰
+        </button>
 
-<a href="#vehicles">
-Vehicle Order
-</a>
-
-<a href="#process">
-How It Works
-</a>
-
-<a
-href="#contact"
-class="nav-contact">
-
-Contact
-
-</a>
-
-</nav>
-
-
-<div
-class="menu"
-id="menu">
-
-☰
-
-</div>
-
-
-</div>
+    </div>
 
 </header>
 
 
-
-<!-- =====================================================
+<!-- =======================================================
      HERO
-===================================================== -->
+======================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="map-glow"></div>
+
+    <!-- REAL WORLD MAP IS GENERATED AS DOTS -->
+    <canvas id="worldMap"></canvas>
+
+    <div class="grid"></div>
+
+
+    <!-- SHIPPING ROUTES -->
+
+    <svg
+        class="routes"
+        viewBox="0 0 1000 800"
+        preserveAspectRatio="none">
+
+        <!-- USA → Sri Lanka -->
+        <path
+            class="route"
+            d="M115 310 Q390 90 678 492">
+        </path>
+
+        <!-- Europe → Sri Lanka -->
+        <path
+            class="route"
+            d="M470 235 Q590 280 678 492">
+        </path>
+
+        <!-- Middle East → Sri Lanka -->
+        <path
+            class="route"
+            d="M565 365 Q620 420 678 492">
+        </path>
+
+        <!-- China → Sri Lanka -->
+        <path
+            class="route"
+            d="M735 315 Q710 390 678 492">
+        </path>
+
+        <!-- Japan → Sri Lanka -->
+        <path
+            class="route"
+            d="M830 280 Q780 390 678 492">
+        </path>
 
-<section
-class="hero"
-id="home">
+        <!-- Australia → Sri Lanka -->
+        <path
+            class="route"
+            d="M825 625 Q760 570 678 492">
+        </path>
 
+        <!-- Southeast Asia → Sri Lanka -->
+        <path
+            class="route-highlight"
+            d="M760 455 Q720 470 678 492">
+        </path>
 
-<!-- REAL SATELLITE WORLD MAP -->
+        <!-- MOVING ROUTE PARTICLES -->
 
-<div
-class="world-photo">
-</div>
+        <circle
+            class="route-dot"
+            r="3">
 
+            <animateMotion
+                dur="5s"
+                repeatCount="indefinite"
+                path="M115 310 Q390 90 678 492">
+            </animateMotion>
 
-<!-- DARK PREMIUM OVERLAY -->
+        </circle>
 
-<div
-class="world-blue">
-</div>
+        <circle
+            class="route-dot"
+            r="2.5">
 
+            <animateMotion
+                dur="6s"
+                begin="1s"
+                repeatCount="indefinite"
+                path="M470 235 Q590 280 678 492">
+            </animateMotion>
 
-<!-- ATMOSPHERE -->
+        </circle>
 
-<div
-class="atmosphere">
-</div>
+        <circle
+            class="route-dot"
+            r="2.5">
 
+            <animateMotion
+                dur="4.5s"
+                begin="1.5s"
+                repeatCount="indefinite"
+                path="M565 365 Q620 420 678 492">
+            </animateMotion>
 
-<!-- SUBTLE GRID -->
+        </circle>
 
-<div
-class="grid-overlay">
-</div>
+        <circle
+            class="route-dot"
+            r="2.5">
 
+            <animateMotion
+                dur="5.5s"
+                begin=".8s"
+                repeatCount="indefinite"
+                path="M735 315 Q710 390 678 492">
+            </animateMotion>
 
+        </circle>
 
-<!-- =====================================================
-     SHIPPING ROUTES
-===================================================== -->
+        <circle
+            class="route-dot"
+            r="2.5">
 
-<div
-class="routes">
+            <animateMotion
+                dur="6.5s"
+                begin="2s"
+                repeatCount="indefinite"
+                path="M830 280 Q780 390 678 492">
+            </animateMotion>
 
-<svg
-viewBox="0 0 1600 900"
-preserveAspectRatio="xMidYMid slice">
+        </circle>
 
+        <circle
+            class="route-dot"
+            r="2.5">
 
-<defs>
+            <animateMotion
+                dur="6s"
+                begin="2.5s"
+                repeatCount="indefinite"
+                path="M825 625 Q760 570 678 492">
+            </animateMotion>
 
-<filter
-id="routeBlur">
+        </circle>
 
-<feGaussianBlur
-stdDeviation="5"/>
+    </svg>
 
-</filter>
 
-</defs>
+    <!-- SRI LANKA -->
 
+    <div class="destination">
 
-<!-- JAPAN → SRI LANKA -->
-
-<path
-id="routeJapan"
-class="route-soft"
-d="
-M1415 360
-C1310 390
-1220 425
-1130 470
-C1055 508
-995 552
-970 610"/>
-
-<path
-class="route"
-d="
-M1415 360
-C1310 390
-1220 425
-1130 470
-C1055 508
-995 552
-970 610"/>
-
-
-<!-- KOREA → SRI LANKA -->
-
-<path
-id="routeKorea"
-class="route-soft"
-d="
-M1280 290
-C1195 335
-1120 390
-1060 440
-C1015 485
-985 550
-970 610"/>
-
-<path
-class="route"
-d="
-M1280 290
-C1195 335
-1120 390
-1060 440
-C1015 485
-985 550
-970 610"/>
-
-
-<!-- CHINA → SRI LANKA -->
-
-<path
-id="routeChina"
-class="route-soft"
-d="
-M1170 320
-C1120 365
-1070 420
-1030 470
-C995 520
-978 565
-970 610"/>
-
-<path
-class="route"
-d="
-M1170 320
-C1120 365
-1070 420
-1030 470
-C995 520
-978 565
-970 610"/>
-
-
-<!-- MIDDLE EAST → SRI LANKA -->
-
-<path
-id="routeMiddle"
-class="route-soft"
-d="
-M840 320
-C895 370
-930 425
-950 475
-C965 520
-970 570
-970 610"/>
-
-<path
-class="route"
-d="
-M840 320
-C895 370
-930 425
-950 475
-C965 520
-970 570
-970 610"/>
-
-
-<!-- EUROPE → SRI LANKA -->
-
-<path
-id="routeEurope"
-class="route-soft"
-d="
-M750 240
-C810 300
-865 355
-910 420
-C950 480
-970 550
-970 610"/>
-
-<path
-class="route"
-d="
-M750 240
-C810 300
-865 355
-910 420
-C950 480
-970 550
-970 610"/>
-
-
-<!-- ORIGIN POINTS -->
-
-<circle
-class="port"
-cx="1415"
-cy="360"
-r="4"/>
-
-<circle
-class="port"
-cx="1280"
-cy="290"
-r="4"/>
-
-<circle
-class="port"
-cx="1170"
-cy="320"
-r="4"/>
-
-<circle
-class="port"
-cx="840"
-cy="320"
-r="4"/>
-
-<circle
-class="port"
-cx="750"
-cy="240"
-r="4"/>
-
-
-<!-- =================================================
-     SRI LANKA
-================================================== -->
-
-<circle
-class="lk-ring"
-cx="970"
-cy="610"
-r="8"/>
-
-<circle
-class="lk-ring delay"
-cx="970"
-cy="610"
-r="8"/>
-
-<circle
-class="lk-core"
-cx="970"
-cy="610"
-r="5"/>
-
-
-<!-- =================================================
-     ROUTE PARTICLES
-================================================== -->
-
-<circle
-class="route-particle"
-r="3">
+        <div class="destination-core"></div>
 
-<animateMotion
-dur="5s"
-repeatCount="indefinite">
+        <div class="destination-label">
+            SRI LANKA
+        </div>
 
-<mpath
-href="#routeJapan"/>
+    </div>
 
-</animateMotion>
 
-</circle>
+    <!-- HERO CONTENT -->
 
+    <div class="hero-content">
 
-<circle
-class="route-particle"
-r="2">
+        <div class="hero-inner">
 
-<animateMotion
-dur="5s"
-repeatCount="indefinite"
-begin="-2s">
+            <div class="eyebrow">
 
-<mpath
-href="#routeJapan"/>
+                <span class="eyebrow-dot"></span>
 
-</animateMotion>
+                GLOBAL STOCK NETWORK
 
-</circle>
+            </div>
 
 
-<circle
-class="route-particle"
-r="3">
+            <h1>
 
-<animateMotion
-dur="5.5s"
-repeatCount="indefinite"
-begin="-2s">
+                <span>ANY PRODUCT.</span>
 
-<mpath
-href="#routeKorea"/>
+                <span>ANY STOCK.</span>
 
-</animateMotion>
+                <span>ANY COUNTRY.</span>
 
-</circle>
+            </h1>
 
 
-<circle
-class="route-particle"
-r="2.5">
+            <p class="hero-description">
 
-<animateMotion
-dur="5s"
-repeatCount="indefinite"
-begin="-3s">
+                We Buy Stock Lots, Surplus, Overstock,
+                Clearance &amp; Excess Inventory Worldwide.
 
-<mpath
-href="#routeChina"/>
+            </p>
 
-</animateMotion>
 
-</circle>
+            <div class="hero-buttons">
 
+                <a
+                    class="btn btn-primary"
+                    href="#materials">
+                    Explore Materials
+                </a>
 
-<circle
-class="route-particle"
-r="2">
+                <a
+                    class="btn btn-secondary"
+                    href="https://wa.me/94777426436"
+                    target="_blank">
+                    Contact GlobalStock
+                </a>
 
-<animateMotion
-dur="4.8s"
-repeatCount="indefinite"
-begin="-2s">
+            </div>
 
-<mpath
-href="#routeMiddle"/>
+        </div>
 
-</animateMotion>
+    </div>
 
-</circle>
 
+    <!-- REAL SHIP IMAGES -->
 
-<circle
-class="route-particle"
-r="2.5">
+    <div class="ship-lane">
 
-<animateMotion
-dur="6s"
-repeatCount="indefinite"
-begin="-4s">
+        <img
+            class="ship ship-one"
+            src="https://images.pexels.com/photos/12047459/pexels-photo-12047459.jpeg?cs=srgb&dl=pexels-dendoktoor-12047459.jpg&fm=jpg"
+            alt="Container ship">
 
-<mpath
-href="#routeEurope"/>
+        <img
+            class="ship ship-two"
+            src="https://images.pexels.com/photos/12047459/pexels-photo-12047459.jpeg?cs=srgb&dl=pexels-dendoktoor-12047459.jpg&fm=jpg"
+            alt="Cargo ship">
 
-</animateMotion>
+    </div>
 
-</circle>
 
+    <!-- OCEAN -->
 
-</svg>
+    <div class="wave-area">
 
-</div>
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
 
+    </div>
 
 
-<!-- =====================================================
-     REAL SHIPS
-===================================================== -->
-
-<div
-class="ship-layer">
-
-
-<div
-class="moving-ship">
-</div>
-
-
-<div
-class="moving-ship ship-two">
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     HERO CONTENT
-===================================================== -->
-
-<div
-class="hero-content">
-
-
-<div class="kicker">
-
-<span
-class="kicker-dot">
-</span>
-
-GLOBAL STOCK LOT BUYER
-
-</div>
-
-
-<h1>
-
-<span>
-ANY PRODUCT.
-</span>
-
-<span class="accent">
-ANY STOCK.
-</span>
-
-<span>
-ANY COUNTRY.
-</span>
-
-</h1>
-
-
-<p
-class="hero-description">
-
-We buy stock lots, surplus,
-overstock, clearance and excess
-inventory worldwide — connecting
-global suppliers with markets
-across Sri Lanka and beyond.
-
-</p>
-
-
-<div class="buttons">
-
-
-<a
-href="https://wa.me/94777426436"
-target="_blank"
-class="btn btn-primary">
-
-WhatsApp Us
-
-</a>
-
-
-<a
-href="#materials"
-class="btn btn-secondary">
-
-Explore Materials
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     TRADE CARD
-===================================================== -->
-
-<div
-class="trade-card">
-
-<div
-class="trade-top">
-
-<span class="live">
-</span>
-
-GLOBAL TRADE NETWORK
-
-</div>
-
-
-<h3>
-Worldwide → Sri Lanka
-</h3>
-
-
-<p>
-Japan • Korea • China • Europe
-• Middle East • Global Markets
-</p>
-
-</div>
-
-
-
-<!-- =====================================================
-     OCEAN
-===================================================== -->
-
-<div
-class="ocean">
-
-<div
-class="ocean-glow">
-</div>
-
-<div class="wave"></div>
-<div class="wave"></div>
-<div class="wave"></div>
-
-</div>
-
-
-
-<!-- =====================================================
-     SCROLL
-===================================================== -->
-
-<div class="scroll">
-
-SCROLL
-
-<div
-class="scroll-line">
-</div>
-
-</div>
-
+    <div class="scroll">
+        SCROLL
+    </div>
 
 </section>
 
 
+<!-- =======================================================
+     GLOBAL TRADE
+======================================================= -->
 
-<!-- =====================================================
+<section class="section-dark trade">
+
+    <div class="container">
+
+        <div class="trade-grid">
+
+            <div>
+
+                <div class="section-label">
+                    GLOBAL CONNECTION
+                </div>
+
+                <h2 class="section-title">
+                    Moving stock<br>
+                    across borders.
+                </h2>
+
+                <p class="section-description">
+
+                    GlobalStock International connects suppliers,
+                    manufacturers, wholesalers and buyers across
+                    international markets.
+
+                    We source excess inventory and move suitable
+                    products into new markets.
+
+                </p>
+
+                <div style="margin-top:30px;">
+
+                    <a
+                        class="btn btn-primary"
+                        href="https://wa.me/94777426436"
+                        target="_blank">
+                        Start a Conversation
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="trade-card">
+
+                <div class="trade-content">
+
+                    <div class="trade-number">
+                        GLOBAL
+                    </div>
+
+                    <div class="trade-small">
+                        STOCK MOVEMENT
+                    </div>
+
+
+                    <div class="trade-lines">
+
+                        <div class="trade-line">
+                            <span></span>
+                            Japan
+                        </div>
+
+                        <div class="trade-line">
+                            <span></span>
+                            Korea
+                        </div>
+
+                        <div class="trade-line">
+                            <span></span>
+                            China
+                        </div>
+
+                        <div class="trade-line">
+                            <span></span>
+                            Europe
+                        </div>
+
+                        <div class="trade-line">
+                            <span></span>
+                            Middle East
+                        </div>
+
+                        <div class="trade-line">
+                            <span></span>
+                            Sri Lanka &amp; Global Markets
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
      MATERIALS
-===================================================== -->
+======================================================= -->
 
 <section
-class="section"
-id="materials">
+    class="section-blue"
+    id="materials">
+
+    <div class="container">
+
+        <div class="section-label">
+            MATERIALS
+        </div>
+
+        <h2 class="section-title">
+            Stock lots &amp;<br>
+            surplus materials.
+        </h2>
+
+        <p class="section-description">
+
+            We are interested in a wide range of commercial
+            materials, surplus inventory and clearance stock.
+
+        </p>
 
 
-<div class="section-head">
+        <div class="material-grid">
 
-<div class="section-mini">
-WHAT WE BUY
-</div>
+            <div class="material">
 
-<h2>
-Global Stock.<br>
-Real Opportunities.
-</h2>
+                <div class="material-icon">
+                    ◈
+                </div>
 
-<p>
-We source surplus, excess and
-clearance inventory from international
-suppliers and connect it with buyers
-and markets worldwide.
-</p>
+                <h3>
+                    PVC / Synthetic Leather
+                </h3>
 
-</div>
+                <p>
+                    Automotive, furniture,
+                    industrial and upholstery
+                    materials.
+                </p>
 
-
-<div class="cards">
+            </div>
 
 
-<div class="card">
+            <div class="material">
 
-<div class="icon">
-🧵
-</div>
+                <div class="material-icon">
+                    ◆
+                </div>
 
-<h3>
-Synthetic Leather
-</h3>
+                <h3>
+                    Fabrics &amp; Textiles
+                </h3>
 
-<p>
-PVC, PU, TPU, rexine,
-automotive leather,
-fabric rolls and stock lots.
-</p>
+                <p>
+                    Rolls, surplus fabrics,
+                    velvet and textile stock.
+                </p>
 
-</div>
-
-
-<div class="card">
-
-<div class="icon">
-📦
-</div>
-
-<h3>
-Stock Lots
-</h3>
-
-<p>
-Overstock, clearance,
-discontinued products,
-factory surplus and excess inventory.
-</p>
-
-</div>
+            </div>
 
 
-<div class="card">
+            <div class="material">
 
-<div class="icon">
-🏭
-</div>
+                <div class="material-icon">
+                    ▣
+                </div>
 
-<h3>
-Factory Excess
-</h3>
+                <h3>
+                    Industrial Materials
+                </h3>
 
-<p>
-Excess production,
-unfinished rolls,
-rejected lots and surplus materials.
-</p>
+                <p>
+                    Overstock, unfinished,
+                    excess and clearance materials.
+                </p>
 
-</div>
-
-
-<div class="card">
-
-<div class="icon">
-🚗
-</div>
-
-<h3>
-Vehicles
-</h3>
-
-<p>
-Used cars, trucks,
-commercial vehicles and
-special vehicle orders.
-</p>
-
-</div>
+            </div>
 
 
-<div class="card">
+            <div class="material">
 
-<div class="icon">
-🚜
-</div>
+                <div class="material-icon">
+                    ◫
+                </div>
 
-<h3>
-Machinery
-</h3>
+                <h3>
+                    Priority Stock Lots
+                </h3>
 
-<p>
-Excavators, forklifts,
-wheel loaders and construction
-machinery.
-</p>
+                <p>
+                    Large quantities and
+                    time-sensitive stock opportunities.
+                </p>
 
-</div>
+            </div>
 
+        </div>
 
-<div class="card">
-
-<div class="icon">
-🌍
-</div>
-
-<h3>
-Worldwide Sourcing
-</h3>
-
-<p>
-Japan, Korea, China,
-Europe, Middle East and
-global supplier networks.
-</p>
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =======================================================
      VEHICLES
-===================================================== -->
+======================================================= -->
 
 <section
-class="section"
-id="vehicles">
+    class="section-dark"
+    id="vehicles">
+
+    <div class="container">
+
+        <div class="section-label">
+            VEHICLE ORDER
+        </div>
+
+        <h2 class="section-title">
+            Vehicles &amp;<br>
+            machinery.
+        </h2>
+
+        <p class="section-description">
+
+            We source used vehicles, commercial vehicles,
+            construction machinery and agricultural machinery
+            from international markets.
+
+        </p>
 
 
-<div class="section-head">
+        <div class="vehicle-grid">
 
-<div class="section-mini">
-VEHICLE ORDER
-</div>
+            <div class="vehicle">
 
-<h2>
-Find. Buy. Export.
-</h2>
+                <div class="vehicle-icon">
+                    🚗
+                </div>
 
-<p>
-Tell us what you need and we search
-our international network for suitable
-vehicles and machinery.
-</p>
+                <h3>
+                    Passenger Vehicles
+                </h3>
 
-</div>
+                <p>
+                    Used cars and selected vehicles.
+                </p>
 
-
-<div class="cards">
+            </div>
 
 
-<div class="card">
+            <div class="vehicle">
 
-<div class="icon">
-🚘
-</div>
+                <div class="vehicle-icon">
+                    🚚
+                </div>
 
-<h3>
-Passenger Cars
-</h3>
+                <h3>
+                    Trucks
+                </h3>
 
-<p>
-Japanese used cars and
-selected international vehicles.
-</p>
+                <p>
+                    Commercial and heavy vehicles.
+                </p>
 
-</div>
-
-
-<div class="card">
-
-<div class="icon">
-🚚
-</div>
-
-<h3>
-Commercial Trucks
-</h3>
-
-<p>
-Trucks, heavy vehicles and
-special-purpose vehicles.
-</p>
-
-</div>
+            </div>
 
 
-<div class="card">
+            <div class="vehicle">
 
-<div class="icon">
-🏗️
-</div>
+                <div class="vehicle-icon">
+                    🏗
+                </div>
 
-<h3>
-Heavy Machinery
-</h3>
+                <h3>
+                    Construction Machinery
+                </h3>
 
-<p>
-Excavators, forklifts,
-loaders and construction equipment.
-</p>
+                <p>
+                    Excavators, loaders and equipment.
+                </p>
 
-</div>
+            </div>
 
 
-</div>
+            <div class="vehicle">
+
+                <div class="vehicle-icon">
+                    🚜
+                </div>
+
+                <h3>
+                    Agricultural Machinery
+                </h3>
+
+                <p>
+                    Agricultural equipment and machinery.
+                </p>
+
+            </div>
+
+
+            <div class="vehicle">
+
+                <div class="vehicle-icon">
+                    ⚙
+                </div>
+
+                <h3>
+                    Spare Parts
+                </h3>
+
+                <p>
+                    Vehicle and machinery components.
+                </p>
+
+            </div>
+
+
+            <div class="vehicle">
+
+                <div class="vehicle-icon">
+                    📦
+                </div>
+
+                <h3>
+                    Special Requests
+                </h3>
+
+                <p>
+                    Tell us what you are looking for.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =======================================================
      PROCESS
-===================================================== -->
+======================================================= -->
 
 <section
-class="section"
-id="process">
+    class="section-blue"
+    id="process">
+
+    <div class="container">
+
+        <div class="section-label">
+            HOW IT WORKS
+        </div>
+
+        <h2 class="section-title">
+            From stock<br>
+            to destination.
+        </h2>
 
 
-<div class="section-head">
+        <div class="process-grid">
 
-<div class="section-mini">
-HOW IT WORKS
-</div>
+            <div class="process">
 
-<h2>
-A Simple Global Process
-</h2>
+                <div class="process-number">
+                    01
+                </div>
 
-<p>
-From requirement to international shipment.
-</p>
+                <h3>
+                    Send Your Stock
+                </h3>
 
-</div>
+                <p>
+                    Share product details,
+                    quantities, photographs
+                    and specifications.
+                </p>
 
-
-<div class="process">
-
-
-<div class="step">
-
-<div class="step-number">
-01
-</div>
-
-<h3>
-Tell Us
-</h3>
-
-<p>
-Send your required product,
-material, vehicle or stock lot.
-</p>
-
-</div>
+            </div>
 
 
-<div class="step">
+            <div class="process">
 
-<div class="step-number">
-02
-</div>
+                <div class="process-number">
+                    02
+                </div>
 
-<h3>
-We Source
-</h3>
+                <h3>
+                    Evaluation
+                </h3>
 
-<p>
-We search our supplier network
-for suitable stock.
-</p>
+                <p>
+                    We review the stock,
+                    market demand and
+                    commercial possibilities.
+                </p>
 
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
-03
-</div>
-
-<h3>
-Inspect
-</h3>
-
-<p>
-Photos, videos, specifications
-and product details are reviewed.
-</p>
-
-</div>
+            </div>
 
 
-<div class="step">
+            <div class="process">
 
-<div class="step-number">
-04
-</div>
+                <div class="process-number">
+                    03
+                </div>
 
-<h3>
-Ship
-</h3>
+                <h3>
+                    Purchase
+                </h3>
 
-<p>
-Stock is prepared and arranged
-for international transportation.
-</p>
+                <p>
+                    Suitable stock is
+                    negotiated and purchased
+                    according to agreed terms.
+                </p>
 
-</div>
+            </div>
 
 
-</div>
+            <div class="process">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Global Movement
+                </h3>
+
+                <p>
+                    Stock is prepared,
+                    shipped and introduced
+                    into international markets.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =======================================================
      CTA
-===================================================== -->
+======================================================= -->
 
-<section
-class="section">
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div class="section-label">
+                HAVE STOCK?
+            </div>
+
+            <h2>
+                Let's move it.
+            </h2>
+
+            <p>
+
+                If you have surplus,
+                overstock, clearance,
+                excess inventory or special
+                stock opportunities, contact us.
+
+            </p>
 
 
-<div class="cta">
+            <a
+                class="btn btn-primary"
+                href="https://wa.me/94777426436"
+                target="_blank">
 
-<h2>
-Have Excess Stock?
-</h2>
+                WhatsApp GlobalStock
 
-<p>
-Send us your stock details,
-photos, videos or product list.
-</p>
+            </a>
 
+        </div>
 
-<a
-href="https://wa.me/94777426436"
-target="_blank"
-class="btn btn-primary">
-
-Contact GlobalStock
-
-</a>
-
-</div>
-
+    </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =======================================================
      CONTACT
-===================================================== -->
+======================================================= -->
 
 <section
-class="section"
-id="contact">
+    class="section-dark"
+    id="contact">
+
+    <div class="container">
+
+        <div class="section-label">
+            CONTACT
+        </div>
+
+        <h2 class="section-title">
+            GlobalStock<br>
+            International.
+        </h2>
 
 
-<div class="section-head">
+        <div class="contact-grid">
 
-<div class="section-mini">
-CONTACT
-</div>
+            <div class="contact-card">
 
-<h2>
-Let's Move Stock Worldwide.
-</h2>
+                <small>
+                    WhatsApp
+                </small>
 
-</div>
+                <a
+                    href="https://wa.me/94777426436"
+                    target="_blank">
 
+                    +94 77 742 6436
 
-<div class="contact-grid">
+                </a>
 
-
-<div class="contact-box">
-
-<small>
-WHATSAPP
-</small>
-
-<strong>
-+94 77 742 6436
-</strong>
-
-</div>
+            </div>
 
 
-<div class="contact-box">
+            <div class="contact-card">
 
-<small>
-EMAIL
-</small>
+                <small>
+                    Email
+                </small>
 
-<strong>
-agmrifkan@gmail.com
-</strong>
+                <a
+                    href="mailto:agmrifkan@gmail.com">
 
-</div>
+                    agmrifkan@gmail.com
 
+                </a>
 
-<div class="contact-box">
-
-<small>
-LOCATION
-</small>
-
-<strong>
-Colombo, Sri Lanka
-</strong>
-
-</div>
+            </div>
 
 
-</div>
+            <div class="contact-card">
+
+                <small>
+                    Location
+                </small>
+
+                <div>
+                    Colombo, Sri Lanka
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================= -->
 
 <footer>
 
-© 2026 GlobalStock International.
-All Rights Reserved.
+    <div class="container footer-inner">
+
+        <div class="footer-copy">
+
+            © 2026 GlobalStock International.
+            All rights reserved.
+
+        </div>
+
+        <div class="footer-brand">
+
+            INVESTING IN A BRIGHTER TOMORROW
+
+        </div>
+
+    </div>
 
 </footer>
 
 
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
 
 <script>
 
@@ -2937,156 +2319,499 @@ All Rights Reserved.
    MOBILE MENU
 ========================================================= */
 
-const menu =
-document.getElementById("menu");
+const menuBtn =
+    document.getElementById("menuBtn");
 
 const navLinks =
-document.getElementById("navLinks");
+    document.getElementById("navLinks");
 
-if(menu){
+menuBtn.addEventListener("click", () => {
 
-    menu.addEventListener(
-        "click",
-        () => {
+    navLinks.classList.toggle("active");
 
-            navLinks.classList.toggle(
-                "open"
-            );
+});
+
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   REAL WORLD DOT MAP
+=========================================================
+
+   Uses:
+   D3 geographic projection
+   World Atlas Natural Earth data
+
+   The map is rendered as DOTS ONLY.
+   No country borders.
+   No continent drawings.
+========================================================= */
+
+const mapCanvas =
+    document.getElementById("worldMap");
+
+const ctx =
+    mapCanvas.getContext("2d");
+
+let mapWidth = 0;
+let mapHeight = 0;
+
+let landData = null;
+
+
+/* ---------------------------------------------------------
+   Load external geographic libraries
+--------------------------------------------------------- */
+
+function loadScript(src){
+
+    return new Promise((resolve,reject) => {
+
+        const script =
+            document.createElement("script");
+
+        script.src = src;
+
+        script.onload = resolve;
+        script.onerror = reject;
+
+        document.head.appendChild(script);
+
+    });
+
+}
+
+
+/* ---------------------------------------------------------
+   Resize canvas correctly for PC + phone
+--------------------------------------------------------- */
+
+function resizeCanvas(){
+
+    const rect =
+        mapCanvas.getBoundingClientRect();
+
+    const dpr =
+        Math.min(window.devicePixelRatio || 1,2);
+
+    mapWidth = rect.width;
+    mapHeight = rect.height;
+
+    mapCanvas.width =
+        Math.round(mapWidth * dpr);
+
+    mapCanvas.height =
+        Math.round(mapHeight * dpr);
+
+    ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+
+    drawWorldDots();
+
+}
+
+
+/* ---------------------------------------------------------
+   Draw dotted world
+--------------------------------------------------------- */
+
+function drawWorldDots(){
+
+    if(!landData || !window.d3){
+        drawFallbackDots();
+        return;
+    }
+
+    ctx.clearRect(
+        0,
+        0,
+        mapWidth,
+        mapHeight
+    );
+
+
+    /*
+       Equal Earth projection.
+
+       Same geographic map is automatically
+       resized for PC and phone.
+    */
+
+    const projection =
+        d3.geoEqualEarth()
+          .fitExtent(
+              [
+                  [mapWidth * .06, mapHeight * .13],
+                  [mapWidth * .94, mapHeight * .72]
+              ],
+              landData
+          );
+
+
+    /*
+       Larger spacing on small screens.
+       Smaller spacing on desktop.
+    */
+
+    const spacing =
+        mapWidth < 600
+        ? 4.5
+        : 3.1;
+
+
+    /*
+       Tiny premium dots.
+    */
+
+    const dotRadius =
+        mapWidth < 600
+        ? 0.72
+        : 0.82;
+
+
+    /*
+       Scan the geographic area.
+
+       Dots are placed only where land exists.
+    */
+
+    for(
+        let lat = -58;
+        lat <= 84;
+        lat += spacing
+    ){
+
+        for(
+            let lon = -180;
+            lon <= 180;
+            lon += spacing
+        ){
+
+            const point =
+                [lon,lat];
+
+            if(
+                d3.geoContains(
+                    landData,
+                    point
+                )
+            ){
+
+                const xy =
+                    projection(point);
+
+                if(!xy) continue;
+
+                const x = xy[0];
+                const y = xy[1];
+
+                if(
+                    x < 0 ||
+                    x > mapWidth ||
+                    y < 0 ||
+                    y > mapHeight
+                ){
+                    continue;
+                }
+
+
+                /*
+                   Very subtle opacity variation
+                   creates depth without looking cartoonish.
+                */
+
+                const variation =
+                    0.30 +
+                    (
+                        Math.sin(
+                            lon * .21 +
+                            lat * .37
+                        ) + 1
+                    ) * .08;
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    x,
+                    y,
+                    dotRadius,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    `rgba(139,213,238,${variation})`;
+
+                ctx.fill();
+
+            }
 
         }
+
+    }
+
+
+    /*
+       Soft atmospheric fade over map.
+    */
+
+    const gradient =
+        ctx.createRadialGradient(
+            mapWidth * .50,
+            mapHeight * .42,
+            mapWidth * .15,
+            mapWidth * .50,
+            mapHeight * .42,
+            mapWidth * .65
+        );
+
+    gradient.addColorStop(
+        0,
+        "rgba(0,0,0,0)"
+    );
+
+    gradient.addColorStop(
+        .75,
+        "rgba(2,9,15,.12)"
+    );
+
+    gradient.addColorStop(
+        1,
+        "rgba(2,9,15,.65)"
+    );
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        mapWidth,
+        mapHeight
     );
 
 }
 
 
-/* =========================================================
-   CLOSE MENU
-========================================================= */
+/* ---------------------------------------------------------
+   Fallback if external map data is unavailable
+--------------------------------------------------------- */
 
-document
-.querySelectorAll(
-    ".nav-links a"
-)
-.forEach(
-    link => {
+function drawFallbackDots(){
 
-        link.addEventListener(
-            "click",
-            () => {
+    ctx.clearRect(
+        0,
+        0,
+        mapWidth,
+        mapHeight
+    );
 
-                navLinks.classList.remove(
-                    "open"
+    const spacing =
+        mapWidth < 600
+        ? 14
+        : 17;
+
+    for(
+        let y = 110;
+        y < mapHeight * .72;
+        y += spacing
+    ){
+
+        for(
+            let x = 50;
+            x < mapWidth - 50;
+            x += spacing
+        ){
+
+            /*
+               Soft abstract fallback.
+               Normally real map data will load.
+            */
+
+            const wave =
+                Math.sin(x * .012) +
+                Math.cos(y * .018);
+
+            if(wave > .45){
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    x,
+                    y,
+                    .7,
+                    0,
+                    Math.PI * 2
                 );
 
+                ctx.fillStyle =
+                    "rgba(139,213,238,.24)";
+
+                ctx.fill();
+
             }
+
+        }
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Start map
+--------------------------------------------------------- */
+
+async function startWorldMap(){
+
+    try{
+
+        await Promise.all([
+
+            loadScript(
+                "https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"
+            ),
+
+            loadScript(
+                "https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"
+            )
+
+        ]);
+
+
+        const response =
+            await fetch(
+                "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
+            );
+
+
+        const world =
+            await response.json();
+
+
+        /*
+           Convert TopoJSON countries
+           to GeoJSON.
+
+           We only use geometry to decide
+           where dots should appear.
+        */
+
+        landData =
+            topojson.feature(
+                world,
+                world.objects.countries
+            );
+
+
+        resizeCanvas();
+
+    }
+    catch(error){
+
+        console.warn(
+            "World map could not be loaded:",
+            error
         );
+
+        resizeCanvas();
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Resize
+--------------------------------------------------------- */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        clearTimeout(
+            window.__mapResizeTimer
+        );
+
+        window.__mapResizeTimer =
+            setTimeout(
+                resizeCanvas,
+                120
+            );
 
     }
 );
 
 
+/* ---------------------------------------------------------
+   Start
+--------------------------------------------------------- */
+
+startWorldMap();
+
+
 /* =========================================================
-   VERY LIGHT DESKTOP PARALLAX
+   VERY LIGHT HERO PARALLAX
 ========================================================= */
 
 const hero =
-document.querySelector(".hero");
+    document.querySelector(".hero");
 
-const world =
-document.querySelector(".world-photo");
+const map =
+    document.getElementById("worldMap");
 
-if(
-    hero &&
-    world &&
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
-){
 
-    hero.addEventListener(
-        "mousemove",
-        e => {
+let ticking = false;
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(ticking) return;
+
+        ticking = true;
+
+        requestAnimationFrame(() => {
 
             const rect =
                 hero.getBoundingClientRect();
 
-            const x =
-                (e.clientX - rect.left)
-                /
-                rect.width
-                -
-                .5;
+            const progress =
+                Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        -rect.top / rect.height
+                    )
+                );
 
-            const y =
-                (e.clientY - rect.top)
-                /
-                rect.height
-                -
-                .5;
+            map.style.transform =
+                `translateY(${progress * 18}px)`;
 
-            world.style.marginLeft =
-                `${x * 10}px`;
+            ticking = false;
 
-            world.style.marginTop =
-                `${y * 5}px`;
+        });
 
-        }
-    );
-
-    hero.addEventListener(
-        "mouseleave",
-        () => {
-
-            world.style.marginLeft =
-                "0";
-
-            world.style.marginTop =
-                "0";
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SMOOTH ANCHORS
-========================================================= */
-
-document
-.querySelectorAll(
-    'a[href^="#"]'
-)
-.forEach(
-    anchor => {
-
-        anchor.addEventListener(
-            "click",
-            function(e){
-
-                const target =
-                    document.querySelector(
-                        this.getAttribute("href")
-                    );
-
-                if(!target)
-                    return;
-
-                e.preventDefault();
-
-                target.scrollIntoView({
-                    behavior:"smooth",
-                    block:"start"
-                });
-
-            }
-        );
-
-    }
+    },
+    {passive:true}
 );
 
 </script>
-
 
 </body>
 </html>
