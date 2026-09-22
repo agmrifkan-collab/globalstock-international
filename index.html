@@ -3,30 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#061321">
+<meta name="theme-color" content="#02080f">
 
-<title>GlobalStock International | Global Stock Lot Buyer</title>
+<title>GlobalStock International</title>
 
 <meta name="description"
-content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+content="GlobalStock International — Global buyer of stock lots, surplus, overstock, clearance and excess inventory.">
 
 <style>
+
 /* =========================================================
    GLOBALSTOCK INTERNATIONAL
-   PREMIUM GLOBAL SHIPPING HERO
-   PC + MOBILE
+   PREMIUM CINEMATIC GLOBAL LOGISTICS WEBSITE
 ========================================================= */
 
 :root{
-    --bg:#03101d;
-    --bg2:#061827;
-    --blue:#19bfff;
-    --cyan:#58e7ff;
-    --white:#ffffff;
-    --muted:#a9bfd0;
-    --line:rgba(255,255,255,.12);
-    --glass:rgba(5,22,36,.66);
-    --shadow:0 25px 80px rgba(0,0,0,.45);
+    --black:#02070d;
+    --navy:#04121e;
+    --blue:#0a6f9d;
+    --cyan:#5de1ff;
+    --cyan2:#14bde8;
+    --white:#f5fbff;
+    --muted:#91a8b7;
+    --glass:rgba(4,17,28,.72);
+    --border:rgba(150,220,245,.12);
 }
 
 *{
@@ -40,15 +40,16 @@ html{
 }
 
 body{
+    margin:0;
+    background:#02070d;
+    color:#fff;
+
     font-family:
         Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
         Arial,
+        Helvetica,
         sans-serif;
-    background:var(--bg);
-    color:white;
+
     overflow-x:hidden;
 }
 
@@ -61,31 +62,40 @@ button{
     font:inherit;
 }
 
+
 /* =========================================================
    HEADER
 ========================================================= */
 
 header{
     position:fixed;
+
     top:0;
     left:0;
     width:100%;
-    height:78px;
-    z-index:1000;
+    height:76px;
 
-    background:rgba(3,16,29,.58);
+    z-index:9999;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(1,8,14,.92),
+            rgba(1,8,14,.58)
+        );
+
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
 }
 
 .nav{
-    max-width:1400px;
+    width:min(1420px,94%);
     height:100%;
-    margin:auto;
 
-    padding:0 28px;
+    margin:auto;
 
     display:flex;
     align-items:center;
@@ -96,64 +106,81 @@ header{
     display:flex;
     align-items:center;
     gap:12px;
-    font-weight:800;
-    letter-spacing:.5px;
 }
 
 .logo img{
-    width:48px;
-    height:48px;
+    width:46px;
+    height:46px;
+
     object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(75,220,255,.22)
+        );
 }
 
-.logo span{
-    font-size:18px;
+.logo-text{
+    font-size:17px;
+    font-weight:850;
+    letter-spacing:.8px;
 }
 
-.logo small{
-    display:block;
-    color:#67dfff;
-    font-size:9px;
-    letter-spacing:2px;
+.logo-sub{
     margin-top:2px;
+
+    color:#6cdfff;
+
+    font-size:8px;
+    font-weight:700;
+
+    letter-spacing:2.5px;
 }
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:30px;
+    gap:29px;
 }
 
 .nav-links a{
-    font-size:14px;
-    color:#dcecf6;
+    color:#c4d5df;
+
+    font-size:13px;
+    font-weight:600;
+
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:var(--cyan);
+    color:#68e6ff;
 }
 
-.nav-btn{
-    padding:12px 20px;
+.nav-contact{
+    padding:11px 20px;
+
+    border:
+        1px solid
+        rgba(90,224,255,.35);
+
     border-radius:30px;
 
-    background:linear-gradient(
-        135deg,
-        #08aeea,
-        #2f80ed
-    );
+    background:
+        rgba(26,166,207,.08);
 
-    box-shadow:0 8px 30px rgba(20,170,255,.25);
-
-    font-weight:700;
+    color:#78eaff !important;
 }
 
 .menu{
     display:none;
-    font-size:27px;
+
     cursor:pointer;
+
+    font-size:27px;
+    color:white;
 }
+
 
 /* =========================================================
    HERO
@@ -161,427 +188,402 @@ header{
 
 .hero{
     position:relative;
-    min-height:100vh;
-    height:900px;
-    max-height:1000px;
+
+    width:100%;
+    height:100vh;
+    min-height:760px;
 
     overflow:hidden;
 
     background:
         radial-gradient(
-            circle at 50% 30%,
-            rgba(0,149,255,.12),
-            transparent 40%
-        ),
-        linear-gradient(
-            180deg,
-            #020d18 0%,
-            #041727 52%,
-            #03111d 100%
+            ellipse at 55% 42%,
+            #0a2435 0%,
+            #04121e 38%,
+            #02070d 75%,
+            #010409 100%
         );
 }
 
-/* subtle moving light */
-.hero::before{
-    content:"";
+
+/* cinematic light */
+
+.hero-light{
     position:absolute;
-    inset:-30%;
+
+    width:850px;
+    height:500px;
+
+    left:50%;
+    top:25%;
+
+    transform:
+        translate(-50%,-50%);
 
     background:
         radial-gradient(
-            circle at 20% 40%,
-            rgba(0,204,255,.12),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 80% 25%,
-            rgba(0,100,255,.10),
-            transparent 25%
+            ellipse,
+            rgba(20,145,190,.13),
+            transparent 68%
         );
 
-    animation:atmosphere 14s ease-in-out infinite alternate;
+    filter:blur(15px);
+
+    animation:
+        lightDrift 12s ease-in-out infinite
+        alternate;
+
     pointer-events:none;
 }
 
-@keyframes atmosphere{
-    0%{
-        transform:translate3d(-3%,0,0) scale(1);
+@keyframes lightDrift{
+
+    from{
+        transform:
+            translate(-55%,-50%)
+            scale(1);
     }
-    100%{
-        transform:translate3d(3%,2%,0) scale(1.08);
+
+    to{
+        transform:
+            translate(-45%,-46%)
+            scale(1.12);
     }
+
 }
+
 
 /* =========================================================
-   HERO CONTENT
+   WORLD MAP BACKGROUND
 ========================================================= */
 
-.hero-content{
+.map-stage{
     position:absolute;
-    z-index:30;
 
-    left:7%;
-    top:50%;
+    inset:0;
 
-    transform:translateY(-50%);
+    z-index:3;
 
-    width:min(650px,90%);
+    overflow:hidden;
+
+    opacity:.94;
 }
 
-.hero-kicker{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
 
-    padding:8px 14px;
-    margin-bottom:22px;
+/*
+  Premium dark globe/map effect.
+  Continents are intentionally very subtle.
+*/
 
-    border:1px solid rgba(76,220,255,.25);
-    background:rgba(15,100,140,.14);
+.world-map{
+    position:absolute;
 
-    border-radius:30px;
+    width:155%;
+    height:100%;
 
-    color:#7deaff;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:2px;
+    left:-27%;
+    top:0;
 
-    box-shadow:
-        0 0 30px rgba(0,190,255,.08);
+    opacity:.82;
+
+    transform:
+        scale(1.03);
+
+    animation:
+        mapDrift 24s ease-in-out infinite alternate;
 }
 
-.hero-kicker::before{
-    content:"";
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#54eaff;
-    box-shadow:0 0 14px #54eaff;
-    animation:pulse 1.7s infinite;
-}
+@keyframes mapDrift{
 
-@keyframes pulse{
-    50%{
-        opacity:.35;
-        transform:scale(.65);
+    from{
+        transform:
+            translateX(-1%)
+            scale(1.03);
     }
+
+    to{
+        transform:
+            translateX(1%)
+            scale(1.06);
+    }
+
 }
 
-.hero h1{
-    font-size:clamp(45px,6vw,86px);
-    line-height:.94;
-    letter-spacing:-4px;
-    font-weight:900;
-
-    margin-bottom:24px;
-
-    text-shadow:
-        0 15px 50px rgba(0,0,0,.5);
+.world-map svg{
+    width:100%;
+    height:100%;
 }
 
-.hero h1 span{
-    display:block;
+
+/* realistic dark continents */
+
+.land{
+    fill:#102b3a;
+
+    stroke:#326174;
+
+    stroke-width:.7;
+
+    opacity:.72;
+}
+
+.land-highlight{
+    fill:none;
+
+    stroke:
+        rgba(93,221,255,.20);
+
+    stroke-width:1;
+
+    opacity:.5;
+}
+
+
+/* atmospheric haze */
+
+.map-haze{
+    fill:
+        radial-gradient(
+            circle,
+            rgba(70,210,255,.15),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   LATITUDE / LONGITUDE
+========================================================= */
+
+.longitude,
+.latitude{
+
+    fill:none;
+
+    stroke:
+        rgba(104,207,235,.11);
+
+    stroke-width:.6;
+}
+
+.longitude-strong{
+    fill:none;
+
+    stroke:
+        rgba(108,224,249,.16);
+
+    stroke-width:.8;
+}
+
+
+/* =========================================================
+   MAP LIGHT SWEEP
+========================================================= */
+
+.map-sweep{
+
+    position:absolute;
+
+    top:-20%;
+    left:-20%;
+
+    width:15%;
+    height:140%;
 
     background:
         linear-gradient(
             90deg,
-            #fff,
-            #8ceeff,
-            #20baff,
-            #fff
+            transparent,
+            rgba(106,228,255,.07),
+            transparent
         );
 
-    background-size:300% auto;
+    transform:
+        rotate(18deg);
 
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    filter:blur(10px);
 
-    animation:textShine 7s linear infinite;
-}
-
-@keyframes textShine{
-    to{
-        background-position:300% center;
-    }
-}
-
-.hero p{
-    max-width:580px;
-
-    color:#abc1d0;
-    font-size:18px;
-    line-height:1.7;
-
-    margin-bottom:32px;
-}
-
-.hero-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    min-height:52px;
-    padding:0 24px;
-
-    border-radius:30px;
-
-    font-weight:800;
-    font-size:14px;
-
-    transition:.3s;
-}
-
-.btn-primary{
-    color:#00121d;
-
-    background:
-        linear-gradient(
-            135deg,
-            #67efff,
-            #0da9ef
-        );
-
-    box-shadow:
-        0 12px 35px rgba(0,180,255,.27);
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-    box-shadow:
-        0 18px 50px rgba(0,180,255,.4);
-}
-
-.btn-outline{
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.045);
-    color:white;
-}
-
-.btn-outline:hover{
-    background:rgba(255,255,255,.1);
-    transform:translateY(-3px);
-}
-
-/* =========================================================
-   WORLD MAP
-========================================================= */
-
-.world{
-    position:absolute;
-    inset:0;
-    z-index:4;
+    animation:
+        sweep 12s linear infinite;
 
     pointer-events:none;
 }
 
-.world svg{
-    width:100%;
-    height:100%;
-    display:block;
+@keyframes sweep{
+
+    from{
+        left:-25%;
+    }
+
+    to{
+        left:120%;
+    }
+
 }
 
-/* map itself */
-.map-fill{
-    fill:#0a3147;
-    opacity:.62;
-}
-
-.map-outline{
-    fill:none;
-    stroke:#1d6885;
-    stroke-width:1;
-    opacity:.45;
-}
-
-.map-glow{
-    fill:none;
-    stroke:#42dcff;
-    stroke-width:1.5;
-    opacity:.12;
-
-    filter:url(#softGlow);
-}
-
-/* =========================================================
-   GRID
-========================================================= */
-
-.grid{
-    opacity:.16;
-}
-
-.grid line{
-    stroke:#61dfff;
-    stroke-width:.7;
-}
-
-.grid path{
-    fill:none;
-    stroke:#61dfff;
-    stroke-width:.7;
-}
 
 /* =========================================================
    SHIPPING ROUTES
 ========================================================= */
 
+.routes{
+    position:absolute;
+
+    inset:0;
+
+    z-index:8;
+
+    pointer-events:none;
+}
+
 .route{
     fill:none;
 
-    stroke:#3bd9ff;
-    stroke-width:2;
+    stroke:
+        rgba(75,213,248,.30);
 
-    stroke-dasharray:7 12;
+    stroke-width:1.2;
+
+    stroke-dasharray:2 10;
+
     stroke-linecap:round;
 
-    opacity:.28;
-
     animation:
-        routeMove 2.8s linear infinite;
+        routeFlow 5s linear infinite;
 }
 
 .route-glow{
     fill:none;
 
-    stroke:#26cfff;
+    stroke:
+        rgba(44,204,245,.10);
+
     stroke-width:7;
 
-    opacity:.07;
-
-    filter:url(#routeGlow);
+    filter:
+        blur(5px);
 }
 
-@keyframes routeMove{
+@keyframes routeFlow{
+
     to{
-        stroke-dashoffset:-100;
+        stroke-dashoffset:-120;
     }
+
 }
+
 
 /* =========================================================
-   DESTINATION SRI LANKA
+   ROUTE ORIGIN LIGHTS
 ========================================================= */
 
-.destination{
-    transform-box:fill-box;
-    transform-origin:center;
+.origin{
+    fill:#73eaff;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(82,226,255,.9)
+        );
 
     animation:
-        destinationPulse 2s ease-in-out infinite;
+        originPulse 2.3s ease-in-out infinite;
 }
 
-@keyframes destinationPulse{
+@keyframes originPulse{
+
     0%,100%{
-        transform:scale(1);
-        opacity:1;
+        opacity:.5;
+        r:3;
     }
 
     50%{
-        transform:scale(1.18);
-        opacity:.8;
+        opacity:1;
+        r:5;
     }
+
+}
+
+
+/* =========================================================
+   SRI LANKA DESTINATION
+========================================================= */
+
+.sri-lanka-point{
+    fill:#fff;
+
+    filter:
+        drop-shadow(
+            0 0 9px
+            #58e7ff
+        );
 }
 
 .destination-ring{
     fill:none;
-    stroke:#5cecff;
-    stroke-width:2;
-    opacity:.6;
 
-    animation:ringPulse 2s ease-out infinite;
-}
+    stroke:#55e6ff;
 
-.destination-ring2{
-    fill:none;
-    stroke:#5cecff;
     stroke-width:1;
-    opacity:.3;
 
-    animation:ringPulse 2s ease-out infinite 1s;
+    opacity:.7;
+
+    animation:
+        destinationRing
+        2.8s ease-out infinite;
 }
 
-@keyframes ringPulse{
+.destination-ring.delay{
+    animation-delay:1.4s;
+}
+
+@keyframes destinationRing{
+
     0%{
-        r:12;
-        opacity:.7;
+        r:8;
+        opacity:.8;
     }
 
     100%{
-        r:50;
+        r:55;
         opacity:0;
     }
+
 }
 
-.destination-label{
-    fill:#bff7ff;
-    font-size:15px;
-    font-weight:800;
-    letter-spacing:2px;
-}
 
 /* =========================================================
-   MOVING SHIPS
+   ANIMATED CONTAINER SHIPS
 ========================================================= */
 
-.ship{
-    filter:url(#shipGlow);
+.svg-ship{
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(74,219,255,.35)
+        );
 }
 
-/*
-  SVG animateMotion is used here.
-  This is much more reliable than CSS offset-path.
-*/
-
-.ship-body{
-    fill:#e9f7fb;
-}
-
-.ship-dark{
-    fill:#0b2739;
-}
-
-.ship-blue{
-    fill:#18bfe9;
-}
-
-.ship-red{
-    fill:#ff5b5b;
-}
-
-.ship-window{
-    fill:#c8f7ff;
-}
-
-.ship-light{
-    fill:#8fffff;
-}
 
 /* =========================================================
    CARGO PARTICLES
 ========================================================= */
 
-.cargo{
-    fill:#72efff;
-    filter:url(#particleGlow);
+.particle{
+    fill:#7deaff;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(80,225,255,.8)
+        );
 }
 
-.cargo.small{
-    opacity:.55;
+.particle-soft{
+    fill:#4bcce9;
+    opacity:.45;
 }
 
-.cargo.medium{
-    opacity:.75;
-}
-
-.cargo.large{
-    opacity:1;
-}
 
 /* =========================================================
    OCEAN
@@ -589,472 +591,667 @@ header{
 
 .ocean{
     position:absolute;
-    z-index:15;
 
     left:0;
     right:0;
     bottom:0;
 
-    height:29%;
+    height:27%;
 
-    overflow:hidden;
+    z-index:15;
 
     background:
         linear-gradient(
             180deg,
-            rgba(4,37,56,.15),
-            rgba(1,15,27,.9)
+            rgba(4,39,55,.10),
+            rgba(1,13,22,.90)
+        );
+
+    overflow:hidden;
+}
+
+.ocean-depth{
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(20,138,175,.16),
+            transparent 58%
         );
 }
 
-.wave{
+
+/* realistic thin wave reflections */
+
+.wave-line{
     position:absolute;
+
     left:-10%;
+
     width:120%;
-    height:120px;
 
-    border-radius:50% 50% 0 0;
+    height:90px;
 
-    border-top:1px solid rgba(89,226,255,.13);
+    border-top:
+        1px solid
+        rgba(100,225,250,.10);
 
-    opacity:.6;
+    border-radius:50%;
 
-    animation:waveMove 9s ease-in-out infinite alternate;
+    filter:blur(.3px);
+
+    animation:
+        waveMove
+        11s ease-in-out infinite
+        alternate;
 }
 
-.wave1{
-    bottom:55px;
+.wave-line:nth-child(1){
+    bottom:80px;
 }
 
-.wave2{
-    bottom:25px;
-    animation-duration:12s;
-    animation-delay:-3s;
+.wave-line:nth-child(2){
+    bottom:48px;
+
+    animation-duration:14s;
+    animation-delay:-4s;
 }
 
-.wave3{
-    bottom:-10px;
-    animation-duration:15s;
-    animation-delay:-6s;
+.wave-line:nth-child(3){
+    bottom:18px;
+
+    animation-duration:17s;
+    animation-delay:-8s;
+}
+
+.wave-line:nth-child(4){
+    bottom:-20px;
+
+    animation-duration:20s;
+    animation-delay:-11s;
 }
 
 @keyframes waveMove{
+
     from{
-        transform:translateX(-4%) scaleY(.9);
+        transform:
+            translateX(-4%)
+            scaleY(.8);
     }
+
     to{
-        transform:translateX(4%) scaleY(1.08);
+        transform:
+            translateX(4%)
+            scaleY(1.1);
     }
+
 }
 
+
 /* =========================================================
-   LARGE MAIN SHIP
+   REALISTIC MAIN CONTAINER SHIP
 ========================================================= */
 
 .main-ship{
     position:absolute;
 
-    width:330px;
-    height:120px;
+    z-index:25;
 
-    bottom:82px;
-    left:-360px;
+    width:520px;
+    height:180px;
 
-    z-index:22;
+    left:-560px;
+    bottom:65px;
 
     animation:
-        mainShipTravel 20s linear infinite;
+        oceanShip
+        25s
+        linear
+        infinite;
+
+    filter:
+        drop-shadow(
+            0 20px 25px
+            rgba(0,0,0,.6)
+        );
 }
 
-@keyframes mainShipTravel{
+@keyframes oceanShip{
+
     0%{
         transform:
-            translateX(0)
-            translateY(8px);
+            translate3d(0,8px,0);
     }
 
-    45%{
+    40%{
         transform:
-            translateX(55vw)
-            translateY(-4px);
+            translate3d(55vw,-3px,0);
     }
 
     100%{
         transform:
-            translateX(calc(100vw + 420px))
-            translateY(4px);
+            translate3d(
+                calc(100vw + 650px),
+                5px,
+                0
+            );
     }
+
 }
 
-.ship-visual{
-    position:relative;
+.ship-svg{
     width:100%;
     height:100%;
 }
 
-/* hull */
-.ship-hull{
-    position:absolute;
-
-    left:25px;
-    bottom:25px;
-
-    width:275px;
-    height:38px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #183e54,
-            #061827
-        );
-
-    border-radius:
-        8px 8px 60px 30px;
-
-    border-bottom:5px solid #18bce9;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.45);
-}
-
-.ship-deck{
-    position:absolute;
-
-    left:48px;
-    bottom:60px;
-
-    width:180px;
-    height:14px;
-
-    background:#214d63;
-
-    border-radius:3px;
-}
-
-.containers{
-    position:absolute;
-
-    left:70px;
-    bottom:72px;
-
-    display:flex;
-    gap:4px;
-}
-
-.container-box{
-    width:30px;
-    height:27px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #13aee0,
-            #09678f
-        );
-
-    border:1px solid rgba(255,255,255,.18);
-
-    box-shadow:
-        inset 0 0 8px rgba(255,255,255,.08);
-}
-
-.container-box:nth-child(2){
-    background:
-        linear-gradient(
-            90deg,
-            #e85b62,
-            #8f2832
-        );
-}
-
-.container-box:nth-child(3){
-    background:
-        linear-gradient(
-            90deg,
-            #ffc857,
-            #a97016
-        );
-}
-
-.bridge{
-    position:absolute;
-
-    right:38px;
-    bottom:60px;
-
-    width:62px;
-    height:43px;
-
-    background:#eaf7fa;
-
-    border-radius:4px 4px 2px 2px;
-}
-
-.bridge-window{
-    position:absolute;
-
-    left:9px;
-    top:8px;
-
-    width:44px;
-    height:12px;
-
-    background:#123b50;
-
-    box-shadow:
-        inset 0 0 0 1px rgba(130,230,255,.25);
-}
-
-.chimney{
-    position:absolute;
-
-    right:47px;
-    bottom:103px;
-
-    width:15px;
-    height:24px;
-
-    background:#142f40;
-
-    border-radius:2px 2px 0 0;
-}
-
-.chimney::after{
-    content:"";
-
-    position:absolute;
-
-    width:20px;
-    height:5px;
-
-    top:-3px;
-    left:-2px;
-
-    background:#e35358;
-
-    border-radius:2px;
-}
-
-.smoke{
-    position:absolute;
-
-    right:37px;
-    bottom:128px;
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:rgba(220,245,255,.22);
-
-    box-shadow:
-        12px -14px 0 4px rgba(220,245,255,.13),
-        23px -28px 0 7px rgba(220,245,255,.08);
-
-    animation:smoke 3s ease-out infinite;
-}
-
-@keyframes smoke{
-    from{
-        transform:translate(0,0) scale(.7);
-        opacity:.5;
-    }
-
-    to{
-        transform:translate(30px,-40px) scale(1.6);
-        opacity:0;
-    }
-}
-
-.wake{
-    position:absolute;
-
-    left:-80px;
-    bottom:35px;
-
-    width:130px;
-    height:20px;
-
-    border-top:2px solid rgba(93,225,255,.3);
-    border-radius:50%;
-
-    filter:blur(2px);
-
-    animation:wake 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes wake{
-    to{
-        transform:scaleX(1.3);
-        opacity:.3;
-    }
-}
 
 /* =========================================================
-   FLOATING INFO
+   SMOKE
 ========================================================= */
 
-.route-info{
+.smoke{
+    fill:
+        rgba(215,238,245,.08);
+
+    animation:
+        smokeRise
+        3.5s
+        ease-out
+        infinite;
+}
+
+@keyframes smokeRise{
+
+    0%{
+        opacity:.2;
+        transform:
+            translate(0,0)
+            scale(.6);
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translate(30px,-45px)
+            scale(1.5);
+    }
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content{
     position:absolute;
-    right:5%;
-    bottom:31%;
 
-    z-index:28;
+    z-index:40;
 
-    width:220px;
+    left:7%;
 
-    padding:18px;
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    width:
+        min(650px,88%);
+
+    pointer-events:none;
+}
+
+.kicker{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px 14px;
+
+    margin-bottom:23px;
 
     border:
-        1px solid rgba(112,226,255,.18);
+        1px solid
+        rgba(91,221,255,.20);
+
+    border-radius:30px;
 
     background:
-        rgba(5,24,39,.58);
+        rgba(18,101,130,.12);
 
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
+    color:#7de8ff;
 
-    border-radius:18px;
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2.4px;
+}
+
+.kicker-dot{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#6ae9ff;
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,.3);
+        0 0 12px
+        #6ae9ff;
 
-    animation:infoFloat 5s ease-in-out infinite;
+    animation:
+        blink 1.7s infinite;
 }
 
-@keyframes infoFloat{
+@keyframes blink{
+
     50%{
-        transform:translateY(-8px);
+        opacity:.25;
     }
+
 }
 
-.route-info .top{
-    display:flex;
-    align-items:center;
-    gap:8px;
+.hero h1{
 
-    color:#77edff;
+    margin:0 0 25px;
 
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1.5px;
+    font-size:
+        clamp(48px,6.5vw,88px);
 
-    margin-bottom:8px;
+    line-height:.93;
+
+    letter-spacing:
+        -4px;
+
+    font-weight:900;
+
+    text-shadow:
+        0 20px 50px
+        rgba(0,0,0,.55);
 }
 
-.route-info strong{
+.hero h1 .line{
     display:block;
+}
+
+.hero h1 .accent{
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff 5%,
+            #8beeff 40%,
+            #1cbce9 70%,
+            #ffffff 100%
+        );
+
+    background-size:
+        250% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+        titleShine
+        7s
+        linear
+        infinite;
+}
+
+@keyframes titleShine{
+
+    to{
+        background-position:
+            250% center;
+    }
+
+}
+
+.hero-description{
+
+    max-width:570px;
+
+    color:#a4b8c4;
 
     font-size:17px;
 
-    margin-bottom:5px;
+    line-height:1.7;
+
+    margin-bottom:31px;
 }
 
-.route-info p{
-    font-size:12px;
-    line-height:1.5;
+.hero-buttons{
+    display:flex;
 
-    color:#8da8b8;
+    gap:13px;
+
+    flex-wrap:wrap;
+
+    pointer-events:auto;
 }
+
+.btn{
+
+    min-height:52px;
+
+    padding:
+        0 24px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        background .3s;
+}
+
+.btn-primary{
+
+    color:#001017;
+
+    background:
+        linear-gradient(
+            135deg,
+            #72edff,
+            #18b6e6
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(13,190,237,.25);
+}
+
+.btn-primary:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(13,190,237,.38);
+}
+
+.btn-secondary{
+
+    color:#e9f8ff;
+
+    border:
+        1px solid
+        rgba(255,255,255,.17);
+
+    background:
+        rgba(255,255,255,.045);
+}
+
+.btn-secondary:hover{
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,.09);
+}
+
 
 /* =========================================================
-   SCROLL INDICATOR
+   LIVE SHIPPING CARD
 ========================================================= */
 
-.scroll{
+.live-card{
+
     position:absolute;
-    z-index:40;
 
-    left:50%;
-    bottom:24px;
+    z-index:45;
 
-    transform:translateX(-50%);
+    right:5%;
+
+    bottom:32%;
+
+    width:245px;
+
+    padding:19px;
+
+    border:
+        1px solid
+        rgba(103,220,247,.15);
+
+    border-radius:17px;
+
+    background:
+        rgba(3,16,27,.64);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.35);
+
+    animation:
+        cardFloat
+        6s
+        ease-in-out
+        infinite;
+}
+
+@keyframes cardFloat{
+
+    50%{
+        transform:
+            translateY(-8px);
+    }
+
+}
+
+.live-top{
 
     display:flex;
-    flex-direction:column;
+
     align-items:center;
+
     gap:8px;
 
-    color:#7392a4;
+    color:#65e6ff;
 
     font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.8px;
+
+    margin-bottom:10px;
+}
+
+.live-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#64e7ff;
+
+    box-shadow:
+        0 0 10px
+        #64e7ff;
+}
+
+.live-card h3{
+
+    font-size:17px;
+
+    margin-bottom:7px;
+}
+
+.live-card p{
+
+    color:#829ba9;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    z-index:50;
+
+    bottom:18px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#617b89;
+
+    font-size:8px;
+
     letter-spacing:2px;
 }
 
-.scroll-line{
+.scroll-bar{
+
     width:1px;
-    height:35px;
+    height:32px;
 
     background:
         linear-gradient(
             to bottom,
             transparent,
-            #67dfff
+            #5ddfff
         );
 
-    animation:scrollLine 2s infinite;
+    animation:
+        scrollMove
+        2s
+        ease-in-out
+        infinite;
 }
 
-@keyframes scrollLine{
+@keyframes scrollMove{
+
     50%{
-        opacity:.3;
-        transform:translateY(8px);
+        transform:
+            translateY(8px);
+
+        opacity:.35;
     }
+
 }
+
 
 /* =========================================================
-   SECTIONS
+   CONTENT SECTIONS
 ========================================================= */
 
 .section{
+
     position:relative;
 
-    padding:110px 7%;
+    padding:
+        110px 7%;
 
-    background:#031321;
+    background:#020b13;
 }
 
 .section:nth-child(even){
-    background:#061927;
+
+    background:#04121d;
 }
 
-.section-title{
+.section-head{
+
     max-width:760px;
-    margin:0 auto 55px;
+
+    margin:
+        0 auto 55px;
+
     text-align:center;
 }
 
-.section-title .mini{
-    color:#48dfff;
+.section-mini{
 
-    font-size:11px;
+    color:#58dcfa;
+
+    font-size:10px;
+
     font-weight:800;
+
     letter-spacing:2px;
 
-    margin-bottom:12px;
+    margin-bottom:13px;
 }
 
-.section-title h2{
-    font-size:clamp(32px,4vw,55px);
+.section-head h2{
+
+    font-size:
+        clamp(34px,4.2vw,57px);
+
     line-height:1.05;
 
-    margin-bottom:16px;
+    letter-spacing:-2px;
+
+    margin-bottom:17px;
 }
 
-.section-title p{
-    color:#91aabd;
+.section-head p{
+
+    color:#8ea7b6;
+
     line-height:1.7;
+
+    font-size:15px;
 }
 
-/* cards */
+
+/* =========================================================
+   CARDS
+========================================================= */
+
 .cards{
-    max-width:1250px;
+
+    width:min(1240px,100%);
 
     margin:auto;
 
     display:grid;
+
     grid-template-columns:
         repeat(3,1fr);
 
@@ -1062,220 +1259,306 @@ header{
 }
 
 .card{
-    padding:30px;
+
+    padding:31px;
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid
+        rgba(150,220,240,.08);
+
+    border-radius:21px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.02)
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
         );
 
-    border-radius:22px;
-
     transition:.35s;
+
+    overflow:hidden;
+}
+
+.card::before{
+
+    content:"";
+
+    display:block;
+
+    width:50px;
+    height:2px;
+
+    margin-bottom:25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #55e2ff,
+            transparent
+        );
 }
 
 .card:hover{
-    transform:translateY(-8px);
+
+    transform:
+        translateY(-8px);
 
     border-color:
-        rgba(60,220,255,.25);
+        rgba(81,220,255,.22);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.25);
+        0 30px 70px
+        rgba(0,0,0,.25);
 }
 
 .card-icon{
-    font-size:35px;
-    margin-bottom:18px;
+
+    font-size:32px;
+
+    margin-bottom:17px;
 }
 
 .card h3{
+
+    font-size:19px;
+
     margin-bottom:10px;
 }
 
 .card p{
-    color:#91a9b8;
-    line-height:1.65;
-    font-size:14px;
+
+    color:#849eac;
+
+    font-size:13px;
+
+    line-height:1.7;
 }
+
 
 /* =========================================================
    PROCESS
 ========================================================= */
 
 .process{
-    max-width:1100px;
+
+    width:min(1100px,100%);
 
     margin:auto;
 
     display:grid;
+
     grid-template-columns:
         repeat(4,1fr);
 
     gap:20px;
 }
 
-.step{
+.process-item{
+
     text-align:center;
 }
 
-.step-number{
-    width:55px;
-    height:55px;
+.number{
+
+    width:56px;
+    height:56px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    margin:0 auto 18px;
+    margin:
+        0 auto 18px;
 
     border-radius:50%;
 
+    border:
+        1px solid
+        rgba(93,224,255,.25);
+
     background:
-        linear-gradient(
-            135deg,
-            #0db7eb,
-            #2467db
-        );
+        rgba(21,160,204,.10);
+
+    color:#64e5ff;
+
+    font-size:13px;
 
     font-weight:900;
 
     box-shadow:
-        0 10px 30px rgba(0,160,255,.2);
+        inset 0 0 25px
+        rgba(50,200,240,.05);
 }
 
-.step h3{
-    margin-bottom:8px;
+.process-item h3{
+
+    margin-bottom:9px;
+
+    font-size:16px;
 }
 
-.step p{
-    color:#91a9b8;
-    font-size:13px;
-    line-height:1.6;
+.process-item p{
+
+    color:#819ba9;
+
+    font-size:12px;
+
+    line-height:1.65;
 }
+
 
 /* =========================================================
    CTA
 ========================================================= */
 
 .cta{
-    max-width:1100px;
+
+    width:min(1100px,100%);
+
     margin:auto;
 
-    padding:65px 45px;
-
-    border-radius:30px;
-
-    background:
-        radial-gradient(
-            circle at 10% 20%,
-            rgba(0,203,255,.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #092a40,
-            #061827
-        );
-
-    border:
-        1px solid rgba(87,220,255,.16);
+    padding:
+        70px 40px;
 
     text-align:center;
 
+    border-radius:29px;
+
+    border:
+        1px solid
+        rgba(90,218,248,.14);
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(21,154,201,.17),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            135deg,
+            #071c2a,
+            #03101a
+        );
+
     box-shadow:
-        0 30px 80px rgba(0,0,0,.35);
+        0 35px 90px
+        rgba(0,0,0,.38);
 }
 
 .cta h2{
-    font-size:clamp(30px,4vw,50px);
-    margin-bottom:15px;
+
+    font-size:
+        clamp(32px,4vw,52px);
+
+    margin-bottom:13px;
 }
 
 .cta p{
-    color:#9db4c3;
-    margin-bottom:25px;
+
+    color:#8ba5b4;
+
+    margin-bottom:26px;
 }
+
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
 .contact-grid{
-    max-width:900px;
+
+    width:min(900px,100%);
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:
         repeat(3,1fr);
 
     gap:18px;
 }
 
-.contact-card{
+.contact-box{
+
     padding:25px;
 
     text-align:center;
 
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
     border-radius:18px;
 
-    border:
-        1px solid rgba(255,255,255,.08);
-
     background:
-        rgba(255,255,255,.035);
+        rgba(255,255,255,.025);
 }
 
-.contact-card span{
+.contact-box small{
+
     display:block;
 
-    color:#6eeaff;
+    color:#54dfff;
 
-    font-size:11px;
-    letter-spacing:1.5px;
+    font-size:9px;
 
-    margin-bottom:8px;
+    font-weight:800;
+
+    letter-spacing:1.8px;
+
+    margin-bottom:9px;
 }
 
-.contact-card strong{
-    font-size:14px;
+.contact-box strong{
+
+    font-size:13px;
+
+    color:#e8f5fa;
+
     word-break:break-word;
 }
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
-    padding:35px 7%;
 
-    border-top:
-        1px solid rgba(255,255,255,.07);
-
-    background:#020c15;
+    padding:
+        35px 7%;
 
     text-align:center;
 
-    color:#607a8b;
+    color:#526d7b;
 
-    font-size:12px;
+    font-size:11px;
+
+    background:#01070c;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
 }
 
+
 /* =========================================================
-   MOBILE
+   MOBILE NAV
 ========================================================= */
 
 @media(max-width:900px){
 
     .nav-links{
+
         position:absolute;
 
-        top:78px;
+        top:76px;
+
         left:0;
         right:0;
 
@@ -1283,119 +1566,127 @@ footer{
 
         flex-direction:column;
 
-        padding:25px;
+        align-items:stretch;
+
+        gap:0;
+
+        padding:18px;
 
         background:
-            rgba(3,16,29,.97);
+            rgba(2,10,17,.97);
 
         border-bottom:
-            1px solid rgba(255,255,255,.08);
+            1px solid
+            rgba(255,255,255,.08);
+
+        backdrop-filter:blur(20px);
     }
 
     .nav-links.open{
         display:flex;
     }
 
+    .nav-links a{
+        padding:14px 10px;
+    }
+
+    .nav-contact{
+        text-align:center;
+    }
+
     .menu{
         display:block;
     }
 
-    .hero{
-        height:850px;
-        min-height:850px;
-    }
-
     .hero-content{
         left:6%;
-        top:30%;
-
+        top:34%;
         width:88%;
     }
 
     .hero h1{
         font-size:
-            clamp(42px,11vw,68px);
-
-        letter-spacing:-2.5px;
+            clamp(43px,9vw,67px);
     }
 
-    .hero p{
-        font-size:15px;
-        max-width:500px;
-    }
-
-    .route-info{
+    .live-card{
         right:5%;
-        bottom:30%;
+        bottom:27%;
 
-        width:190px;
-
-        padding:14px;
-    }
-
-    .main-ship{
-        transform:scale(.72);
-        transform-origin:center bottom;
-
-        bottom:70px;
+        width:205px;
     }
 
     .cards{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .process{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:1fr 1fr;
     }
 
     .contact-grid{
         grid-template-columns:1fr;
     }
+
 }
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:600px){
 
     header{
-        height:68px;
+        height:67px;
     }
 
     .nav{
-        padding:0 18px;
+        width:92%;
     }
 
     .logo img{
-        width:42px;
-        height:42px;
+        width:40px;
+        height:40px;
     }
 
-    .logo span{
-        font-size:15px;
+    .logo-text{
+        font-size:14px;
     }
 
     .hero{
-        height:820px;
-        min-height:820px;
+        min-height:800px;
+        height:800px;
+    }
+
+    .world-map{
+        width:235%;
+        left:-70%;
     }
 
     .hero-content{
         top:27%;
     }
 
-    .hero-kicker{
-        font-size:9px;
-        letter-spacing:1.4px;
+    .kicker{
+        font-size:8px;
+        letter-spacing:1.5px;
+
+        padding:7px 11px;
     }
 
     .hero h1{
-        font-size:
-            clamp(38px,12vw,56px);
 
-        line-height:.97;
+        font-size:
+            clamp(38px,12vw,55px);
+
+        letter-spacing:-2.5px;
     }
 
-    .hero p{
+    .hero-description{
+
         font-size:14px;
+
         line-height:1.6;
     }
 
@@ -1404,38 +1695,54 @@ footer{
     }
 
     .btn{
+
         min-height:47px;
-        padding:0 18px;
-        font-size:12px;
+
+        padding:
+            0 17px;
+
+        font-size:11px;
     }
 
-    .route-info{
+    .live-card{
+
         left:6%;
         right:auto;
-        bottom:27%;
 
-        width:180px;
+        bottom:25%;
+
+        width:190px;
+
+        padding:14px;
     }
 
-    .route-info strong{
+    .live-card h3{
         font-size:14px;
     }
 
-    .route-info p{
+    .live-card p{
         font-size:10px;
     }
 
     .main-ship{
-        bottom:55px;
-        transform:scale(.52);
+
+        width:400px;
+        height:140px;
+
+        bottom:50px;
     }
 
-    .scroll{
-        bottom:12px;
+    .ocean{
+        height:25%;
     }
 
     .section{
-        padding:75px 6%;
+        padding:
+            75px 6%;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
     }
 
     .process{
@@ -1443,9 +1750,12 @@ footer{
     }
 
     .cta{
-        padding:45px 22px;
+        padding:
+            50px 22px;
     }
+
 }
+
 
 /* =========================================================
    REDUCED MOTION
@@ -1456,1164 +1766,1618 @@ footer{
     *,
     *::before,
     *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
         scroll-behavior:auto !important;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      HEADER
 ===================================================== -->
 
 <header>
-    <div class="nav">
 
-        <a href="#home" class="logo">
-            <img src="./logo1.png" alt="GlobalStock International">
+<div class="nav">
 
-            <div>
-                <span>GLOBALSTOCK</span>
-                <small>INTERNATIONAL</small>
-            </div>
-        </a>
+<a
+href="#home"
+class="logo">
 
-        <div class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="#materials">Materials</a>
-            <a href="#vehicles">Vehicle Order</a>
-            <a href="#process">How It Works</a>
-            <a href="#contact" class="nav-btn">Contact</a>
-        </div>
+<img
+src="./logo1.png"
+alt="GlobalStock International">
 
-        <div class="menu" id="menu">☰</div>
+<div>
 
-    </div>
+<div class="logo-text">
+GLOBALSTOCK
+</div>
+
+<div class="logo-sub">
+INTERNATIONAL
+</div>
+
+</div>
+
+</a>
+
+
+<nav
+class="nav-links"
+id="navLinks">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#materials">
+Materials
+</a>
+
+<a href="#vehicles">
+Vehicle Order
+</a>
+
+<a href="#process">
+How It Works
+</a>
+
+<a
+href="#contact"
+class="nav-contact">
+
+Contact
+
+</a>
+
+</nav>
+
+
+<div
+class="menu"
+id="menu">
+
+☰
+
+</div>
+
+</div>
+
 </header>
+
 
 
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section class="hero" id="home">
-
-    <!-- =================================================
-         WORLD + ROUTES + ANIMATED SHIPS
-    ================================================== -->
-
-    <div class="world">
-
-        <svg
-            viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-
-            <defs>
-
-                <!-- map glow -->
-                <filter id="softGlow"
-                        x="-50%"
-                        y="-50%"
-                        width="200%"
-                        height="200%">
-
-                    <feGaussianBlur
-                        stdDeviation="5"
-                        result="blur"/>
-
-                    <feMerge>
-                        <feMergeNode in="blur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-
-                </filter>
-
-                <!-- route glow -->
-                <filter id="routeGlow"
-                        x="-50%"
-                        y="-50%"
-                        width="200%"
-                        height="200%">
-
-                    <feGaussianBlur
-                        stdDeviation="5"/>
-                </filter>
-
-                <!-- ship glow -->
-                <filter id="shipGlow"
-                        x="-50%"
-                        y="-50%"
-                        width="200%"
-                        height="200%">
-
-                    <feGaussianBlur
-                        in="SourceGraphic"
-                        stdDeviation="2"
-                        result="b"/>
-
-                    <feMerge>
-                        <feMergeNode in="b"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
-
-                <!-- particle glow -->
-                <filter id="particleGlow"
-                        x="-100%"
-                        y="-100%"
-                        width="300%"
-                        height="300%">
-
-                    <feGaussianBlur
-                        stdDeviation="2"
-                        result="blur"/>
-
-                    <feMerge>
-                        <feMergeNode in="blur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
-
-                <!-- map gradient -->
-                <linearGradient
-                    id="mapGradient"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="1">
-
-                    <stop
-                        offset="0"
-                        stop-color="#103f58"/>
-
-                    <stop
-                        offset="1"
-                        stop-color="#071d2d"/>
-                </linearGradient>
-
-                <!-- ocean glow -->
-                <radialGradient
-                    id="oceanGlow">
-
-                    <stop
-                        offset="0"
-                        stop-color="#159ac0"
-                        stop-opacity=".16"/>
-
-                    <stop
-                        offset="1"
-                        stop-color="#159ac0"
-                        stop-opacity="0"/>
-                </radialGradient>
-
-            </defs>
-
-
-            <!-- =========================================
-                 BACKGROUND GLOW
-            ========================================== -->
-
-            <ellipse
-                cx="850"
-                cy="540"
-                rx="720"
-                ry="330"
-                fill="url(#oceanGlow)"
-            />
-
-
-            <!-- =========================================
-                 WORLD MAP
-                 Stylized continents
-            ========================================== -->
-
-            <g
-                fill="url(#mapGradient)"
-                class="map-fill"
-            >
-
-                <!-- North America -->
-                <path d="
-                    M90 225
-                    C145 160 235 135 320 160
-                    C365 175 410 205 420 245
-                    L380 270
-                    L350 315
-                    L300 330
-                    L270 370
-                    L220 350
-                    L190 300
-                    L130 285
-                    Z"/>
-
-                <!-- South America -->
-                <path d="
-                    M350 390
-                    C395 385 435 420 445 470
-                    C450 520 425 575 410 625
-                    C395 675 360 720 325 755
-                    L295 715
-                    L305 650
-                    L285 590
-                    L305 530
-                    L290 470
-                    Z"/>
-
-                <!-- Europe -->
-                <path d="
-                    M690 225
-                    L745 195
-                    L815 205
-                    L865 230
-                    L850 270
-                    L790 280
-                    L755 305
-                    L700 285
-                    Z"/>
-
-                <!-- Africa -->
-                <path d="
-                    M705 320
-                    C760 300 830 330 850 385
-                    C865 445 845 515 820 580
-                    L770 650
-                    L720 610
-                    L690 550
-                    L675 475
-                    L685 395
-                    Z"/>
-
-                <!-- Asia -->
-                <path d="
-                    M840 205
-                    C925 165 1040 160 1130 205
-                    L1220 235
-                    L1310 275
-                    L1390 330
-                    L1360 380
-                    L1280 375
-                    L1210 350
-                    L1150 370
-                    L1070 335
-                    L1000 320
-                    L950 280
-                    L875 270
-                    Z"/>
-
-                <!-- India -->
-                <path d="
-                    M960 345
-                    L1010 355
-                    L1040 410
-                    L1000 455
-                    L965 430
-                    L945 385
-                    Z"/>
-
-                <!-- Australia -->
-                <path d="
-                    M1180 570
-                    C1240 540 1330 555 1395 600
-                    L1370 665
-                    L1290 690
-                    L1215 670
-                    L1170 625
-                    Z"/>
-
-                <!-- Japan -->
-                <path d="
-                    M1395 300
-                    L1420 330
-                    L1410 375
-                    L1388 395
-                    L1375 360
-                    Z"/>
-
-            </g>
-
-
-            <!-- =========================================
-                 MAP OUTLINES
-            ========================================== -->
-
-            <g class="map-outline">
-
-                <path d="
-                    M90 225
-                    C145 160 235 135 320 160
-                    C365 175 410 205 420 245
-                    L380 270
-                    L350 315
-                    L300 330
-                    L270 370
-                    L220 350
-                    L190 300
-                    L130 285
-                    Z"/>
-
-                <path d="
-                    M350 390
-                    C395 385 435 420 445 470
-                    C450 520 425 575 410 625
-                    C395 675 360 720 325 755"/>
-
-                <path d="
-                    M690 225
-                    L745 195
-                    L815 205
-                    L865 230
-                    L850 270
-                    L790 280
-                    L755 305
-                    L700 285"/>
-
-                <path d="
-                    M705 320
-                    C760 300 830 330 850 385
-                    C865 445 845 515 820 580
-                    L770 650"/>
-
-                <path d="
-                    M840 205
-                    C925 165 1040 160 1130 205
-                    L1220 235
-                    L1310 275
-                    L1390 330"/>
-
-                <path d="
-                    M1180 570
-                    C1240 540 1330 555 1395 600
-                    L1370 665
-                    L1290 690"/>
-
-            </g>
-
-
-            <!-- =========================================
-                 GRID
-            ========================================== -->
-
-            <g class="grid">
-
-                <line x1="0" y1="180" x2="1600" y2="180"/>
-                <line x1="0" y1="300" x2="1600" y2="300"/>
-                <line x1="0" y1="420" x2="1600" y2="420"/>
-                <line x1="0" y1="540" x2="1600" y2="540"/>
-                <line x1="0" y1="660" x2="1600" y2="660"/>
-
-                <line x1="200" y1="0" x2="200" y2="900"/>
-                <line x1="400" y1="0" x2="400" y2="900"/>
-                <line x1="600" y1="0" x2="600" y2="900"/>
-                <line x1="800" y1="0" x2="800" y2="900"/>
-                <line x1="1000" y1="0" x2="1000" y2="900"/>
-                <line x1="1200" y1="0" x2="1200" y2="900"/>
-                <line x1="1400" y1="0" x2="1400" y2="900"/>
-
-            </g>
-
-
-            <!-- =========================================
-                 SHIPPING ROUTES
-                 ALL END AT SRI LANKA
-            ========================================== -->
-
-            <!-- Japan → Sri Lanka -->
-            <path
-                id="routeJapan"
-                class="route-glow"
-                d="
-                    M1400 350
-                    C1300 390 1210 440 1120 475
-                    C1060 500 1015 525 990 575"
-            />
-
-            <path
-                class="route"
-                d="
-                    M1400 350
-                    C1300 390 1210 440 1120 475
-                    C1060 500 1015 525 990 575"
-            />
-
-
-            <!-- Korea → Sri Lanka -->
-            <path
-                id="routeKorea"
-                class="route-glow"
-                d="
-                    M1260 280
-                    C1180 350 1110 410 1050 465
-                    C1010 500 995 540 990 575"
-            />
-
-            <path
-                class="route"
-                d="
-                    M1260 280
-                    C1180 350 1110 410 1050 465
-                    C1010 500 995 540 990 575"
-            />
-
-
-            <!-- China → Sri Lanka -->
-            <path
-                id="routeChina"
-                class="route-glow"
-                d="
-                    M1150 300
-                    C1110 360 1070 410 1035 460
-                    C1005 500 995 545 990 575"
-            />
-
-            <path
-                class="route"
-                d="
-                    M1150 300
-                    C1110 360 1070 410 1035 460
-                    C1005 500 995 545 990 575"
-            />
-
-
-            <!-- Middle East → Sri Lanka -->
-            <path
-                id="routeMiddleEast"
-                class="route-glow"
-                d="
-                    M850 300
-                    C900 360 935 410 955 455
-                    C975 500 985 545 990 575"
-            />
-
-            <path
-                class="route"
-                d="
-                    M850 300
-                    C900 360 935 410 955 455
-                    C975 500 985 545 990 575"
-            />
-
-
-            <!-- Europe → Sri Lanka -->
-            <path
-                id="routeEurope"
-                class="route-glow"
-                d="
-                    M760 235
-                    C820 300 875 355 915 410
-                    C955 465 980 520 990 575"
-            />
-
-            <path
-                class="route"
-                d="
-                    M760 235
-                    C820 300 875 355 915 410
-                    C955 465 980 520 990 575"
-            />
-
-
-            <!-- =========================================
-                 PORT POINTS
-            ========================================== -->
-
-            <g>
-
-                <!-- Japan -->
-                <circle
-                    cx="1400"
-                    cy="350"
-                    r="5"
-                    fill="#58eaff"/>
-
-                <text
-                    x="1412"
-                    y="355"
-                    fill="#83eaff"
-                    font-size="12">
-                    JAPAN
-                </text>
-
-
-                <!-- Korea -->
-                <circle
-                    cx="1260"
-                    cy="280"
-                    r="5"
-                    fill="#58eaff"/>
-
-                <text
-                    x="1272"
-                    y="285"
-                    fill="#83eaff"
-                    font-size="12">
-                    KOREA
-                </text>
-
-
-                <!-- China -->
-                <circle
-                    cx="1150"
-                    cy="300"
-                    r="5"
-                    fill="#58eaff"/>
-
-                <text
-                    x="1162"
-                    y="305"
-                    fill="#83eaff"
-                    font-size="12">
-                    CHINA
-                </text>
-
-
-                <!-- Middle East -->
-                <circle
-                    cx="850"
-                    cy="300"
-                    r="5"
-                    fill="#58eaff"/>
-
-                <text
-                    x="820"
-                    y="285"
-                    fill="#83eaff"
-                    font-size="12">
-                    MIDDLE EAST
-                </text>
-
-
-                <!-- Europe -->
-                <circle
-                    cx="760"
-                    cy="235"
-                    r="5"
-                    fill="#58eaff"/>
-
-                <text
-                    x="715"
-                    y="220"
-                    fill="#83eaff"
-                    font-size="12">
-                    EUROPE
-                </text>
-
-            </g>
-
-
-            <!-- =========================================
-                 SRI LANKA DESTINATION
-            ========================================== -->
-
-            <g class="destination">
-
-                <circle
-                    class="destination-ring"
-                    cx="990"
-                    cy="575"
-                    r="15"/>
-
-                <circle
-                    class="destination-ring2"
-                    cx="990"
-                    cy="575"
-                    r="15"/>
-
-                <circle
-                    cx="990"
-                    cy="575"
-                    r="9"
-                    fill="#67edff"
-                    filter="url(#softGlow)"/>
-
-                <circle
-                    cx="990"
-                    cy="575"
-                    r="4"
-                    fill="#ffffff"/>
-
-                <text
-                    class="destination-label"
-                    x="1010"
-                    y="580">
-                    SRI LANKA
-                </text>
-
-            </g>
-
-
-            <!-- =========================================
-                 ANIMATED CARGO SHIP 1
-                 JAPAN → SRI LANKA
-            ========================================== -->
-
-            <g class="ship">
-
-                <g>
-
-                    <animateMotion
-                        dur="12s"
-                        repeatCount="indefinite"
-                        rotate="auto"
-                        begin="0s">
-
-                        <mpath href="#routeJapan"/>
-
-                    </animateMotion>
-
-
-                    <!-- wake -->
-                    <ellipse
-                        cx="-15"
-                        cy="15"
-                        rx="28"
-                        ry="5"
-                        fill="#62eaff"
-                        opacity=".2"/>
-
-                    <!-- hull -->
-                    <path
-                        class="ship-dark"
-                        d="
-                            M-28 4
-                            L35 4
-                            L28 15
-                            L-15 15
-                            Z"/>
-
-                    <!-- deck -->
-                    <rect
-                        class="ship-blue"
-                        x="-17"
-                        y="-3"
-                        width="45"
-                        height="7"
-                        rx="2"/>
-
-                    <!-- containers -->
-                    <rect
-                        class="ship-red"
-                        x="-13"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        class="ship-blue"
-                        x="-2"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        fill="#f0bb4b"
-                        x="9"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <!-- bridge -->
-                    <path
-                        class="ship-body"
-                        d="
-                            M18 -3
-                            L30 -3
-                            L30 4
-                            L18 4
-                            Z"/>
-
-                    <rect
-                        class="ship-window"
-                        x="20"
-                        y="-1"
-                        width="7"
-                        height="3"/>
-
-                    <!-- chimney -->
-                    <rect
-                        class="ship-dark"
-                        x="25"
-                        y="-10"
-                        width="4"
-                        height="7"/>
-
-                </g>
-
-            </g>
-
-
-            <!-- =========================================
-                 ANIMATED CARGO SHIP 2
-                 KOREA → SRI LANKA
-            ========================================== -->
-
-            <g class="ship">
-
-                <g>
-
-                    <animateMotion
-                        dur="15s"
-                        repeatCount="indefinite"
-                        rotate="auto"
-                        begin="-5s">
-
-                        <mpath href="#routeKorea"/>
-
-                    </animateMotion>
-
-                    <ellipse
-                        cx="-15"
-                        cy="15"
-                        rx="25"
-                        ry="4"
-                        fill="#62eaff"
-                        opacity=".18"/>
-
-                    <path
-                        class="ship-dark"
-                        d="
-                            M-28 4
-                            L35 4
-                            L28 15
-                            L-15 15
-                            Z"/>
-
-                    <rect
-                        class="ship-blue"
-                        x="-17"
-                        y="-3"
-                        width="45"
-                        height="7"
-                        rx="2"/>
-
-                    <rect
-                        class="ship-red"
-                        x="-12"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        fill="#f0bb4b"
-                        x="-1"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        class="ship-blue"
-                        x="10"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <path
-                        class="ship-body"
-                        d="
-                            M18 -3
-                            L30 -3
-                            L30 4
-                            L18 4
-                            Z"/>
-
-                    <rect
-                        class="ship-window"
-                        x="20"
-                        y="-1"
-                        width="7"
-                        height="3"/>
-
-                </g>
-
-            </g>
-
-
-            <!-- =========================================
-                 ANIMATED CARGO SHIP 3
-                 CHINA → SRI LANKA
-            ========================================== -->
-
-            <g class="ship">
-
-                <g>
-
-                    <animateMotion
-                        dur="11s"
-                        repeatCount="indefinite"
-                        rotate="auto"
-                        begin="-3s">
-
-                        <mpath href="#routeChina"/>
-
-                    </animateMotion>
-
-                    <ellipse
-                        cx="-15"
-                        cy="15"
-                        rx="25"
-                        ry="4"
-                        fill="#62eaff"
-                        opacity=".18"/>
-
-                    <path
-                        class="ship-dark"
-                        d="
-                            M-28 4
-                            L35 4
-                            L28 15
-                            L-15 15
-                            Z"/>
-
-                    <rect
-                        class="ship-blue"
-                        x="-17"
-                        y="-3"
-                        width="45"
-                        height="7"
-                        rx="2"/>
-
-                    <rect
-                        fill="#f0bb4b"
-                        x="-12"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        class="ship-red"
-                        x="-1"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        class="ship-blue"
-                        x="10"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <path
-                        class="ship-body"
-                        d="
-                            M18 -3
-                            L30 -3
-                            L30 4
-                            L18 4
-                            Z"/>
-
-                </g>
-
-            </g>
-
-
-            <!-- =========================================
-                 ANIMATED CARGO SHIP 4
-                 MIDDLE EAST → SRI LANKA
-            ========================================== -->
-
-            <g class="ship">
-
-                <g>
-
-                    <animateMotion
-                        dur="10s"
-                        repeatCount="indefinite"
-                        rotate="auto"
-                        begin="-7s">
-
-                        <mpath href="#routeMiddleEast"/>
-
-                    </animateMotion>
-
-                    <ellipse
-                        cx="-15"
-                        cy="15"
-                        rx="25"
-                        ry="4"
-                        fill="#62eaff"
-                        opacity=".18"/>
-
-                    <path
-                        class="ship-dark"
-                        d="
-                            M-28 4
-                            L35 4
-                            L28 15
-                            L-15 15
-                            Z"/>
-
-                    <rect
-                        class="ship-blue"
-                        x="-17"
-                        y="-3"
-                        width="45"
-                        height="7"
-                        rx="2"/>
-
-                    <rect
-                        class="ship-blue"
-                        x="-12"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        fill="#f0bb4b"
-                        x="-1"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <rect
-                        class="ship-red"
-                        x="10"
-                        y="-14"
-                        width="10"
-                        height="11"/>
-
-                    <path
-                        class="ship-body"
-                        d="
-                            M18 -3
-                            L30 -3
-                            L30 4
-                            L18 4
-                            Z"/>
-
-                </g>
-
-            </g>
-
-
-            <!-- =========================================
-                 MOVING CARGO PARTICLES
-            ========================================== -->
-
-            <circle
-                class="cargo large"
-                r="4">
-
-                <animateMotion
-                    dur="5s"
-                    repeatCount="indefinite">
-
-                    <mpath href="#routeJapan"/>
-
-                </animateMotion>
-
-            </circle>
-
-
-            <circle
-                class="cargo medium"
-                r="3">
-
-                <animateMotion
-                    dur="5s"
-                    repeatCount="indefinite"
-                    begin="-2s">
-
-                    <mpath href="#routeJapan"/>
-
-                </animateMotion>
-
-            </circle>
-
-
-            <circle
-                class="cargo small"
-                r="2">
-
-                <animateMotion
-                    dur="4s"
-                    repeatCount="indefinite"
-                    begin="-1s">
-
-                    <mpath href="#routeKorea"/>
-
-                </animateMotion>
-
-            </circle>
-
-
-            <circle
-                class="cargo large"
-                r="3">
-
-                <animateMotion
-                    dur="6s"
-                    repeatCount="indefinite"
-                    begin="-3s">
-
-                    <mpath href="#routeChina"/>
-
-                </animateMotion>
-
-            </circle>
-
-
-            <circle
-                class="cargo medium"
-                r="3">
-
-                <animateMotion
-                    dur="5s"
-                    repeatCount="indefinite"
-                    begin="-2s">
-
-                    <mpath href="#routeMiddleEast"/>
-
-                </animateMotion>
-
-            </circle>
-
-
-            <circle
-                class="cargo large"
-                r="3">
-
-                <animateMotion
-                    dur="7s"
-                    repeatCount="indefinite"
-                    begin="-4s">
-
-                    <mpath href="#routeEurope"/>
-
-                </animateMotion>
-
-            </circle>
-
-        </svg>
-
-    </div>
-
-
-    <!-- =================================================
-         HERO CONTENT
-    ================================================== -->
-
-    <div class="hero-content">
-
-        <div class="hero-kicker">
-            GLOBAL STOCK LOT BUYER
-        </div>
-
-        <h1>
-            ANY PRODUCT.
-            <span>ANY STOCK.</span>
-            ANY COUNTRY.
-        </h1>
-
-        <p>
-            We buy stock lots, surplus, overstock,
-            clearance and excess inventory worldwide —
-            connecting global suppliers with markets
-            across Sri Lanka and beyond.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="https://wa.me/94777426436"
-                class="btn btn-primary"
-                target="_blank">
-                WhatsApp Us
-            </a>
-
-            <a
-                href="#materials"
-                class="btn btn-outline">
-                Explore Materials
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         FLOATING ROUTE INFO
-    ================================================== -->
-
-    <div class="route-info">
-
-        <div class="top">
-            <span>●</span>
-            LIVE GLOBAL MOVEMENT
-        </div>
-
-        <strong>
-            Worldwide → Sri Lanka
-        </strong>
-
-        <p>
-            Sourcing surplus stock from
-            Japan, Korea, China, Europe,
-            Middle East and global markets.
-        </p>
-
-    </div>
-
-
-    <!-- =================================================
-         LARGE OCEAN SHIP
-    ================================================== -->
-
-    <div class="ocean">
-
-        <div class="main-ship">
-
-            <div class="ship-visual">
-
-                <div class="smoke"></div>
-
-                <div class="containers">
-
-                    <div class="container-box"></div>
-                    <div class="container-box"></div>
-                    <div class="container-box"></div>
-                    <div class="container-box"></div>
-
-                </div>
-
-                <div class="bridge">
-
-                    <div class="bridge-window"></div>
-
-                </div>
-
-                <div class="chimney"></div>
-
-                <div class="ship-deck"></div>
-
-                <div class="ship-hull"></div>
-
-                <div class="wake"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-
-    </div>
-
-
-    <div class="scroll">
-        SCROLL
-        <div class="scroll-line"></div>
-    </div>
+<section
+class="hero"
+id="home">
+
+
+<div class="hero-light"></div>
+
+
+<!-- =====================================================
+     WORLD MAP
+===================================================== -->
+
+<div class="map-stage">
+
+
+<div class="world-map">
+
+<svg
+viewBox="0 0 1600 900"
+preserveAspectRatio="xMidYMid slice"
+xmlns="http://www.w3.org/2000/svg">
+
+
+<defs>
+
+
+<!-- subtle continent gradient -->
+
+<linearGradient
+id="landGradient"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop
+offset="0"
+stop-color="#173b4c"/>
+
+<stop
+offset=".55"
+stop-color="#0d2938"/>
+
+<stop
+offset="1"
+stop-color="#071a27"/>
+
+</linearGradient>
+
+
+<filter
+id="glow">
+
+<feGaussianBlur
+stdDeviation="4"
+result="blur"/>
+
+<feMerge>
+
+<feMergeNode
+in="blur"/>
+
+<feMergeNode
+in="SourceGraphic"/>
+
+</feMerge>
+
+</filter>
+
+
+</defs>
+
+
+<!-- =================================================
+     CONTINENTS
+================================================== -->
+
+<g
+fill="url(#landGradient)"
+class="land">
+
+
+<!-- North America -->
+
+<path d="
+M105 235
+C135 180 205 145 280 148
+C340 150 405 190 425 230
+C438 258 414 280 383 292
+L351 327
+L319 337
+L293 372
+L255 361
+L230 329
+L195 323
+L167 294
+L125 286
+Z"/>
+
+
+<!-- Greenland -->
+
+<path d="
+M420 85
+C458 55 525 55 558 83
+L545 125
+L488 144
+L445 126
+Z"/>
+
+
+<!-- South America -->
+
+<path d="
+M355 390
+C395 375 430 405 446 446
+C463 489 451 531 433 574
+C419 613 397 657 370 698
+L340 742
+L309 708
+L310 657
+L294 616
+L305 572
+L290 530
+L309 483
+L298 438
+Z"/>
+
+
+<!-- Europe -->
+
+<path d="
+M691 237
+L725 207
+L769 198
+L810 210
+L841 201
+L871 224
+L851 249
+L818 251
+L790 270
+L754 265
+L728 286
+L699 272
+Z"/>
+
+
+<!-- Africa -->
+
+<path d="
+M713 305
+C758 292 815 311 844 350
+C866 386 859 436 849 478
+C839 527 818 575 789 617
+L755 655
+L722 623
+L703 579
+L685 534
+L681 482
+L690 438
+L681 392
+Z"/>
+
+
+<!-- Middle East -->
+
+<path d="
+M844 286
+L904 274
+L954 295
+L986 328
+L957 358
+L916 353
+L881 336
+L846 329
+Z"/>
+
+
+<!-- Asia -->
+
+<path d="
+M865 202
+C925 166 1010 157 1080 174
+L1142 194
+L1211 213
+L1274 239
+L1341 274
+L1394 313
+L1375 350
+L1327 353
+L1284 341
+L1230 359
+L1186 344
+L1141 357
+L1097 336
+L1044 330
+L1000 305
+L950 296
+L911 271
+L873 259
+Z"/>
+
+
+<!-- India -->
+
+<path d="
+M965 340
+L1010 350
+L1034 391
+L1014 428
+L988 451
+L961 421
+L947 382
+Z"/>
+
+
+<!-- Southeast Asia -->
+
+<path d="
+M1055 365
+L1092 368
+L1120 393
+L1101 423
+L1066 416
+L1045 391
+Z"/>
+
+
+<!-- Japan -->
+
+<path d="
+M1386 296
+L1410 315
+L1420 347
+L1407 377
+L1388 391
+L1377 357
+L1382 325
+Z"/>
+
+
+<!-- Australia -->
+
+<path d="
+M1192 568
+C1244 541 1328 550 1392 585
+L1400 625
+L1373 665
+L1310 688
+L1244 680
+L1195 648
+L1173 608
+Z"/>
+
+
+<!-- Madagascar -->
+
+<path d="
+M861 570
+L878 592
+L870 630
+L852 645
+L843 610
+Z"/>
+
+
+</g>
+
+
+<!-- =================================================
+     CONTINENT EDGE LIGHT
+================================================== -->
+
+<g
+class="land-highlight">
+
+<path d="
+M105 235
+C135 180 205 145 280 148
+C340 150 405 190 425 230"/>
+
+<path d="
+M691 237
+L725 207
+L769 198
+L810 210
+L841 201"/>
+
+<path d="
+M865 202
+C925 166 1010 157 1080 174
+L1142 194
+L1211 213
+L1274 239"/>
+
+<path d="
+M1192 568
+C1244 541 1328 550 1392 585"/>
+
+</g>
+
+
+<!-- =================================================
+     LATITUDE
+================================================== -->
+
+<g>
+
+<path
+class="latitude"
+d="M0 180 C400 145 1200 145 1600 180"/>
+
+<path
+class="latitude"
+d="M0 300 C400 275 1200 275 1600 300"/>
+
+<path
+class="latitude"
+d="M0 430 C400 415 1200 415 1600 430"/>
+
+<path
+class="latitude"
+d="M0 560 C400 555 1200 555 1600 560"/>
+
+<path
+class="latitude"
+d="M0 690 C400 700 1200 700 1600 690"/>
+
+</g>
+
+
+<!-- =================================================
+     LONGITUDE
+================================================== -->
+
+<g>
+
+<path
+class="longitude"
+d="M220 0 C180 300 180 600 220 900"/>
+
+<path
+class="longitude"
+d="M450 0 C410 300 410 600 450 900"/>
+
+<path
+class="longitude-strong"
+d="M700 0 C670 300 670 600 700 900"/>
+
+<path
+class="longitude"
+d="M900 0 C930 300 930 600 900 900"/>
+
+<path
+class="longitude-strong"
+d="M1110 0 C1150 300 1150 600 1110 900"/>
+
+<path
+class="longitude"
+d="M1330 0 C1380 300 1380 600 1330 900"/>
+
+</g>
+
+
+</svg>
+
+</div>
+
+
+<div class="map-sweep"></div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     SHIPPING ROUTES
+===================================================== -->
+
+<div class="routes">
+
+<svg
+viewBox="0 0 1600 900"
+preserveAspectRatio="xMidYMid slice"
+width="100%"
+height="100%">
+
+
+<defs>
+
+<filter
+id="routeBlur">
+
+<feGaussianBlur
+stdDeviation="5"/>
+
+</filter>
+
+</defs>
+
+
+<!-- =================================================
+     JAPAN → SRI LANKA
+================================================== -->
+
+<path
+id="japanRoute"
+class="route-glow"
+d="
+M1395 350
+C1280 378 1175 425 1090 475
+C1040 505 1002 540 970 590"/>
+
+<path
+class="route"
+d="
+M1395 350
+C1280 378 1175 425 1090 475
+C1040 505 1002 540 970 590"/>
+
+
+<!-- =================================================
+     KOREA → SRI LANKA
+================================================== -->
+
+<path
+id="koreaRoute"
+class="route-glow"
+d="
+M1280 290
+C1190 340 1110 400 1050 455
+C1010 495 982 545 970 590"/>
+
+<path
+class="route"
+d="
+M1280 290
+C1190 340 1110 400 1050 455
+C1010 495 982 545 970 590"/>
+
+
+<!-- =================================================
+     CHINA → SRI LANKA
+================================================== -->
+
+<path
+id="chinaRoute"
+class="route-glow"
+d="
+M1160 315
+C1115 365 1070 415 1030 465
+C995 510 978 550 970 590"/>
+
+<path
+class="route"
+d="
+M1160 315
+C1115 365 1070 415 1030 465
+C995 510 978 550 970 590"/>
+
+
+<!-- =================================================
+     MIDDLE EAST → SRI LANKA
+================================================== -->
+
+<path
+id="middleRoute"
+class="route-glow"
+d="
+M860 315
+C900 365 935 415 952 465
+C968 510 970 555 970 590"/>
+
+<path
+class="route"
+d="
+M860 315
+C900 365 935 415 952 465
+C968 510 970 555 970 590"/>
+
+
+<!-- =================================================
+     EUROPE → SRI LANKA
+================================================== -->
+
+<path
+id="europeRoute"
+class="route-glow"
+d="
+M760 235
+C820 300 870 355 910 410
+C950 465 970 530 970 590"/>
+
+<path
+class="route"
+d="
+M760 235
+C820 300 870 355 910 410
+C950 465 970 530 970 590"/>
+
+
+<!-- ORIGIN POINTS -->
+
+<circle
+class="origin"
+cx="1395"
+cy="350"
+r="4"/>
+
+<circle
+class="origin"
+cx="1280"
+cy="290"
+r="4"/>
+
+<circle
+class="origin"
+cx="1160"
+cy="315"
+r="4"/>
+
+<circle
+class="origin"
+cx="860"
+cy="315"
+r="4"/>
+
+<circle
+class="origin"
+cx="760"
+cy="235"
+r="4"/>
+
+
+<!-- LABELS -->
+
+<g
+fill="#78dff5"
+font-family="Arial"
+font-size="11"
+font-weight="700"
+letter-spacing="1">
+
+<text x="1410" y="347">
+JAPAN
+</text>
+
+<text x="1294" y="286">
+KOREA
+</text>
+
+<text x="1174" y="311">
+CHINA
+</text>
+
+<text x="813" y="304">
+MIDDLE EAST
+</text>
+
+<text x="713" y="223">
+EUROPE
+</text>
+
+</g>
+
+
+<!-- =================================================
+     SRI LANKA DESTINATION
+================================================== -->
+
+<circle
+class="destination-ring"
+cx="970"
+cy="590"
+r="9"/>
+
+<circle
+class="destination-ring delay"
+cx="970"
+cy="590"
+r="9"/>
+
+<circle
+class="sri-lanka-point"
+cx="970"
+cy="590"
+r="5"/>
+
+<text
+x="988"
+y="595"
+fill="#b7f5ff"
+font-family="Arial"
+font-size="13"
+font-weight="800"
+letter-spacing="2">
+
+SRI LANKA
+
+</text>
+
+
+<!-- =================================================
+     SHIP 1
+================================================== -->
+
+<g
+class="svg-ship">
+
+<g>
+
+<animateMotion
+dur="12s"
+repeatCount="indefinite"
+rotate="auto">
+
+<mpath href="#japanRoute"/>
+
+</animateMotion>
+
+
+<!-- hull -->
+
+<path
+fill="#06131e"
+stroke="#4bcde9"
+stroke-width="1"
+d="
+M-34 5
+L39 5
+L27 17
+L-20 17
+Z"/>
+
+
+<!-- red lower hull -->
+
+<path
+fill="#812d36"
+d="
+M-27 11
+L31 11
+L25 16
+L-20 16
+Z"/>
+
+
+<!-- deck -->
+
+<rect
+x="-23"
+y="-2"
+width="55"
+height="7"
+rx="1"
+fill="#0d3d53"/>
+
+
+<!-- containers -->
+
+<rect
+x="-18"
+y="-14"
+width="11"
+height="12"
+fill="#1a83a7"/>
+
+<rect
+x="-6"
+y="-14"
+width="11"
+height="12"
+fill="#bd4b50"/>
+
+<rect
+x="6"
+y="-14"
+width="11"
+height="12"
+fill="#bd9443"/>
+
+<rect
+x="18"
+y="-14"
+width="11"
+height="12"
+fill="#287b91"/>
+
+
+<!-- bridge -->
+
+<path
+fill="#d8e7eb"
+d="
+M20 -2
+L33 -2
+L33 5
+L20 5
+Z"/>
+
+
+<!-- bridge windows -->
+
+<rect
+x="22"
+y="0"
+width="9"
+height="2"
+fill="#173b4d"/>
+
+
+<!-- mast -->
+
+<path
+d="M29 -2 L29 -18"
+stroke="#b9e8ef"
+stroke-width="1"/>
+
+
+</g>
+
+</g>
+
+
+
+<!-- SHIP 2 -->
+
+<g
+class="svg-ship">
+
+<g>
+
+<animateMotion
+dur="15s"
+repeatCount="indefinite"
+begin="-5s"
+rotate="auto">
+
+<mpath href="#koreaRoute"/>
+
+</animateMotion>
+
+
+<path
+fill="#06131e"
+stroke="#4bcde9"
+stroke-width="1"
+d="
+M-31 5
+L36 5
+L26 16
+L-18 16
+Z"/>
+
+<path
+fill="#832d36"
+d="
+M-25 11
+L29 11
+L24 15
+L-18 15
+Z"/>
+
+<rect
+x="-20"
+y="-2"
+width="51"
+height="7"
+fill="#0c3d52"/>
+
+<rect
+x="-15"
+y="-14"
+width="11"
+height="12"
+fill="#bd9443"/>
+
+<rect
+x="-3"
+y="-14"
+width="11"
+height="12"
+fill="#1c82a7"/>
+
+<rect
+x="9"
+y="-14"
+width="11"
+height="12"
+fill="#bd4b50"/>
+
+<path
+fill="#d8e7eb"
+d="
+M18 -2
+L31 -2
+L31 5
+L18 5
+Z"/>
+
+</g>
+
+</g>
+
+
+
+<!-- SHIP 3 -->
+
+<g
+class="svg-ship">
+
+<g>
+
+<animateMotion
+dur="10s"
+repeatCount="indefinite"
+begin="-3s"
+rotate="auto">
+
+<mpath href="#chinaRoute"/>
+
+</animateMotion>
+
+
+<path
+fill="#06131e"
+stroke="#4bcde9"
+stroke-width="1"
+d="
+M-31 5
+L36 5
+L26 16
+L-18 16
+Z"/>
+
+<path
+fill="#832d36"
+d="
+M-25 11
+L29 11
+L24 15
+L-18 15
+Z"/>
+
+<rect
+x="-20"
+y="-2"
+width="51"
+height="7"
+fill="#0c3d52"/>
+
+<rect
+x="-15"
+y="-14"
+width="11"
+height="12"
+fill="#1c82a7"/>
+
+<rect
+x="-3"
+y="-14"
+width="11"
+height="12"
+fill="#bd4b50"/>
+
+<rect
+x="9"
+y="-14"
+width="11"
+height="12"
+fill="#bd9443"/>
+
+<path
+fill="#d8e7eb"
+d="
+M18 -2
+L31 -2
+L31 5
+L18 5
+Z"/>
+
+</g>
+
+</g>
+
+
+
+<!-- SHIP 4 -->
+
+<g
+class="svg-ship">
+
+<g>
+
+<animateMotion
+dur="11s"
+repeatCount="indefinite"
+begin="-6s"
+rotate="auto">
+
+<mpath href="#middleRoute"/>
+
+</animateMotion>
+
+
+<path
+fill="#06131e"
+stroke="#4bcde9"
+stroke-width="1"
+d="
+M-31 5
+L36 5
+L26 16
+L-18 16
+Z"/>
+
+<path
+fill="#832d36"
+d="
+M-25 11
+L29 11
+L24 15
+L-18 15
+Z"/>
+
+<rect
+x="-20"
+y="-2"
+width="51"
+height="7"
+fill="#0c3d52"/>
+
+<rect
+x="-15"
+y="-14"
+width="11"
+height="12"
+fill="#bd4b50"/>
+
+<rect
+x="-3"
+y="-14"
+width="11"
+height="12"
+fill="#1c82a7"/>
+
+<rect
+x="9"
+y="-14"
+width="11"
+height="12"
+fill="#bd9443"/>
+
+<path
+fill="#d8e7eb"
+d="
+M18 -2
+L31 -2
+L31 5
+L18 5
+Z"/>
+
+</g>
+
+</g>
+
+
+
+<!-- =================================================
+     MOVING PARTICLES
+================================================== -->
+
+<circle
+class="particle"
+r="3">
+
+<animateMotion
+dur="4.5s"
+repeatCount="indefinite">
+
+<mpath href="#japanRoute"/>
+
+</animateMotion>
+
+</circle>
+
+
+<circle
+class="particle-soft"
+r="2">
+
+<animateMotion
+dur="4.5s"
+repeatCount="indefinite"
+begin="-1.5s">
+
+<mpath href="#japanRoute"/>
+
+</animateMotion>
+
+</circle>
+
+
+<circle
+class="particle"
+r="2.5">
+
+<animateMotion
+dur="5s"
+repeatCount="indefinite"
+begin="-2s">
+
+<mpath href="#koreaRoute"/>
+
+</animateMotion>
+
+</circle>
+
+
+<circle
+class="particle"
+r="3">
+
+<animateMotion
+dur="5.5s"
+repeatCount="indefinite"
+begin="-3s">
+
+<mpath href="#chinaRoute"/>
+
+</animateMotion>
+
+</circle>
+
+
+<circle
+class="particle-soft"
+r="2">
+
+<animateMotion
+dur="4.8s"
+repeatCount="indefinite"
+begin="-2.5s">
+
+<mpath href="#middleRoute"/>
+
+</animateMotion>
+
+</circle>
+
+
+<circle
+class="particle"
+r="2.5">
+
+<animateMotion
+dur="6s"
+repeatCount="indefinite"
+begin="-3s">
+
+<mpath href="#europeRoute"/>
+
+</animateMotion>
+
+</circle>
+
+
+</svg>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO CONTENT
+===================================================== -->
+
+<div class="hero-content">
+
+
+<div class="kicker">
+
+<span
+class="kicker-dot">
+</span>
+
+GLOBAL STOCK LOT BUYER
+
+</div>
+
+
+<h1>
+
+<span class="line">
+ANY PRODUCT.
+</span>
+
+<span class="line accent">
+ANY STOCK.
+</span>
+
+<span class="line">
+ANY COUNTRY.
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+We buy stock lots, surplus, overstock,
+clearance and excess inventory worldwide —
+connecting global suppliers with markets
+across Sri Lanka and beyond.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+href="https://wa.me/94777426436"
+target="_blank"
+class="btn btn-primary">
+
+WhatsApp Us
+
+</a>
+
+
+<a
+href="#materials"
+class="btn btn-secondary">
+
+Explore Materials
+
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     LIVE CARD
+===================================================== -->
+
+<div class="live-card">
+
+<div class="live-top">
+
+<span class="live-dot"></span>
+
+GLOBAL TRADE NETWORK
+
+</div>
+
+<h3>
+Worldwide → Sri Lanka
+</h3>
+
+<p>
+Japan • Korea • China • Europe
+• Middle East • Global Markets
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     OCEAN
+===================================================== -->
+
+<div class="ocean">
+
+<div class="ocean-depth"></div>
+
+
+<!-- MAIN REALISTIC SHIP -->
+
+<div class="main-ship">
+
+<svg
+class="ship-svg"
+viewBox="0 0 520 180"
+xmlns="http://www.w3.org/2000/svg">
+
+
+<!-- smoke -->
+
+<g>
+
+<circle
+class="smoke"
+cx="385"
+cy="43"
+r="12"/>
+
+<circle
+class="smoke"
+cx="400"
+cy="29"
+r="8"/>
+
+<circle
+class="smoke"
+cx="414"
+cy="17"
+r="6"/>
+
+</g>
+
+
+<!-- wake -->
+
+<path
+d="
+M45 143
+C0 148 -20 160 20 163
+C70 166 105 160 135 151
+"
+fill="none"
+stroke="rgba(105,225,250,.18)"
+stroke-width="4"/>
+
+
+<!-- main hull -->
+
+<path
+d="
+M72 116
+L455 116
+L420 151
+C408 163 389 169 360 169
+L110 169
+C91 169 77 151 72 116
+Z"
+fill="#07141f"
+stroke="#376d80"
+stroke-width="2"/>
+
+
+<!-- red lower hull -->
+
+<path
+d="
+M82 144
+L438 144
+L420 157
+C410 164 395 168 370 168
+L110 168
+C96 168 88 157 82 144
+Z"
+fill="#6c2d34"/>
+
+
+<!-- waterline -->
+
+<path
+d="M83 142 L438 142"
+stroke="#34c4e4"
+stroke-width="2"
+opacity=".65"/>
+
+
+<!-- deck -->
+
+<rect
+x="100"
+y="96"
+width="330"
+height="21"
+rx="2"
+fill="#0c3142"/>
+
+
+<!-- container rows -->
+
+<g>
+
+<rect
+x="125"
+y="61"
+width="42"
+height="34"
+fill="#145e79"/>
+
+<rect
+x="169"
+y="61"
+width="42"
+height="34"
+fill="#963b42"/>
+
+<rect
+x="213"
+y="61"
+width="42"
+height="34"
+fill="#9b7932"/>
+
+<rect
+x="257"
+y="61"
+width="42"
+height="34"
+fill="#1b718d"/>
+
+<rect
+x="301"
+y="61"
+width="42"
+height="34"
+fill="#78383d"/>
+
+<rect
+x="345"
+y="61"
+width="42"
+height="34"
+fill="#17617c"/>
+
+
+<rect
+x="147"
+y="28"
+width="42"
+height="31"
+fill="#1b718d"/>
+
+<rect
+x="191"
+y="28"
+width="42"
+height="31"
+fill="#9b7932"/>
+
+<rect
+x="235"
+y="28"
+width="42"
+height="31"
+fill="#963b42"/>
+
+<rect
+x="279"
+y="28"
+width="42"
+height="31"
+fill="#17617c"/>
+
+<rect
+x="323"
+y="28"
+width="42"
+height="31"
+fill="#7c3940"/>
+
+</g>
+
+
+<!-- container highlights -->
+
+<g
+stroke="rgba(255,255,255,.18)"
+stroke-width="1">
+
+<line x1="147" y1="28" x2="147" y2="59"/>
+<line x1="191" y1="28" x2="191" y2="59"/>
+<line x1="235" y1="28" x2="235" y2="59"/>
+<line x1="279" y1="28" x2="279" y2="59"/>
+<line x1="323" y1="28" x2="323" y2="59"/>
+
+</g>
+
+
+<!-- bridge -->
+
+<path
+d="
+M388 50
+L443 50
+L443 117
+L388 117
+Z"
+fill="#d9e4e7"/>
+
+
+<!-- bridge shadow -->
+
+<rect
+x="388"
+y="87"
+width="55"
+height="30"
+fill="#9db0b8"/>
+
+
+<!-- windows -->
+
+<g
+fill="#15384a">
+
+<rect
+x="394"
+y="58"
+width="10"
+height="8"/>
+
+<rect
+x="407"
+y="58"
+width="10"
+height="8"/>
+
+<rect
+x="420"
+y="58"
+width="10"
+height="8"/>
+
+</g>
+
+
+<!-- mast -->
+
+<line
+x1="431"
+y1="50"
+x2="431"
+y2="17"
+stroke="#b8d9e0"
+stroke-width="2"/>
+
+
+<!-- navigation mast -->
+
+<circle
+cx="431"
+cy="15"
+r="3"
+fill="#65e8ff"/>
+
+
+<!-- chimney -->
+
+<rect
+x="374"
+y="39"
+width="19"
+height="49"
+fill="#172c37"/>
+
+<rect
+x="371"
+y="36"
+width="25"
+height="7"
+rx="2"
+fill="#1b3947"/>
+
+<rect
+x="374"
+y="42"
+width="19"
+height="5"
+fill="#b0444b"/>
+
+
+<!-- bow light -->
+
+<circle
+cx="455"
+cy="115"
+r="3"
+fill="#8df1ff"/>
+
+
+</svg>
+
+</div>
+
+
+<!-- waves -->
+
+<div class="wave-line"></div>
+<div class="wave-line"></div>
+<div class="wave-line"></div>
+<div class="wave-line"></div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCROLL
+===================================================== -->
+
+<div class="scroll-indicator">
+
+SCROLL
+
+<div class="scroll-bar"></div>
+
+</div>
+
 
 </section>
+
 
 
 <!-- =====================================================
@@ -2621,136 +3385,150 @@ footer{
 ===================================================== -->
 
 <section
-    class="section"
-    id="materials">
+class="section"
+id="materials">
 
-    <div class="section-title">
+<div class="section-head">
 
-        <div class="mini">
-            WHAT WE BUY
-        </div>
+<div class="section-mini">
+WHAT WE BUY
+</div>
 
-        <h2>
-            Global Stock.<br>
-            Local Opportunity.
-        </h2>
+<h2>
+Global Stock.<br>
+Real Opportunities.
+</h2>
 
-        <p>
-            We source different categories of
-            excess and surplus inventory from
-            suppliers around the world.
-        </p>
+<p>
+We source surplus and excess inventory
+from international suppliers and connect
+it with markets worldwide.
+</p>
 
-    </div>
-
-
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="card-icon">🧵</div>
-
-            <h3>
-                Synthetic Leather
-            </h3>
-
-            <p>
-                PVC, PU, TPU, rexine,
-                automotive leather,
-                fabric rolls and stock lots.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="card">
-
-            <div class="card-icon">📦</div>
-
-            <h3>
-                Stock Lots
-            </h3>
-
-            <p>
-                Overstock, clearance,
-                discontinued items,
-                factory excess and surplus.
-            </p>
-
-        </div>
+<div class="cards">
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="card-icon">🏭</div>
+<div class="card-icon">
+🧵
+</div>
 
-            <h3>
-                Factory Excess
-            </h3>
+<h3>
+Synthetic Leather
+</h3>
 
-            <p>
-                Unfinished rolls,
-                excess production,
-                rejected lots and
-                manufacturing surplus.
-            </p>
+<p>
+PVC, PU, TPU, rexine,
+automotive leather,
+fabric rolls and stock lots.
+</p>
 
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">🚗</div>
-
-            <h3>
-                Vehicles
-            </h3>
-
-            <p>
-                Cars, trucks,
-                commercial vehicles
-                and special vehicle orders.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="card-icon">🚜</div>
+<div class="card-icon">
+📦
+</div>
 
-            <h3>
-                Machinery
-            </h3>
+<h3>
+Stock Lots
+</h3>
 
-            <p>
-                Excavators, forklifts,
-                wheel loaders,
-                agricultural and construction machinery.
-            </p>
+<p>
+Overstock, clearance,
+discontinued products,
+factory surplus and excess inventory.
+</p>
 
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="card-icon">🌍</div>
+<div class="card-icon">
+🏭
+</div>
 
-            <h3>
-                Global Sourcing
-            </h3>
+<h3>
+Factory Excess
+</h3>
 
-            <p>
-                We connect suppliers and buyers
-                across Japan, Korea, China,
-                Europe, Middle East and beyond.
-            </p>
+<p>
+Excess production,
+unfinished rolls,
+rejected lots and surplus materials.
+</p>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="card">
+
+<div class="card-icon">
+🚗
+</div>
+
+<h3>
+Vehicles
+</h3>
+
+<p>
+Used cars, trucks,
+commercial vehicles and
+special vehicle orders.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🚜
+</div>
+
+<h3>
+Machinery
+</h3>
+
+<p>
+Excavators, forklifts,
+wheel loaders and construction
+machinery.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🌍
+</div>
+
+<h3>
+Worldwide Sourcing
+</h3>
+
+<p>
+Japan, Korea, China,
+Europe, Middle East and
+global supplier networks.
+</p>
+
+</div>
+
+
+</div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -2758,83 +3536,89 @@ footer{
 ===================================================== -->
 
 <section
-    class="section"
-    id="vehicles">
+class="section"
+id="vehicles">
 
-    <div class="section-title">
+<div class="section-head">
 
-        <div class="mini">
-            VEHICLE ORDER
-        </div>
+<div class="section-mini">
+VEHICLE ORDER
+</div>
 
-        <h2>
-            Find. Buy. Export.
-        </h2>
+<h2>
+Find. Buy. Export.
+</h2>
 
-        <p>
-            Send us your required vehicle,
-            machinery or specification.
-            We source suitable stock through
-            our international network.
-        </p>
+<p>
+Tell us what you need and we search
+our international network for suitable
+vehicles and machinery.
+</p>
 
-    </div>
-
-
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="card-icon">🚘</div>
-
-            <h3>
-                Passenger Cars
-            </h3>
-
-            <p>
-                Japanese used cars and
-                selected international vehicles.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="card">
-
-            <div class="card-icon">🚚</div>
-
-            <h3>
-                Trucks
-            </h3>
-
-            <p>
-                Commercial trucks,
-                heavy vehicles and
-                special-purpose vehicles.
-            </p>
-
-        </div>
+<div class="cards">
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="card-icon">🏗️</div>
+<div class="card-icon">
+🚘
+</div>
 
-            <h3>
-                Heavy Machinery
-            </h3>
+<h3>
+Passenger Cars
+</h3>
 
-            <p>
-                Excavators, forklifts,
-                loaders and construction
-                equipment.
-            </p>
+<p>
+Japanese used cars and
+selected international vehicles.
+</p>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="card">
+
+<div class="card-icon">
+🚚
+</div>
+
+<h3>
+Commercial Trucks
+</h3>
+
+<p>
+Trucks, heavy vehicles
+and special-purpose vehicles.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🏗️
+</div>
+
+<h3>
+Heavy Machinery
+</h3>
+
+<p>
+Excavators, forklifts,
+loaders and construction equipment.
+</p>
+
+</div>
+
+
+</div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -2842,138 +3626,139 @@ footer{
 ===================================================== -->
 
 <section
-    class="section"
-    id="process">
+class="section"
+id="process">
 
-    <div class="section-title">
+<div class="section-head">
 
-        <div class="mini">
-            HOW IT WORKS
-        </div>
+<div class="section-mini">
+HOW IT WORKS
+</div>
 
-        <h2>
-            Simple Global Sourcing
-        </h2>
+<h2>
+A Simple Global Process
+</h2>
 
-        <p>
-            From supplier discovery to
-            international shipment.
-        </p>
+<p>
+From initial requirement to international shipment.
+</p>
 
-    </div>
-
-
-    <div class="process">
-
-        <div class="step">
-
-            <div class="step-number">
-                01
-            </div>
-
-            <h3>
-                Tell Us
-            </h3>
-
-            <p>
-                Send your required
-                material, product,
-                vehicle or stock lot.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="step">
-
-            <div class="step-number">
-                02
-            </div>
-
-            <h3>
-                We Source
-            </h3>
-
-            <p>
-                We search our supplier
-                network for suitable
-                stock.
-            </p>
-
-        </div>
+<div class="process">
 
 
-        <div class="step">
+<div class="process-item">
 
-            <div class="step-number">
-                03
-            </div>
+<div class="number">
+01
+</div>
 
-            <h3>
-                Inspect
-            </h3>
+<h3>
+Tell Us
+</h3>
 
-            <p>
-                Product information,
-                photos, videos and
-                specifications are checked.
-            </p>
+<p>
+Send your required product,
+material, vehicle or stock lot.
+</p>
 
-        </div>
+</div>
 
 
-        <div class="step">
+<div class="process-item">
 
-            <div class="step-number">
-                04
-            </div>
+<div class="number">
+02
+</div>
 
-            <h3>
-                Ship
-            </h3>
+<h3>
+We Source
+</h3>
 
-            <p>
-                Stock is prepared
-                for international
-                transportation.
-            </p>
+<p>
+We search our supplier network
+for suitable stock.
+</p>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="process-item">
+
+<div class="number">
+03
+</div>
+
+<h3>
+Inspect
+</h3>
+
+<p>
+Photos, videos,
+specifications and product details
+are reviewed.
+</p>
+
+</div>
+
+
+<div class="process-item">
+
+<div class="number">
+04
+</div>
+
+<h3>
+Ship
+</h3>
+
+<p>
+Stock is prepared and arranged
+for international transportation.
+</p>
+
+</div>
+
+
+</div>
 
 </section>
+
 
 
 <!-- =====================================================
      CTA
 ===================================================== -->
 
-<section class="section">
+<section
+class="section">
 
-    <div class="cta">
+<div class="cta">
 
-        <h2>
-            Have Excess Stock?
-        </h2>
+<h2>
+Have Excess Stock?
+</h2>
 
-        <p>
-            Send us your stock details,
-            photos, videos or product list.
-        </p>
+<p>
+Send us your stock details,
+photos, videos or product list.
+</p>
 
-        <a
-            href="https://wa.me/94777426436"
-            target="_blank"
-            class="btn btn-primary">
+<a
+href="https://wa.me/94777426436"
+target="_blank"
+class="btn btn-primary">
 
-            Contact GlobalStock
+Contact GlobalStock
 
-        </a>
+</a>
 
-    </div>
+</div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -2981,65 +3766,68 @@ footer{
 ===================================================== -->
 
 <section
-    class="section"
-    id="contact">
+class="section"
+id="contact">
 
-    <div class="section-title">
+<div class="section-head">
 
-        <div class="mini">
-            CONTACT
-        </div>
+<div class="section-mini">
+CONTACT
+</div>
 
-        <h2>
-            Let's Move Stock Worldwide
-        </h2>
+<h2>
+Let's Move Stock Worldwide.
+</h2>
 
-    </div>
-
-
-    <div class="contact-grid">
-
-        <div class="contact-card">
-
-            <span>
-                WHATSAPP
-            </span>
-
-            <strong>
-                +94 77 742 6436
-            </strong>
-
-        </div>
+</div>
 
 
-        <div class="contact-card">
-
-            <span>
-                EMAIL
-            </span>
-
-            <strong>
-                agmrifkan@gmail.com
-            </strong>
-
-        </div>
+<div class="contact-grid">
 
 
-        <div class="contact-card">
+<div class="contact-box">
 
-            <span>
-                LOCATION
-            </span>
+<small>
+WHATSAPP
+</small>
 
-            <strong>
-                Colombo, Sri Lanka
-            </strong>
+<strong>
++94 77 742 6436
+</strong>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="contact-box">
+
+<small>
+EMAIL
+</small>
+
+<strong>
+agmrifkan@gmail.com
+</strong>
+
+</div>
+
+
+<div class="contact-box">
+
+<small>
+LOCATION
+</small>
+
+<strong>
+Colombo, Sri Lanka
+</strong>
+
+</div>
+
+
+</div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -3048,10 +3836,11 @@ footer{
 
 <footer>
 
-    © 2026 GlobalStock International.
-    All Rights Reserved.
+© 2026 GlobalStock International.
+All Rights Reserved.
 
 </footer>
+
 
 
 <!-- =====================================================
@@ -3065,165 +3854,182 @@ footer{
 ========================================================= */
 
 const menu =
-    document.getElementById("menu");
+document.getElementById("menu");
 
 const navLinks =
-    document.getElementById("navLinks");
+document.getElementById("navLinks");
+
 
 if(menu){
 
-    menu.addEventListener(
-        "click",
-        () => {
+menu.addEventListener(
+"click",
+function(){
 
-            navLinks.classList.toggle(
-                "open"
-            );
+navLinks.classList.toggle(
+"open"
+);
 
-        }
-    );
+});
 
 }
 
 
 /* =========================================================
-   CLOSE MOBILE MENU
+   CLOSE MENU
 ========================================================= */
 
 document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
+.querySelectorAll(
+".nav-links a"
+)
+.forEach(
+link => {
 
-        link.addEventListener(
-            "click",
-            () => {
+link.addEventListener(
+"click",
+function(){
 
-                navLinks.classList.remove(
-                    "open"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   PAUSE HEAVY ANIMATIONS WHEN TAB IS HIDDEN
-========================================================= */
-
-document.addEventListener(
-    "visibilitychange",
-    () => {
-
-        const svg =
-            document.querySelector(".world svg");
-
-        if(!svg) return;
-
-        if(document.hidden){
-
-            svg.style.visibility = "hidden";
-
-        }else{
-
-            svg.style.visibility = "visible";
-
-        }
-
-    }
+navLinks.classList.remove(
+"open"
 );
 
+});
+
+});
+
 
 /* =========================================================
-   HERO MOUSE MOVEMENT
-   Very light parallax
+   MOUSE PARALLAX
 ========================================================= */
 
 const hero =
-    document.querySelector(".hero");
+document.querySelector(".hero");
 
 const world =
-    document.querySelector(".world");
+document.querySelector(".world-map");
+
 
 if(
-    hero &&
-    world &&
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
+hero &&
+world &&
+window.matchMedia(
+"(pointer:fine)"
+).matches
 ){
 
-    hero.addEventListener(
-        "mousemove",
-        event => {
+hero.addEventListener(
+"mousemove",
+function(e){
 
-            const rect =
-                hero.getBoundingClientRect();
+const rect =
+hero.getBoundingClientRect();
 
-            const x =
-                (event.clientX - rect.left)
-                / rect.width
-                - .5;
+const x =
+(e.clientX - rect.left)
+/
+rect.width
+-
+.5;
 
-            const y =
-                (event.clientY - rect.top)
-                / rect.height
-                - .5;
+const y =
+(e.clientY - rect.top)
+/
+rect.height
+-
+.5;
 
-            world.style.transform =
-                `translate(${x * 8}px,${y * 5}px)`;
+world.style.transform =
+`
+translate(
+${x * 8}px,
+${y * 4}px
+)
+scale(1.04)
+`;
 
-        }
-    );
+});
 
-    hero.addEventListener(
-        "mouseleave",
-        () => {
+hero.addEventListener(
+"mouseleave",
+function(){
 
-            world.style.transform =
-                "translate(0,0)";
+world.style.transform =
+"translate(0,0) scale(1.03)";
 
-        }
-    );
+});
 
 }
 
 
 /* =========================================================
-   SMOOTH INTERNAL LINKS
+   SMOOTH LINKS
 ========================================================= */
 
 document
-    .querySelectorAll(
-        'a[href^="#"]'
-    )
-    .forEach(anchor => {
+.querySelectorAll(
+'a[href^="#"]'
+)
+.forEach(
+anchor => {
 
-        anchor.addEventListener(
-            "click",
-            function(event){
+anchor.addEventListener(
+"click",
+function(e){
 
-                const target =
-                    document.querySelector(
-                        this.getAttribute("href")
-                    );
+const target =
+document.querySelector(
+this.getAttribute("href")
+);
 
-                if(!target) return;
+if(!target)
+return;
 
-                event.preventDefault();
+e.preventDefault();
 
-                target.scrollIntoView({
-                    behavior:"smooth",
-                    block:"start"
-                });
+target.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
-            }
-        );
+});
 
-    });
+});
+
+
+/* =========================================================
+   PAUSE NON-ESSENTIAL ANIMATION
+========================================================= */
+
+document.addEventListener(
+"visibilitychange",
+function(){
+
+const hero =
+document.querySelector(".hero");
+
+if(!hero)
+return;
+
+if(document.hidden){
+
+hero.classList.add(
+"tab-hidden"
+);
+
+}else{
+
+hero.classList.remove(
+"tab-hidden"
+);
+
+}
+
+});
+
 
 </script>
+
 
 </body>
 </html>
