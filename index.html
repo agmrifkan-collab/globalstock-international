@@ -3,30 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#02080f">
 
 <title>GlobalStock International</title>
 
 <meta name="description"
-content="GlobalStock International — Global buyer of stock lots, surplus, overstock, clearance and excess inventory.">
+content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
 
 <style>
 
 /* =========================================================
    GLOBALSTOCK INTERNATIONAL
-   PREMIUM CINEMATIC GLOBAL LOGISTICS WEBSITE
+   PREMIUM CINEMATIC GLOBAL TRADE WEBSITE
 ========================================================= */
 
 :root{
-    --black:#02070d;
-    --navy:#04121e;
-    --blue:#0a6f9d;
-    --cyan:#5de1ff;
-    --cyan2:#14bde8;
-    --white:#f5fbff;
-    --muted:#91a8b7;
-    --glass:rgba(4,17,28,.72);
-    --border:rgba(150,220,245,.12);
+    --black:#02050a;
+    --deep:#030b12;
+    --navy:#061522;
+    --cyan:#55e5ff;
+    --cyan2:#16b9e8;
+    --white:#f7fbff;
+    --muted:#9aadb9;
+    --line:rgba(255,255,255,.10);
 }
 
 *{
@@ -40,26 +38,19 @@ html{
 }
 
 body{
-    margin:0;
-    background:#02070d;
-    color:#fff;
-
+    background:#02050a;
+    color:white;
     font-family:
         Inter,
+        "Segoe UI",
         Arial,
-        Helvetica,
         sans-serif;
-
     overflow-x:hidden;
 }
 
 a{
     color:inherit;
     text-decoration:none;
-}
-
-button{
-    font:inherit;
 }
 
 
@@ -69,32 +60,27 @@ button{
 
 header{
     position:fixed;
-
     top:0;
     left:0;
     width:100%;
-    height:76px;
+    height:78px;
 
-    z-index:9999;
+    z-index:10000;
 
     background:
-        linear-gradient(
-            180deg,
-            rgba(1,8,14,.92),
-            rgba(1,8,14,.58)
-        );
+        rgba(2,8,14,.78);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
 
     border-bottom:
-        1px solid rgba(255,255,255,.07);
+        1px solid
+        rgba(255,255,255,.07);
 }
 
 .nav{
-    width:min(1420px,94%);
+    width:min(1400px,94%);
     height:100%;
-
     margin:auto;
 
     display:flex;
@@ -109,76 +95,69 @@ header{
 }
 
 .logo img{
-    width:46px;
-    height:46px;
-
+    width:47px;
+    height:47px;
     object-fit:contain;
 
     filter:
         drop-shadow(
             0 0 15px
-            rgba(75,220,255,.22)
+            rgba(70,220,255,.22)
         );
 }
 
-.logo-text{
+.logo-name{
     font-size:17px;
-    font-weight:850;
+    font-weight:900;
     letter-spacing:.8px;
 }
 
 .logo-sub{
     margin-top:2px;
 
-    color:#6cdfff;
+    color:#61e3ff;
 
     font-size:8px;
-    font-weight:700;
-
-    letter-spacing:2.5px;
+    font-weight:800;
+    letter-spacing:2.8px;
 }
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:29px;
+    gap:30px;
 }
 
 .nav-links a{
-    color:#c4d5df;
-
+    color:#c4d0d7;
     font-size:13px;
-    font-weight:600;
-
+    font-weight:650;
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:#68e6ff;
+    color:#63e5ff;
 }
 
 .nav-contact{
-    padding:11px 20px;
+    padding:11px 21px;
 
     border:
         1px solid
-        rgba(90,224,255,.35);
+        rgba(80,222,255,.30);
 
     border-radius:30px;
 
-    background:
-        rgba(26,166,207,.08);
+    color:#67e6ff !important;
 
-    color:#78eaff !important;
+    background:
+        rgba(37,184,225,.06);
 }
 
 .menu{
     display:none;
-
     cursor:pointer;
-
     font-size:27px;
-    color:white;
 }
 
 
@@ -189,7 +168,6 @@ header{
 .hero{
     position:relative;
 
-    width:100%;
     height:100vh;
     min-height:760px;
 
@@ -197,228 +175,185 @@ header{
 
     background:
         radial-gradient(
-            ellipse at 55% 42%,
-            #0a2435 0%,
-            #04121e 38%,
-            #02070d 75%,
-            #010409 100%
+            ellipse at 60% 35%,
+            #0b2738 0%,
+            #04111b 38%,
+            #02070d 78%,
+            #010308 100%
         );
 }
 
 
-/* cinematic light */
+/* =========================================================
+   SATELLITE WORLD MAP
+========================================================= */
 
-.hero-light{
+.world-photo{
     position:absolute;
 
-    width:850px;
-    height:500px;
+    inset:-3%;
 
-    left:50%;
-    top:25%;
+    z-index:2;
+
+    background-image:
+        url("https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg");
+
+    background-size:
+        cover;
+
+    background-position:
+        center center;
+
+    opacity:.78;
+
+    filter:
+        saturate(.62)
+        brightness(.55)
+        contrast(1.12);
 
     transform:
-        translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(20,145,190,.13),
-            transparent 68%
-        );
-
-    filter:blur(15px);
+        scale(1.035);
 
     animation:
-        lightDrift 12s ease-in-out infinite
+        worldSlowZoom
+        28s
+        ease-in-out
+        infinite
         alternate;
+}
+
+@keyframes worldSlowZoom{
+
+    from{
+        transform:
+            scale(1.035)
+            translate3d(0,0,0);
+    }
+
+    to{
+        transform:
+            scale(1.075)
+            translate3d(-.5%,0,0);
+    }
+
+}
+
+
+/* premium blue cinematic treatment */
+
+.world-blue{
+    position:absolute;
+    inset:0;
+
+    z-index:3;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(1,7,12,.96) 0%,
+            rgba(2,12,19,.76) 32%,
+            rgba(2,13,21,.32) 62%,
+            rgba(2,8,14,.58) 100%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(1,7,12,.68),
+            transparent 34%,
+            rgba(1,8,13,.92) 100%
+        );
 
     pointer-events:none;
 }
 
-@keyframes lightDrift{
+
+/* subtle cinematic light */
+
+.atmosphere{
+    position:absolute;
+
+    z-index:4;
+
+    width:700px;
+    height:500px;
+
+    right:4%;
+    top:5%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(42,196,237,.12),
+            transparent 68%
+        );
+
+    filter:blur(25px);
+
+    animation:
+        atmosphereMove
+        11s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes atmosphereMove{
 
     from{
         transform:
-            translate(-55%,-50%)
+            translate(0,0)
             scale(1);
     }
 
     to{
         transform:
-            translate(-45%,-46%)
-            scale(1.12);
+            translate(-60px,30px)
+            scale(1.15);
     }
 
 }
 
 
 /* =========================================================
-   WORLD MAP BACKGROUND
+   VERY SUBTLE WORLD GRID
 ========================================================= */
 
-.map-stage{
+.grid-overlay{
     position:absolute;
 
     inset:0;
 
-    z-index:3;
+    z-index:5;
 
-    overflow:hidden;
+    opacity:.12;
 
-    opacity:.94;
-}
+    background-image:
 
+        linear-gradient(
+            rgba(120,220,240,.12) 1px,
+            transparent 1px
+        ),
 
-/*
-  Premium dark globe/map effect.
-  Continents are intentionally very subtle.
-*/
-
-.world-map{
-    position:absolute;
-
-    width:155%;
-    height:100%;
-
-    left:-27%;
-    top:0;
-
-    opacity:.82;
-
-    transform:
-        scale(1.03);
-
-    animation:
-        mapDrift 24s ease-in-out infinite alternate;
-}
-
-@keyframes mapDrift{
-
-    from{
-        transform:
-            translateX(-1%)
-            scale(1.03);
-    }
-
-    to{
-        transform:
-            translateX(1%)
-            scale(1.06);
-    }
-
-}
-
-.world-map svg{
-    width:100%;
-    height:100%;
-}
-
-
-/* realistic dark continents */
-
-.land{
-    fill:#102b3a;
-
-    stroke:#326174;
-
-    stroke-width:.7;
-
-    opacity:.72;
-}
-
-.land-highlight{
-    fill:none;
-
-    stroke:
-        rgba(93,221,255,.20);
-
-    stroke-width:1;
-
-    opacity:.5;
-}
-
-
-/* atmospheric haze */
-
-.map-haze{
-    fill:
-        radial-gradient(
-            circle,
-            rgba(70,210,255,.15),
-            transparent
-        );
-}
-
-
-/* =========================================================
-   LATITUDE / LONGITUDE
-========================================================= */
-
-.longitude,
-.latitude{
-
-    fill:none;
-
-    stroke:
-        rgba(104,207,235,.11);
-
-    stroke-width:.6;
-}
-
-.longitude-strong{
-    fill:none;
-
-    stroke:
-        rgba(108,224,249,.16);
-
-    stroke-width:.8;
-}
-
-
-/* =========================================================
-   MAP LIGHT SWEEP
-========================================================= */
-
-.map-sweep{
-
-    position:absolute;
-
-    top:-20%;
-    left:-20%;
-
-    width:15%;
-    height:140%;
-
-    background:
         linear-gradient(
             90deg,
+            rgba(120,220,240,.12) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        120px 120px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
             transparent,
-            rgba(106,228,255,.07),
+            black 20%,
+            black 75%,
             transparent
         );
 
-    transform:
-        rotate(18deg);
-
-    filter:blur(10px);
-
-    animation:
-        sweep 12s linear infinite;
-
     pointer-events:none;
-}
-
-@keyframes sweep{
-
-    from{
-        left:-25%;
-    }
-
-    to{
-        left:120%;
-    }
-
 }
 
 
@@ -431,77 +366,103 @@ header{
 
     inset:0;
 
-    z-index:8;
+    z-index:9;
 
     pointer-events:none;
+}
+
+.routes svg{
+    width:100%;
+    height:100%;
 }
 
 .route{
     fill:none;
 
     stroke:
-        rgba(75,213,248,.30);
+        rgba(79,220,247,.38);
 
-    stroke-width:1.2;
+    stroke-width:1.3;
 
-    stroke-dasharray:2 10;
+    stroke-dasharray:
+        2 11;
 
     stroke-linecap:round;
 
     animation:
-        routeFlow 5s linear infinite;
+        routeFlow
+        4.5s
+        linear
+        infinite;
 }
 
-.route-glow{
+.route-soft{
     fill:none;
 
     stroke:
-        rgba(44,204,245,.10);
+        rgba(66,214,245,.11);
 
-    stroke-width:7;
+    stroke-width:8;
 
-    filter:
-        blur(5px);
+    filter:blur(6px);
 }
 
 @keyframes routeFlow{
 
     to{
-        stroke-dashoffset:-120;
+        stroke-dashoffset:-100;
     }
 
 }
 
 
 /* =========================================================
-   ROUTE ORIGIN LIGHTS
+   PORT LIGHTS
 ========================================================= */
 
-.origin{
-    fill:#73eaff;
+.port{
+    fill:#70eaff;
 
     filter:
         drop-shadow(
-            0 0 8px
-            rgba(82,226,255,.9)
+            0 0 7px
+            rgba(86,228,255,.95)
         );
 
     animation:
-        originPulse 2.3s ease-in-out infinite;
+        portPulse
+        2.2s
+        ease-in-out
+        infinite;
 }
 
-@keyframes originPulse{
+@keyframes portPulse{
 
     0%,100%{
         opacity:.5;
-        r:3;
+        transform:scale(.8);
     }
 
     50%{
         opacity:1;
-        r:5;
+        transform:scale(1.15);
     }
 
+}
+
+
+/* =========================================================
+   MOVING ROUTE PARTICLES
+========================================================= */
+
+.route-particle{
+    fill:#8af0ff;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            #59e8ff
+        );
 }
 
 
@@ -509,43 +470,45 @@ header{
    SRI LANKA DESTINATION
 ========================================================= */
 
-.sri-lanka-point{
-    fill:#fff;
+.lk-core{
+    fill:white;
 
     filter:
         drop-shadow(
-            0 0 9px
-            #58e7ff
+            0 0 10px
+            #5be7ff
         );
 }
 
-.destination-ring{
+.lk-ring{
     fill:none;
 
-    stroke:#55e6ff;
+    stroke:#61e8ff;
 
-    stroke-width:1;
+    stroke-width:1.3;
 
-    opacity:.7;
+    opacity:.8;
 
     animation:
-        destinationRing
-        2.8s ease-out infinite;
+        lkPulse
+        3s
+        ease-out
+        infinite;
 }
 
-.destination-ring.delay{
-    animation-delay:1.4s;
+.lk-ring.delay{
+    animation-delay:1.5s;
 }
 
-@keyframes destinationRing{
+@keyframes lkPulse{
 
     0%{
-        r:8;
-        opacity:.8;
+        r:7;
+        opacity:.85;
     }
 
     100%{
-        r:55;
+        r:52;
         opacity:0;
     }
 
@@ -553,40 +516,202 @@ header{
 
 
 /* =========================================================
-   ANIMATED CONTAINER SHIPS
+   REAL SHIP MOVEMENT
 ========================================================= */
 
-.svg-ship{
+.ship-layer{
+    position:absolute;
+
+    inset:0;
+
+    z-index:18;
+
+    pointer-events:none;
+}
+
+.moving-ship{
+    position:absolute;
+
+    width:360px;
+    height:135px;
+
+    left:-430px;
+    top:63%;
+
+    background-image:
+        url("https://images.pexels.com/photos/12047459/pexels-photo-12047459.jpeg?cs=srgb&dl=pexels-dendoktoor-12047459.jpg&fm=jpg");
+
+    background-size:
+        155% auto;
+
+    background-position:
+        center 67%;
+
+    background-repeat:no-repeat;
+
+    border-radius:
+        42% 48% 38% 42%;
+
     filter:
+        saturate(.72)
+        contrast(1.15)
+        brightness(.68)
         drop-shadow(
-            0 0 7px
-            rgba(74,219,255,.35)
+            0 20px 22px
+            rgba(0,0,0,.55)
         );
+
+    /*
+      Soft mask removes the rectangular photo edges.
+    */
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+
+    animation:
+        shipAcross
+        22s
+        linear
+        infinite;
+}
+
+@keyframes shipAcross{
+
+    0%{
+        transform:
+            translate3d(
+                -5vw,
+                12px,
+                0
+            )
+            scale(.72);
+
+        opacity:0;
+    }
+
+    8%{
+        opacity:.88;
+    }
+
+    42%{
+        transform:
+            translate3d(
+                43vw,
+                -5px,
+                0
+            )
+            scale(.82);
+    }
+
+    72%{
+        transform:
+            translate3d(
+                76vw,
+                3px,
+                0
+            )
+            scale(.76);
+    }
+
+    94%{
+        opacity:.85;
+    }
+
+    100%{
+        transform:
+            translate3d(
+                115vw,
+                -3px,
+                0
+            )
+            scale(.66);
+
+        opacity:0;
+    }
+
+}
+
+
+/* second ship, smaller and delayed */
+
+.moving-ship.ship-two{
+
+    width:255px;
+    height:100px;
+
+    top:71%;
+
+    animation:
+        shipAcrossTwo
+        28s
+        linear
+        infinite;
+
+    animation-delay:
+        -12s;
+
+    opacity:.62;
+
+    filter:
+        saturate(.55)
+        contrast(1.1)
+        brightness(.55)
+        drop-shadow(
+            0 15px 20px
+            rgba(0,0,0,.5)
+        );
+}
+
+@keyframes shipAcrossTwo{
+
+    0%{
+        transform:
+            translateX(-15vw)
+            scale(.55);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.65;
+    }
+
+    55%{
+        transform:
+            translateX(55vw)
+            translateY(-8px)
+            scale(.65);
+    }
+
+    100%{
+        transform:
+            translateX(120vw)
+            translateY(3px)
+            scale(.52);
+
+        opacity:0;
+    }
+
 }
 
 
 /* =========================================================
-   CARGO PARTICLES
-========================================================= */
-
-.particle{
-    fill:#7deaff;
-
-    filter:
-        drop-shadow(
-            0 0 5px
-            rgba(80,225,255,.8)
-        );
-}
-
-.particle-soft{
-    fill:#4bcce9;
-    opacity:.45;
-}
-
-
-/* =========================================================
-   OCEAN
+   OCEAN / FOREGROUND
 ========================================================= */
 
 .ocean{
@@ -598,80 +723,73 @@ header{
 
     height:27%;
 
-    z-index:15;
+    z-index:16;
 
     background:
+
         linear-gradient(
             180deg,
-            rgba(4,39,55,.10),
-            rgba(1,13,22,.90)
+            rgba(3,23,34,.02),
+            rgba(1,10,17,.82)
         );
 
-    overflow:hidden;
+    pointer-events:none;
 }
 
-.ocean-depth{
+.ocean-glow{
     position:absolute;
 
-    inset:0;
+    left:0;
+    right:0;
+    top:0;
+
+    height:100%;
 
     background:
         radial-gradient(
-            ellipse at 50% 20%,
-            rgba(20,138,175,.16),
-            transparent 58%
+            ellipse at 50% 0%,
+            rgba(41,183,220,.12),
+            transparent 60%
         );
 }
 
-
-/* realistic thin wave reflections */
-
-.wave-line{
+.wave{
     position:absolute;
 
     left:-10%;
 
     width:120%;
 
-    height:90px;
+    height:85px;
 
     border-top:
         1px solid
-        rgba(100,225,250,.10);
+        rgba(94,220,242,.10);
 
     border-radius:50%;
 
-    filter:blur(.3px);
-
     animation:
         waveMove
-        11s ease-in-out infinite
+        12s
+        ease-in-out
+        infinite
         alternate;
 }
 
-.wave-line:nth-child(1){
-    bottom:80px;
+.wave:nth-child(2){
+    bottom:68px;
 }
 
-.wave-line:nth-child(2){
-    bottom:48px;
-
-    animation-duration:14s;
+.wave:nth-child(3){
+    bottom:38px;
+    animation-duration:15s;
     animation-delay:-4s;
 }
 
-.wave-line:nth-child(3){
-    bottom:18px;
-
-    animation-duration:17s;
+.wave:nth-child(4){
+    bottom:10px;
+    animation-duration:18s;
     animation-delay:-8s;
-}
-
-.wave-line:nth-child(4){
-    bottom:-20px;
-
-    animation-duration:20s;
-    animation-delay:-11s;
 }
 
 @keyframes waveMove{
@@ -679,104 +797,13 @@ header{
     from{
         transform:
             translateX(-4%)
-            scaleY(.8);
+            scaleY(.82);
     }
 
     to{
         transform:
             translateX(4%)
-            scaleY(1.1);
-    }
-
-}
-
-
-/* =========================================================
-   REALISTIC MAIN CONTAINER SHIP
-========================================================= */
-
-.main-ship{
-    position:absolute;
-
-    z-index:25;
-
-    width:520px;
-    height:180px;
-
-    left:-560px;
-    bottom:65px;
-
-    animation:
-        oceanShip
-        25s
-        linear
-        infinite;
-
-    filter:
-        drop-shadow(
-            0 20px 25px
-            rgba(0,0,0,.6)
-        );
-}
-
-@keyframes oceanShip{
-
-    0%{
-        transform:
-            translate3d(0,8px,0);
-    }
-
-    40%{
-        transform:
-            translate3d(55vw,-3px,0);
-    }
-
-    100%{
-        transform:
-            translate3d(
-                calc(100vw + 650px),
-                5px,
-                0
-            );
-    }
-
-}
-
-.ship-svg{
-    width:100%;
-    height:100%;
-}
-
-
-/* =========================================================
-   SMOKE
-========================================================= */
-
-.smoke{
-    fill:
-        rgba(215,238,245,.08);
-
-    animation:
-        smokeRise
-        3.5s
-        ease-out
-        infinite;
-}
-
-@keyframes smokeRise{
-
-    0%{
-        opacity:.2;
-        transform:
-            translate(0,0)
-            scale(.6);
-    }
-
-    100%{
-        opacity:0;
-        transform:
-            translate(30px,-45px)
-            scale(1.5);
+            scaleY(1.08);
     }
 
 }
@@ -789,48 +816,47 @@ header{
 .hero-content{
     position:absolute;
 
-    z-index:40;
+    z-index:50;
 
     left:7%;
-
     top:50%;
 
     transform:
         translateY(-50%);
 
     width:
-        min(650px,88%);
-
-    pointer-events:none;
+        min(690px,90%);
 }
 
 .kicker{
     display:inline-flex;
 
     align-items:center;
-
     gap:9px;
 
-    padding:8px 14px;
+    padding:
+        8px 15px;
 
-    margin-bottom:23px;
+    margin-bottom:22px;
 
     border:
         1px solid
-        rgba(91,221,255,.20);
+        rgba(89,226,255,.22);
 
     border-radius:30px;
 
     background:
-        rgba(18,101,130,.12);
+        rgba(3,29,42,.36);
 
-    color:#7de8ff;
+    color:#71e7ff;
 
     font-size:10px;
 
     font-weight:800;
 
-    letter-spacing:2.4px;
+    letter-spacing:2.7px;
+
+    backdrop-filter:blur(8px);
 }
 
 .kicker-dot{
@@ -839,44 +865,43 @@ header{
 
     border-radius:50%;
 
-    background:#6ae9ff;
+    background:#6deaff;
 
     box-shadow:
         0 0 12px
-        #6ae9ff;
+        #6deaff;
 
     animation:
-        blink 1.7s infinite;
+        blink
+        1.7s
+        infinite;
 }
 
 @keyframes blink{
-
     50%{
         opacity:.25;
     }
-
 }
 
 .hero h1{
 
-    margin:0 0 25px;
+    margin-bottom:25px;
 
     font-size:
-        clamp(48px,6.5vw,88px);
+        clamp(48px,6.2vw,88px);
 
-    line-height:.93;
+    line-height:.92;
 
-    letter-spacing:
-        -4px;
+    letter-spacing:-4px;
 
-    font-weight:900;
+    font-weight:950;
 
     text-shadow:
-        0 20px 50px
-        rgba(0,0,0,.55);
+        0 18px 55px
+        rgba(0,0,0,.75);
 }
 
-.hero h1 .line{
+.hero h1 span{
     display:block;
 }
 
@@ -885,10 +910,10 @@ header{
     background:
         linear-gradient(
             100deg,
-            #ffffff 5%,
-            #8beeff 40%,
-            #1cbce9 70%,
-            #ffffff 100%
+            #ffffff,
+            #b9f3ff,
+            #4bd7f7,
+            #ffffff
         );
 
     background-size:
@@ -900,13 +925,13 @@ header{
     color:transparent;
 
     animation:
-        titleShine
+        textShine
         7s
         linear
         infinite;
 }
 
-@keyframes titleShine{
+@keyframes textShine{
 
     to{
         background-position:
@@ -917,25 +942,25 @@ header{
 
 .hero-description{
 
-    max-width:570px;
+    max-width:610px;
 
-    color:#a4b8c4;
+    color:#b3c2cb;
 
     font-size:17px;
 
-    line-height:1.7;
+    line-height:1.72;
 
     margin-bottom:31px;
+
+    text-shadow:
+        0 3px 15px
+        rgba(0,0,0,.65);
 }
 
-.hero-buttons{
+.buttons{
     display:flex;
-
     gap:13px;
-
     flex-wrap:wrap;
-
-    pointer-events:auto;
 }
 
 .btn{
@@ -943,39 +968,36 @@ header{
     min-height:52px;
 
     padding:
-        0 24px;
+        0 25px;
+
+    border-radius:30px;
 
     display:inline-flex;
 
     align-items:center;
     justify-content:center;
 
-    border-radius:30px;
-
     font-size:13px;
-
     font-weight:800;
 
     transition:
-        transform .3s,
-        box-shadow .3s,
-        background .3s;
+        .3s;
 }
 
 .btn-primary{
 
-    color:#001017;
+    color:#001018;
 
     background:
         linear-gradient(
             135deg,
             #72edff,
-            #18b6e6
+            #15b6e6
         );
 
     box-shadow:
-        0 15px 40px
-        rgba(13,190,237,.25);
+        0 16px 42px
+        rgba(20,187,230,.25);
 }
 
 .btn-primary:hover{
@@ -984,20 +1006,22 @@ header{
         translateY(-3px);
 
     box-shadow:
-        0 20px 55px
-        rgba(13,190,237,.38);
+        0 22px 55px
+        rgba(20,187,230,.40);
 }
 
 .btn-secondary{
 
-    color:#e9f8ff;
-
     border:
         1px solid
-        rgba(255,255,255,.17);
+        rgba(255,255,255,.16);
+
+    color:#e9f8ff;
 
     background:
         rgba(255,255,255,.045);
+
+    backdrop-filter:blur(10px);
 }
 
 .btn-secondary:hover{
@@ -1011,50 +1035,49 @@ header{
 
 
 /* =========================================================
-   LIVE SHIPPING CARD
+   GLOBAL TRADE CARD
 ========================================================= */
 
-.live-card{
+.trade-card{
 
     position:absolute;
 
-    z-index:45;
+    z-index:60;
 
-    right:5%;
+    right:5.5%;
+    bottom:27%;
 
-    bottom:32%;
+    width:260px;
 
-    width:245px;
-
-    padding:19px;
+    padding:20px;
 
     border:
         1px solid
-        rgba(103,220,247,.15);
+        rgba(102,220,247,.17);
 
-    border-radius:17px;
+    border-radius:19px;
 
     background:
-        rgba(3,16,27,.64);
+        rgba(2,13,22,.68);
 
     backdrop-filter:
-        blur(18px);
+        blur(20px);
 
     -webkit-backdrop-filter:
-        blur(18px);
+        blur(20px);
 
     box-shadow:
-        0 25px 60px
-        rgba(0,0,0,.35);
+        0 30px 70px
+        rgba(0,0,0,.38);
 
     animation:
-        cardFloat
+        tradeFloat
         6s
         ease-in-out
         infinite;
 }
 
-@keyframes cardFloat{
+@keyframes tradeFloat{
 
     50%{
         transform:
@@ -1063,53 +1086,51 @@ header{
 
 }
 
-.live-top{
+.trade-top{
 
     display:flex;
-
     align-items:center;
 
     gap:8px;
 
-    color:#65e6ff;
+    color:#67e6ff;
 
     font-size:9px;
 
-    font-weight:800;
+    font-weight:850;
 
-    letter-spacing:1.8px;
+    letter-spacing:2px;
 
     margin-bottom:10px;
 }
 
-.live-dot{
-
+.live{
     width:6px;
     height:6px;
 
     border-radius:50%;
 
-    background:#64e7ff;
+    background:#67e6ff;
 
     box-shadow:
-        0 0 10px
-        #64e7ff;
+        0 0 12px
+        #67e6ff;
 }
 
-.live-card h3{
+.trade-card h3{
 
-    font-size:17px;
+    font-size:18px;
 
     margin-bottom:7px;
 }
 
-.live-card p{
+.trade-card p{
 
-    color:#829ba9;
+    color:#8298a5;
 
     font-size:11px;
 
-    line-height:1.6;
+    line-height:1.65;
 }
 
 
@@ -1117,14 +1138,13 @@ header{
    SCROLL
 ========================================================= */
 
-.scroll-indicator{
+.scroll{
 
     position:absolute;
 
-    z-index:50;
+    z-index:80;
 
     bottom:18px;
-
     left:50%;
 
     transform:
@@ -1138,39 +1158,38 @@ header{
 
     gap:8px;
 
-    color:#617b89;
+    color:#647c88;
 
     font-size:8px;
 
     letter-spacing:2px;
 }
 
-.scroll-bar{
+.scroll-line{
 
     width:1px;
-    height:32px;
+    height:30px;
 
     background:
         linear-gradient(
             to bottom,
             transparent,
-            #5ddfff
+            #5ee5ff
         );
 
     animation:
-        scrollMove
+        scrollLine
         2s
-        ease-in-out
         infinite;
 }
 
-@keyframes scrollMove{
+@keyframes scrollLine{
 
     50%{
         transform:
-            translateY(8px);
+            translateY(7px);
 
-        opacity:.35;
+        opacity:.3;
     }
 
 }
@@ -1182,22 +1201,20 @@ header{
 
 .section{
 
-    position:relative;
-
     padding:
         110px 7%;
 
-    background:#020b13;
+    background:#020a11;
 }
 
 .section:nth-child(even){
 
-    background:#04121d;
+    background:#04121c;
 }
 
 .section-head{
 
-    max-width:760px;
+    width:min(760px,100%);
 
     margin:
         0 auto 55px;
@@ -1207,11 +1224,11 @@ header{
 
 .section-mini{
 
-    color:#58dcfa;
+    color:#5de2ff;
 
     font-size:10px;
 
-    font-weight:800;
+    font-weight:850;
 
     letter-spacing:2px;
 
@@ -1221,22 +1238,22 @@ header{
 .section-head h2{
 
     font-size:
-        clamp(34px,4.2vw,57px);
+        clamp(34px,4vw,56px);
 
-    line-height:1.05;
+    line-height:1.04;
 
     letter-spacing:-2px;
 
-    margin-bottom:17px;
+    margin-bottom:16px;
 }
 
 .section-head p{
 
-    color:#8ea7b6;
-
-    line-height:1.7;
+    color:#899eaa;
 
     font-size:15px;
+
+    line-height:1.7;
 }
 
 
@@ -1260,11 +1277,13 @@ header{
 
 .card{
 
+    position:relative;
+
     padding:31px;
 
     border:
         1px solid
-        rgba(150,220,240,.08);
+        rgba(255,255,255,.07);
 
     border-radius:21px;
 
@@ -1275,28 +1294,10 @@ header{
             rgba(255,255,255,.012)
         );
 
-    transition:.35s;
-
     overflow:hidden;
-}
 
-.card::before{
-
-    content:"";
-
-    display:block;
-
-    width:50px;
-    height:2px;
-
-    margin-bottom:25px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #55e2ff,
-            transparent
-        );
+    transition:
+        .35s;
 }
 
 .card:hover{
@@ -1305,16 +1306,36 @@ header{
         translateY(-8px);
 
     border-color:
-        rgba(81,220,255,.22);
+        rgba(83,221,250,.22);
 
     box-shadow:
         0 30px 70px
-        rgba(0,0,0,.25);
+        rgba(0,0,0,.30);
 }
 
-.card-icon{
+.card::before{
 
-    font-size:32px;
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:70px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #53dfff,
+            transparent
+        );
+}
+
+.icon{
+
+    font-size:31px;
 
     margin-bottom:17px;
 }
@@ -1328,7 +1349,7 @@ header{
 
 .card p{
 
-    color:#849eac;
+    color:#8198a5;
 
     font-size:13px;
 
@@ -1354,54 +1375,49 @@ header{
     gap:20px;
 }
 
-.process-item{
+.step{
 
     text-align:center;
 }
 
-.number{
+.step-number{
 
     width:56px;
     height:56px;
+
+    margin:
+        0 auto 18px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    margin:
-        0 auto 18px;
-
     border-radius:50%;
 
     border:
         1px solid
-        rgba(93,224,255,.25);
+        rgba(86,225,255,.24);
+
+    color:#62e4ff;
 
     background:
-        rgba(21,160,204,.10);
+        rgba(27,160,201,.08);
 
-    color:#64e5ff;
-
-    font-size:13px;
-
+    font-size:12px;
     font-weight:900;
-
-    box-shadow:
-        inset 0 0 25px
-        rgba(50,200,240,.05);
 }
 
-.process-item h3{
-
-    margin-bottom:9px;
+.step h3{
 
     font-size:16px;
+
+    margin-bottom:9px;
 }
 
-.process-item p{
+.step p{
 
-    color:#819ba9;
+    color:#8198a5;
 
     font-size:12px;
 
@@ -1424,29 +1440,29 @@ header{
 
     text-align:center;
 
-    border-radius:29px;
+    border-radius:30px;
 
     border:
         1px solid
-        rgba(90,218,248,.14);
+        rgba(80,220,247,.14);
 
     background:
 
         radial-gradient(
             ellipse at 50% 0%,
-            rgba(21,154,201,.17),
-            transparent 55%
+            rgba(23,163,207,.17),
+            transparent 60%
         ),
 
         linear-gradient(
             135deg,
-            #071c2a,
-            #03101a
+            #071d2a,
+            #031019
         );
 
     box-shadow:
         0 35px 90px
-        rgba(0,0,0,.38);
+        rgba(0,0,0,.4);
 }
 
 .cta h2{
@@ -1454,12 +1470,12 @@ header{
     font-size:
         clamp(32px,4vw,52px);
 
-    margin-bottom:13px;
+    margin-bottom:14px;
 }
 
 .cta p{
 
-    color:#8ba5b4;
+    color:#8ba3af;
 
     margin-bottom:26px;
 }
@@ -1503,11 +1519,11 @@ header{
 
     display:block;
 
-    color:#54dfff;
+    color:#58ddfb;
 
     font-size:9px;
 
-    font-weight:800;
+    font-weight:850;
 
     letter-spacing:1.8px;
 
@@ -1517,8 +1533,6 @@ header{
 .contact-box strong{
 
     font-size:13px;
-
-    color:#e8f5fa;
 
     word-break:break-word;
 }
@@ -1535,11 +1549,11 @@ footer{
 
     text-align:center;
 
-    color:#526d7b;
+    color:#536b77;
 
     font-size:11px;
 
-    background:#01070c;
+    background:#01060a;
 
     border-top:
         1px solid
@@ -1548,16 +1562,16 @@ footer{
 
 
 /* =========================================================
-   MOBILE NAV
+   TABLET
 ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
     .nav-links{
 
         position:absolute;
 
-        top:76px;
+        top:78px;
 
         left:0;
         right:0;
@@ -1570,16 +1584,17 @@ footer{
 
         gap:0;
 
-        padding:18px;
+        padding:15px;
 
         background:
-            rgba(2,10,17,.97);
+            rgba(2,8,14,.97);
 
         border-bottom:
             1px solid
             rgba(255,255,255,.08);
 
-        backdrop-filter:blur(20px);
+        backdrop-filter:
+            blur(20px);
     }
 
     .nav-links.open{
@@ -1599,78 +1614,121 @@ footer{
     }
 
     .hero-content{
+
         left:6%;
-        top:34%;
         width:88%;
+
+        top:36%;
     }
 
     .hero h1{
         font-size:
-            clamp(43px,9vw,67px);
+            clamp(45px,8vw,70px);
     }
 
-    .live-card{
-        right:5%;
-        bottom:27%;
+    .trade-card{
 
-        width:205px;
+        right:5%;
+
+        bottom:23%;
+
+        width:220px;
     }
 
     .cards{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .process{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .contact-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
     }
 
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   MOBILE
 ========================================================= */
 
 @media(max-width:600px){
 
     header{
-        height:67px;
-    }
-
-    .nav{
-        width:92%;
+        height:68px;
     }
 
     .logo img{
-        width:40px;
-        height:40px;
+        width:41px;
+        height:41px;
     }
 
-    .logo-text{
+    .logo-name{
         font-size:14px;
     }
 
-    .hero{
-        min-height:800px;
-        height:800px;
+    .logo-sub{
+        font-size:7px;
+        letter-spacing:2px;
     }
 
-    .world-map{
-        width:235%;
-        left:-70%;
+    .hero{
+
+        height:820px;
+        min-height:820px;
+    }
+
+    .world-photo{
+
+        inset:-5% -35%;
+
+        width:170%;
+
+        max-width:none;
+
+        background-position:
+            52% center;
+
+        opacity:.68;
+    }
+
+    .world-blue{
+
+        background:
+
+            linear-gradient(
+                90deg,
+                rgba(1,7,12,.97) 0%,
+                rgba(2,10,17,.82) 55%,
+                rgba(2,9,15,.58) 100%
+            ),
+
+            linear-gradient(
+                180deg,
+                rgba(1,7,12,.78),
+                transparent 30%,
+                rgba(1,7,12,.95) 100%
+            );
     }
 
     .hero-content{
-        top:27%;
+
+        left:6%;
+        top:28%;
+
+        width:88%;
     }
 
     .kicker{
+
         font-size:8px;
-        letter-spacing:1.5px;
+
+        letter-spacing:1.7px;
 
         padding:7px 11px;
     }
@@ -1680,17 +1738,21 @@ footer{
         font-size:
             clamp(38px,12vw,55px);
 
-        letter-spacing:-2.5px;
+        letter-spacing:-2.6px;
+
+        line-height:.95;
     }
 
     .hero-description{
 
         font-size:14px;
 
-        line-height:1.6;
+        line-height:1.62;
+
+        max-width:500px;
     }
 
-    .hero-buttons{
+    .buttons{
         gap:9px;
     }
 
@@ -1699,41 +1761,49 @@ footer{
         min-height:47px;
 
         padding:
-            0 17px;
+            0 18px;
 
         font-size:11px;
     }
 
-    .live-card{
+    .trade-card{
 
         left:6%;
         right:auto;
 
         bottom:25%;
 
-        width:190px;
+        width:195px;
 
-        padding:14px;
+        padding:15px;
     }
 
-    .live-card h3{
+    .trade-card h3{
         font-size:14px;
     }
 
-    .live-card p{
+    .trade-card p{
         font-size:10px;
     }
 
-    .main-ship{
+    .moving-ship{
 
-        width:400px;
-        height:140px;
+        width:290px;
+        height:105px;
 
-        bottom:50px;
+        top:67%;
+    }
+
+    .moving-ship.ship-two{
+
+        width:220px;
+        height:85px;
+
+        top:74%;
     }
 
     .ocean{
-        height:25%;
+        height:24%;
     }
 
     .section{
@@ -1742,11 +1812,13 @@ footer{
     }
 
     .cards{
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .process{
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .cta{
@@ -1772,10 +1844,7 @@ footer{
 
         animation-iteration-count:
             1 !important;
-
-        scroll-behavior:auto !important;
     }
-
 }
 
 </style>
@@ -1793,6 +1862,7 @@ footer{
 
 <div class="nav">
 
+
 <a
 href="#home"
 class="logo">
@@ -1803,7 +1873,7 @@ alt="GlobalStock International">
 
 <div>
 
-<div class="logo-text">
+<div class="logo-name">
 GLOBALSTOCK
 </div>
 
@@ -1855,6 +1925,7 @@ id="menu">
 
 </div>
 
+
 </div>
 
 </header>
@@ -1870,373 +1941,31 @@ class="hero"
 id="home">
 
 
-<div class="hero-light"></div>
+<!-- REAL SATELLITE WORLD MAP -->
 
-
-<!-- =====================================================
-     WORLD MAP
-===================================================== -->
-
-<div class="map-stage">
-
-
-<div class="world-map">
-
-<svg
-viewBox="0 0 1600 900"
-preserveAspectRatio="xMidYMid slice"
-xmlns="http://www.w3.org/2000/svg">
-
-
-<defs>
-
-
-<!-- subtle continent gradient -->
-
-<linearGradient
-id="landGradient"
-x1="0"
-y1="0"
-x2="1"
-y2="1">
-
-<stop
-offset="0"
-stop-color="#173b4c"/>
-
-<stop
-offset=".55"
-stop-color="#0d2938"/>
-
-<stop
-offset="1"
-stop-color="#071a27"/>
-
-</linearGradient>
-
-
-<filter
-id="glow">
-
-<feGaussianBlur
-stdDeviation="4"
-result="blur"/>
-
-<feMerge>
-
-<feMergeNode
-in="blur"/>
-
-<feMergeNode
-in="SourceGraphic"/>
-
-</feMerge>
-
-</filter>
-
-
-</defs>
-
-
-<!-- =================================================
-     CONTINENTS
-================================================== -->
-
-<g
-fill="url(#landGradient)"
-class="land">
-
-
-<!-- North America -->
-
-<path d="
-M105 235
-C135 180 205 145 280 148
-C340 150 405 190 425 230
-C438 258 414 280 383 292
-L351 327
-L319 337
-L293 372
-L255 361
-L230 329
-L195 323
-L167 294
-L125 286
-Z"/>
-
-
-<!-- Greenland -->
-
-<path d="
-M420 85
-C458 55 525 55 558 83
-L545 125
-L488 144
-L445 126
-Z"/>
-
-
-<!-- South America -->
-
-<path d="
-M355 390
-C395 375 430 405 446 446
-C463 489 451 531 433 574
-C419 613 397 657 370 698
-L340 742
-L309 708
-L310 657
-L294 616
-L305 572
-L290 530
-L309 483
-L298 438
-Z"/>
-
-
-<!-- Europe -->
-
-<path d="
-M691 237
-L725 207
-L769 198
-L810 210
-L841 201
-L871 224
-L851 249
-L818 251
-L790 270
-L754 265
-L728 286
-L699 272
-Z"/>
-
-
-<!-- Africa -->
-
-<path d="
-M713 305
-C758 292 815 311 844 350
-C866 386 859 436 849 478
-C839 527 818 575 789 617
-L755 655
-L722 623
-L703 579
-L685 534
-L681 482
-L690 438
-L681 392
-Z"/>
-
-
-<!-- Middle East -->
-
-<path d="
-M844 286
-L904 274
-L954 295
-L986 328
-L957 358
-L916 353
-L881 336
-L846 329
-Z"/>
-
-
-<!-- Asia -->
-
-<path d="
-M865 202
-C925 166 1010 157 1080 174
-L1142 194
-L1211 213
-L1274 239
-L1341 274
-L1394 313
-L1375 350
-L1327 353
-L1284 341
-L1230 359
-L1186 344
-L1141 357
-L1097 336
-L1044 330
-L1000 305
-L950 296
-L911 271
-L873 259
-Z"/>
-
-
-<!-- India -->
-
-<path d="
-M965 340
-L1010 350
-L1034 391
-L1014 428
-L988 451
-L961 421
-L947 382
-Z"/>
-
-
-<!-- Southeast Asia -->
-
-<path d="
-M1055 365
-L1092 368
-L1120 393
-L1101 423
-L1066 416
-L1045 391
-Z"/>
-
-
-<!-- Japan -->
-
-<path d="
-M1386 296
-L1410 315
-L1420 347
-L1407 377
-L1388 391
-L1377 357
-L1382 325
-Z"/>
-
-
-<!-- Australia -->
-
-<path d="
-M1192 568
-C1244 541 1328 550 1392 585
-L1400 625
-L1373 665
-L1310 688
-L1244 680
-L1195 648
-L1173 608
-Z"/>
-
-
-<!-- Madagascar -->
-
-<path d="
-M861 570
-L878 592
-L870 630
-L852 645
-L843 610
-Z"/>
-
-
-</g>
-
-
-<!-- =================================================
-     CONTINENT EDGE LIGHT
-================================================== -->
-
-<g
-class="land-highlight">
-
-<path d="
-M105 235
-C135 180 205 145 280 148
-C340 150 405 190 425 230"/>
-
-<path d="
-M691 237
-L725 207
-L769 198
-L810 210
-L841 201"/>
-
-<path d="
-M865 202
-C925 166 1010 157 1080 174
-L1142 194
-L1211 213
-L1274 239"/>
-
-<path d="
-M1192 568
-C1244 541 1328 550 1392 585"/>
-
-</g>
-
-
-<!-- =================================================
-     LATITUDE
-================================================== -->
-
-<g>
-
-<path
-class="latitude"
-d="M0 180 C400 145 1200 145 1600 180"/>
-
-<path
-class="latitude"
-d="M0 300 C400 275 1200 275 1600 300"/>
-
-<path
-class="latitude"
-d="M0 430 C400 415 1200 415 1600 430"/>
-
-<path
-class="latitude"
-d="M0 560 C400 555 1200 555 1600 560"/>
-
-<path
-class="latitude"
-d="M0 690 C400 700 1200 700 1600 690"/>
-
-</g>
-
-
-<!-- =================================================
-     LONGITUDE
-================================================== -->
-
-<g>
-
-<path
-class="longitude"
-d="M220 0 C180 300 180 600 220 900"/>
-
-<path
-class="longitude"
-d="M450 0 C410 300 410 600 450 900"/>
-
-<path
-class="longitude-strong"
-d="M700 0 C670 300 670 600 700 900"/>
-
-<path
-class="longitude"
-d="M900 0 C930 300 930 600 900 900"/>
-
-<path
-class="longitude-strong"
-d="M1110 0 C1150 300 1150 600 1110 900"/>
-
-<path
-class="longitude"
-d="M1330 0 C1380 300 1380 600 1330 900"/>
-
-</g>
-
-
-</svg>
-
+<div
+class="world-photo">
 </div>
 
 
-<div class="map-sweep"></div>
+<!-- DARK PREMIUM OVERLAY -->
+
+<div
+class="world-blue">
+</div>
 
 
+<!-- ATMOSPHERE -->
+
+<div
+class="atmosphere">
+</div>
+
+
+<!-- SUBTLE GRID -->
+
+<div
+class="grid-overlay">
 </div>
 
 
@@ -2245,13 +1974,12 @@ d="M1330 0 C1380 300 1380 600 1330 900"/>
      SHIPPING ROUTES
 ===================================================== -->
 
-<div class="routes">
+<div
+class="routes">
 
 <svg
 viewBox="0 0 1600 900"
-preserveAspectRatio="xMidYMid slice"
-width="100%"
-height="100%">
+preserveAspectRatio="xMidYMid slice">
 
 
 <defs>
@@ -2267,586 +1995,206 @@ stdDeviation="5"/>
 </defs>
 
 
-<!-- =================================================
-     JAPAN → SRI LANKA
-================================================== -->
+<!-- JAPAN → SRI LANKA -->
 
 <path
-id="japanRoute"
-class="route-glow"
+id="routeJapan"
+class="route-soft"
 d="
-M1395 350
-C1280 378 1175 425 1090 475
-C1040 505 1002 540 970 590"/>
+M1415 360
+C1310 390
+1220 425
+1130 470
+C1055 508
+995 552
+970 610"/>
 
 <path
 class="route"
 d="
-M1395 350
-C1280 378 1175 425 1090 475
-C1040 505 1002 540 970 590"/>
+M1415 360
+C1310 390
+1220 425
+1130 470
+C1055 508
+995 552
+970 610"/>
 
 
-<!-- =================================================
-     KOREA → SRI LANKA
-================================================== -->
+<!-- KOREA → SRI LANKA -->
 
 <path
-id="koreaRoute"
-class="route-glow"
+id="routeKorea"
+class="route-soft"
 d="
 M1280 290
-C1190 340 1110 400 1050 455
-C1010 495 982 545 970 590"/>
+C1195 335
+1120 390
+1060 440
+C1015 485
+985 550
+970 610"/>
 
 <path
 class="route"
 d="
 M1280 290
-C1190 340 1110 400 1050 455
-C1010 495 982 545 970 590"/>
+C1195 335
+1120 390
+1060 440
+C1015 485
+985 550
+970 610"/>
 
 
-<!-- =================================================
-     CHINA → SRI LANKA
-================================================== -->
-
-<path
-id="chinaRoute"
-class="route-glow"
-d="
-M1160 315
-C1115 365 1070 415 1030 465
-C995 510 978 550 970 590"/>
+<!-- CHINA → SRI LANKA -->
 
 <path
-class="route"
+id="routeChina"
+class="route-soft"
 d="
-M1160 315
-C1115 365 1070 415 1030 465
-C995 510 978 550 970 590"/>
-
-
-<!-- =================================================
-     MIDDLE EAST → SRI LANKA
-================================================== -->
-
-<path
-id="middleRoute"
-class="route-glow"
-d="
-M860 315
-C900 365 935 415 952 465
-C968 510 970 555 970 590"/>
+M1170 320
+C1120 365
+1070 420
+1030 470
+C995 520
+978 565
+970 610"/>
 
 <path
 class="route"
 d="
-M860 315
-C900 365 935 415 952 465
-C968 510 970 555 970 590"/>
+M1170 320
+C1120 365
+1070 420
+1030 470
+C995 520
+978 565
+970 610"/>
 
 
-<!-- =================================================
-     EUROPE → SRI LANKA
-================================================== -->
+<!-- MIDDLE EAST → SRI LANKA -->
 
 <path
-id="europeRoute"
-class="route-glow"
+id="routeMiddle"
+class="route-soft"
 d="
-M760 235
-C820 300 870 355 910 410
-C950 465 970 530 970 590"/>
+M840 320
+C895 370
+930 425
+950 475
+C965 520
+970 570
+970 610"/>
 
 <path
 class="route"
 d="
-M760 235
-C820 300 870 355 910 410
-C950 465 970 530 970 590"/>
+M840 320
+C895 370
+930 425
+950 475
+C965 520
+970 570
+970 610"/>
+
+
+<!-- EUROPE → SRI LANKA -->
+
+<path
+id="routeEurope"
+class="route-soft"
+d="
+M750 240
+C810 300
+865 355
+910 420
+C950 480
+970 550
+970 610"/>
+
+<path
+class="route"
+d="
+M750 240
+C810 300
+865 355
+910 420
+C950 480
+970 550
+970 610"/>
 
 
 <!-- ORIGIN POINTS -->
 
 <circle
-class="origin"
-cx="1395"
-cy="350"
+class="port"
+cx="1415"
+cy="360"
 r="4"/>
 
 <circle
-class="origin"
+class="port"
 cx="1280"
 cy="290"
 r="4"/>
 
 <circle
-class="origin"
-cx="1160"
-cy="315"
+class="port"
+cx="1170"
+cy="320"
 r="4"/>
 
 <circle
-class="origin"
-cx="860"
-cy="315"
+class="port"
+cx="840"
+cy="320"
 r="4"/>
 
 <circle
-class="origin"
-cx="760"
-cy="235"
+class="port"
+cx="750"
+cy="240"
 r="4"/>
-
-
-<!-- LABELS -->
-
-<g
-fill="#78dff5"
-font-family="Arial"
-font-size="11"
-font-weight="700"
-letter-spacing="1">
-
-<text x="1410" y="347">
-JAPAN
-</text>
-
-<text x="1294" y="286">
-KOREA
-</text>
-
-<text x="1174" y="311">
-CHINA
-</text>
-
-<text x="813" y="304">
-MIDDLE EAST
-</text>
-
-<text x="713" y="223">
-EUROPE
-</text>
-
-</g>
 
 
 <!-- =================================================
-     SRI LANKA DESTINATION
+     SRI LANKA
 ================================================== -->
 
 <circle
-class="destination-ring"
+class="lk-ring"
 cx="970"
-cy="590"
-r="9"/>
+cy="610"
+r="8"/>
 
 <circle
-class="destination-ring delay"
+class="lk-ring delay"
 cx="970"
-cy="590"
-r="9"/>
+cy="610"
+r="8"/>
 
 <circle
-class="sri-lanka-point"
+class="lk-core"
 cx="970"
-cy="590"
+cy="610"
 r="5"/>
 
-<text
-x="988"
-y="595"
-fill="#b7f5ff"
-font-family="Arial"
-font-size="13"
-font-weight="800"
-letter-spacing="2">
-
-SRI LANKA
-
-</text>
-
 
 <!-- =================================================
-     SHIP 1
-================================================== -->
-
-<g
-class="svg-ship">
-
-<g>
-
-<animateMotion
-dur="12s"
-repeatCount="indefinite"
-rotate="auto">
-
-<mpath href="#japanRoute"/>
-
-</animateMotion>
-
-
-<!-- hull -->
-
-<path
-fill="#06131e"
-stroke="#4bcde9"
-stroke-width="1"
-d="
-M-34 5
-L39 5
-L27 17
-L-20 17
-Z"/>
-
-
-<!-- red lower hull -->
-
-<path
-fill="#812d36"
-d="
-M-27 11
-L31 11
-L25 16
-L-20 16
-Z"/>
-
-
-<!-- deck -->
-
-<rect
-x="-23"
-y="-2"
-width="55"
-height="7"
-rx="1"
-fill="#0d3d53"/>
-
-
-<!-- containers -->
-
-<rect
-x="-18"
-y="-14"
-width="11"
-height="12"
-fill="#1a83a7"/>
-
-<rect
-x="-6"
-y="-14"
-width="11"
-height="12"
-fill="#bd4b50"/>
-
-<rect
-x="6"
-y="-14"
-width="11"
-height="12"
-fill="#bd9443"/>
-
-<rect
-x="18"
-y="-14"
-width="11"
-height="12"
-fill="#287b91"/>
-
-
-<!-- bridge -->
-
-<path
-fill="#d8e7eb"
-d="
-M20 -2
-L33 -2
-L33 5
-L20 5
-Z"/>
-
-
-<!-- bridge windows -->
-
-<rect
-x="22"
-y="0"
-width="9"
-height="2"
-fill="#173b4d"/>
-
-
-<!-- mast -->
-
-<path
-d="M29 -2 L29 -18"
-stroke="#b9e8ef"
-stroke-width="1"/>
-
-
-</g>
-
-</g>
-
-
-
-<!-- SHIP 2 -->
-
-<g
-class="svg-ship">
-
-<g>
-
-<animateMotion
-dur="15s"
-repeatCount="indefinite"
-begin="-5s"
-rotate="auto">
-
-<mpath href="#koreaRoute"/>
-
-</animateMotion>
-
-
-<path
-fill="#06131e"
-stroke="#4bcde9"
-stroke-width="1"
-d="
-M-31 5
-L36 5
-L26 16
-L-18 16
-Z"/>
-
-<path
-fill="#832d36"
-d="
-M-25 11
-L29 11
-L24 15
-L-18 15
-Z"/>
-
-<rect
-x="-20"
-y="-2"
-width="51"
-height="7"
-fill="#0c3d52"/>
-
-<rect
-x="-15"
-y="-14"
-width="11"
-height="12"
-fill="#bd9443"/>
-
-<rect
-x="-3"
-y="-14"
-width="11"
-height="12"
-fill="#1c82a7"/>
-
-<rect
-x="9"
-y="-14"
-width="11"
-height="12"
-fill="#bd4b50"/>
-
-<path
-fill="#d8e7eb"
-d="
-M18 -2
-L31 -2
-L31 5
-L18 5
-Z"/>
-
-</g>
-
-</g>
-
-
-
-<!-- SHIP 3 -->
-
-<g
-class="svg-ship">
-
-<g>
-
-<animateMotion
-dur="10s"
-repeatCount="indefinite"
-begin="-3s"
-rotate="auto">
-
-<mpath href="#chinaRoute"/>
-
-</animateMotion>
-
-
-<path
-fill="#06131e"
-stroke="#4bcde9"
-stroke-width="1"
-d="
-M-31 5
-L36 5
-L26 16
-L-18 16
-Z"/>
-
-<path
-fill="#832d36"
-d="
-M-25 11
-L29 11
-L24 15
-L-18 15
-Z"/>
-
-<rect
-x="-20"
-y="-2"
-width="51"
-height="7"
-fill="#0c3d52"/>
-
-<rect
-x="-15"
-y="-14"
-width="11"
-height="12"
-fill="#1c82a7"/>
-
-<rect
-x="-3"
-y="-14"
-width="11"
-height="12"
-fill="#bd4b50"/>
-
-<rect
-x="9"
-y="-14"
-width="11"
-height="12"
-fill="#bd9443"/>
-
-<path
-fill="#d8e7eb"
-d="
-M18 -2
-L31 -2
-L31 5
-L18 5
-Z"/>
-
-</g>
-
-</g>
-
-
-
-<!-- SHIP 4 -->
-
-<g
-class="svg-ship">
-
-<g>
-
-<animateMotion
-dur="11s"
-repeatCount="indefinite"
-begin="-6s"
-rotate="auto">
-
-<mpath href="#middleRoute"/>
-
-</animateMotion>
-
-
-<path
-fill="#06131e"
-stroke="#4bcde9"
-stroke-width="1"
-d="
-M-31 5
-L36 5
-L26 16
-L-18 16
-Z"/>
-
-<path
-fill="#832d36"
-d="
-M-25 11
-L29 11
-L24 15
-L-18 15
-Z"/>
-
-<rect
-x="-20"
-y="-2"
-width="51"
-height="7"
-fill="#0c3d52"/>
-
-<rect
-x="-15"
-y="-14"
-width="11"
-height="12"
-fill="#bd4b50"/>
-
-<rect
-x="-3"
-y="-14"
-width="11"
-height="12"
-fill="#1c82a7"/>
-
-<rect
-x="9"
-y="-14"
-width="11"
-height="12"
-fill="#bd9443"/>
-
-<path
-fill="#d8e7eb"
-d="
-M18 -2
-L31 -2
-L31 5
-L18 5
-Z"/>
-
-</g>
-
-</g>
-
-
-
-<!-- =================================================
-     MOVING PARTICLES
+     ROUTE PARTICLES
 ================================================== -->
 
 <circle
-class="particle"
+class="route-particle"
 r="3">
 
 <animateMotion
-dur="4.5s"
+dur="5s"
 repeatCount="indefinite">
 
-<mpath href="#japanRoute"/>
+<mpath
+href="#routeJapan"/>
 
 </animateMotion>
 
@@ -2854,31 +2202,16 @@ repeatCount="indefinite">
 
 
 <circle
-class="particle-soft"
+class="route-particle"
 r="2">
-
-<animateMotion
-dur="4.5s"
-repeatCount="indefinite"
-begin="-1.5s">
-
-<mpath href="#japanRoute"/>
-
-</animateMotion>
-
-</circle>
-
-
-<circle
-class="particle"
-r="2.5">
 
 <animateMotion
 dur="5s"
 repeatCount="indefinite"
 begin="-2s">
 
-<mpath href="#koreaRoute"/>
+<mpath
+href="#routeJapan"/>
 
 </animateMotion>
 
@@ -2886,15 +2219,16 @@ begin="-2s">
 
 
 <circle
-class="particle"
+class="route-particle"
 r="3">
 
 <animateMotion
 dur="5.5s"
 repeatCount="indefinite"
-begin="-3s">
+begin="-2s">
 
-<mpath href="#chinaRoute"/>
+<mpath
+href="#routeKorea"/>
 
 </animateMotion>
 
@@ -2902,15 +2236,33 @@ begin="-3s">
 
 
 <circle
-class="particle-soft"
+class="route-particle"
+r="2.5">
+
+<animateMotion
+dur="5s"
+repeatCount="indefinite"
+begin="-3s">
+
+<mpath
+href="#routeChina"/>
+
+</animateMotion>
+
+</circle>
+
+
+<circle
+class="route-particle"
 r="2">
 
 <animateMotion
 dur="4.8s"
 repeatCount="indefinite"
-begin="-2.5s">
+begin="-2s">
 
-<mpath href="#middleRoute"/>
+<mpath
+href="#routeMiddle"/>
 
 </animateMotion>
 
@@ -2918,15 +2270,16 @@ begin="-2.5s">
 
 
 <circle
-class="particle"
+class="route-particle"
 r="2.5">
 
 <animateMotion
 dur="6s"
 repeatCount="indefinite"
-begin="-3s">
+begin="-4s">
 
-<mpath href="#europeRoute"/>
+<mpath
+href="#routeEurope"/>
 
 </animateMotion>
 
@@ -2940,10 +2293,33 @@ begin="-3s">
 
 
 <!-- =====================================================
+     REAL SHIPS
+===================================================== -->
+
+<div
+class="ship-layer">
+
+
+<div
+class="moving-ship">
+</div>
+
+
+<div
+class="moving-ship ship-two">
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
      HERO CONTENT
 ===================================================== -->
 
-<div class="hero-content">
+<div
+class="hero-content">
 
 
 <div class="kicker">
@@ -2959,32 +2335,35 @@ GLOBAL STOCK LOT BUYER
 
 <h1>
 
-<span class="line">
+<span>
 ANY PRODUCT.
 </span>
 
-<span class="line accent">
+<span class="accent">
 ANY STOCK.
 </span>
 
-<span class="line">
+<span>
 ANY COUNTRY.
 </span>
 
 </h1>
 
 
-<p class="hero-description">
+<p
+class="hero-description">
 
-We buy stock lots, surplus, overstock,
-clearance and excess inventory worldwide —
-connecting global suppliers with markets
+We buy stock lots, surplus,
+overstock, clearance and excess
+inventory worldwide — connecting
+global suppliers with markets
 across Sri Lanka and beyond.
 
 </p>
 
 
-<div class="hero-buttons">
+<div class="buttons">
+
 
 <a
 href="https://wa.me/94777426436"
@@ -3004,6 +2383,7 @@ Explore Materials
 
 </a>
 
+
 </div>
 
 
@@ -3012,22 +2392,27 @@ Explore Materials
 
 
 <!-- =====================================================
-     LIVE CARD
+     TRADE CARD
 ===================================================== -->
 
-<div class="live-card">
+<div
+class="trade-card">
 
-<div class="live-top">
+<div
+class="trade-top">
 
-<span class="live-dot"></span>
+<span class="live">
+</span>
 
 GLOBAL TRADE NETWORK
 
 </div>
 
+
 <h3>
 Worldwide → Sri Lanka
 </h3>
+
 
 <p>
 Japan • Korea • China • Europe
@@ -3042,322 +2427,16 @@ Japan • Korea • China • Europe
      OCEAN
 ===================================================== -->
 
-<div class="ocean">
-
-<div class="ocean-depth"></div>
-
-
-<!-- MAIN REALISTIC SHIP -->
-
-<div class="main-ship">
-
-<svg
-class="ship-svg"
-viewBox="0 0 520 180"
-xmlns="http://www.w3.org/2000/svg">
-
-
-<!-- smoke -->
-
-<g>
-
-<circle
-class="smoke"
-cx="385"
-cy="43"
-r="12"/>
-
-<circle
-class="smoke"
-cx="400"
-cy="29"
-r="8"/>
-
-<circle
-class="smoke"
-cx="414"
-cy="17"
-r="6"/>
-
-</g>
-
-
-<!-- wake -->
-
-<path
-d="
-M45 143
-C0 148 -20 160 20 163
-C70 166 105 160 135 151
-"
-fill="none"
-stroke="rgba(105,225,250,.18)"
-stroke-width="4"/>
-
-
-<!-- main hull -->
-
-<path
-d="
-M72 116
-L455 116
-L420 151
-C408 163 389 169 360 169
-L110 169
-C91 169 77 151 72 116
-Z"
-fill="#07141f"
-stroke="#376d80"
-stroke-width="2"/>
-
-
-<!-- red lower hull -->
-
-<path
-d="
-M82 144
-L438 144
-L420 157
-C410 164 395 168 370 168
-L110 168
-C96 168 88 157 82 144
-Z"
-fill="#6c2d34"/>
-
-
-<!-- waterline -->
-
-<path
-d="M83 142 L438 142"
-stroke="#34c4e4"
-stroke-width="2"
-opacity=".65"/>
-
-
-<!-- deck -->
-
-<rect
-x="100"
-y="96"
-width="330"
-height="21"
-rx="2"
-fill="#0c3142"/>
-
-
-<!-- container rows -->
-
-<g>
-
-<rect
-x="125"
-y="61"
-width="42"
-height="34"
-fill="#145e79"/>
-
-<rect
-x="169"
-y="61"
-width="42"
-height="34"
-fill="#963b42"/>
-
-<rect
-x="213"
-y="61"
-width="42"
-height="34"
-fill="#9b7932"/>
-
-<rect
-x="257"
-y="61"
-width="42"
-height="34"
-fill="#1b718d"/>
-
-<rect
-x="301"
-y="61"
-width="42"
-height="34"
-fill="#78383d"/>
-
-<rect
-x="345"
-y="61"
-width="42"
-height="34"
-fill="#17617c"/>
-
-
-<rect
-x="147"
-y="28"
-width="42"
-height="31"
-fill="#1b718d"/>
-
-<rect
-x="191"
-y="28"
-width="42"
-height="31"
-fill="#9b7932"/>
-
-<rect
-x="235"
-y="28"
-width="42"
-height="31"
-fill="#963b42"/>
-
-<rect
-x="279"
-y="28"
-width="42"
-height="31"
-fill="#17617c"/>
-
-<rect
-x="323"
-y="28"
-width="42"
-height="31"
-fill="#7c3940"/>
-
-</g>
-
-
-<!-- container highlights -->
-
-<g
-stroke="rgba(255,255,255,.18)"
-stroke-width="1">
-
-<line x1="147" y1="28" x2="147" y2="59"/>
-<line x1="191" y1="28" x2="191" y2="59"/>
-<line x1="235" y1="28" x2="235" y2="59"/>
-<line x1="279" y1="28" x2="279" y2="59"/>
-<line x1="323" y1="28" x2="323" y2="59"/>
-
-</g>
-
-
-<!-- bridge -->
-
-<path
-d="
-M388 50
-L443 50
-L443 117
-L388 117
-Z"
-fill="#d9e4e7"/>
-
-
-<!-- bridge shadow -->
-
-<rect
-x="388"
-y="87"
-width="55"
-height="30"
-fill="#9db0b8"/>
-
-
-<!-- windows -->
-
-<g
-fill="#15384a">
-
-<rect
-x="394"
-y="58"
-width="10"
-height="8"/>
-
-<rect
-x="407"
-y="58"
-width="10"
-height="8"/>
-
-<rect
-x="420"
-y="58"
-width="10"
-height="8"/>
-
-</g>
-
-
-<!-- mast -->
-
-<line
-x1="431"
-y1="50"
-x2="431"
-y2="17"
-stroke="#b8d9e0"
-stroke-width="2"/>
-
-
-<!-- navigation mast -->
-
-<circle
-cx="431"
-cy="15"
-r="3"
-fill="#65e8ff"/>
-
-
-<!-- chimney -->
-
-<rect
-x="374"
-y="39"
-width="19"
-height="49"
-fill="#172c37"/>
-
-<rect
-x="371"
-y="36"
-width="25"
-height="7"
-rx="2"
-fill="#1b3947"/>
-
-<rect
-x="374"
-y="42"
-width="19"
-height="5"
-fill="#b0444b"/>
-
-
-<!-- bow light -->
-
-<circle
-cx="455"
-cy="115"
-r="3"
-fill="#8df1ff"/>
-
-
-</svg>
-
+<div
+class="ocean">
+
+<div
+class="ocean-glow">
 </div>
 
-
-<!-- waves -->
-
-<div class="wave-line"></div>
-<div class="wave-line"></div>
-<div class="wave-line"></div>
-<div class="wave-line"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
 
 </div>
 
@@ -3367,11 +2446,13 @@ fill="#8df1ff"/>
      SCROLL
 ===================================================== -->
 
-<div class="scroll-indicator">
+<div class="scroll">
 
 SCROLL
 
-<div class="scroll-bar"></div>
+<div
+class="scroll-line">
+</div>
 
 </div>
 
@@ -3388,6 +2469,7 @@ SCROLL
 class="section"
 id="materials">
 
+
 <div class="section-head">
 
 <div class="section-mini">
@@ -3400,9 +2482,10 @@ Real Opportunities.
 </h2>
 
 <p>
-We source surplus and excess inventory
-from international suppliers and connect
-it with markets worldwide.
+We source surplus, excess and
+clearance inventory from international
+suppliers and connect it with buyers
+and markets worldwide.
 </p>
 
 </div>
@@ -3413,7 +2496,7 @@ it with markets worldwide.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🧵
 </div>
 
@@ -3432,7 +2515,7 @@ fabric rolls and stock lots.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 📦
 </div>
 
@@ -3451,7 +2534,7 @@ factory surplus and excess inventory.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🏭
 </div>
 
@@ -3470,7 +2553,7 @@ rejected lots and surplus materials.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🚗
 </div>
 
@@ -3489,7 +2572,7 @@ special vehicle orders.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🚜
 </div>
 
@@ -3508,7 +2591,7 @@ machinery.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🌍
 </div>
 
@@ -3539,6 +2622,7 @@ global supplier networks.
 class="section"
 id="vehicles">
 
+
 <div class="section-head">
 
 <div class="section-mini">
@@ -3563,7 +2647,7 @@ vehicles and machinery.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🚘
 </div>
 
@@ -3581,7 +2665,7 @@ selected international vehicles.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🚚
 </div>
 
@@ -3590,8 +2674,8 @@ Commercial Trucks
 </h3>
 
 <p>
-Trucks, heavy vehicles
-and special-purpose vehicles.
+Trucks, heavy vehicles and
+special-purpose vehicles.
 </p>
 
 </div>
@@ -3599,7 +2683,7 @@ and special-purpose vehicles.
 
 <div class="card">
 
-<div class="card-icon">
+<div class="icon">
 🏗️
 </div>
 
@@ -3629,6 +2713,7 @@ loaders and construction equipment.
 class="section"
 id="process">
 
+
 <div class="section-head">
 
 <div class="section-mini">
@@ -3640,7 +2725,7 @@ A Simple Global Process
 </h2>
 
 <p>
-From initial requirement to international shipment.
+From requirement to international shipment.
 </p>
 
 </div>
@@ -3649,9 +2734,9 @@ From initial requirement to international shipment.
 <div class="process">
 
 
-<div class="process-item">
+<div class="step">
 
-<div class="number">
+<div class="step-number">
 01
 </div>
 
@@ -3667,9 +2752,9 @@ material, vehicle or stock lot.
 </div>
 
 
-<div class="process-item">
+<div class="step">
 
-<div class="number">
+<div class="step-number">
 02
 </div>
 
@@ -3685,9 +2770,9 @@ for suitable stock.
 </div>
 
 
-<div class="process-item">
+<div class="step">
 
-<div class="number">
+<div class="step-number">
 03
 </div>
 
@@ -3696,17 +2781,16 @@ Inspect
 </h3>
 
 <p>
-Photos, videos,
-specifications and product details
-are reviewed.
+Photos, videos, specifications
+and product details are reviewed.
 </p>
 
 </div>
 
 
-<div class="process-item">
+<div class="step">
 
-<div class="number">
+<div class="step-number">
 04
 </div>
 
@@ -3735,6 +2819,7 @@ for international transportation.
 <section
 class="section">
 
+
 <div class="cta">
 
 <h2>
@@ -3745,6 +2830,7 @@ Have Excess Stock?
 Send us your stock details,
 photos, videos or product list.
 </p>
+
 
 <a
 href="https://wa.me/94777426436"
@@ -3757,6 +2843,7 @@ Contact GlobalStock
 
 </div>
 
+
 </section>
 
 
@@ -3768,6 +2855,7 @@ Contact GlobalStock
 <section
 class="section"
 id="contact">
+
 
 <div class="section-head">
 
@@ -3843,10 +2931,6 @@ All Rights Reserved.
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
 /* =========================================================
@@ -3859,18 +2943,18 @@ document.getElementById("menu");
 const navLinks =
 document.getElementById("navLinks");
 
-
 if(menu){
 
-menu.addEventListener(
-"click",
-function(){
+    menu.addEventListener(
+        "click",
+        () => {
 
-navLinks.classList.toggle(
-"open"
-);
+            navLinks.classList.toggle(
+                "open"
+            );
 
-});
+        }
+    );
 
 }
 
@@ -3881,152 +2965,125 @@ navLinks.classList.toggle(
 
 document
 .querySelectorAll(
-".nav-links a"
+    ".nav-links a"
 )
 .forEach(
-link => {
+    link => {
 
-link.addEventListener(
-"click",
-function(){
+        link.addEventListener(
+            "click",
+            () => {
 
-navLinks.classList.remove(
-"open"
+                navLinks.classList.remove(
+                    "open"
+                );
+
+            }
+        );
+
+    }
 );
-
-});
-
-});
 
 
 /* =========================================================
-   MOUSE PARALLAX
+   VERY LIGHT DESKTOP PARALLAX
 ========================================================= */
 
 const hero =
 document.querySelector(".hero");
 
 const world =
-document.querySelector(".world-map");
-
+document.querySelector(".world-photo");
 
 if(
-hero &&
-world &&
-window.matchMedia(
-"(pointer:fine)"
-).matches
+    hero &&
+    world &&
+    window.matchMedia(
+        "(pointer:fine)"
+    ).matches
 ){
 
-hero.addEventListener(
-"mousemove",
-function(e){
+    hero.addEventListener(
+        "mousemove",
+        e => {
 
-const rect =
-hero.getBoundingClientRect();
+            const rect =
+                hero.getBoundingClientRect();
 
-const x =
-(e.clientX - rect.left)
-/
-rect.width
--
-.5;
+            const x =
+                (e.clientX - rect.left)
+                /
+                rect.width
+                -
+                .5;
 
-const y =
-(e.clientY - rect.top)
-/
-rect.height
--
-.5;
+            const y =
+                (e.clientY - rect.top)
+                /
+                rect.height
+                -
+                .5;
 
-world.style.transform =
-`
-translate(
-${x * 8}px,
-${y * 4}px
-)
-scale(1.04)
-`;
+            world.style.marginLeft =
+                `${x * 10}px`;
 
-});
+            world.style.marginTop =
+                `${y * 5}px`;
 
-hero.addEventListener(
-"mouseleave",
-function(){
+        }
+    );
 
-world.style.transform =
-"translate(0,0) scale(1.03)";
+    hero.addEventListener(
+        "mouseleave",
+        () => {
 
-});
+            world.style.marginLeft =
+                "0";
+
+            world.style.marginTop =
+                "0";
+
+        }
+    );
 
 }
 
 
 /* =========================================================
-   SMOOTH LINKS
+   SMOOTH ANCHORS
 ========================================================= */
 
 document
 .querySelectorAll(
-'a[href^="#"]'
+    'a[href^="#"]'
 )
 .forEach(
-anchor => {
+    anchor => {
 
-anchor.addEventListener(
-"click",
-function(e){
+        anchor.addEventListener(
+            "click",
+            function(e){
 
-const target =
-document.querySelector(
-this.getAttribute("href")
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+                if(!target)
+                    return;
+
+                e.preventDefault();
+
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            }
+        );
+
+    }
 );
-
-if(!target)
-return;
-
-e.preventDefault();
-
-target.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-});
-
-});
-
-
-/* =========================================================
-   PAUSE NON-ESSENTIAL ANIMATION
-========================================================= */
-
-document.addEventListener(
-"visibilitychange",
-function(){
-
-const hero =
-document.querySelector(".hero");
-
-if(!hero)
-return;
-
-if(document.hidden){
-
-hero.classList.add(
-"tab-hidden"
-);
-
-}else{
-
-hero.classList.remove(
-"tab-hidden"
-);
-
-}
-
-});
-
 
 </script>
 
