@@ -6,29 +6,23 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name="theme-color" content="#02080d">
 
 <title>GlobalStock International</title>
 
-<meta
-name="description"
-content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide."
->
+<meta name="description"
+content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin
->
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-rel="stylesheet"
->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
 
 
 <style>
@@ -81,7 +75,7 @@ header{
     z-index:1000;
 
     background:
-        rgba(1,7,12,.80);
+        rgba(1,7,12,.82);
 
     border-bottom:
         1px solid rgba(255,255,255,.07);
@@ -110,6 +104,7 @@ header{
 .logo img{
     width:50px;
     height:50px;
+
     object-fit:contain;
 }
 
@@ -117,7 +112,6 @@ header{
     font-size:16px;
     font-weight:800;
     letter-spacing:.5px;
-    white-space:nowrap;
 }
 
 .logo-sub{
@@ -193,8 +187,8 @@ header{
     position:relative;
 
     width:100%;
-
     height:850px;
+
     min-height:100svh;
 
     overflow:hidden;
@@ -204,59 +198,61 @@ header{
 
 
 /* =========================================================
-   YOUR 3D WORLD MAP
+   WORLD MAP IMAGE
+
+   IMPORTANT:
+   Exact aspect mapping.
+   Do NOT use cover.
 ========================================================= */
 
-.world-background{
+.world-map{
     position:absolute;
+
     inset:0;
+
+    width:100%;
+    height:100%;
 
     z-index:1;
 
-    background-image:
-        linear-gradient(
-            180deg,
-            rgba(0,6,11,.08),
-            rgba(0,6,11,.04) 42%,
-            rgba(0,5,9,.50) 100%
-        ),
+    object-fit:fill;
 
-        url("./world-map-bg.png");
+    display:block;
 
-    background-repeat:no-repeat;
+    transform:scale(1.015);
 
-    background-size:cover;
-
-    background-position:center center;
-
-    transform:scale(1.025);
+    filter:
+        saturate(.98)
+        contrast(1.02)
+        brightness(.88);
 
     animation:
-        mapZoom
+        mapMove
         18s
         ease-in-out
         infinite
         alternate;
 }
 
-@keyframes mapZoom{
+@keyframes mapMove{
 
     from{
-        transform:scale(1.025);
+        transform:scale(1.015);
     }
 
     to{
-        transform:scale(1.055);
+        transform:scale(1.035);
     }
 }
 
 
 /* =========================================================
-   CINEMATIC OVERLAY
+   DARK CINEMATIC OVERLAY
 ========================================================= */
 
 .hero-overlay{
     position:absolute;
+
     inset:0;
 
     z-index:2;
@@ -274,8 +270,8 @@ header{
 
         linear-gradient(
             90deg,
-            rgba(0,5,9,.78) 0%,
-            rgba(0,7,12,.27) 40%,
+            rgba(0,5,9,.76) 0%,
+            rgba(0,7,12,.27) 42%,
             rgba(0,7,12,.06) 70%,
             rgba(0,5,9,.42) 100%
         );
@@ -288,24 +284,25 @@ header{
 
 .hero-grid{
     position:absolute;
+
     inset:0;
 
     z-index:3;
 
     pointer-events:none;
 
-    opacity:.07;
+    opacity:.075;
 
     background-image:
 
         linear-gradient(
-            rgba(105,220,238,.4) 1px,
+            rgba(105,220,238,.35) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(105,220,238,.4) 1px,
+            rgba(105,220,238,.35) 1px,
             transparent 1px
         );
 
@@ -317,8 +314,8 @@ header{
         linear-gradient(
             to bottom,
             transparent,
-            black 20%,
-            black 80%,
+            black 18%,
+            black 82%,
             transparent
         );
 }
@@ -326,10 +323,13 @@ header{
 
 /* =========================================================
    ROUTE SVG
+
+   SAME 1672 x 941 COORDINATE SYSTEM
 ========================================================= */
 
 .routes{
     position:absolute;
+
     inset:0;
 
     width:100%;
@@ -344,24 +344,24 @@ header{
 
 
 /* =========================================================
-   GLOBAL ROUTE
+   ROUTES
 ========================================================= */
 
 .route{
 
     fill:none;
 
-    stroke:#35f6e0;
+    stroke:#36f6e1;
 
-    stroke-width:2;
+    stroke-width:2.2;
 
     stroke-linecap:round;
 
-    opacity:.68;
+    opacity:.70;
 
-    stroke-dasharray:1100;
+    stroke-dasharray:1300;
 
-    stroke-dashoffset:1100;
+    stroke-dashoffset:1300;
 
     filter:
         drop-shadow(
@@ -374,12 +374,13 @@ header{
         );
 
     animation:
+
         routeDraw
         3.5s
         cubic-bezier(.2,.8,.2,1)
         forwards,
 
-        routeBreath
+        routeGlow
         3s
         ease-in-out
         3.5s
@@ -394,27 +395,27 @@ header{
     }
 }
 
-@keyframes routeBreath{
+@keyframes routeGlow{
 
     from{
-        opacity:.28;
+        opacity:.30;
     }
 
     to{
-        opacity:.82;
+        opacity:.88;
     }
 }
 
 
 /* =========================================================
-   MOVING LIGHT
+   MOVING POINTS
 ========================================================= */
 
 .moving-glow{
 
     fill:#32ffe1;
 
-    opacity:.30;
+    opacity:.35;
 
     filter:
         blur(2px);
@@ -424,24 +425,132 @@ header{
 
     fill:#fff;
 
-    stroke:#54ffec;
+    stroke:#55ffeb;
 
     stroke-width:2;
 
     filter:
+
         drop-shadow(
             0 0 4px #fff
         )
+
         drop-shadow(
             0 0 10px #32ffe1
         )
+
         drop-shadow(
             0 0 20px #32ffe1
         )
+
         drop-shadow(
-            0 0 34px
-            rgba(50,255,225,.8)
+            0 0 35px
+            rgba(50,255,225,.9)
         );
+}
+
+
+/* =========================================================
+   SRI LANKA HUB
+
+   Exact visual reference:
+   approximately x=1058 y=416
+========================================================= */
+
+.sri-lanka-hub{
+    position:absolute;
+
+    left:
+        calc(100% * 1058 / 1672);
+
+    top:
+        calc(100% * 416 / 941);
+
+    width:42px;
+    height:42px;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index:15;
+
+    pointer-events:none;
+}
+
+.hub-ring{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:17px;
+    height:17px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border:
+        2px solid #4effe9;
+
+    border-radius:50%;
+
+    box-shadow:
+
+        0 0 7px #4effe9,
+        0 0 18px #4effe9,
+        0 0 35px rgba(78,255,233,.7);
+
+    animation:
+        hubPulse
+        2.2s
+        ease-out
+        infinite;
+}
+
+.hub-core{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:6px;
+    height:6px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+
+        0 0 5px #fff,
+        0 0 12px #3ffff0,
+        0 0 25px #3ffff0;
+}
+
+@keyframes hubPulse{
+
+    0%{
+        width:15px;
+        height:15px;
+        opacity:1;
+    }
+
+    70%{
+        width:39px;
+        height:39px;
+        opacity:.15;
+    }
+
+    100%{
+        width:44px;
+        height:44px;
+        opacity:0;
+    }
 }
 
 
@@ -450,9 +559,10 @@ header{
 ========================================================= */
 
 .hero-content{
+
     position:relative;
 
-    z-index:20;
+    z-index:30;
 
     width:min(1200px,92%);
 
@@ -468,7 +578,7 @@ header{
 }
 
 .hero-text{
-    width:min(650px,100%);
+    width:min(660px,100%);
 }
 
 
@@ -522,7 +632,7 @@ header{
 
 
 /* =========================================================
-   MAIN TITLE
+   TITLE
 ========================================================= */
 
 .hero h1{
@@ -544,18 +654,18 @@ header{
 
     text-shadow:
         0 15px 55px
-        rgba(0,0,0,.72);
+        rgba(0,0,0,.75);
 }
 
 .hero h1 span{
     display:block;
 }
 
-.hero h1 .white{
+.white{
     color:#fff;
 }
 
-.hero h1 .cyan{
+.cyan{
 
     color:#82fff1;
 
@@ -636,7 +746,8 @@ header{
 
 .btn-main:hover{
 
-    transform:translateY(-2px);
+    transform:
+        translateY(-2px);
 
     box-shadow:
         0 12px 40px
@@ -1088,6 +1199,7 @@ footer{
     }
 
     .cards{
+
         grid-template-columns:
             repeat(2,1fr);
     }
@@ -1107,12 +1219,18 @@ footer{
         min-height:720px;
     }
 
-    .world-background{
+    /*
+       IMPORTANT:
+       Image and SVG both fill exactly the same box.
+       This keeps Sri Lanka coordinate aligned.
+    */
 
-        background-size:cover;
+    .world-map{
 
-        background-position:
-            59% center;
+        object-fit:fill;
+
+        transform:scale(1.015);
+
     }
 
     .hero-overlay{
@@ -1376,15 +1494,26 @@ id="home"
 >
 
 
-<div
-class="world-background"
-></div>
+<!-- =====================================================
+     YOUR EXACT MAP IMAGE
+===================================================== -->
 
+<img
+class="world-map"
+src="./world-map-bg.png"
+alt=""
+draggable="false"
+>
+
+
+<!-- DARK OVERLAY -->
 
 <div
 class="hero-overlay"
 ></div>
 
+
+<!-- GRID -->
 
 <div
 class="hero-grid"
@@ -1393,176 +1522,174 @@ class="hero-grid"
 
 
 <!-- =====================================================
-     ANIMATED ROUTES
+     ROUTES
+     
+     SVG COORDINATE SYSTEM:
+     1672 × 941
 
-     NO COUNTRY LABELS
-     NO LOCATION PINS
-     NO FIXED DESTINATION
+     SRI LANKA:
+     X = 1058
+     Y = 416
 ===================================================== -->
 
 <svg
 class="routes"
-id="routeSvg"
-viewBox="0 0 1600 850"
+viewBox="0 0 1672 941"
 preserveAspectRatio="none"
 aria-hidden="true"
 >
 
 
-<!-- ===================================================
-     NORTH AMERICA → ATLANTIC → INDIAN OCEAN
-=================================================== -->
+<!-- NORTH AMERICA → SRI LANKA -->
 
 <path
 class="route"
 id="route1"
 d="
-M170 265
-C300 125,
-480 135,
-650 205
-C820 275,
-930 335,
-1065 455
-"
-></path>
+M150 215
+C310 75,
+500 100,
+680 195
+C830 275,
+940 335,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     EUROPE → MIDDLE EAST → INDIAN OCEAN
-=================================================== -->
+<!-- EUROPE → SRI LANKA -->
 
 <path
 class="route"
 id="route2"
 d="
-M650 215
-C760 225,
-820 275,
-895 325
-C970 375,
-1025 415,
-1080 465
-"
-></path>
+M650 205
+C760 205,
+850 255,
+915 310
+C970 355,
+1020 390,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     MIDDLE EAST → INDIAN OCEAN
-=================================================== -->
+<!-- MIDDLE EAST → SRI LANKA -->
 
 <path
 class="route"
 id="route3"
 d="
-M875 315
-C940 350,
-1010 400,
-1080 465
-"
-></path>
+M870 305
+C930 330,
+1000 375,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     INDIA → INDIAN OCEAN
-=================================================== -->
+<!-- INDIA → SRI LANKA -->
 
 <path
 class="route"
 id="route4"
 d="
-M1060 365
-C1080 395,
-1090 430,
-1090 470
-"
-></path>
+M1030 335
+C1040 365,
+1050 395,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     CHINA → INDIAN OCEAN
-=================================================== -->
+<!-- CHINA → SRI LANKA -->
 
 <path
 class="route"
 id="route5"
 d="
-M1190 270
-C1175 330,
-1140 390,
-1095 465
-"
-></path>
+M1170 265
+C1140 320,
+1100 365,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     JAPAN → INDIAN OCEAN
-=================================================== -->
+<!-- JAPAN / EAST ASIA → SRI LANKA -->
 
 <path
 class="route"
 id="route6"
 d="
-M1350 300
-C1290 350,
-1200 405,
-1110 470
-"
-></path>
+M1360 275
+C1270 315,
+1170 370,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     AUSTRALIA → INDIAN OCEAN
-=================================================== -->
+<!-- AUSTRALIA → SRI LANKA -->
 
 <path
 class="route"
 id="route7"
 d="
-M1370 620
-C1280 570,
-1190 520,
-1110 475
-"
-></path>
+M1360 610
+C1260 560,
+1160 490,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     AFRICA → INDIAN OCEAN
-=================================================== -->
+<!-- AFRICA → SRI LANKA -->
 
 <path
 class="route"
 id="route8"
 d="
-M700 485
-C820 475,
-940 465,
-1080 470
-"
-></path>
+M710 490
+C820 465,
+940 440,
+1058 416
+">
+</path>
 
 
-<!-- ===================================================
-     SOUTHEAST ASIA → INDIAN OCEAN
-=================================================== -->
+<!-- SOUTH AMERICA → SRI LANKA -->
 
 <path
 class="route"
 id="route9"
 d="
-M1260 430
-C1210 445,
-1160 465,
-1110 475
-"
-></path>
+M315 500
+C530 490,
+760 455,
+1058 416
+">
+</path>
+
+
+<!-- SOUTHEAST ASIA → SRI LANKA -->
+
+<path
+class="route"
+id="route10"
+d="
+M1260 420
+C1190 415,
+1120 415,
+1058 416
+">
+</path>
 
 
 
-<!-- ===================================================
-     MOVING GLOW POINTS
-=================================================== -->
+<!-- =====================================================
+     MOVING POINTS
+===================================================== -->
 
 <circle
 class="moving-glow"
@@ -1681,12 +1808,45 @@ r="4.5">
 </circle>
 
 
+<circle
+class="moving-glow"
+id="glow10"
+r="10">
+</circle>
+
+<circle
+class="moving-point"
+id="point10"
+r="4.5">
+</circle>
+
 </svg>
 
 
 
 <!-- =====================================================
-     HERO TEXT
+     SRI LANKA HUB
+===================================================== -->
+
+<div
+class="sri-lanka-hub"
+aria-hidden="true"
+>
+
+<div
+class="hub-ring">
+</div>
+
+<div
+class="hub-core">
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO CONTENT
 ===================================================== -->
 
 <div
@@ -2234,7 +2394,7 @@ document
 
 
 /* =========================================================
-   GLOBAL ROUTE ANIMATION
+   ROUTE DATA
 ========================================================= */
 
 const routeSettings = [
@@ -2252,14 +2412,14 @@ const routeSettings = [
         point:"point2",
         glow:"glow2",
         duration:4800,
-        delay:900
+        delay:800
     },
 
     {
         path:"route3",
         point:"point3",
         glow:"glow3",
-        duration:3600,
+        duration:3900,
         delay:1500
     },
 
@@ -2267,7 +2427,7 @@ const routeSettings = [
         path:"route4",
         point:"point4",
         glow:"glow4",
-        duration:3200,
+        duration:3000,
         delay:600
     },
 
@@ -2276,22 +2436,22 @@ const routeSettings = [
         point:"point5",
         glow:"glow5",
         duration:4700,
-        delay:1200
+        delay:1100
     },
 
     {
         path:"route6",
         point:"point6",
         glow:"glow6",
-        duration:5100,
-        delay:1900
+        duration:5200,
+        delay:1800
     },
 
     {
         path:"route7",
         point:"point7",
         glow:"glow7",
-        duration:4500,
+        duration:4700,
         delay:700
     },
 
@@ -2299,7 +2459,7 @@ const routeSettings = [
         path:"route8",
         point:"point8",
         glow:"glow8",
-        duration:4000,
+        duration:4100,
         delay:2200
     },
 
@@ -2307,8 +2467,16 @@ const routeSettings = [
         path:"route9",
         point:"point9",
         glow:"glow9",
-        duration:3800,
-        delay:1600
+        duration:6200,
+        delay:1300
+    },
+
+    {
+        path:"route10",
+        point:"point10",
+        glow:"glow10",
+        duration:3500,
+        delay:2500
     }
 
 ];
@@ -2320,23 +2488,25 @@ routeSettings.map(function(item){
     return {
 
         path:
-            document.getElementById(
-                item.path
-            ),
+        document.getElementById(
+            item.path
+        ),
 
         point:
-            document.getElementById(
-                item.point
-            ),
+        document.getElementById(
+            item.point
+        ),
 
         glow:
-            document.getElementById(
-                item.glow
-            ),
+        document.getElementById(
+            item.glow
+        ),
 
-        duration:item.duration,
+        duration:
+        item.duration,
 
-        delay:item.delay,
+        delay:
+        item.delay,
 
         start:0
 
@@ -2352,18 +2522,19 @@ routeSettings.map(function(item){
 function initializeRoutes(){
 
     const now =
-        performance.now();
+    performance.now();
 
-    routes.forEach(function(route){
+    routes.forEach(
+    function(route){
 
         route.start =
-            now + route.delay;
+        now + route.delay;
 
         route.point.style.opacity =
-            "0";
+        "0";
 
         route.glow.style.opacity =
-            "0";
+        "0";
 
     });
 
@@ -2371,65 +2542,79 @@ function initializeRoutes(){
 
 
 /* =========================================================
-   SMOOTH EASING
+   SMOOTH MOVEMENT
 ========================================================= */
 
 function easeInOut(t){
 
     return t < .5
 
-        ? 2 * t * t
+        ?
 
-        : 1 -
-          Math.pow(
-              -2 * t + 2,
-              2
-          ) / 2;
+        2 * t * t
+
+        :
+
+        1 -
+        Math.pow(
+            -2 * t + 2,
+            2
+        ) / 2;
 }
 
 
 /* =========================================================
-   ANIMATE
+   ANIMATE POINTS
 ========================================================= */
 
 function animateRoutes(time){
 
-    routes.forEach(function(route){
+    routes.forEach(
+    function(route){
 
-        if(!route.path){
+        if(
+            !route.path ||
+            !route.point ||
+            !route.glow
+        ){
             return;
         }
 
-        if(time < route.start){
+
+        if(
+            time <
+            route.start
+        ){
             return;
         }
 
 
         const elapsed =
-            time - route.start;
+        time -
+        route.start;
 
 
         const rawProgress =
-            (elapsed %
-            route.duration)
-            /
-            route.duration;
+        (elapsed %
+        route.duration)
+        /
+        route.duration;
 
 
         const progress =
-            easeInOut(
-                rawProgress
-            );
+        easeInOut(
+            rawProgress
+        );
 
 
         const length =
-            route.path.getTotalLength();
+        route.path.getTotalLength();
 
 
         const position =
-            route.path.getPointAtLength(
-                progress * length
-            );
+        route.path.getPointAtLength(
+            progress * length
+        );
 
 
         route.point.setAttribute(
@@ -2457,27 +2642,31 @@ function animateRoutes(time){
         let opacity = 1;
 
 
-        if(rawProgress < .05){
+        if(
+            rawProgress < .045
+        ){
 
             opacity =
-                rawProgress / .05;
+            rawProgress / .045;
 
         }
 
 
-        if(rawProgress > .94){
+        if(
+            rawProgress > .95
+        ){
 
             opacity =
-                (1 - rawProgress) / .06;
+            (1 - rawProgress) / .05;
 
         }
 
 
         route.point.style.opacity =
-            opacity;
+        opacity;
 
         route.glow.style.opacity =
-            opacity * .34;
+        opacity * .34;
 
     });
 
@@ -2490,10 +2679,10 @@ function animateRoutes(time){
 
 
 /* =========================================================
-   START ROUTES
+   START
 ========================================================= */
 
-function startRoutes(){
+function startAnimation(){
 
     initializeRoutes();
 
@@ -2511,87 +2700,35 @@ if(
 
     document.addEventListener(
         "DOMContentLoaded",
-        startRoutes
+        startAnimation
     );
 
 }else{
 
-    startRoutes();
+    startAnimation();
 
 }
 
 
 /* =========================================================
-   PAGE VISIBILITY
+   RESTART AFTER TAB RETURNS
 ========================================================= */
 
 document.addEventListener(
-    "visibilitychange",
-    function(){
+"visibilitychange",
+function(){
 
-        if(
-            document.visibilityState ===
-            "visible"
-        ){
+    if(
+        document.visibilityState ===
+        "visible"
+    ){
 
-            initializeRoutes();
-
-        }
+        initializeRoutes();
 
     }
-);
 
+});
 
-/* =========================================================
-   MAP PARALLAX
-========================================================= */
-
-const world =
-document.querySelector(
-    ".world-background"
-);
-
-let scrollTicking=false;
-
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        if(scrollTicking){
-            return;
-        }
-
-        scrollTicking=true;
-
-
-        requestAnimationFrame(
-            function(){
-
-                const y =
-                    window.scrollY || 0;
-
-
-                if(y < 900){
-
-                    world.style.transform =
-                        "scale(1.025) translateY(" +
-                        (y * .018) +
-                        "px)";
-
-                }
-
-
-                scrollTicking=false;
-
-            }
-        );
-
-    },
-    {
-        passive:true
-    }
-);
 
 </script>
 
