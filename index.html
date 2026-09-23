@@ -24,7 +24,6 @@ content="GlobalStock International buys stock lots, surplus, overstock, clearanc
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet">
 
-
 <style>
 
 /* =========================================================
@@ -68,17 +67,13 @@ header{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
     height:76px;
-
     z-index:1000;
 
-    background:
-        rgba(1,7,12,.82);
+    background:rgba(1,7,12,.82);
 
-    border-bottom:
-        1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
 
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
@@ -87,7 +82,6 @@ header{
 .nav{
     width:min(1200px,92%);
     height:100%;
-
     margin:auto;
 
     display:flex;
@@ -104,7 +98,6 @@ header{
 .logo img{
     width:50px;
     height:50px;
-
     object-fit:contain;
 }
 
@@ -116,14 +109,10 @@ header{
 
 .logo-sub{
     display:block;
-
     margin-top:2px;
-
     font-size:8px;
     letter-spacing:2.8px;
-
-    color:
-        rgba(255,255,255,.48);
+    color:rgba(255,255,255,.48);
 }
 
 .nav-links{
@@ -135,10 +124,7 @@ header{
 .nav-links a{
     font-size:12px;
     font-weight:600;
-
-    color:
-        rgba(255,255,255,.72);
-
+    color:rgba(255,255,255,.72);
     transition:.3s;
 }
 
@@ -147,13 +133,9 @@ header{
 }
 
 .nav-contact{
-    padding:
-        11px 19px;
-
+    padding:11px 19px;
     border-radius:100px;
-
     background:#fff;
-
     color:#031018 !important;
 }
 
@@ -165,11 +147,9 @@ header{
 
     border-radius:11px;
 
-    border:
-        1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.12);
 
-    background:
-        rgba(255,255,255,.05);
+    background:rgba(255,255,255,.05);
 
     color:#fff;
 
@@ -187,8 +167,8 @@ header{
     position:relative;
 
     width:100%;
-    height:850px;
 
+    height:850px;
     min-height:100svh;
 
     overflow:hidden;
@@ -198,11 +178,8 @@ header{
 
 
 /* =========================================================
-   WORLD MAP IMAGE
-
-   IMPORTANT:
-   Exact aspect mapping.
-   Do NOT use cover.
+   WORLD MAP
+   SAME IMAGE ON DESKTOP + MOBILE
 ========================================================= */
 
 .world-map{
@@ -215,11 +192,26 @@ header{
 
     z-index:1;
 
-    object-fit:fill;
-
     display:block;
 
+    /*
+       IMPORTANT
+
+       Do NOT use cover.
+       The SVG routes use the exact same
+       1672 x 941 coordinate system.
+
+       Therefore the map must fill exactly
+       the same box as the SVG.
+    */
+
+    object-fit:fill;
+
+    object-position:center center;
+
     transform:scale(1.015);
+
+    transform-origin:center center;
 
     filter:
         saturate(.98)
@@ -322,9 +314,7 @@ header{
 
 
 /* =========================================================
-   ROUTE SVG
-
-   SAME 1672 x 941 COORDINATE SYSTEM
+   ROUTES
 ========================================================= */
 
 .routes{
@@ -340,11 +330,19 @@ header{
     pointer-events:none;
 
     overflow:visible;
+
+    /*
+       IMPORTANT:
+       SVG and world map use exactly
+       the same 100% x 100% area.
+    */
+
+    display:block;
 }
 
 
 /* =========================================================
-   ROUTES
+   ROUTE LINES
 ========================================================= */
 
 .route{
@@ -417,8 +415,7 @@ header{
 
     opacity:.35;
 
-    filter:
-        blur(2px);
+    filter:blur(2px);
 }
 
 .moving-point{
@@ -452,9 +449,8 @@ header{
 
 /* =========================================================
    SRI LANKA HUB
-
-   Exact visual reference:
-   approximately x=1058 y=416
+   X = 1058
+   Y = 416
 ========================================================= */
 
 .sri-lanka-hub{
@@ -594,8 +590,7 @@ header{
 
     gap:9px;
 
-    padding:
-        9px 15px;
+    padding:9px 15px;
 
     border:
         1px solid
@@ -715,8 +710,7 @@ header{
 
     min-height:48px;
 
-    padding:
-        0 22px;
+    padding:0 22px;
 
     display:inline-flex;
 
@@ -845,13 +839,12 @@ header{
 
 
 /* =========================================================
-   SECTIONS
+   CONTENT SECTIONS
 ========================================================= */
 
 .content-section{
 
-    padding:
-        105px 0;
+    padding:105px 0;
 
     background:#030b11;
 }
@@ -986,8 +979,7 @@ header{
 
 .cta{
 
-    padding:
-        110px 0;
+    padding:110px 0;
 
     background:
 
@@ -1004,8 +996,7 @@ header{
 
     text-align:center;
 
-    padding:
-        70px 25px;
+    padding:70px 25px;
 
     border:
         1px solid
@@ -1068,8 +1059,7 @@ header{
 
 footer{
 
-    padding:
-        32px 0;
+    padding:32px 0;
 
     background:#02070b;
 
@@ -1138,8 +1128,7 @@ footer{
 
         width:100%;
 
-        padding:
-            15px 5% 22px;
+        padding:15px 5% 22px;
 
         flex-direction:column;
 
@@ -1219,19 +1208,64 @@ footer{
         min-height:720px;
     }
 
+
     /*
        IMPORTANT:
-       Image and SVG both fill exactly the same box.
-       This keeps Sri Lanka coordinate aligned.
+
+       SAME IMAGE AS DESKTOP.
+       NO MOBILE IMAGE.
+       NO COVER.
+       SAME 100% x 100% BOX.
     */
 
     .world-map{
 
+        position:absolute;
+
+        inset:0;
+
+        width:100%;
+        height:100%;
+
         object-fit:fill;
+
+        object-position:center center;
 
         transform:scale(1.015);
 
+        transform-origin:center center;
+
+        filter:
+            saturate(.98)
+            contrast(1.02)
+            brightness(.88);
+
+        display:block;
     }
+
+
+    /*
+       Keep SVG exactly aligned
+       with the map.
+    */
+
+    .routes{
+
+        position:absolute;
+
+        inset:0;
+
+        width:100%;
+        height:100%;
+
+        display:block;
+    }
+
+
+    /*
+       Mobile overlay only changes darkness.
+       It does NOT change the background image.
+    */
 
     .hero-overlay{
 
@@ -1251,6 +1285,7 @@ footer{
             );
     }
 
+
     .hero-grid{
 
         background-size:
@@ -1258,12 +1293,14 @@ footer{
             74px 74px;
     }
 
+
     .hero-content{
 
         width:90%;
 
         padding-top:25px;
     }
+
 
     .eyebrow{
 
@@ -1274,6 +1311,7 @@ footer{
         padding:
             8px 12px;
     }
+
 
     .hero h1{
 
@@ -1291,6 +1329,7 @@ footer{
         letter-spacing:-2.3px;
     }
 
+
     .hero-description{
 
         margin-top:19px;
@@ -1300,9 +1339,11 @@ footer{
         line-height:1.7;
     }
 
+
     .buttons{
         margin-top:24px;
     }
+
 
     .btn{
 
@@ -1314,12 +1355,14 @@ footer{
         font-size:10px;
     }
 
+
     .hero-bottom{
 
         width:90%;
 
         bottom:18px;
     }
+
 
     .route-status{
 
@@ -1328,13 +1371,16 @@ footer{
         letter-spacing:1.5px;
     }
 
+
     .scroll-text{
         display:none;
     }
 
+
     .content-section{
         padding:75px 0;
     }
+
 
     .cards{
 
@@ -1343,9 +1389,11 @@ footer{
         margin-top:35px;
     }
 
+
     .card{
         min-height:155px;
     }
+
 
     .contact-cards{
 
@@ -1354,13 +1402,16 @@ footer{
         margin-top:35px;
     }
 
+
     .cta{
         padding:75px 0;
     }
 
+
     .cta-box{
         padding:55px 20px;
     }
+
 
     .footer-inner{
 
@@ -1495,12 +1546,15 @@ id="home"
 
 
 <!-- =====================================================
-     YOUR EXACT MAP IMAGE
+     SAME WORLD MAP FOR PC + PHONE
+
+     Cache version added so old mobile cached image
+     is not reused.
 ===================================================== -->
 
 <img
 class="world-map"
-src="./world-map-bg.png"
+src="./world-map-bg.png?v=20260923"
 alt=""
 draggable="false"
 >
@@ -1523,13 +1577,7 @@ class="hero-grid"
 
 <!-- =====================================================
      ROUTES
-     
-     SVG COORDINATE SYSTEM:
-     1672 × 941
-
-     SRI LANKA:
-     X = 1058
-     Y = 416
+     EXACT 1672 × 941 COORDINATE SYSTEM
 ===================================================== -->
 
 <svg
@@ -1687,9 +1735,7 @@ C1190 415,
 
 
 
-<!-- =====================================================
-     MOVING POINTS
-===================================================== -->
+<!-- MOVING POINTS -->
 
 <circle
 class="moving-glow"
@@ -1824,22 +1870,16 @@ r="4.5">
 
 
 
-<!-- =====================================================
-     SRI LANKA HUB
-===================================================== -->
+<!-- SRI LANKA HUB -->
 
 <div
 class="sri-lanka-hub"
 aria-hidden="true"
 >
 
-<div
-class="hub-ring">
-</div>
+<div class="hub-ring"></div>
 
-<div
-class="hub-core">
-</div>
+<div class="hub-core"></div>
 
 </div>
 
@@ -2363,7 +2403,6 @@ document.getElementById("menuBtn");
 const navLinks =
 document.getElementById("navLinks");
 
-
 menuBtn.addEventListener(
 "click",
 function(){
@@ -2516,7 +2555,7 @@ routeSettings.map(function(item){
 
 
 /* =========================================================
-   INITIALIZE
+   INITIALIZE ROUTES
 ========================================================= */
 
 function initializeRoutes(){
@@ -2542,7 +2581,7 @@ function initializeRoutes(){
 
 
 /* =========================================================
-   SMOOTH MOVEMENT
+   EASING
 ========================================================= */
 
 function easeInOut(t){
@@ -2564,7 +2603,7 @@ function easeInOut(t){
 
 
 /* =========================================================
-   ANIMATE POINTS
+   ANIMATE ROUTES
 ========================================================= */
 
 function animateRoutes(time){
@@ -2711,7 +2750,7 @@ if(
 
 
 /* =========================================================
-   RESTART AFTER TAB RETURNS
+   RESET WHEN TAB RETURNS
 ========================================================= */
 
 document.addEventListener(
@@ -2729,10 +2768,7 @@ function(){
 
 });
 
-
 </script>
 
-
 </body>
-
 </html>
