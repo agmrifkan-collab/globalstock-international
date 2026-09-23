@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -10,24 +8,39 @@
 
 <meta name="theme-color" content="#02080d">
 
-<title>GlobalStock International</title>
+<title>GlobalStock International | Global Stock Lots & Surplus</title>
 
 <meta name="description"
-content="GlobalStock International buys stock lots, surplus, overstock, clearance and excess inventory worldwide.">
+content="GlobalStock International buys and sources stock lots, surplus, overstock, clearance, PVC synthetic leather, fabrics, industrial materials, vehicles and machinery worldwide.">
+
+<meta name="keywords"
+content="GlobalStock International, stock lots, surplus stock, overstock, clearance stock, PVC leather, synthetic leather, fabrics, industrial materials, used vehicles, trucks, construction machinery, agricultural machinery, Sri Lanka">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title"
+content="GlobalStock International">
+
+<meta property="og:description"
+content="Global sourcing of stock lots, surplus, overstock, clearance materials, vehicles and machinery.">
+
+<meta property="og:type" content="website">
+
+<meta property="og:image"
+content="./logo1.png">
+
+<link rel="icon" type="image/png" href="./logo1.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet">
+rel="stylesheet">
 
 <style>
 
 /* =========================================================
-   RESET
+   GLOBAL
 ========================================================= */
 
 *{
@@ -38,14 +51,12 @@ content="GlobalStock International buys stock lots, surplus, overstock, clearanc
 
 html{
     scroll-behavior:smooth;
-    background:#02080d;
 }
 
 body{
-    margin:0;
+    font-family:Inter,Arial,sans-serif;
     background:#02080d;
     color:#fff;
-    font-family:Inter,Arial,sans-serif;
     overflow-x:hidden;
 }
 
@@ -55,9 +66,29 @@ a{
 }
 
 button{
-    font:inherit;
+    font-family:inherit;
 }
 
+img{
+    max-width:100%;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#02080d;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#ffbd24,#ff6a00);
+    border-radius:20px;
+}
 
 /* =========================================================
    HEADER
@@ -68,96 +99,140 @@ header{
     top:0;
     left:0;
     width:100%;
-    height:76px;
+    height:78px;
     z-index:1000;
 
-    background:rgba(1,7,12,.82);
-
-    border-bottom:1px solid rgba(255,255,255,.07);
-
+    background:rgba(2,8,13,.72);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.nav{
-    width:min(1200px,92%);
+.navbar{
+    max-width:1450px;
     height:100%;
     margin:auto;
+
+    padding:0 28px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:25px;
 }
+
+/* LOGO */
 
 .logo{
     display:flex;
     align-items:center;
     gap:12px;
+    min-width:max-content;
 }
 
 .logo img{
-    width:50px;
-    height:50px;
+    width:48px;
+    height:48px;
     object-fit:contain;
+    filter:drop-shadow(0 0 12px rgba(255,184,0,.35));
 }
 
-.logo-name{
-    font-size:16px;
-    font-weight:800;
+.logo-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-title{
+    font-size:17px;
+    font-weight:900;
     letter-spacing:.5px;
 }
 
 .logo-sub{
-    display:block;
+    color:#8ea5b8;
+    font-size:9px;
+    letter-spacing:3px;
     margin-top:2px;
-    font-size:8px;
-    letter-spacing:2.8px;
-    color:rgba(255,255,255,.48);
 }
 
-.nav-links{
+/* NAV */
+
+nav{
     display:flex;
     align-items:center;
     gap:30px;
 }
 
-.nav-links a{
-    font-size:12px;
-    font-weight:600;
-    color:rgba(255,255,255,.72);
+nav a{
+    position:relative;
+    color:#b8c8d5;
+    font-size:13px;
+    font-weight:700;
     transition:.3s;
 }
 
-.nav-links a:hover{
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+
+    background:linear-gradient(90deg,#ffbd24,#ff6a00);
+
+    transition:.3s;
+}
+
+nav a:hover{
     color:#fff;
 }
 
-.nav-contact{
-    padding:11px 19px;
-    border-radius:100px;
-    background:#fff;
-    color:#031018 !important;
+nav a:hover::after{
+    width:100%;
 }
 
-.menu{
+/* HEADER BUTTON */
+
+.header-btn{
+    padding:12px 19px;
+    border-radius:30px;
+
+    background:linear-gradient(135deg,#ffc52b,#ff6a00);
+
+    color:#160d00;
+    font-size:12px;
+    font-weight:900;
+
+    box-shadow:0 8px 25px rgba(255,145,0,.22);
+
+    transition:.3s;
+}
+
+.header-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 35px rgba(255,145,0,.38);
+}
+
+/* MOBILE BUTTON */
+
+.menu-btn{
     display:none;
 
     width:44px;
     height:44px;
 
-    border-radius:11px;
-
     border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
 
     background:rgba(255,255,255,.05);
 
     color:#fff;
+    font-size:24px;
 
     cursor:pointer;
-
-    font-size:20px;
 }
-
 
 /* =========================================================
    HERO
@@ -165,22 +240,17 @@ header{
 
 .hero{
     position:relative;
+    min-height:100vh;
 
-    width:100%;
-
-    height:850px;
-    min-height:100svh;
+    padding-top:78px;
 
     overflow:hidden;
 
-    background:#02080d;
+    display:flex;
+    align-items:center;
 }
 
-
-/* =========================================================
-   WORLD MAP
-   SAME IMAGE ON DESKTOP + MOBILE
-========================================================= */
+/* WORLD MAP */
 
 .world-map{
     position:absolute;
@@ -194,23 +264,10 @@ header{
 
     display:block;
 
-    /*
-       IMPORTANT
-
-       Do NOT use cover.
-       The SVG routes use the exact same
-       1672 x 941 coordinate system.
-
-       Therefore the map must fill exactly
-       the same box as the SVG.
-    */
-
     object-fit:fill;
-
     object-position:center center;
 
     transform:scale(1.015);
-
     transform-origin:center center;
 
     filter:
@@ -218,12 +275,7 @@ header{
         contrast(1.02)
         brightness(.88);
 
-    animation:
-        mapMove
-        18s
-        ease-in-out
-        infinite
-        alternate;
+    animation:mapMove 18s ease-in-out infinite alternate;
 }
 
 @keyframes mapMove{
@@ -237,1260 +289,2143 @@ header{
     }
 }
 
-
-/* =========================================================
-   DARK CINEMATIC OVERLAY
-========================================================= */
+/* DARK OVERLAY */
 
 .hero-overlay{
     position:absolute;
-
     inset:0;
-
     z-index:2;
 
-    pointer-events:none;
-
     background:
-
-        radial-gradient(
-            ellipse at 65% 45%,
-            transparent 15%,
-            rgba(0,5,9,.08) 45%,
-            rgba(0,4,8,.58) 100%
-        ),
-
         linear-gradient(
             90deg,
-            rgba(0,5,9,.76) 0%,
-            rgba(0,7,12,.27) 42%,
-            rgba(0,7,12,.06) 70%,
-            rgba(0,5,9,.42) 100%
+            rgba(2,8,13,.94) 0%,
+            rgba(2,8,13,.76) 35%,
+            rgba(2,8,13,.35) 68%,
+            rgba(2,8,13,.78) 100%
         );
+
+    pointer-events:none;
 }
 
-
-/* =========================================================
-   SUBTLE GRID
-========================================================= */
+/* GRID */
 
 .hero-grid{
     position:absolute;
-
     inset:0;
-
     z-index:3;
 
-    pointer-events:none;
-
-    opacity:.075;
+    opacity:.16;
 
     background-image:
-
         linear-gradient(
-            rgba(105,220,238,.35) 1px,
+            rgba(255,255,255,.05) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
-            rgba(105,220,238,.35) 1px,
+            rgba(255,255,255,.05) 1px,
             transparent 1px
         );
 
-    background-size:
-        100px 100px,
-        100px 100px;
+    background-size:70px 70px;
 
-    mask-image:
-        linear-gradient(
-            to bottom,
-            transparent,
-            black 18%,
-            black 82%,
-            transparent
-        );
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black 20%,
+        black 80%,
+        transparent
+    );
 }
 
-
 /* =========================================================
-   ROUTES
+   TRADE ROUTES
 ========================================================= */
 
 .routes{
     position:absolute;
-
     inset:0;
 
     width:100%;
     height:100%;
 
-    z-index:8;
+    z-index:4;
 
     pointer-events:none;
-
-    overflow:visible;
-
-    /*
-       IMPORTANT:
-       SVG and world map use exactly
-       the same 100% x 100% area.
-    */
-
-    display:block;
 }
-
-
-/* =========================================================
-   ROUTE LINES
-========================================================= */
 
 .route{
-
     fill:none;
 
-    stroke:#36f6e1;
+    stroke:rgba(255,190,45,.34);
+    stroke-width:1.5;
 
-    stroke-width:2.2;
+    stroke-dasharray:8 12;
 
-    stroke-linecap:round;
-
-    opacity:.70;
-
-    stroke-dasharray:1300;
-
-    stroke-dashoffset:1300;
-
-    filter:
-        drop-shadow(
-            0 0 4px
-            rgba(53,246,224,.95)
-        )
-        drop-shadow(
-            0 0 12px
-            rgba(53,246,224,.45)
-        );
-
-    animation:
-
-        routeDraw
-        3.5s
-        cubic-bezier(.2,.8,.2,1)
-        forwards,
-
-        routeGlow
-        3s
-        ease-in-out
-        3.5s
-        infinite
-        alternate;
+    animation:routeDash 8s linear infinite;
 }
 
-@keyframes routeDraw{
+.route:nth-child(2n){
+    animation-duration:11s;
+}
+
+@keyframes routeDash{
 
     to{
-        stroke-dashoffset:0;
+        stroke-dashoffset:-200;
     }
 }
 
-@keyframes routeGlow{
-
-    from{
-        opacity:.30;
-    }
-
-    to{
-        opacity:.88;
-    }
-}
-
-
-/* =========================================================
-   MOVING POINTS
-========================================================= */
-
-.moving-glow{
-
-    fill:#32ffe1;
-
-    opacity:.35;
-
-    filter:blur(2px);
-}
-
-.moving-point{
-
-    fill:#fff;
-
-    stroke:#55ffeb;
-
-    stroke-width:2;
+.route-point{
+    fill:#ffc229;
 
     filter:
-
-        drop-shadow(
-            0 0 4px #fff
-        )
-
-        drop-shadow(
-            0 0 10px #32ffe1
-        )
-
-        drop-shadow(
-            0 0 20px #32ffe1
-        )
-
-        drop-shadow(
-            0 0 35px
-            rgba(50,255,225,.9)
-        );
+        drop-shadow(0 0 7px #ffc229)
+        drop-shadow(0 0 16px rgba(255,140,0,.8));
 }
-
 
 /* =========================================================
    SRI LANKA HUB
-   X = 1058
-   Y = 416
 ========================================================= */
 
 .sri-lanka-hub{
     position:absolute;
 
-    left:
-        calc(100% * 1058 / 1672);
+    left:calc(100% * 1058 / 1672);
+    top:calc(100% * 416 / 941);
 
-    top:
-        calc(100% * 416 / 941);
+    width:18px;
+    height:18px;
 
-    width:42px;
-    height:42px;
+    transform:translate(-50%,-50%);
 
-    transform:
-        translate(-50%,-50%);
-
-    z-index:15;
-
-    pointer-events:none;
-}
-
-.hub-ring{
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:17px;
-    height:17px;
-
-    transform:
-        translate(-50%,-50%);
-
-    border:
-        2px solid #4effe9;
-
-    border-radius:50%;
-
-    box-shadow:
-
-        0 0 7px #4effe9,
-        0 0 18px #4effe9,
-        0 0 35px rgba(78,255,233,.7);
-
-    animation:
-        hubPulse
-        2.2s
-        ease-out
-        infinite;
-}
-
-.hub-core{
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:6px;
-    height:6px;
-
-    transform:
-        translate(-50%,-50%);
+    z-index:8;
 
     border-radius:50%;
 
     background:#fff;
 
     box-shadow:
+        0 0 0 5px rgba(255,194,45,.15),
+        0 0 0 11px rgba(255,194,45,.08),
+        0 0 20px #ffc229,
+        0 0 50px rgba(255,150,0,.9);
 
-        0 0 5px #fff,
-        0 0 12px #3ffff0,
-        0 0 25px #3ffff0;
+    animation:hubPulse 2s ease-in-out infinite;
+}
+
+.sri-lanka-hub::before{
+    content:"";
+
+    position:absolute;
+    inset:-20px;
+
+    border:1px solid rgba(255,194,45,.5);
+    border-radius:50%;
+
+    animation:hubRing 2.2s ease-out infinite;
 }
 
 @keyframes hubPulse{
 
-    0%{
-        width:15px;
-        height:15px;
-        opacity:1;
-    }
-
-    70%{
-        width:39px;
-        height:39px;
-        opacity:.15;
-    }
-
-    100%{
-        width:44px;
-        height:44px;
-        opacity:0;
+    50%{
+        transform:translate(-50%,-50%) scale(1.2);
     }
 }
 
+@keyframes hubRing{
+
+    from{
+        transform:scale(.5);
+        opacity:.9;
+    }
+
+    to{
+        transform:scale(1.8);
+        opacity:0;
+    }
+}
 
 /* =========================================================
    HERO CONTENT
 ========================================================= */
 
 .hero-content{
-
     position:relative;
+    z-index:10;
 
-    z-index:30;
-
-    width:min(1200px,92%);
-
-    height:100%;
+    width:min(1250px,100%);
 
     margin:auto;
 
-    display:flex;
-
-    align-items:center;
-
-    padding-top:45px;
+    padding:90px 45px 100px;
 }
 
-.hero-text{
-    width:min(660px,100%);
+.hero-copy{
+    max-width:700px;
+
+    animation:heroIn 1s ease both;
 }
 
+@keyframes heroIn{
 
-/* =========================================================
-   EYEBROW
-========================================================= */
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
 
-.eyebrow{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
+.hero-badge{
     display:inline-flex;
-
     align-items:center;
-
     gap:9px;
 
-    padding:9px 15px;
+    padding:10px 17px;
 
-    border:
-        1px solid
-        rgba(110,255,237,.23);
+    border:1px solid rgba(255,190,50,.42);
+    border-radius:30px;
 
-    border-radius:100px;
+    background:rgba(255,190,50,.07);
 
-    background:
-        rgba(1,21,27,.52);
+    color:#ffd66b;
 
-    backdrop-filter:blur(10px);
-
-    color:#c0fff7;
-
-    font-size:9px;
-
-    font-weight:700;
-
-    letter-spacing:2.8px;
-}
-
-.eyebrow-dot{
-
-    width:6px;
-    height:6px;
-
-    border-radius:50%;
-
-    background:#32ffe1;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.2px;
 
     box-shadow:
-        0 0 12px #32ffe1;
+        0 0 25px rgba(255,174,0,.07);
+
+    animation:badgeGlow 3s ease-in-out infinite;
 }
 
+@keyframes badgeGlow{
 
-/* =========================================================
-   TITLE
-========================================================= */
+    50%{
+        box-shadow:
+            0 0 30px rgba(255,174,0,.22);
+    }
+}
 
 .hero h1{
+    margin-top:28px;
 
-    margin-top:25px;
+    font-size:clamp(48px,6.2vw,88px);
 
-    font-size:
-        clamp(
-            43px,
-            6.5vw,
-            82px
-        );
-
-    line-height:.95;
+    line-height:.98;
 
     letter-spacing:-4px;
 
     font-weight:900;
-
-    text-shadow:
-        0 15px 55px
-        rgba(0,0,0,.75);
 }
 
 .hero h1 span{
     display:block;
 }
 
-.white{
-    color:#fff;
+.hero-gradient{
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffe08a,
+            #ffbd24,
+            #ff7200,
+            #fff
+        );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:gradientMove 5s linear infinite;
 }
 
-.cyan{
+@keyframes gradientMove{
 
-    color:#82fff1;
-
-    text-shadow:
-        0 0 28px
-        rgba(50,255,225,.18);
+    to{
+        background-position:300% center;
+    }
 }
-
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
 
 .hero-description{
+    max-width:650px;
 
-    max-width:600px;
+    margin-top:28px;
 
-    margin-top:25px;
+    color:#b8c8d5;
 
-    color:
-        rgba(235,248,250,.73);
-
-    font-size:15px;
-
-    line-height:1.8;
+    font-size:16px;
+    line-height:1.85;
 }
 
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.buttons{
-
+.hero-buttons{
     display:flex;
+    gap:14px;
 
-    align-items:center;
-
-    gap:12px;
-
-    margin-top:31px;
+    margin-top:34px;
 
     flex-wrap:wrap;
 }
 
+/* BUTTON */
+
 .btn{
-
-    min-height:48px;
-
-    padding:0 22px;
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
 
-    border-radius:100px;
+    min-height:52px;
 
-    font-size:12px;
+    padding:0 23px;
 
-    font-weight:700;
+    border-radius:14px;
 
-    transition:.3s;
+    font-size:13px;
+    font-weight:900;
+
+    transition:.35s;
 }
 
-.btn-main{
+.btn-primary{
+    background:
+        linear-gradient(
+            135deg,
+            #ffd34d,
+            #ff9f00,
+            #ff6100
+        );
 
-    color:#02100f;
-
-    background:#fff;
+    color:#160d00;
 
     box-shadow:
-        0 12px 35px
-        rgba(0,0,0,.32);
+        0 10px 35px rgba(255,145,0,.24);
 }
 
-.btn-main:hover{
-
-    transform:
-        translateY(-2px);
-
+.btn-primary:hover{
+    transform:translateY(-4px);
     box-shadow:
-        0 12px 40px
-        rgba(45,255,225,.22);
+        0 16px 45px rgba(255,145,0,.42);
 }
 
 .btn-outline{
+    border:1px solid rgba(255,255,255,.18);
+
+    background:rgba(255,255,255,.055);
 
     color:#fff;
 
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid
-        rgba(255,255,255,.18);
-
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 }
 
 .btn-outline:hover{
+    transform:translateY(-4px);
 
-    background:
-        rgba(255,255,255,.10);
+    border-color:rgba(255,190,45,.55);
+
+    background:rgba(255,190,45,.08);
 }
 
-
-/* =========================================================
-   HERO STATUS
-========================================================= */
+/* HERO BOTTOM */
 
 .hero-bottom{
-
     position:absolute;
 
+    bottom:25px;
     left:50%;
-    bottom:24px;
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 
-    z-index:30;
+    z-index:10;
 
-    width:min(1200px,92%);
+    color:#71889b;
 
-    display:flex;
+    font-size:10px;
 
-    align-items:center;
-
-    justify-content:space-between;
-}
-
-.route-status{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    color:
-        rgba(255,255,255,.52);
-
-    font-size:9px;
-
-    letter-spacing:2px;
+    letter-spacing:3px;
 
     text-transform:uppercase;
+
+    white-space:nowrap;
+
+    animation:scrollHint 2s ease-in-out infinite;
 }
 
-.status-dot{
+@keyframes scrollHint{
 
-    width:6px;
-    height:6px;
-
-    border-radius:50%;
-
-    background:#32ffe1;
-
-    box-shadow:
-        0 0 11px #32ffe1;
+    50%{
+        transform:translate(-50%,5px);
+        opacity:.55;
+    }
 }
-
-.scroll-text{
-
-    color:
-        rgba(255,255,255,.36);
-
-    font-size:8px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-}
-
 
 /* =========================================================
-   CONTENT SECTIONS
+   COMMON SECTION
 ========================================================= */
 
-.content-section{
+section.content-section{
+    position:relative;
 
-    padding:105px 0;
+    padding:115px 25px;
 
-    background:#030b11;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(255,180,0,.06),
+            transparent 30%
+        ),
+        #030b11;
+
+    overflow:hidden;
 }
 
 .section-inner{
-
-    width:min(1200px,92%);
-
+    max-width:1250px;
     margin:auto;
 }
 
 .section-label{
+    color:#ffbd24;
 
-    color:#4dffe4;
-
-    font-size:9px;
+    font-size:11px;
+    font-weight:900;
 
     letter-spacing:3px;
 
-    font-weight:700;
-
     text-transform:uppercase;
+
+    margin-bottom:14px;
 }
 
 .section-title{
+    font-size:clamp(34px,4vw,55px);
 
-    margin-top:14px;
+    line-height:1.05;
 
-    font-size:
-        clamp(
-            34px,
-            5vw,
-            58px
-        );
+    letter-spacing:-2px;
 
-    line-height:1.03;
-
-    letter-spacing:-2.5px;
-
-    font-weight:800;
+    font-weight:900;
 }
 
 .section-description{
-
-    max-width:680px;
+    max-width:700px;
 
     margin-top:18px;
 
-    color:
-        rgba(255,255,255,.52);
+    color:#849aaa;
 
     line-height:1.8;
-
-    font-size:14px;
 }
 
-
 /* =========================================================
-   CARDS
+   MATERIALS
 ========================================================= */
 
-.cards{
-
+.material-grid{
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:15px;
+    gap:18px;
 
-    margin-top:48px;
+    margin-top:55px;
 }
 
-.card{
+.material-card{
+    position:relative;
 
-    min-height:190px;
+    min-height:260px;
 
-    padding:26px;
+    padding:28px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    border-radius:25px;
 
-    border-radius:18px;
+    border:1px solid rgba(255,255,255,.09);
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
         );
 
-    transition:.3s;
+    backdrop-filter:blur(15px);
+
+    overflow:hidden;
+
+    transition:
+        transform .4s,
+        border-color .4s,
+        box-shadow .4s;
 }
 
-.card:hover{
+.material-card::before{
+    content:"";
 
-    transform:
-        translateY(-5px);
+    position:absolute;
 
-    border-color:
-        rgba(62,255,227,.25);
+    width:180px;
+    height:180px;
+
+    right:-70px;
+    top:-70px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,190,45,.22),
+            transparent 70%
+        );
+
+    transition:.5s;
 }
 
-.card-icon{
+.material-card:hover{
+    transform:translateY(-9px);
+
+    border-color:rgba(255,190,45,.38);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.28),
+        0 0 30px rgba(255,170,0,.07);
+}
+
+.material-card:hover::before{
+    transform:scale(1.5);
+}
+
+.material-icon{
+    width:58px;
+    height:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,194,45,.17),
+            rgba(255,100,0,.06)
+        );
+
+    border:1px solid rgba(255,190,45,.18);
 
     font-size:27px;
 
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
-.card h3{
-    font-size:15px;
+.material-card h3{
+    font-size:18px;
+    margin-bottom:12px;
 }
 
-.card p{
+.material-card p{
+    color:#849aaa;
 
-    margin-top:9px;
+    font-size:13px;
+    line-height:1.75;
+}
 
-    color:
-        rgba(255,255,255,.43);
+.card-link{
+    display:inline-block;
+
+    margin-top:20px;
+
+    color:#ffc33b;
 
     font-size:11px;
-
-    line-height:1.7;
+    font-weight:800;
 }
 
+/* =========================================================
+   VEHICLES
+========================================================= */
+
+.vehicle-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+    margin-top:55px;
+}
+
+.vehicle-card{
+    position:relative;
+
+    min-height:230px;
+
+    padding:28px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,31,42,.95),
+            rgba(4,12,18,.9)
+        );
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.vehicle-card:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(255,190,45,.35);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.3);
+}
+
+.vehicle-number{
+    position:absolute;
+
+    right:20px;
+    top:15px;
+
+    color:rgba(255,255,255,.055);
+
+    font-size:70px;
+
+    font-weight:900;
+}
+
+.vehicle-icon{
+    font-size:38px;
+
+    margin-bottom:30px;
+
+    position:relative;
+    z-index:2;
+}
+
+.vehicle-card h3{
+    position:relative;
+    z-index:2;
+
+    font-size:18px;
+}
+
+.vehicle-card p{
+    position:relative;
+    z-index:2;
+
+    color:#8197a8;
+
+    margin-top:12px;
+
+    font-size:13px;
+    line-height:1.7;
+}
 
 /* =========================================================
    CTA
 ========================================================= */
 
 .cta{
+    position:relative;
 
-    padding:110px 0;
+    padding:100px 25px;
+
+    overflow:hidden;
 
     background:
-
         radial-gradient(
-            circle at 50% 50%,
-            rgba(25,160,145,.14),
-            transparent 55%
+            circle at 50% 0%,
+            rgba(255,180,0,.14),
+            transparent 45%
         ),
-
-        #031018;
+        #02080d;
 }
 
-.cta-box{
+.cta-inner{
+    max-width:1100px;
+
+    margin:auto;
 
     text-align:center;
 
-    padding:70px 25px;
+    padding:65px 35px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.08);
+    border-radius:32px;
 
-    border-radius:25px;
+    border:1px solid rgba(255,255,255,.1);
 
     background:
-        rgba(255,255,255,.025);
-}
-
-.cta-box h2{
-
-    margin-top:12px;
-
-    font-size:
-        clamp(
-            38px,
-            6vw,
-            65px
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
         );
 
-    letter-spacing:-3px;
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.3);
 }
 
-.cta-box p{
+.cta h2{
+    font-size:clamp(38px,5vw,65px);
 
-    max-width:600px;
+    letter-spacing:-2px;
 
-    margin:
-        18px auto 30px;
+    font-weight:900;
+}
 
-    color:
-        rgba(255,255,255,.50);
+.cta p{
+    max-width:650px;
+
+    margin:18px auto 30px;
+
+    color:#8fa4b4;
 
     line-height:1.8;
 }
-
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
-.contact-cards{
+.contact-section{
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(0,160,255,.07),
+            transparent 35%
+        ),
+        #030b11;
+}
 
+.contact-grid{
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:15px;
+    gap:18px;
 
-    margin-top:48px;
+    margin-top:55px;
 }
 
+.contact-card{
+    position:relative;
+
+    padding:32px;
+
+    min-height:220px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(18px);
+
+    transition:.4s;
+
+    overflow:hidden;
+}
+
+.contact-card:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(255,190,45,.38);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.3);
+}
+
+.contact-icon{
+    width:62px;
+    height:62px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:19px;
+
+    font-size:29px;
+
+    margin-bottom:24px;
+
+    background:rgba(255,255,255,.06);
+}
+
+.contact-card.whatsapp .contact-icon{
+    background:rgba(37,211,102,.12);
+}
+
+.contact-card h3{
+    font-size:19px;
+}
+
+.contact-card p{
+    color:#8297a8;
+
+    font-size:13px;
+
+    margin-top:10px;
+
+    line-height:1.7;
+}
+
+.contact-action{
+    display:inline-flex;
+
+    margin-top:20px;
+
+    padding:11px 17px;
+
+    border-radius:12px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    background:rgba(255,255,255,.06);
+
+    transition:.3s;
+}
+
+.contact-action:hover{
+    background:rgba(255,190,45,.12);
+
+    color:#ffc33b;
+}
+
+/* WHATSAPP MAIN */
+
+.whatsapp-main{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:38px;
+
+    padding:17px 30px;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #28df72,
+            #16a653
+        );
+
+    color:#04150b;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 15px 40px rgba(20,200,90,.22);
+
+    transition:.35s;
+}
+
+.whatsapp-main:hover{
+    transform:translateY(-4px) scale(1.02);
+
+    box-shadow:
+        0 20px 50px rgba(20,200,90,.35);
+}
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
+    position:relative;
 
-    padding:32px 0;
+    padding:65px 25px 30px;
 
-    background:#02070b;
+    background:#010609;
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.06);
+    border-top:1px solid rgba(255,255,255,.07);
 }
 
 .footer-inner{
-
-    width:min(1200px,92%);
+    max-width:1250px;
 
     margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap:50px;
+}
+
+.footer-brand img{
+    width:62px;
+    height:62px;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(255,184,0,.35)
+        );
+}
+
+.footer-brand h3{
+    margin-top:16px;
+
+    font-size:18px;
+}
+
+.footer-brand p{
+    margin-top:10px;
+
+    color:#617687;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+}
+
+.footer-column h4{
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#fff;
+
+    margin-bottom:20px;
+}
+
+.footer-column a{
+    display:block;
+
+    color:#687e8f;
+
+    font-size:12px;
+
+    margin-bottom:13px;
+
+    transition:.25s;
+}
+
+.footer-column a:hover{
+    color:#ffc33b;
+
+    transform:translateX(3px);
+}
+
+.footer-bottom{
+    max-width:1250px;
+
+    margin:45px auto 0;
+
+    padding-top:22px;
+
+    border-top:1px solid rgba(255,255,255,.06);
 
     display:flex;
 
     align-items:center;
-
     justify-content:space-between;
-}
 
-.footer-copy{
+    gap:20px;
 
-    color:
-        rgba(255,255,255,.35);
+    color:#4f6474;
 
     font-size:10px;
 }
 
-.footer-brand{
+/* =========================================================
+   TOP BUTTON
+========================================================= */
 
-    font-size:10px;
+.top-btn{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:50px;
+    height:50px;
+
+    z-index:800;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffc52b,
+            #ff6800
+        );
+
+    color:#150b00;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(255,145,0,.25);
+
+    transition:.3s;
+}
+
+.top-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+.mobile-nav{
+    display:none;
+
+    position:fixed;
+
+    top:78px;
+    left:15px;
+    right:15px;
+
+    z-index:999;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    background:
+        rgba(2,9,15,.97);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45);
+}
+
+.mobile-nav.active{
+    display:block;
+
+    animation:mobileMenu .3s ease both;
+}
+
+@keyframes mobileMenu{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.mobile-nav a{
+    display:block;
+
+    padding:15px 10px;
+
+    color:#b9c9d6;
+
+    font-size:14px;
 
     font-weight:700;
 
-    letter-spacing:1.5px;
-
-    color:
-        rgba(255,255,255,.48);
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
+.mobile-nav a:last-child{
+    border-bottom:0;
+}
 
 /* =========================================================
    TABLET
 ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:1050px){
+
+    nav{
+        gap:17px;
+    }
+
+    .header-btn{
+        display:none;
+    }
+
+    .material-grid,
+    .vehicle-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .contact-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .footer-inner{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
 
     header{
-        height:68px;
+        height:70px;
+    }
+
+    .navbar{
+        padding:0 15px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .menu-btn{
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
     }
 
     .logo img{
-        width:42px;
-        height:42px;
+        width:44px;
+        height:44px;
     }
 
-    .nav-links{
-
-        display:none;
-
-        position:absolute;
-
-        top:68px;
-        left:0;
-
-        width:100%;
-
-        padding:15px 5% 22px;
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-        gap:4px;
-
-        background:
-            rgba(2,8,13,.97);
-
-        border-bottom:
-            1px solid
-            rgba(255,255,255,.08);
+    .logo-title{
+        font-size:14px;
     }
 
-    .nav-links.active{
-        display:flex;
-    }
-
-    .nav-links a{
-        padding:13px 8px;
-    }
-
-    .nav-contact{
-        text-align:center;
-    }
-
-    .menu{
-        display:block;
+    .logo-sub{
+        font-size:7px;
+        letter-spacing:2px;
     }
 
     .hero{
-
-        height:760px;
-
         min-height:760px;
+
+        padding-top:70px;
+    }
+
+    /*
+       IMPORTANT:
+       Same world-map-bg.png is used on PC and mobile.
+       No separate mobile image.
+    */
+
+    .world-map{
+        object-fit:fill;
+
+        object-position:center center;
+
+        transform:scale(1.015);
+    }
+
+    .hero-overlay{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(2,8,13,.87),
+                rgba(2,8,13,.66) 45%,
+                rgba(2,8,13,.9)
+            );
     }
 
     .hero-content{
-        padding-top:35px;
+        padding:65px 20px 80px;
+
+        text-align:center;
+    }
+
+    .hero-copy{
+        margin:auto;
     }
 
     .hero h1{
+        font-size:clamp(40px,12vw,58px);
 
-        font-size:
-            clamp(
-                40px,
-                9vw,
-                65px
-            );
+        letter-spacing:-2.5px;
+    }
 
-        letter-spacing:-3px;
+    .hero-description{
+        font-size:14px;
+
+        line-height:1.75;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .btn{
+        min-height:50px;
+
+        padding:0 18px;
+
+        font-size:12px;
+    }
+
+    .hero-bottom{
+        bottom:18px;
+
+        font-size:8px;
+
+        letter-spacing:2px;
+    }
+
+    .sri-lanka-hub{
+        width:14px;
+        height:14px;
+    }
+
+    section.content-section{
+        padding:80px 18px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .material-grid,
+    .vehicle-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+        margin-top:38px;
+    }
+
+    .material-card{
+        min-height:220px;
+    }
+
+    .vehicle-card{
+        min-height:205px;
+    }
+
+    .cta{
+        padding:75px 18px;
+    }
+
+    .cta-inner{
+        padding:50px 22px;
+
+        border-radius:25px;
+    }
+
+    .cta h2{
+        font-size:38px;
+    }
+
+    .contact-card{
+        min-height:200px;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        text-align:center;
+    }
+
+    .footer-brand img{
+        margin:auto;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        text-align:center;
+
+        margin-top:35px;
+    }
+
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media(max-width:480px){
+
+    .hero{
+        min-height:720px;
+    }
+
+    .hero-content{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .hero h1{
+        font-size:39px;
+
+        letter-spacing:-2px;
     }
 
     .hero-description{
         font-size:13px;
     }
 
-    .cards{
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-}
-
-
-/* =========================================================
-   PHONE
-========================================================= */
-
-@media(max-width:600px){
-
-    .hero{
-
-        height:720px;
-
-        min-height:720px;
-    }
-
-
-    /*
-       IMPORTANT:
-
-       SAME IMAGE AS DESKTOP.
-       NO MOBILE IMAGE.
-       NO COVER.
-       SAME 100% x 100% BOX.
-    */
-
-    .world-map{
-
-        position:absolute;
-
-        inset:0;
-
-        width:100%;
-        height:100%;
-
-        object-fit:fill;
-
-        object-position:center center;
-
-        transform:scale(1.015);
-
-        transform-origin:center center;
-
-        filter:
-            saturate(.98)
-            contrast(1.02)
-            brightness(.88);
-
-        display:block;
-    }
-
-
-    /*
-       Keep SVG exactly aligned
-       with the map.
-    */
-
-    .routes{
-
-        position:absolute;
-
-        inset:0;
-
-        width:100%;
-        height:100%;
-
-        display:block;
-    }
-
-
-    /*
-       Mobile overlay only changes darkness.
-       It does NOT change the background image.
-    */
-
-    .hero-overlay{
-
-        background:
-
-            linear-gradient(
-                90deg,
-                rgba(0,5,9,.82),
-                rgba(0,7,12,.34),
-                rgba(0,5,9,.48)
-            ),
-
-            linear-gradient(
-                180deg,
-                rgba(0,6,11,.15),
-                rgba(0,6,11,.62)
-            );
-    }
-
-
-    .hero-grid{
-
-        background-size:
-            74px 74px,
-            74px 74px;
-    }
-
-
-    .hero-content{
-
-        width:90%;
-
-        padding-top:25px;
-    }
-
-
-    .eyebrow{
-
-        font-size:7px;
-
-        letter-spacing:2px;
-
-        padding:
-            8px 12px;
-    }
-
-
-    .hero h1{
-
-        margin-top:20px;
-
-        font-size:
-            clamp(
-                35px,
-                11.5vw,
-                53px
-            );
-
-        line-height:.96;
-
-        letter-spacing:-2.3px;
-    }
-
-
-    .hero-description{
-
-        margin-top:19px;
-
-        font-size:12px;
-
-        line-height:1.7;
-    }
-
-
-    .buttons{
-        margin-top:24px;
-    }
-
-
-    .btn{
-
-        min-height:45px;
-
-        padding:
-            0 17px;
-
-        font-size:10px;
-    }
-
-
-    .hero-bottom{
-
-        width:90%;
-
-        bottom:18px;
-    }
-
-
-    .route-status{
-
-        font-size:7px;
-
-        letter-spacing:1.5px;
-    }
-
-
-    .scroll-text{
-        display:none;
-    }
-
-
-    .content-section{
-        padding:75px 0;
-    }
-
-
-    .cards{
-
-        grid-template-columns:1fr;
-
-        margin-top:35px;
-    }
-
-
-    .card{
-        min-height:155px;
-    }
-
-
-    .contact-cards{
-
-        grid-template-columns:1fr;
-
-        margin-top:35px;
-    }
-
-
-    .cta{
-        padding:75px 0;
-    }
-
-
-    .cta-box{
-        padding:55px 20px;
-    }
-
-
-    .footer-inner{
-
+    .hero-buttons{
         flex-direction:column;
 
-        gap:12px;
-
-        text-align:center;
+        align-items:stretch;
     }
+
+    .btn{
+        width:100%;
+    }
+
+    .section-title{
+        font-size:32px;
+    }
+
+    .material-card,
+    .vehicle-card,
+    .contact-card{
+        padding:24px;
+    }
+
+    .top-btn{
+        width:46px;
+        height:46px;
+
+        right:15px;
+        bottom:15px;
+    }
+
 }
 
-
 /* =========================================================
-   SMALL PHONE
+   REDUCED MOTION
 ========================================================= */
 
-@media(max-width:380px){
+@media(prefers-reduced-motion:reduce){
 
-    .hero{
-
-        height:690px;
-
-        min-height:690px;
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
     }
 
-    .hero h1{
-
-        font-size:35px;
-
-        letter-spacing:-1.8px;
-    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =======================================================
+<!-- ======================================================
      HEADER
-======================================================= -->
+====================================================== -->
 
 <header>
 
-<div class="nav">
+<div class="navbar">
 
+<a href="#home" class="logo">
 
-<a
-href="#home"
-class="logo"
->
+<img src="./logo1.png"
+     alt="GlobalStock International logo">
 
-<img
-src="./logo1.png"
-alt="GlobalStock International"
->
+<div class="logo-text">
 
-<div>
-
-<div class="logo-name">
-GlobalStock
+<div class="logo-title">
+GlobalStock International
 </div>
 
-<span class="logo-sub">
-INTERNATIONAL
-</span>
+<div class="logo-sub">
+GLOBAL SOURCING
+</div>
 
 </div>
 
 </a>
 
+<nav>
 
-<nav
-class="nav-links"
-id="navLinks"
+<a href="#home">Home</a>
+
+<a href="#materials">Materials</a>
+
+<a href="#vehicles">Vehicle Order</a>
+
+<a href="#contact">Contact</a>
+
+<a href="https://wa.me/94777426436"
+   target="_blank"
+   rel="noopener">
+WhatsApp
+</a>
+
+</nav>
+
+<a class="header-btn"
+   href="https://wa.me/94777426436"
+   target="_blank"
+   rel="noopener">
+
+💬 WhatsApp
+
+</a>
+
+<button class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu">
+
+☰
+
+</button>
+
+</div>
+
+</header>
+
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-nav" id="mobileNav">
+
+<a href="#home">Home</a>
+
+<a href="#materials">Materials</a>
+
+<a href="#vehicles">Vehicle Order</a>
+
+<a href="#contact">Contact</a>
+
+<a href="https://wa.me/94777426436"
+   target="_blank"
+   rel="noopener">
+
+💬 WhatsApp
+
+</a>
+
+</div>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero" id="home">
+
+<img
+    id="p3weqf"
+    class="world-map"
+    src="./world-map-bg.png?v=20260923"
+    alt=""
+    draggable="false"
 >
+
+<div class="hero-overlay"></div>
+
+<div class="hero-grid"></div>
+
+
+<!-- GLOBAL TRADE ROUTES -->
+
+<svg
+    class="routes"
+    viewBox="0 0 1672 941"
+    preserveAspectRatio="none"
+    aria-hidden="true">
+
+<path
+    class="route"
+    d="M160 230 Q570 100 1058 416"/>
+
+<path
+    class="route"
+    d="M350 160 Q700 210 1058 416"/>
+
+<path
+    class="route"
+    d="M480 650 Q700 470 1058 416"/>
+
+<path
+    class="route"
+    d="M700 760 Q820 550 1058 416"/>
+
+<path
+    class="route"
+    d="M850 180 Q930 270 1058 416"/>
+
+<path
+    class="route"
+    d="M1230 210 Q1130 310 1058 416"/>
+
+<path
+    class="route"
+    d="M1430 500 Q1220 450 1058 416"/>
+
+<path
+    class="route"
+    d="M1300 760 Q1160 580 1058 416"/>
+
+<path
+    class="route"
+    d="M200 500 Q600 430 1058 416"/>
+
+<path
+    class="route"
+    d="M1500 170 Q1250 280 1058 416"/>
+
+
+<!-- MOVING POINTS -->
+
+<circle class="route-point" r="4">
+    <animateMotion
+        dur="6s"
+        repeatCount="indefinite"
+        path="M160 230 Q570 100 1058 416"/>
+</circle>
+
+<circle class="route-point" r="3">
+    <animateMotion
+        dur="7s"
+        repeatCount="indefinite"
+        path="M350 160 Q700 210 1058 416"/>
+</circle>
+
+<circle class="route-point" r="4">
+    <animateMotion
+        dur="8s"
+        repeatCount="indefinite"
+        path="M700 760 Q820 550 1058 416"/>
+</circle>
+
+<circle class="route-point" r="3">
+    <animateMotion
+        dur="6.5s"
+        repeatCount="indefinite"
+        path="M1430 500 Q1220 450 1058 416"/>
+</circle>
+
+<circle class="route-point" r="3">
+    <animateMotion
+        dur="9s"
+        repeatCount="indefinite"
+        path="M1500 170 Q1250 280 1058 416"/>
+</circle>
+
+</svg>
+
+
+<!-- SRI LANKA HUB -->
+
+<div class="sri-lanka-hub"
+     aria-label="Sri Lanka GlobalStock hub">
+</div>
+
+
+<!-- HERO CONTENT -->
+
+<div class="hero-content">
+
+<div class="hero-copy">
+
+<div class="hero-badge">
+
+🌍 GLOBAL SOURCING • SRI LANKA
+
+</div>
+
+
+<h1>
+
+<span>ANY PRODUCT.</span>
+
+<span>ANY STOCK.</span>
+
+<span class="hero-gradient">
+ANY COUNTRY.
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+We buy and source stock lots, surplus,
+overstock, clearance and excess inventory
+from around the world — connecting quality
+materials, vehicles and machinery with global markets.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a href="#materials"
+   class="btn btn-primary">
+
+Explore Materials →
+
+</a>
+
+<a href="#contact"
+   class="btn btn-outline">
+
+Contact GlobalStock
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-bottom">
+
+SCROLL TO EXPLORE ↓
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     MATERIALS
+====================================================== -->
+
+<section
+    class="content-section"
+    id="materials">
+
+<div class="section-inner">
+
+<div class="section-label">
+MATERIALS
+</div>
+
+<h2 class="section-title">
+Global Stock Materials
+</h2>
+
+<p class="section-description">
+We source surplus, stock lots, overstock,
+clearance and excess materials for international
+buyers and businesses.
+</p>
+
+
+<div class="material-grid">
+
+
+<div class="material-card reveal">
+
+<div class="material-icon">
+◈
+</div>
+
+<h3>
+PVC / Synthetic Leather
+</h3>
+
+<p>
+PVC leather, synthetic leather,
+automotive materials and stock lots
+available in different specifications
+and colours.
+</p>
+
+<span class="card-link">
+VIEW STOCK →
+</span>
+
+</div>
+
+
+<div class="material-card reveal">
+
+<div class="material-icon">
+▤
+</div>
+
+<h3>
+Fabrics & Textiles
+</h3>
+
+<p>
+Fabric rolls, textile stock,
+surplus materials, upholstery
+and various excess inventory.
+</p>
+
+<span class="card-link">
+VIEW STOCK →
+</span>
+
+</div>
+
+
+<div class="material-card reveal">
+
+<div class="material-icon">
+⚙
+</div>
+
+<h3>
+Industrial Materials
+</h3>
+
+<p>
+Industrial materials, surplus
+inventory, unused stock and
+clearance materials.
+</p>
+
+<span class="card-link">
+VIEW STOCK →
+</span>
+
+</div>
+
+
+<div class="material-card reveal">
+
+<div class="material-icon">
+★
+</div>
+
+<h3>
+Priority Stock Lots
+</h3>
+
+<p>
+Selected priority stock lots,
+special clearance opportunities
+and time-sensitive inventory.
+</p>
+
+<span class="card-link">
+VIEW STOCK →
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     VEHICLE ORDER
+====================================================== -->
+
+<section
+    class="content-section"
+    id="vehicles">
+
+<div class="section-inner">
+
+<div class="section-label">
+VEHICLE ORDER
+</div>
+
+<h2 class="section-title">
+Vehicles & Machinery
+</h2>
+
+<p class="section-description">
+Looking for vehicles or machinery?
+Tell us what you need and we can
+source suitable units for your market.
+</p>
+
+
+<div class="vehicle-grid">
+
+
+<div class="vehicle-card reveal">
+
+<div class="vehicle-number">
+01
+</div>
+
+<div class="vehicle-icon">
+🚗
+</div>
+
+<h3>
+Passenger Vehicles
+</h3>
+
+<p>
+Used cars and passenger vehicles
+sourced according to customer
+requirements.
+</p>
+
+</div>
+
+
+<div class="vehicle-card reveal">
+
+<div class="vehicle-number">
+02
+</div>
+
+<div class="vehicle-icon">
+🚛
+</div>
+
+<h3>
+Trucks
+</h3>
+
+<p>
+Commercial trucks and other
+transport vehicles sourced
+for international buyers.
+</p>
+
+</div>
+
+
+<div class="vehicle-card reveal">
+
+<div class="vehicle-number">
+03
+</div>
+
+<div class="vehicle-icon">
+🏗️
+</div>
+
+<h3>
+Construction Machinery
+</h3>
+
+<p>
+Excavators, forklifts, wheel loaders
+and other construction machinery.
+</p>
+
+</div>
+
+
+<div class="vehicle-card reveal">
+
+<div class="vehicle-number">
+04
+</div>
+
+<div class="vehicle-icon">
+🚜
+</div>
+
+<h3>
+Agricultural Machinery
+</h3>
+
+<p>
+Agricultural machinery and
+equipment sourced according
+to your requirements.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     CTA
+====================================================== -->
+
+<section class="cta">
+
+<div class="cta-inner reveal">
+
+<div class="section-label">
+GLOBAL STOCK SOURCING
+</div>
+
+<h2>
+Let’s move it.
+</h2>
+
+<p>
+Have surplus stock, clearance inventory
+or a specific product requirement?
+Contact GlobalStock International.
+</p>
+
+<a href="https://wa.me/94777426436"
+   class="whatsapp-main"
+   target="_blank"
+   rel="noopener">
+
+💬 WhatsApp GlobalStock
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+
+<section
+    class="content-section contact-section"
+    id="contact">
+
+<div class="section-inner">
+
+<div class="section-label">
+CONTACT
+</div>
+
+<h2 class="section-title">
+Let’s Work Together
+</h2>
+
+<p class="section-description">
+Have stock to sell or looking for specific
+materials, vehicles or machinery?
+Send us your requirement.
+</p>
+
+
+<div class="contact-grid">
+
+
+<!-- WHATSAPP -->
+
+<div class="contact-card whatsapp reveal">
+
+<div class="contact-icon">
+💬
+</div>
+
+<h3>
+WhatsApp
+</h3>
+
+<p>
+Contact GlobalStock International
+directly through WhatsApp.
+</p>
+
+<a
+    class="contact-action"
+    href="https://wa.me/94777426436"
+    target="_blank"
+    rel="noopener">
+
+Message Us →
+
+</a>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div class="contact-card reveal">
+
+<div class="contact-icon">
+✉️
+</div>
+
+<h3>
+Email
+</h3>
+
+<p>
+Send product details, photos,
+stock information or enquiries.
+</p>
+
+<a
+    class="contact-action"
+    href="mailto:agmrifkan@gmail.com">
+
+Send Email →
+
+</a>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="contact-card reveal">
+
+<div class="contact-icon">
+📍
+</div>
+
+<h3>
+Location
+</h3>
+
+<p>
+Colombo, Sri Lanka
+<br>
+Global sourcing & international trade.
+</p>
+
+<a
+    class="contact-action"
+    href="https://www.google.com/maps/search/?api=1&query=Colombo%2C%20Sri%20Lanka"
+    target="_blank"
+    rel="noopener">
+
+View Location →
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div style="text-align:center;">
+
+<a
+    href="https://wa.me/94777426436"
+    class="whatsapp-main"
+    target="_blank"
+    rel="noopener">
+
+💬 Chat with GlobalStock
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+<div class="footer-brand">
+
+<img
+    src="./logo1.png"
+    alt="GlobalStock International">
+
+<h3>
+GlobalStock International
+</h3>
+
+<p>
+INVESTING IN A BRIGHTER TOMORROW
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Quick Links
+</h4>
 
 <a href="#home">
 Home
@@ -1508,888 +2443,73 @@ Vehicle Order
 Contact
 </a>
 
-<a
-href="https://wa.me/94777426436"
-target="_blank"
-class="nav-contact"
->
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Contact
+</h4>
+
+<a href="https://wa.me/94777426436"
+   target="_blank"
+   rel="noopener">
+
 WhatsApp
 </a>
 
-</nav>
+<a href="mailto:agmrifkan@gmail.com">
 
-
-<button
-class="menu"
-id="menuBtn"
-type="button"
-aria-label="Open menu"
->
-☰
-</button>
-
-
-</div>
-
-</header>
-
-
-
-<!-- =======================================================
-     HERO
-======================================================= -->
-
-<section
-class="hero"
-id="home"
->
-
-
-<!-- =====================================================
-     SAME WORLD MAP FOR PC + PHONE
-
-     Cache version added so old mobile cached image
-     is not reused.
-===================================================== -->
-
-<img
-class="world-map"
-src="./world-map-bg.png?v=20260923"
-alt=""
-draggable="false"
->
-
-
-<!-- DARK OVERLAY -->
-
-<div
-class="hero-overlay"
-></div>
-
-
-<!-- GRID -->
-
-<div
-class="hero-grid"
-></div>
-
-
-
-<!-- =====================================================
-     ROUTES
-     EXACT 1672 × 941 COORDINATE SYSTEM
-===================================================== -->
-
-<svg
-class="routes"
-viewBox="0 0 1672 941"
-preserveAspectRatio="none"
-aria-hidden="true"
->
-
-
-<!-- NORTH AMERICA → SRI LANKA -->
-
-<path
-class="route"
-id="route1"
-d="
-M150 215
-C310 75,
-500 100,
-680 195
-C830 275,
-940 335,
-1058 416
-">
-</path>
-
-
-<!-- EUROPE → SRI LANKA -->
-
-<path
-class="route"
-id="route2"
-d="
-M650 205
-C760 205,
-850 255,
-915 310
-C970 355,
-1020 390,
-1058 416
-">
-</path>
-
-
-<!-- MIDDLE EAST → SRI LANKA -->
-
-<path
-class="route"
-id="route3"
-d="
-M870 305
-C930 330,
-1000 375,
-1058 416
-">
-</path>
-
-
-<!-- INDIA → SRI LANKA -->
-
-<path
-class="route"
-id="route4"
-d="
-M1030 335
-C1040 365,
-1050 395,
-1058 416
-">
-</path>
-
-
-<!-- CHINA → SRI LANKA -->
-
-<path
-class="route"
-id="route5"
-d="
-M1170 265
-C1140 320,
-1100 365,
-1058 416
-">
-</path>
-
-
-<!-- JAPAN / EAST ASIA → SRI LANKA -->
-
-<path
-class="route"
-id="route6"
-d="
-M1360 275
-C1270 315,
-1170 370,
-1058 416
-">
-</path>
-
-
-<!-- AUSTRALIA → SRI LANKA -->
-
-<path
-class="route"
-id="route7"
-d="
-M1360 610
-C1260 560,
-1160 490,
-1058 416
-">
-</path>
-
-
-<!-- AFRICA → SRI LANKA -->
-
-<path
-class="route"
-id="route8"
-d="
-M710 490
-C820 465,
-940 440,
-1058 416
-">
-</path>
-
-
-<!-- SOUTH AMERICA → SRI LANKA -->
-
-<path
-class="route"
-id="route9"
-d="
-M315 500
-C530 490,
-760 455,
-1058 416
-">
-</path>
-
-
-<!-- SOUTHEAST ASIA → SRI LANKA -->
-
-<path
-class="route"
-id="route10"
-d="
-M1260 420
-C1190 415,
-1120 415,
-1058 416
-">
-</path>
-
-
-
-<!-- MOVING POINTS -->
-
-<circle
-class="moving-glow"
-id="glow1"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point1"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow2"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point2"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow3"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point3"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow4"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point4"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow5"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point5"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow6"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point6"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow7"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point7"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow8"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point8"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow9"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point9"
-r="4.5">
-</circle>
-
-
-<circle
-class="moving-glow"
-id="glow10"
-r="10">
-</circle>
-
-<circle
-class="moving-point"
-id="point10"
-r="4.5">
-</circle>
-
-</svg>
-
-
-
-<!-- SRI LANKA HUB -->
-
-<div
-class="sri-lanka-hub"
-aria-hidden="true"
->
-
-<div class="hub-ring"></div>
-
-<div class="hub-core"></div>
-
-</div>
-
-
-
-<!-- =====================================================
-     HERO CONTENT
-===================================================== -->
-
-<div
-class="hero-content"
->
-
-<div
-class="hero-text"
->
-
-
-<div
-class="eyebrow"
->
-
-<span
-class="eyebrow-dot"
-></span>
-
-GLOBAL STOCK NETWORK
-
-</div>
-
-
-<h1>
-
-<span class="white">
-ANY PRODUCT.
-</span>
-
-<span class="white">
-ANY STOCK.
-</span>
-
-<span class="cyan">
-ANY COUNTRY.
-</span>
-
-</h1>
-
-
-<p
-class="hero-description"
->
-
-We Buy Stock Lots, Surplus, Overstock,
-Clearance &amp; Excess Inventory Worldwide.
-
-</p>
-
-
-<div
-class="buttons"
->
-
-<a
-href="#materials"
-class="btn btn-main"
->
-Explore Materials
-</a>
-
-
-<a
-href="https://wa.me/94777426436"
-target="_blank"
-class="btn btn-outline"
->
-Contact GlobalStock
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- STATUS -->
-
-<div
-class="hero-bottom"
->
-
-<div
-class="route-status"
->
-
-<span
-class="status-dot"
-></span>
-
-GLOBAL TRADE ROUTES ACTIVE
-
-</div>
-
-
-<div
-class="scroll-text"
->
-SCROLL TO EXPLORE
-</div>
-
-</div>
-
-
-</section>
-
-
-
-<!-- =======================================================
-     MATERIALS
-======================================================= -->
-
-<section
-class="content-section"
-id="materials"
->
-
-<div class="section-inner">
-
-
-<div class="section-label">
-MATERIALS
-</div>
-
-
-<h2 class="section-title">
-
-Stock lots &amp;<br>
-surplus materials.
-
-</h2>
-
-
-<p class="section-description">
-
-We source surplus, overstock,
-clearance and excess materials
-from international suppliers.
-
-</p>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<div class="card-icon">
-◈
-</div>
-
-<h3>
-PVC / Synthetic Leather
-</h3>
-
-<p>
-Automotive, furniture,
-industrial and upholstery
-materials.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-◆
-</div>
-
-<h3>
-Fabrics &amp; Textiles
-</h3>
-
-<p>
-Rolls, velvet, synthetic
-leather and textile stock.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-▣
-</div>
-
-<h3>
-Industrial Materials
-</h3>
-
-<p>
-Surplus, unfinished,
-overstock and clearance
-materials.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-◫
-</div>
-
-<h3>
-Priority Stock Lots
-</h3>
-
-<p>
-Large-volume and
-time-sensitive stock
-opportunities.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
-     VEHICLES
-======================================================= -->
-
-<section
-class="content-section"
-id="vehicles"
->
-
-<div class="section-inner">
-
-
-<div class="section-label">
-VEHICLE ORDER
-</div>
-
-
-<h2 class="section-title">
-
-Vehicles &amp;<br>
-machinery.
-
-</h2>
-
-
-<p class="section-description">
-
-We source used vehicles,
-commercial vehicles,
-construction machinery and
-agricultural equipment.
-
-</p>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<div class="card-icon">
-🚗
-</div>
-
-<h3>
-Passenger Vehicles
-</h3>
-
-<p>
-Used cars and selected
-vehicles.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-🚚
-</div>
-
-<h3>
-Trucks
-</h3>
-
-<p>
-Commercial and heavy
-vehicles.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-🏗
-</div>
-
-<h3>
-Construction Machinery
-</h3>
-
-<p>
-Excavators, loaders and
-construction equipment.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-🚜
-</div>
-
-<h3>
-Agricultural Machinery
-</h3>
-
-<p>
-Agricultural equipment
-and machinery.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
-     CTA
-======================================================= -->
-
-<section class="cta">
-
-<div class="section-inner">
-
-
-<div class="cta-box">
-
-
-<div class="section-label">
-HAVE STOCK?
-</div>
-
-
-<h2>
-Let's move it.
-</h2>
-
-
-<p>
-
-If you have surplus,
-overstock, clearance or
-excess inventory, contact
-GlobalStock International.
-
-</p>
-
-
-<a
-href="https://wa.me/94777426436"
-target="_blank"
-class="btn btn-main"
->
-WhatsApp GlobalStock
-</a>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
-     CONTACT
-======================================================= -->
-
-<section
-class="content-section"
-id="contact"
->
-
-<div class="section-inner">
-
-
-<div class="section-label">
-CONTACT
-</div>
-
-
-<h2 class="section-title">
-
-GlobalStock<br>
-International.
-
-</h2>
-
-
-<div class="contact-cards">
-
-
-<div class="card">
-
-<h3>
-WhatsApp
-</h3>
-
-<p>
-+94 77 742 6436
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Email
-</h3>
-
-<p>
 agmrifkan@gmail.com
-</p>
 
-</div>
+</a>
 
+<a href="#contact">
 
-<div class="card">
-
-<h3>
-Location
-</h3>
-
-<p>
 Colombo, Sri Lanka
-</p>
+
+</a>
 
 </div>
 
 
 </div>
 
-</div>
 
-</section>
+<div class="footer-bottom">
 
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<footer>
-
-<div class="footer-inner">
-
-
-<div class="footer-copy">
-
+<span>
 © 2026 GlobalStock International.
-All rights reserved.
+All Rights Reserved.
+</span>
 
-</div>
-
-
-<div class="footer-brand">
-
+<span>
 INVESTING IN A BRIGHTER TOMORROW
-
-</div>
-
+</span>
 
 </div>
 
 </footer>
 
 
+<!-- ======================================================
+     TOP BUTTON
+====================================================== -->
+
+<button
+    class="top-btn"
+    id="topBtn"
+    aria-label="Back to top">
+
+↑
+
+</button>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
 
 <script>
 
@@ -2398,375 +2518,175 @@ INVESTING IN A BRIGHTER TOMORROW
 ========================================================= */
 
 const menuBtn =
-document.getElementById("menuBtn");
+    document.getElementById("menuBtn");
 
-const navLinks =
-document.getElementById("navLinks");
+const mobileNav =
+    document.getElementById("mobileNav");
 
-menuBtn.addEventListener(
-"click",
-function(){
 
-    navLinks.classList.toggle(
-        "active"
-    );
+menuBtn.addEventListener("click", function(){
+
+    mobileNav.classList.toggle("active");
+
+    if(mobileNav.classList.contains("active")){
+
+        menuBtn.textContent = "✕";
+
+    }else{
+
+        menuBtn.textContent = "☰";
+
+    }
 
 });
 
 
-document
-.querySelectorAll(".nav-links a")
+/* CLOSE MOBILE MENU */
+
+document.querySelectorAll(".mobile-nav a")
 .forEach(function(link){
 
-    link.addEventListener(
-        "click",
-        function(){
+    link.addEventListener("click", function(){
 
-            navLinks.classList.remove(
-                "active"
+        mobileNav.classList.remove("active");
+
+        menuBtn.textContent = "☰";
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.12,
+            rootMargin:"0px 0px -40px 0px"
+        }
+
+    );
+
+
+revealElements.forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+const topBtn =
+    document.getElementById("topBtn");
+
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY > 600){
+
+        topBtn.style.opacity = "1";
+        topBtn.style.pointerEvents = "auto";
+
+    }else{
+
+        topBtn.style.opacity = ".75";
+
+    }
+
+});
+
+
+topBtn.addEventListener("click",function(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+
+/* =========================================================
+   SMOOTH NAVIGATION
+========================================================= */
+
+document.querySelectorAll('a[href^="#"]')
+.forEach(function(link){
+
+    link.addEventListener("click",function(event){
+
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
             );
 
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
         }
-    );
-
-});
-
-
-/* =========================================================
-   ROUTE DATA
-========================================================= */
-
-const routeSettings = [
-
-    {
-        path:"route1",
-        point:"point1",
-        glow:"glow1",
-        duration:5600,
-        delay:0
-    },
-
-    {
-        path:"route2",
-        point:"point2",
-        glow:"glow2",
-        duration:4800,
-        delay:800
-    },
-
-    {
-        path:"route3",
-        point:"point3",
-        glow:"glow3",
-        duration:3900,
-        delay:1500
-    },
-
-    {
-        path:"route4",
-        point:"point4",
-        glow:"glow4",
-        duration:3000,
-        delay:600
-    },
-
-    {
-        path:"route5",
-        point:"point5",
-        glow:"glow5",
-        duration:4700,
-        delay:1100
-    },
-
-    {
-        path:"route6",
-        point:"point6",
-        glow:"glow6",
-        duration:5200,
-        delay:1800
-    },
-
-    {
-        path:"route7",
-        point:"point7",
-        glow:"glow7",
-        duration:4700,
-        delay:700
-    },
-
-    {
-        path:"route8",
-        point:"point8",
-        glow:"glow8",
-        duration:4100,
-        delay:2200
-    },
-
-    {
-        path:"route9",
-        point:"point9",
-        glow:"glow9",
-        duration:6200,
-        delay:1300
-    },
-
-    {
-        path:"route10",
-        point:"point10",
-        glow:"glow10",
-        duration:3500,
-        delay:2500
-    }
-
-];
-
-
-const routes =
-routeSettings.map(function(item){
-
-    return {
-
-        path:
-        document.getElementById(
-            item.path
-        ),
-
-        point:
-        document.getElementById(
-            item.point
-        ),
-
-        glow:
-        document.getElementById(
-            item.glow
-        ),
-
-        duration:
-        item.duration,
-
-        delay:
-        item.delay,
-
-        start:0
-
-    };
-
-});
-
-
-/* =========================================================
-   INITIALIZE ROUTES
-========================================================= */
-
-function initializeRoutes(){
-
-    const now =
-    performance.now();
-
-    routes.forEach(
-    function(route){
-
-        route.start =
-        now + route.delay;
-
-        route.point.style.opacity =
-        "0";
-
-        route.glow.style.opacity =
-        "0";
 
     });
 
-}
+});
 
 
 /* =========================================================
-   EASING
+   PREVENT MAP IMAGE DRAG
 ========================================================= */
 
-function easeInOut(t){
+const map =
+    document.querySelector(".world-map");
 
-    return t < .5
+map.addEventListener("dragstart",function(event){
 
-        ?
-
-        2 * t * t
-
-        :
-
-        1 -
-        Math.pow(
-            -2 * t + 2,
-            2
-        ) / 2;
-}
-
-
-/* =========================================================
-   ANIMATE ROUTES
-========================================================= */
-
-function animateRoutes(time){
-
-    routes.forEach(
-    function(route){
-
-        if(
-            !route.path ||
-            !route.point ||
-            !route.glow
-        ){
-            return;
-        }
-
-
-        if(
-            time <
-            route.start
-        ){
-            return;
-        }
-
-
-        const elapsed =
-        time -
-        route.start;
-
-
-        const rawProgress =
-        (elapsed %
-        route.duration)
-        /
-        route.duration;
-
-
-        const progress =
-        easeInOut(
-            rawProgress
-        );
-
-
-        const length =
-        route.path.getTotalLength();
-
-
-        const position =
-        route.path.getPointAtLength(
-            progress * length
-        );
-
-
-        route.point.setAttribute(
-            "cx",
-            position.x
-        );
-
-        route.point.setAttribute(
-            "cy",
-            position.y
-        );
-
-
-        route.glow.setAttribute(
-            "cx",
-            position.x
-        );
-
-        route.glow.setAttribute(
-            "cy",
-            position.y
-        );
-
-
-        let opacity = 1;
-
-
-        if(
-            rawProgress < .045
-        ){
-
-            opacity =
-            rawProgress / .045;
-
-        }
-
-
-        if(
-            rawProgress > .95
-        ){
-
-            opacity =
-            (1 - rawProgress) / .05;
-
-        }
-
-
-        route.point.style.opacity =
-        opacity;
-
-        route.glow.style.opacity =
-        opacity * .34;
-
-    });
-
-
-    requestAnimationFrame(
-        animateRoutes
-    );
-
-}
-
-
-/* =========================================================
-   START
-========================================================= */
-
-function startAnimation(){
-
-    initializeRoutes();
-
-    requestAnimationFrame(
-        animateRoutes
-    );
-
-}
-
-
-if(
-    document.readyState ===
-    "loading"
-){
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        startAnimation
-    );
-
-}else{
-
-    startAnimation();
-
-}
-
-
-/* =========================================================
-   RESET WHEN TAB RETURNS
-========================================================= */
-
-document.addEventListener(
-"visibilitychange",
-function(){
-
-    if(
-        document.visibilityState ===
-        "visible"
-    ){
-
-        initializeRoutes();
-
-    }
+    event.preventDefault();
 
 });
+
+
+/* =========================================================
+   CONSOLE
+========================================================= */
+
+console.log(
+    "GlobalStock International website loaded successfully."
+);
 
 </script>
 
