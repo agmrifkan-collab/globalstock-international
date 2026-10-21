@@ -2647,7 +2647,7 @@ console.log(
 <script>
 
 /* =========================================================
-   ROTATING GLOBE — Sri Lanka hub with global trade routes
+   ROTATING GLOBE — stock flowing in from the world to Sri Lanka
 ========================================================= */
 
 (function(){
@@ -2689,7 +2689,7 @@ console.log(
     }
 
     const ROUTES = DEST.map(function(d,i){
-        return { f:slerp(HUB,d), d:d, speed:.06 + (i%4)*.012, off:i*.171 };
+        return { f:slerp(d,HUB), d:d, speed:.06 + (i%4)*.012, off:i*.171 };   // world → Sri Lanka (incoming)
     });
 
     function draw(ms){
