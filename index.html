@@ -250,7 +250,52 @@ nav a:hover::after{
     align-items:center;
 }
 
-/* WORLD MAP */
+/* HERO BACKGROUND (replaces the flat map image) */
+
+.hero{
+    background:
+        radial-gradient(900px 650px at 75% 50%, rgba(40,140,255,.20), transparent 65%),
+        radial-gradient(700px 500px at 10% 10%, rgba(255,180,0,.08), transparent 60%),
+        #02080d;
+}
+
+/* ROTATING GLOBE */
+
+.globe-wrap{
+    position:absolute;
+    z-index:5;
+
+    right:2%;
+    top:50%;
+
+    width:min(48vw,720px);
+    aspect-ratio:1/1;
+
+    transform:translateY(-46%);
+
+    pointer-events:none;
+}
+
+#globe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+.globe-ring{
+    position:absolute;
+    inset:4%;
+    border-radius:50%;
+    border:1px dashed rgba(255,190,45,.28);
+    animation:globeSpin 80s linear infinite;
+}
+
+@keyframes globeSpin{
+    to{ transform:rotate(360deg); }
+}
+
+/* WORLD MAP (old flat image — no longer used) */
 
 .world-map{
     position:absolute;
@@ -299,10 +344,10 @@ nav a:hover::after{
     background:
         linear-gradient(
             90deg,
-            rgba(2,8,13,.94) 0%,
-            rgba(2,8,13,.76) 35%,
-            rgba(2,8,13,.35) 68%,
-            rgba(2,8,13,.78) 100%
+            rgba(2,8,13,.92) 0%,
+            rgba(2,8,13,.55) 40%,
+            rgba(2,8,13,0) 62%,
+            rgba(2,8,13,0) 100%
         );
 
     pointer-events:none;
@@ -1545,9 +1590,18 @@ footer{
         letter-spacing:2px;
     }
 
-    .sri-lanka-hub{
-        width:14px;
-        height:14px;
+    .globe-wrap{
+        right:auto;
+        left:50%;
+        top:auto;
+        bottom:-30%;
+
+        width:125vw;
+        max-width:640px;
+
+        transform:translateX(-50%);
+
+        opacity:.55;
     }
 
     section.content-section{
@@ -1677,7 +1731,7 @@ footer{
 
 @media(prefers-reduced-motion:reduce){
 
-    *,
+    *:not(.globe-ring),
     *::before,
     *::after{
         animation-duration:.01ms !important;
@@ -1789,112 +1843,16 @@ WhatsApp
 
 <section class="hero" id="home">
 
-<img
-    id="p3weqf"
-    class="world-map"
-    src="./world-map-bg.png?v=20260923"
-    alt=""
-    draggable="false"
->
-
 <div class="hero-overlay"></div>
 
 <div class="hero-grid"></div>
 
 
-<!-- GLOBAL TRADE ROUTES -->
+<!-- ROTATING GLOBE (Sri Lanka hub) -->
 
-<svg
-    class="routes"
-    viewBox="0 0 1672 941"
-    preserveAspectRatio="none"
-    aria-hidden="true">
-
-<path
-    class="route"
-    d="M160 230 Q570 100 1058 416"/>
-
-<path
-    class="route"
-    d="M350 160 Q700 210 1058 416"/>
-
-<path
-    class="route"
-    d="M480 650 Q700 470 1058 416"/>
-
-<path
-    class="route"
-    d="M700 760 Q820 550 1058 416"/>
-
-<path
-    class="route"
-    d="M850 180 Q930 270 1058 416"/>
-
-<path
-    class="route"
-    d="M1230 210 Q1130 310 1058 416"/>
-
-<path
-    class="route"
-    d="M1430 500 Q1220 450 1058 416"/>
-
-<path
-    class="route"
-    d="M1300 760 Q1160 580 1058 416"/>
-
-<path
-    class="route"
-    d="M200 500 Q600 430 1058 416"/>
-
-<path
-    class="route"
-    d="M1500 170 Q1250 280 1058 416"/>
-
-
-<!-- MOVING POINTS -->
-
-<circle class="route-point" r="4">
-    <animateMotion
-        dur="6s"
-        repeatCount="indefinite"
-        path="M160 230 Q570 100 1058 416"/>
-</circle>
-
-<circle class="route-point" r="3">
-    <animateMotion
-        dur="7s"
-        repeatCount="indefinite"
-        path="M350 160 Q700 210 1058 416"/>
-</circle>
-
-<circle class="route-point" r="4">
-    <animateMotion
-        dur="8s"
-        repeatCount="indefinite"
-        path="M700 760 Q820 550 1058 416"/>
-</circle>
-
-<circle class="route-point" r="3">
-    <animateMotion
-        dur="6.5s"
-        repeatCount="indefinite"
-        path="M1430 500 Q1220 450 1058 416"/>
-</circle>
-
-<circle class="route-point" r="3">
-    <animateMotion
-        dur="9s"
-        repeatCount="indefinite"
-        path="M1500 170 Q1250 280 1058 416"/>
-</circle>
-
-</svg>
-
-
-<!-- SRI LANKA HUB -->
-
-<div class="sri-lanka-hub"
-     aria-label="Sri Lanka GlobalStock hub">
+<div class="globe-wrap" aria-hidden="true">
+    <canvas id="globe"></canvas>
+    <div class="globe-ring"></div>
 </div>
 
 
@@ -2670,14 +2628,7 @@ document.querySelectorAll('a[href^="#"]')
    PREVENT MAP IMAGE DRAG
 ========================================================= */
 
-const map =
-    document.querySelector(".world-map");
-
-map.addEventListener("dragstart",function(event){
-
-    event.preventDefault();
-
-});
+/* (flat map image removed — replaced by the rotating globe) */
 
 
 /* =========================================================
@@ -2687,6 +2638,187 @@ map.addEventListener("dragstart",function(event){
 console.log(
     "GlobalStock International website loaded successfully."
 );
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+
+<script>
+
+/* =========================================================
+   ROTATING GLOBE — Sri Lanka hub with global trade routes
+========================================================= */
+
+(function(){
+
+    const cv = document.getElementById("globe");
+    if(!cv || !cv.getContext) return;
+
+    const ctx = cv.getContext("2d");
+    const hasD3 = typeof d3 !== "undefined" && typeof topojson !== "undefined";
+    const RAD = Math.PI/180, TILT = 12;
+
+    const HUB = [79.86, 6.93];              // Colombo, Sri Lanka
+    const DEST = [
+        [139.7,35.7],  [121.5,31.2],  [55.27,25.2],  [10.45,51.17],
+        [-0.13,51.5],  [-100,40],     [36.82,-1.29], [133.78,-25.27],
+        [103.82,1.35], [28.05,-26.2], [-46.63,-23.55],[46.7,24.7]
+    ];
+
+    let S, R, CX, CY, DPR, land = null, grat = null, visible = true;
+
+    function size(){
+        const r = cv.getBoundingClientRect();
+        S = r.width || 600;
+        DPR = Math.min(window.devicePixelRatio || 1, 2);
+        cv.width = S*DPR; cv.height = S*DPR;
+        R = S*.4; CX = S/2; CY = S/2;
+    }
+
+    function slerp(a, b){
+        const l1=a[0]*RAD, p1=a[1]*RAD, l2=b[0]*RAD, p2=b[1]*RAD;
+        const A=[Math.cos(p1)*Math.cos(l1),Math.cos(p1)*Math.sin(l1),Math.sin(p1)];
+        const B=[Math.cos(p2)*Math.cos(l2),Math.cos(p2)*Math.sin(l2),Math.sin(p2)];
+        const om = Math.acos(Math.max(-1,Math.min(1,A[0]*B[0]+A[1]*B[1]+A[2]*B[2]))), so = Math.sin(om)||1e-6;
+        return function(t){
+            const k1=Math.sin((1-t)*om)/so, k2=Math.sin(t*om)/so;
+            const x=k1*A[0]+k2*B[0], y=k1*A[1]+k2*B[1], z=k1*A[2]+k2*B[2];
+            return { c:[Math.atan2(y,x)/RAD, Math.asin(z/Math.hypot(x,y,z))/RAD], lift:1 + Math.sin(Math.PI*t)*om*.1 };
+        };
+    }
+
+    const ROUTES = DEST.map(function(d,i){
+        return { f:slerp(HUB,d), d:d, speed:.06 + (i%4)*.012, off:i*.171 };
+    });
+
+    function draw(ms){
+        const t = ms/1000;
+        const rot = [-(80 - t*12), -TILT];          // starts facing Sri Lanka, ~30s per turn
+        const proj = hasD3 ? d3.geoOrthographic().scale(R).translate([CX,CY]).rotate(rot).clipAngle(90).precision(.6) : null;
+        const vis = function(c){ return hasD3 ? d3.geoDistance(c, [-rot[0], -rot[1]]) < Math.PI/2 : false; };
+        const pt = function(c, lift){ lift = lift || 1; const p = proj(c) || [CX,CY]; return [CX + (p[0]-CX)*lift, CY + (p[1]-CY)*lift]; };
+
+        ctx.setTransform(DPR,0,0,DPR,0,0);
+        ctx.clearRect(0,0,S,S);
+
+        // outer glow
+        let g = ctx.createRadialGradient(CX,CY,R*.9,CX,CY,R*1.3);
+        g.addColorStop(0,"rgba(47,140,255,.55)"); g.addColorStop(.3,"rgba(47,140,255,.18)"); g.addColorStop(1,"rgba(47,140,255,0)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(CX,CY,R*1.3,0,6.283); ctx.fill();
+
+        // glossy blue ocean
+        g = ctx.createRadialGradient(CX-R*.3,CY-R*.35,R*.05,CX,CY,R);
+        g.addColorStop(0,"#7fdcff"); g.addColorStop(.3,"#2aa6ec"); g.addColorStop(.7,"#0b62bd"); g.addColorStop(1,"#063a7e");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(CX,CY,R,0,6.283); ctx.fill();
+
+        if(proj){
+            const path = d3.geoPath(proj, ctx);
+            if(!grat) grat = d3.geoGraticule().step([15,15])();
+            ctx.beginPath(); path(grat);
+            ctx.strokeStyle = "rgba(255,255,255,.5)"; ctx.lineWidth = Math.max(.7, R/300); ctx.stroke();
+
+            if(land){
+                ctx.save();
+                ctx.shadowColor = "rgba(0,25,70,.5)"; ctx.shadowBlur = 8; ctx.shadowOffsetX = 2; ctx.shadowOffsetY = 3;
+                ctx.beginPath(); path(land);
+                const lg = ctx.createLinearGradient(CX-R,CY-R,CX+R,CY+R);
+                lg.addColorStop(0,"#ffffff"); lg.addColorStop(.55,"#e6eef6"); lg.addColorStop(1,"#a9bccf");
+                ctx.fillStyle = lg; ctx.fill(); ctx.restore();
+                ctx.strokeStyle = "rgba(255,255,255,.95)"; ctx.lineWidth = .6; ctx.stroke();
+            }
+        }
+
+        // 3D shading + gloss + rim
+        g = ctx.createRadialGradient(CX-R*.25,CY-R*.3,R*.35,CX,CY,R);
+        g.addColorStop(0,"rgba(0,20,60,0)"); g.addColorStop(.75,"rgba(0,20,60,.18)"); g.addColorStop(1,"rgba(0,14,45,.6)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(CX,CY,R,0,6.283); ctx.fill();
+        g = ctx.createRadialGradient(CX-R*.42,CY-R*.5,0,CX-R*.42,CY-R*.5,R*.75);
+        g.addColorStop(0,"rgba(255,255,255,.38)"); g.addColorStop(.4,"rgba(255,255,255,.08)"); g.addColorStop(1,"rgba(255,255,255,0)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(CX,CY,R,0,6.283); ctx.fill();
+        ctx.strokeStyle = "rgba(170,225,255,.6)"; ctx.lineWidth = 1.4;
+        ctx.beginPath(); ctx.arc(CX,CY,R,0,6.283); ctx.stroke();
+
+        if(!proj) return;
+
+        // trade routes with gold comets
+        ctx.lineCap = "round";
+        ROUTES.forEach(function(r){
+            const head = (t*r.speed + r.off) % 1.3;
+
+            ctx.strokeStyle = "rgba(150,90,0,.45)"; ctx.lineWidth = 1.1;
+            ctx.beginPath(); let on = false;
+            for(let k = 0; k <= 40; k++){
+                const q = r.f(k/40);
+                if(vis(q.c)){ const p = pt(q.c,q.lift); if(on) ctx.lineTo(p[0],p[1]); else ctx.moveTo(p[0],p[1]); on = true; }
+                else on = false;
+            }
+            ctx.stroke();
+
+            if(head <= 1){
+                let prev = null;
+                for(let k = 0; k <= 18; k++){
+                    const q = r.f(Math.max(0, head - .2 + .2*k/18)), f = k/18;
+                    if(!vis(q.c)){ prev = null; continue; }
+                    const p = pt(q.c,q.lift);
+                    if(prev){
+                        ctx.strokeStyle = "rgba(255," + (200 - 90*f|0) + "," + (40 - 40*f|0) + "," + (f*.95).toFixed(2) + ")";
+                        ctx.lineWidth = .8 + f*2.6;
+                        ctx.beginPath(); ctx.moveTo(prev[0],prev[1]); ctx.lineTo(p[0],p[1]); ctx.stroke();
+                    }
+                    prev = p;
+                }
+                if(prev){ ctx.fillStyle = "#fff6d6"; ctx.beginPath(); ctx.arc(prev[0],prev[1],2.4,0,6.283); ctx.fill(); }
+            }
+
+            if(vis(r.d)){
+                const p = pt(r.d);
+                ctx.fillStyle = "#ff9f00"; ctx.beginPath(); ctx.arc(p[0],p[1],3,0,6.283); ctx.fill();
+                ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.2; ctx.stroke();
+            }
+        });
+
+        // Sri Lanka hub
+        if(vis(HUB)){
+            const h = pt(HUB);
+            for(let k = 0; k < 3; k++){
+                const ph = (t*.5 + k/3) % 1;
+                ctx.strokeStyle = "rgba(255,194,45," + ((1-ph)*.9).toFixed(2) + ")"; ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.arc(h[0],h[1],4 + ph*28,0,6.283); ctx.stroke();
+            }
+            ctx.fillStyle = "#ffc229"; ctx.beginPath(); ctx.arc(h[0],h[1],6,0,6.283); ctx.fill();
+            ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke();
+            ctx.font = "900 13px Inter, Arial, sans-serif";
+            ctx.lineWidth = 3.5; ctx.strokeStyle = "rgba(4,40,100,.9)"; ctx.strokeText("SRI LANKA", h[0]+12, h[1]+4);
+            ctx.fillStyle = "#fff"; ctx.fillText("SRI LANKA", h[0]+12, h[1]+4);
+        }
+    }
+
+    let running = false, last = 0;
+    function loop(ms){
+        if(!running) return;
+        if(ms - last > 30 && visible){ draw(ms); last = ms; }     // ~30fps
+        requestAnimationFrame(loop);
+    }
+    function start(){ if(running) return; running = true; requestAnimationFrame(loop); }
+
+    document.addEventListener("visibilitychange", function(){ if(document.hidden) running = false; else start(); });
+    if("IntersectionObserver" in window){
+        new IntersectionObserver(function(es){ visible = es[0].isIntersecting; }).observe(cv);
+    }
+    let rt;
+    window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(function(){ size(); draw(performance.now()); }, 150); });
+
+    size(); draw(0); start();
+
+    if(hasD3){
+        fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json")
+            .then(function(r){ return r.json(); })
+            .then(function(w){ land = topojson.feature(w, w.objects.land); draw(performance.now()); })
+            .catch(function(e){ console.log("World map could not be loaded.", e); });
+    }
+
+})();
 
 </script>
 
